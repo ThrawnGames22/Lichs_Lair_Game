@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
     public float speed;
     public float rotationSpeed;
     public float jumpSpeed;
@@ -57,3 +59,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
+
