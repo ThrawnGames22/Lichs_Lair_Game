@@ -10,26 +10,25 @@ public class PixelizePass : ScriptableRenderPass
     private RenderTargetIdentifier colorBuffer, pixelBuffer;
     private int pixelBufferID = Shader.PropertyToID("_PixelBuffer");
 
-    //private RenderTargetIdentifier pointBuffer;
-    //private int pointBufferID = Shader.PropertyToID("_PointBuffer");
+   
 
     private Material material;
     private int pixelScreenHeight, pixelScreenWidth;
 
+//takes code from PixelizeFeature and its custom pass
     public PixelizePass(PixelizeFeature.CustomPassSettings settings)
     {
         this.settings = settings;
         this.renderPassEvent = settings.renderPassEvent;
         if (material == null) material = CoreUtils.CreateEngineMaterial("Hidden/Pixelize");
     }
-
+//Settings for URP feature
     public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
     {
         colorBuffer = renderingData.cameraData.renderer.cameraColorTarget;
         RenderTextureDescriptor descriptor = renderingData.cameraData.cameraTargetDescriptor;
 
-        //cmd.GetTemporaryRT(pointBufferID, descriptor.width, descriptor.height, 0, FilterMode.Point);
-        //pointBuffer = new RenderTargetIdentifier(pointBufferID);
+        
 
         pixelScreenHeight = settings.screenHeight;
         pixelScreenWidth = (int)(pixelScreenHeight * renderingData.cameraData.camera.aspect + 0.5f);
@@ -44,16 +43,13 @@ public class PixelizePass : ScriptableRenderPass
         cmd.GetTemporaryRT(pixelBufferID, descriptor, FilterMode.Point);
         pixelBuffer = new RenderTargetIdentifier(pixelBufferID);
     }
-
+//Apllies Pass in realtime
     public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
     {
         CommandBuffer cmd = CommandBufferPool.Get();
         using (new ProfilingScope(cmd, new ProfilingSampler("Pixelize Pass")))
         {
-            // No-shader variant
-            //Blit(cmd, colorBuffer, pointBuffer);
-            //Blit(cmd, pointBuffer, pixelBuffer);
-            //Blit(cmd, pixelBuffer, colorBuffer);
+            
 
             Blit(cmd, colorBuffer, pixelBuffer, material);
             Blit(cmd, pixelBuffer, colorBuffer);
@@ -67,7 +63,7 @@ public class PixelizePass : ScriptableRenderPass
     {
         if (cmd == null) throw new System.ArgumentNullException("cmd");
         cmd.ReleaseTemporaryRT(pixelBufferID);
-        //cmd.ReleaseTemporaryRT(pointBufferID);
+        
     }
 
 }

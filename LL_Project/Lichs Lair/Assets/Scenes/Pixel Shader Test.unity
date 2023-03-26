@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -1304,6 +1304,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -56.094, y: -48.916, z: 14.711}
+--- !u!1001 &1379790154
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 2098412727870642462}
+    m_Modifications:
+    - target: {fileID: 4268310450077305527, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 2.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.066
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252282473061393015, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+      propertyPath: m_Name
+      value: Fire Light
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d08fea28eaba6d4597f72304acebb27, type: 3}
 --- !u!1 &1435590954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,6 +1447,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1536710333 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6639307655726625494, guid: 1d08fea28eaba6d4597f72304acebb27,
+    type: 3}
+  m_PrefabInstance: {fileID: 1379790154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1827891493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,32 +1800,38 @@ PrefabInstance:
     - target: {fileID: 960984641397567139, guid: 1d579e20521a4244baad009ecdb2a503,
         type: 3}
       propertyPath: simulationSpeed
-      value: 2.35
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 960984641397567139, guid: 1d579e20521a4244baad009ecdb2a503,
+        type: 3}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 4268310450077305527, guid: 1d08fea28eaba6d4597f72304acebb27,
+        type: 3}
+    - target: {fileID: 960984641397567139, guid: 1d579e20521a4244baad009ecdb2a503,
+        type: 3}
+      propertyPath: LightsModule.ratio
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 960984641397567139, guid: 1d579e20521a4244baad009ecdb2a503,
+        type: 3}
+      propertyPath: LightsModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 960984641397567139, guid: 1d579e20521a4244baad009ecdb2a503,
+        type: 3}
+      propertyPath: LightsModule.intensityCurve.scalar
+      value: 7.54
       objectReference: {fileID: 0}
     - target: {fileID: 3119941697785177608, guid: 1d579e20521a4244baad009ecdb2a503,
         type: 3}
       propertyPath: simulationSpeed
-      value: 2.35
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5950296715978229476, guid: 1d579e20521a4244baad009ecdb2a503,
         type: 3}
       propertyPath: m_RootOrder
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5950296715978229476, guid: 1d579e20521a4244baad009ecdb2a503,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 7.343903
-      objectReference: {fileID: 0}
-    - target: {fileID: 5950296715978229476, guid: 1d579e20521a4244baad009ecdb2a503,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 7.4156723
-      objectReference: {fileID: 0}
-    - target: {fileID: 5950296715978229476, guid: 1d579e20521a4244baad009ecdb2a503,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5.331598
       objectReference: {fileID: 0}
     - target: {fileID: 5950296715978229476, guid: 1d579e20521a4244baad009ecdb2a503,
         type: 3}
@@ -1801,7 +1889,11 @@ PrefabInstance:
       value: Torch Fire
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5950296715978229476, guid: 1d579e20521a4244baad009ecdb2a503,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1536710333}
   m_SourcePrefab: {fileID: 100100000, guid: 1d579e20521a4244baad009ecdb2a503, type: 3}
 --- !u!4 &2098412727870642462 stripped
 Transform:

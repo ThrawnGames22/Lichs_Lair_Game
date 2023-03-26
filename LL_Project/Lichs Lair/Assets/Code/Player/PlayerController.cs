@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
         if(canUseDash)
         {
-          if(Input.GetMouseButtonDown(1))
+          if(Input.GetKeyDown(KeyCode.LeftShift))
             {
         
               StartCoroutine(Dash());
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
             canUseDash = true;
         }
 
-        if(Input.GetMouseButtonDown(1) && dashCoolDownTimer == 0)
+        if(Input.GetKeyDown(KeyCode.LeftShift) && dashCoolDownTimer == 0)
         {
             Debug.Log("Dashed!");
             dashCoolDownTimer = dashCoolDown;
