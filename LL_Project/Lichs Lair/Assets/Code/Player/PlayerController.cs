@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    [Header ("Player Vairiables")]
+
     public float speed;
     public float rotationSpeed;
     public float jumpSpeed;
@@ -13,6 +14,15 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     private float ySpeed;
     private float originalStepOffset;
+
+    [Header ("Player Dash")]
+    //cooldown
+    public float dashSpeed;
+    public float dashTime;
+    public float dashCoolDown = 1;
+    public float dashCoolDownTimer;
+    //determines if we can use dash
+    public bool canUseDash;
 
     void Start()
     {
@@ -56,6 +66,62 @@ public class PlayerController : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+
+        //Dash and cooldown settings
+
+
+        if(canUseDash)
+        {
+          if(Input.GetMouseButtonDown(1))
+            {
+        
+              StartCoroutine(Dash());
+            }
+        }
+        else
+        {
+          StopCoroutine(Dash());
+        }
+        
+
+        IEnumerator Dash()
+        {
+            float startTime = Time.time;
+
+        
+
+            while(Time.time < startTime + dashTime)
+            {
+                characterController.Move(velocity * dashSpeed * Time.deltaTime);
+                yield return null; 
+            }
+           
+        }
+
+
+
+        //if timer is going we have to wait for it to expire before we can use dash again
+        if(dashCoolDownTimer > 0)
+        {
+            dashCoolDownTimer -= Time.deltaTime;
+            canUseDash = false;
+        }
+
+        if(dashCoolDownTimer < 0)
+        {
+            dashCoolDownTimer = 0;
+        }
+       //if timer is reset we can use dash
+        if(dashCoolDownTimer == 0)
+        {
+            canUseDash = true;
+        }
+
+        if(Input.GetMouseButtonDown(1) && dashCoolDownTimer == 0)
+        {
+            Debug.Log("Dashed!");
+            dashCoolDownTimer = dashCoolDown;
         }
     }
 }

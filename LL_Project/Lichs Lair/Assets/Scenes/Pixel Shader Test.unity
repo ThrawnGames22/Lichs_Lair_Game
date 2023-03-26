@@ -647,6 +647,11 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 720
   jumpSpeed: 5
+  dashSpeed: 10
+  dashTime: 0.25
+  dashCoolDown: 2
+  dashCoolDownTimer: 0
+  canUseDash: 0
 --- !u!143 &526221391
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1456,8 +1461,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827891493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7412165, y: -3.59, z: -67.605484}
-  m_LocalScale: {x: 28.297066, y: 2.4398863, z: 28.297066}
+  m_LocalPosition: {x: 1.7412, y: -4.14, z: -67.605484}
+  m_LocalScale: {x: 55.309444, y: 4.769002, z: 55.309444}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
