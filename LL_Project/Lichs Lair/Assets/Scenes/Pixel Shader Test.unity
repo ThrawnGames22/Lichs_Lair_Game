@@ -545,6 +545,7 @@ GameObject:
   - component: {fileID: 526221385}
   - component: {fileID: 526221390}
   - component: {fileID: 526221391}
+  - component: {fileID: 526221392}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -670,6 +671,35 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &526221392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526221384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9306f233837f86b42bc612716c9b8519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability:
+  - name: 
+    description: 
+    manaCost: 0
+    castTime: 0
+    spellType: 0
+    effectType: 0
+    SpellPrefab: {fileID: 0}
+    hasBeenDiscovered: 0
+  - name: 
+    description: 
+    manaCost: 0
+    castTime: 0
+    spellType: 0
+    effectType: 0
+    SpellPrefab: {fileID: 0}
+    hasBeenDiscovered: 0
 --- !u!1 &812678957
 GameObject:
   m_ObjectHideFlags: 0
