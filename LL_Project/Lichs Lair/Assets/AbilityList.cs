@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class AbilityList : MonoBehaviour
 {
-  public List<SpellAbility> ability = new List<SpellAbility>();
+  public List<CombatSpellAbility> CombatSpellAbilities = new List<CombatSpellAbility>();
+  public List<UtilitySpellAbility> UtilitySpellAbilities = new List<UtilitySpellAbility>();
+
+  
 }

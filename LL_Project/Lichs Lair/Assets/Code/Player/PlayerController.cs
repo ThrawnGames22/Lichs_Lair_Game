@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     //determines if we can use dash
     public bool canUseDash;
 
+    
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
