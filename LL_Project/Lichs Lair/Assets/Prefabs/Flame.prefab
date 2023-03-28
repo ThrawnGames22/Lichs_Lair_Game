@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1595714988931717001}
   - component: {fileID: 743581119140938426}
   - component: {fileID: 3061323966412516852}
+  - component: {fileID: -8384110545879323108}
   m_Layer: 0
   m_Name: Flame
   m_TagString: Untagged
@@ -128,3 +129,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellToCast: {fileID: 11400000, guid: fbf0fe75322ea0840938c856c92b574c, type: 2}
+--- !u!114 &-8384110545879323108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935960077103645844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d591f4963f65d54fb21740de918c1a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireCombatSpell: {fileID: 11400000, guid: fbf0fe75322ea0840938c856c92b574c, type: 2}
+  combatSpell: {fileID: 3061323966412516852}

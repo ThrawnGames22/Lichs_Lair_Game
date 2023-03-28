@@ -27,9 +27,11 @@ public class UtilitySpellScriptableObject : ScriptableObject
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
 
-    //Type Based Attributes that will be accessed by seperate style based scripts e.g "Fire Script" or "Posion Script"
+    //Type Based Attributes that will be accessed by seperate style based scripts e.g "Heal Script" or "Summon Script"
     public float HealthToApply;
-    public GameObject SummonToSpawn;
+    public Object SummonToSpawn;
+    public float SummonHealth;
+    public float ProtectionAgainstEnemies;
 
     void init()
     {
@@ -56,11 +58,39 @@ public class UtilitySpellEditor : Editor
 
         switch(UTS.utilityType)
         {
+            //Heal
             case UtilityType.Heal:
             {
                 UTS.SpellName = EditorGUILayout.TextField("Spell Name", UTS.SpellName);
                 UTS.Description = EditorGUILayout.TextField("Description", UTS.Description);
                 UTS.HealthToApply = EditorGUILayout.FloatField("Health To Apply", UTS.HealthToApply);
+                UTS.ManaCost = EditorGUILayout.FloatField("Mana Cost", UTS.ManaCost);
+                UTS.Lifetime = EditorGUILayout.FloatField("Lifetime", UTS.Lifetime);
+                UTS.Speed = EditorGUILayout.FloatField("Speed", UTS.Speed);
+                UTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", UTS.SpellRadius);
+
+                break;
+            }
+            //Protect
+            case UtilityType.Protect:
+            {
+                UTS.SpellName = EditorGUILayout.TextField("Spell Name", UTS.SpellName);
+                UTS.Description = EditorGUILayout.TextField("Description", UTS.Description);
+                UTS.ProtectionAgainstEnemies = EditorGUILayout.FloatField("Protection Against Enemies", UTS.ProtectionAgainstEnemies);
+                UTS.ManaCost = EditorGUILayout.FloatField("Mana Cost", UTS.ManaCost);
+                UTS.Lifetime = EditorGUILayout.FloatField("Lifetime", UTS.Lifetime);
+                UTS.Speed = EditorGUILayout.FloatField("Speed", UTS.Speed);
+                UTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", UTS.SpellRadius);
+
+                break;
+            }
+            //Summon
+            case UtilityType.Summon:
+            {
+                UTS.SpellName = EditorGUILayout.TextField("Spell Name", UTS.SpellName);
+                UTS.Description = EditorGUILayout.TextField("Description", UTS.Description);
+                UTS.SummonToSpawn = EditorGUILayout.ObjectField("Summon Object",UTS.SummonToSpawn, typeof(Object), true);
+                UTS.SummonHealth = EditorGUILayout.FloatField("Summon Health", UTS.SummonHealth);
                 UTS.ManaCost = EditorGUILayout.FloatField("Mana Cost", UTS.ManaCost);
                 UTS.Lifetime = EditorGUILayout.FloatField("Lifetime", UTS.Lifetime);
                 UTS.Speed = EditorGUILayout.FloatField("Speed", UTS.Speed);
