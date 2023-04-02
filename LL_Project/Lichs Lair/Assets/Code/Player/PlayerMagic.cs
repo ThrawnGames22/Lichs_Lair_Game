@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMagic : MonoBehaviour
 {
+
+    public static PlayerMagic Instance;
     public PlayerController playerController;
     [Header("Spell Slots For Combat Spells")]
     public CombatSpell CombatSpellSlot1;
@@ -14,7 +17,7 @@ public class PlayerMagic : MonoBehaviour
     public CombatSpell CombatSpellToCast;
     public UtilitySpell UtilitySpell;
 
-    
+    public Text ManaText;
 
     
     public float maxMana = 100f;
@@ -36,12 +39,17 @@ public class PlayerMagic : MonoBehaviour
         AbilityManager = GameManager.GetComponent<AbilityList>();
     }
 
+    private void Awake()
+    {
+      Instance = this;
+    }
+
     // Update is called once per frame
     void Update()
     {
         bool hasEnoughMana = currentMana - CombatSpellToCast.spellToCast.ManaCost >= 0f || currentMana - UtilitySpell.spellToCast.ManaCost >= 0f;
        
-
+        ManaText.text = currentMana.ToString();
 
         if(!castingMagic && Input.GetKeyDown(KeyCode.Mouse1) && hasEnoughMana)
         {
@@ -78,5 +86,11 @@ public class PlayerMagic : MonoBehaviour
     void CastUtilitySpell()
     {
         Instantiate(UtilitySpell, castPoint.position, castPoint.rotation);
+    }
+
+    public void IncreaseMana(float value)
+    {
+      currentMana += value;
+      ManaText.text = currentMana.ToString();
     }
 }
