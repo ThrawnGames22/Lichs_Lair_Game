@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 using UnityEditor;
 
 public enum CombatType
@@ -38,6 +40,8 @@ public class CombatSpellScriptableObject : ScriptableObject
     public float DrainAmount;
     public float SlowSpeed;
     public float DarkenAmount;
+
+    public Sprite SpellIcon;
      
    
     
