@@ -24,16 +24,40 @@ public class PlayerController : MonoBehaviour
     //determines if we can use dash
     public bool canUseDash;
 
+    [Header ("Player Combat")]
+    public GameObject CurrentWeaponSlot;
+    public GameObject CurrentSlot;
+    public GameObject WeaponsBank;
+
+    public GameObject[] Weapons;
     
+
+    public Animator WeaponAnimator;
+    public int WeaponNumber = 1;
+    public float ChargeAttackTimer;
+    public bool AttackBlocked;
+    public bool ChargeAttacking;
+    public float MeleeWeaponDelay = 0.3f;
+
+    public float ChargedDamageValue;
+    public float NormalDamageValue;
+    public float AttackValue;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         originalStepOffset = characterController.stepOffset;
+        CurrentWeaponSlot = Weapons[0];
+        Weapons[0].transform.parent = CurrentSlot.transform;
+        Weapons[0].SetActive(true);
+        Weapons[1].SetActive(false);
+        Weapons[2].SetActive(false);
+        
     }
 
     void Update()
     {
+        WeaponAnimator = CurrentWeaponSlot.GetComponent<Animator>();
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -125,6 +149,135 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Dashed!");
             dashCoolDownTimer = dashCoolDown;
         }
+
+        //Weapon Mechanics
+
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            CurrentWeaponSlot = Weapons[0];
+            Weapons[0].transform.parent = CurrentSlot.transform;
+            Weapons[1].transform.parent = WeaponsBank.transform;
+            Weapons[2].transform.parent = WeaponsBank.transform;
+
+            Weapons[0].SetActive(true);
+            Weapons[1].SetActive(false);
+            Weapons[2].SetActive(false);
+
+
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CurrentWeaponSlot = Weapons[1];
+            Weapons[1].transform.parent = CurrentSlot.transform;
+            Weapons[0].transform.parent = WeaponsBank.transform;
+            Weapons[2].transform.parent = WeaponsBank.transform;
+
+            Weapons[0].SetActive(false);
+            Weapons[1].SetActive(true);
+            Weapons[2].SetActive(false);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            CurrentWeaponSlot = Weapons[2];
+            Weapons[2].transform.parent = CurrentSlot.transform;
+            Weapons[1].transform.parent = WeaponsBank.transform;
+            Weapons[0].transform.parent = WeaponsBank.transform;
+
+            Weapons[0].SetActive(false);
+            Weapons[1].SetActive(false);
+            Weapons[2].SetActive(true);
+        }
+        
+    //Weapon Animations
+
+        
+        
+
+        WeaponAnimator.SetBool("Charging", ChargeAttacking);
+        if(CurrentWeaponSlot.gameObject.tag == "Sword")
+        {
+        ChargedDamageValue = 15f;
+        NormalDamageValue = 5f;
+          if(Input.GetKey(KeyCode.X))
+          {
+            ChargeAttackTimer += Time.deltaTime;
+            ChargeAttacking = true;
+            CurrentWeaponSlot.GetComponent<SwordController>().CanApplyDamage = true;
+          }
+
+          if((Input.GetKeyUp(KeyCode.X)) && ChargeAttackTimer > 1)
+          {
+            ChargeAttackTimer = 0;
+            ChargeAttacking = false;
+            //CurrentWeaponSlot.GetComponent<SwordController>().CanApplyDamage = false;
+            
+          }
+
+          if(Input.GetKeyUp(KeyCode.X))
+          {
+            ChargeAttacking = false;
+            CurrentWeaponSlot.GetComponent<SwordController>().CanApplyDamage = false;
+          }
+
+          if((Input.GetKeyUp(KeyCode.X)) && ChargeAttackTimer < 1)
+          {
+            ChargeAttackTimer = 0;
+            ChargeAttacking = false;
+            
+          }
+
+          if(Input.GetKeyDown(KeyCode.E))
+          {
+            SwordAttack();
+            
+          }
+
+          if(ChargeAttackTimer > 1)
+          {
+            AttackValue = ChargedDamageValue;
+          }
+
+          if(ChargeAttackTimer < 1)
+          {
+            AttackValue = NormalDamageValue;
+          }
+        }
+        
+        
     }
+
+    public void ChargeSwordAttack()
+    {
+        ChargeAttacking = true;
+        if(!ChargeAttacking)
+        {
+            return;
+        }
+        
+        
+        //AttackBlocked = true;
+        //StartCoroutine(DelayAttack()); 
+    }
+
+    public void SwordAttack()
+    {
+
+        if(AttackBlocked)
+        {
+            return;
+        }
+        WeaponAnimator.SetTrigger("Attack");
+        AttackBlocked = true;
+        StartCoroutine(DelayAttack());
+        
+    }
+
+    public IEnumerator DelayAttack()
+    {
+        yield return new WaitForSeconds(MeleeWeaponDelay);
+        AttackBlocked = false;
+    }
+
+   
 }
 

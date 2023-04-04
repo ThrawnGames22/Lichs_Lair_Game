@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float enemyCurrentHealth;
     public float enemyMaxHealth;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,25 @@ public class EnemyHealth : MonoBehaviour
         {
           enemyCurrentHealth -= other.gameObject.GetComponent<FireSpell>().fireDamage;
           print("Ememy Just Took Damage");
+        }
+
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Sword")
+        {
+            if(other.gameObject.GetComponent<SwordController>().CanApplyDamage == true)
+            {
+             enemyCurrentHealth -= other.gameObject.GetComponent<SwordController>().CurrentDamage;
+             print("HasCollided");
+            }
+            else
+            {
+                return;
+            }
+            
         }
     }
 }
