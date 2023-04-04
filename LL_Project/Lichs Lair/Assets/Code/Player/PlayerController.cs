@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour
 
         
         
-
+     //Sword
         WeaponAnimator.SetBool("Charging", ChargeAttacking);
         if(CurrentWeaponSlot.gameObject.tag == "Sword")
         {
