@@ -38,11 +38,13 @@ public class SwordController : MonoBehaviour
     public void StartDamage()
     {
         CanApplyDamage = true;
+        CurrentDamage = NormalCurrentDamage;
     }
 
     public void StopDamage()
     {
         CanApplyDamage = false;
+        CurrentDamage = NormalCurrentDamage;
     }
 
     public void ChangeDamageToCharged()
