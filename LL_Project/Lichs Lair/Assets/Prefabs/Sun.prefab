@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3061323966412516852}
   - component: {fileID: -8384110545879323108}
   m_Layer: 0
-  m_Name: Flame
+  m_Name: Sun
   m_TagString: FireSpell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6787701976733418698
 MeshFilter:
@@ -128,7 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f6299d9334baa46bc540f34608a5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isProjectile: 1
   spellToCast: {fileID: 11400000, guid: fbf0fe75322ea0840938c856c92b574c, type: 2}
+  SpellObject: {fileID: 0}
 --- !u!114 &-8384110545879323108
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,24 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [RequireComponent(typeof(Rigidbody))]
 
-public class CombatSpell : MonoBehaviour
+public class CombatSpellBoxCollider : MonoBehaviour
 {
-
     public bool isProjectile;
     public CombatSpellScriptableObject spellToCast;
     public GameObject SpellObject;
 
-    private SphereCollider spellCollider;
+    private BoxCollider spellCollider;
     private Rigidbody spellRigidBody;
     // Start is called before the first frame update
     void Awake()
     {
-        spellCollider = GetComponent<SphereCollider>();
+        spellCollider = GetComponent<BoxCollider>();
         spellCollider.isTrigger = true;
-        spellCollider.radius = spellToCast.SpellRadius;
+        
 
         spellRigidBody = GetComponent<Rigidbody>();
         spellRigidBody.useGravity = false;
@@ -30,7 +28,7 @@ public class CombatSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isProjectile)
+       if(isProjectile)
         {
            if(spellToCast.Speed > 0 ) spellRigidBody.AddForce(transform.forward * spellToCast.Speed * Time.deltaTime);
         }
@@ -38,7 +36,6 @@ public class CombatSpell : MonoBehaviour
         {
           return;
         }
-        
     }
 
     private void OnTriggerEnter(Collider other)
