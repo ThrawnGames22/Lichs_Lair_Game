@@ -226,11 +226,7 @@ public class PlayerController : MonoBehaviour
             
           }
 
-          if(Input.GetKeyDown(KeyCode.E))
-          {
-            SwordAttack();
-            
-          }
+          
 
           if(ChargeAttackTimer > 1)
           {

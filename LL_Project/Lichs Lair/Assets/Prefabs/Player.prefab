@@ -266,6 +266,7 @@ Transform:
   - {fileID: 103423653}
   - {fileID: 1626647382464870315}
   - {fileID: 182205269140126023}
+  - {fileID: 7139189747599698374}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -278,7 +279,7 @@ SphereCollider:
   m_GameObject: {fileID: 3993472353691800673}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -349,8 +350,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 3993472353691800679}
-  CombatSpellSlot1: {fileID: 0}
-  CombatSpellSlot2: {fileID: 0}
+  CombatSpellSlot1: {fileID: 1720347624, guid: 2313e59c121fbae4c9887e6de2648b29, type: 3}
+  CombatSpellSlot2: {fileID: 3061323966412516852, guid: 3a0c0377187b0ed42aeb225fcd940244,
+    type: 3}
   CombatSpellToCast: {fileID: 1720347624, guid: 2313e59c121fbae4c9887e6de2648b29,
     type: 3}
   UtilitySpell: {fileID: 6354494036018413768, guid: 3ede07262138eb946bc10d5927bd89ae,
@@ -359,12 +361,17 @@ MonoBehaviour:
   maxMana: 100
   currentMana: 100
   manaReplenishRate: 2
-  timeBetweenCasts: 2
-  currentCastTimer: 0
+  timeBetweenCasts: 0.2
+  currentCombatCastTimer: 0
+  currentUtilityCastTimer: 0
+  UtilityCoolDown: 5
   GameManager: {fileID: 0}
   AbilityManager: {fileID: 0}
-  castPoint: {fileID: 3993472354696674016}
-  castingMagic: 0
+  CombatCastPoint: {fileID: 3993472354696674016}
+  UtilityCastPointNotAttached: {fileID: 3993472354696674016}
+  UtilityCastPointAttached: {fileID: 7139189747599698374}
+  castingCombatMagic: 0
+  castingUtilityMagic: 0
 --- !u!114 &3993472353691800696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,6 +924,37 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5191228634369507346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7139189747599698374}
+  m_Layer: 0
+  m_Name: UtilityCastPointAttached
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7139189747599698374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5191228634369507346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3993472353691800677}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6536116765339145783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1406,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361022739608557595, guid: 5ac412086f0b3b64ca3b6bb71cdb52da,
+        type: 3}
+      propertyPath: NormalCurrentDamage
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8361022739608557604, guid: 5ac412086f0b3b64ca3b6bb71cdb52da,
         type: 3}

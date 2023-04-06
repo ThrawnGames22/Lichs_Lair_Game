@@ -8,6 +8,7 @@ public class UtilitySpell : MonoBehaviour
 
     private SphereCollider spellCollider;
     private Rigidbody spellRigidBody;
+    public bool IsAttachedToPlayer;
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,12 +25,20 @@ public class UtilitySpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spellToCast.Speed > 0 ) spellRigidBody.AddForce(transform.forward * spellToCast.Speed * Time.deltaTime);
+        if(!IsAttachedToPlayer)
+        {
+           if(spellToCast.Speed > 0 ) spellRigidBody.AddForce(transform.forward * spellToCast.Speed * Time.deltaTime);
 
+        }
+        else
+        {
+            return;
+        }
+       
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(this.gameObject);
+        
     }
 }

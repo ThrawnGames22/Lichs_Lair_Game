@@ -32,6 +32,7 @@ public class CombatSpellScriptableObject : ScriptableObject
     public float Lifetime = 2f;
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
+    //public float DelayBetweenCast;
 
     //Type Based Attributes that will be accessed by seperate style based scripts e.g "Fire Script" or "Posion Script"
     public float FireDamage;
@@ -42,6 +43,7 @@ public class CombatSpellScriptableObject : ScriptableObject
     public float DarkenAmount;
 
     public Sprite SpellIcon;
+    public Sprite SpellCoolingIcon;
      
    
     
@@ -74,7 +76,10 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
+
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
+                CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
 
                 break;
             }
@@ -88,7 +93,10 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
+
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
+                CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
 
                 break;
             }
@@ -102,7 +110,10 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
+
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
+                CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
 
                 break;
             }
@@ -116,7 +127,10 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
+
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
+                CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
 
                 break;
             }
@@ -130,7 +144,10 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
+
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
+                CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
 
                 break;
             }
@@ -144,7 +161,10 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
+
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
+                CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
 
                 break;
             }

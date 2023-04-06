@@ -27,6 +27,10 @@ public class UtilitySpellScriptableObject : ScriptableObject
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
 
+    public Sprite SpellIcon;
+    public Sprite SpellCoolingIcon;
+
+
     //Type Based Attributes that will be accessed by seperate style based scripts e.g "Heal Script" or "Summon Script"
     public float HealthToApply;
     public Object SummonToSpawn;
@@ -68,6 +72,9 @@ public class UtilitySpellEditor : Editor
                 UTS.Lifetime = EditorGUILayout.FloatField("Lifetime", UTS.Lifetime);
                 UTS.Speed = EditorGUILayout.FloatField("Speed", UTS.Speed);
                 UTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", UTS.SpellRadius);
+                UTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", UTS.SpellIcon, typeof(Sprite), false);
+                UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
+
 
                 break;
             }
@@ -81,6 +88,8 @@ public class UtilitySpellEditor : Editor
                 UTS.Lifetime = EditorGUILayout.FloatField("Lifetime", UTS.Lifetime);
                 UTS.Speed = EditorGUILayout.FloatField("Speed", UTS.Speed);
                 UTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", UTS.SpellRadius);
+                UTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", UTS.SpellIcon, typeof(Sprite), false);
+                UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
 
                 break;
             }
@@ -95,6 +104,8 @@ public class UtilitySpellEditor : Editor
                 UTS.Lifetime = EditorGUILayout.FloatField("Lifetime", UTS.Lifetime);
                 UTS.Speed = EditorGUILayout.FloatField("Speed", UTS.Speed);
                 UTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", UTS.SpellRadius);
+                UTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", UTS.SpellIcon, typeof(Sprite), false);
+                UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
 
                 break;
             }
