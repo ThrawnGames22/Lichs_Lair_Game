@@ -81,7 +81,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -5040,13 +5040,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5037105201200526196}
   - component: {fileID: 6992075736800032820}
-  - component: {fileID: 4159467426599467036}
   - component: {fileID: 1675877956848377985}
-  - component: {fileID: 1416779296601534760}
   - component: {fileID: 1480772385996783523}
-  m_Layer: 0
+  - component: {fileID: 5583884245573109385}
+  - component: {fileID: 1720347624}
+  m_Layer: 7
   m_Name: Dark Slash
-  m_TagString: Untagged
+  m_TagString: DarkSpell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5082,25 +5082,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DarkCombatSpell: {fileID: 11400000, guid: 4c78385833ed4224f932f86b0da535ee, type: 2}
-  combatSpell: {fileID: 1416779296601534760}
+  combatSpell: {fileID: 1720347624}
   DarkDamage: 5
   darkenDamagePerSecond: 0
   manaCost: 5
   lifetime: 0
   speed: 0
---- !u!135 &4159467426599467036
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3480922331297728366}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1675877956848377985
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5117,21 +5104,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1416779296601534760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3480922331297728366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89f6299d9334baa46bc540f34608a5b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isProjectile: 1
-  spellToCast: {fileID: 11400000, guid: fbf0fe75322ea0840938c856c92b574c, type: 2}
-  SpellObject: {fileID: 1735436660621849311}
 --- !u!114 &1480772385996783523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5144,6 +5116,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d046d3124e71a5428814bbcd19b1a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5583884245573109385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3480922331297728366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.19, y: 0.16, z: 1}
+  m_Center: {x: 0, y: 0, z: -0.36}
+--- !u!114 &1720347624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3480922331297728366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f6299d9334baa46bc540f34608a5b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsesBox: 1
+  UsesSphere: 0
+  isProjectile: 1
+  spellToCast: {fileID: 11400000, guid: 4c78385833ed4224f932f86b0da535ee, type: 2}
+  SpellObject: {fileID: 1735436660621849311}
 --- !u!1 &7416057383295845449
 GameObject:
   m_ObjectHideFlags: 0

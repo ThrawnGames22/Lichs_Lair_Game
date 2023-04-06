@@ -51,6 +51,8 @@ public class CombatSpellEditor : Editor
 {
     CombatSpellScriptableObject CTS;
 
+    
+
     void OnEnable()
     {
         CTS =(CombatSpellScriptableObject)target;
@@ -72,6 +74,7 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
 
                 break;
             }
@@ -85,6 +88,7 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
 
                 break;
             }
@@ -98,6 +102,7 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
 
                 break;
             }
@@ -111,6 +116,7 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
 
                 break;
             }
@@ -124,6 +130,7 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
 
                 break;
             }
@@ -137,6 +144,7 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
 
                 break;
             }

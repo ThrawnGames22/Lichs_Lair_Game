@@ -27,6 +27,16 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         Health.text = currentHealth.ToString();
+
+        if(currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+
+        if(currentHealth == 0)
+        {
+            Die();
+        }
     }
 
     public void IncreaseHealth(float value)
@@ -34,4 +44,13 @@ public class PlayerHealth : MonoBehaviour
       currentHealth += value;
       Health.text = currentHealth.ToString();
     }
+
+    public void Die()
+    {
+        
+        Destroy(this.gameObject);
+        
+    }
+
+    
 }

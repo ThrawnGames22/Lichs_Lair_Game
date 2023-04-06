@@ -40,7 +40,7 @@ public class CombatSpellBoxCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        this.GetComponent<FreezeParticles>().StopParticleMovement();
-        Destroy(SpellObject);
+        //this.GetComponent<FreezeParticles>().StopParticleMovement();
+        //Destroy(SpellObject);
     }
 }

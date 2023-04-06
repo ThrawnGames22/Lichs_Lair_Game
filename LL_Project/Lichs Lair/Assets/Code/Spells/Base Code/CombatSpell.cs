@@ -7,19 +7,32 @@ using UnityEngine;
 
 public class CombatSpell : MonoBehaviour
 {
-
+    public bool UsesBox;
+    public bool UsesSphere;
     public bool isProjectile;
     public CombatSpellScriptableObject spellToCast;
     public GameObject SpellObject;
 
     private SphereCollider spellCollider;
+    private BoxCollider spellBoxCollider;
+
     private Rigidbody spellRigidBody;
     // Start is called before the first frame update
     void Awake()
     {
-        spellCollider = GetComponent<SphereCollider>();
-        spellCollider.isTrigger = true;
-        spellCollider.radius = spellToCast.SpellRadius;
+        if(UsesSphere)
+        {
+          spellCollider = GetComponent<SphereCollider>();
+          spellCollider.isTrigger = true;
+          spellCollider.radius = spellToCast.SpellRadius;
+        }
+        if(UsesBox)
+        {
+          spellBoxCollider = GetComponent<BoxCollider>();
+          spellBoxCollider.isTrigger = true;
+          
+        }
+        
 
         spellRigidBody = GetComponent<Rigidbody>();
         spellRigidBody.useGravity = false;
@@ -43,7 +56,7 @@ public class CombatSpell : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        this.GetComponent<FreezeParticles>().StopParticleMovement();
-        Destroy(SpellObject);
+        //this.GetComponent<FreezeParticles>().StopParticleMovement();
+        //Destroy(SpellObject);
     }
 }
