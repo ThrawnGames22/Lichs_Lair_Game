@@ -10,9 +10,11 @@ public enum UtilityType
     Summon
 
 }
+
 [CreateAssetMenu(fileName = "New Utility Spell", menuName = "Uitlity Spells")]
 public class UtilitySpellScriptableObject : ScriptableObject
 {
+    
     //Name
     public string SpellName;
     public string Description;
@@ -37,18 +39,30 @@ public class UtilitySpellScriptableObject : ScriptableObject
     public float SummonHealth;
     public float ProtectionAgainstEnemies;
 
-    void init()
+    void OnEnable()
     {
         if(utilityType == UtilityType.Heal)
         {
           
         }
+
+        
     }
+
+    
+    
 }
 
 [CustomEditor(typeof(UtilitySpellScriptableObject))]
 public class UtilitySpellEditor : Editor
 {
+
+    void ForceSerialization()
+    {
+      #if UNITY_EDITOR
+          UnityEditor.EditorUtility.SetDirty(this);
+      #endif
+    }
     UtilitySpellScriptableObject UTS;
 
     void OnEnable()
@@ -58,6 +72,8 @@ public class UtilitySpellEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        ForceSerialization();
+        EditorUtility.SetDirty(target);
         UTS.utilityType = (UtilityType)EditorGUILayout.EnumPopup("UtilityType", UTS.utilityType);
 
         switch(UTS.utilityType)

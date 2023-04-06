@@ -53,7 +53,12 @@ public class CombatSpellEditor : Editor
 {
     CombatSpellScriptableObject CTS;
 
-    
+    void ForceSerialization()
+    {
+      #if UNITY_EDITOR
+          UnityEditor.EditorUtility.SetDirty(this);
+      #endif
+    }
 
     void OnEnable()
     {
@@ -62,6 +67,8 @@ public class CombatSpellEditor : Editor
 //Editor Properties
     public override void OnInspectorGUI()
     {
+        ForceSerialization();
+        EditorUtility.SetDirty(target);
         CTS.combatType = (CombatType)EditorGUILayout.EnumPopup("CombatType", CTS.combatType);
 
         switch(CTS.combatType)
