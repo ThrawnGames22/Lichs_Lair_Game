@@ -14,7 +14,7 @@ public class Item : ScriptableObject
     }
     public int id;
     public string ItemName;
-    public float value;
+    public int value;
     public Sprite ItemIcon;
     public ItemType itemType;
 }

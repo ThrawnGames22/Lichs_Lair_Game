@@ -28,7 +28,7 @@ public class CombatSpellScriptableObject : ScriptableObject
     
     //Spell Important Based Attributes that are accessed by the UtilitySpell Script
     
-    public float ManaCost = 5f;
+    public int ManaCost = 5;
     public float Lifetime = 2f;
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
@@ -79,7 +79,7 @@ public class CombatSpellEditor : Editor
                 CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
                 CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
                 CTS.FireDamage = EditorGUILayout.FloatField("Fire Damage Apllied", CTS.FireDamage);
-                CTS.ManaCost = EditorGUILayout.FloatField("Mana Cost", CTS.ManaCost);
+                CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
@@ -96,7 +96,7 @@ public class CombatSpellEditor : Editor
                 CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
                 CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
                 CTS.FreezeDamage = EditorGUILayout.FloatField("Freeze Damage Applied", CTS.FreezeDamage);
-                CTS.ManaCost = EditorGUILayout.FloatField("Mana Cost", CTS.ManaCost);
+                CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
@@ -113,7 +113,7 @@ public class CombatSpellEditor : Editor
                 CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
                 CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
                 CTS.PosionDamage = EditorGUILayout.FloatField("Poison Damage Apllied", CTS.PosionDamage);
-                CTS.ManaCost = EditorGUILayout.FloatField("Mana Cost", CTS.ManaCost);
+                CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
@@ -130,7 +130,7 @@ public class CombatSpellEditor : Editor
                 CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
                 CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
                 CTS.DrainAmount = EditorGUILayout.FloatField("Drain Damage Per Second", CTS.DrainAmount);
-                CTS.ManaCost = EditorGUILayout.FloatField("Mana Cost", CTS.ManaCost);
+                CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
@@ -147,7 +147,7 @@ public class CombatSpellEditor : Editor
                 CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
                 CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
                 CTS.SlowSpeed = EditorGUILayout.FloatField("Slow Speed Damage Per Second", CTS.SlowSpeed);
-                CTS.ManaCost = EditorGUILayout.FloatField("Mana Cost", CTS.ManaCost);
+                CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
@@ -164,7 +164,7 @@ public class CombatSpellEditor : Editor
                 CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
                 CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
                 CTS.DarkenAmount = EditorGUILayout.FloatField("Darken Damage Per Second", CTS.DarkenAmount);
-                CTS.ManaCost = EditorGUILayout.FloatField("Mana Cost", CTS.ManaCost);
+                CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);

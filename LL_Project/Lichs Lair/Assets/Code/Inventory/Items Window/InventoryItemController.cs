@@ -26,12 +26,30 @@ public class InventoryItemController : MonoBehaviour
       switch(item.itemType)
       {
         case Item.ItemType.HealthPotion:
-             PlayerHealth.Instance.IncreaseHealth(item.value);
+             if(PlayerHealth.Instance.currentHealth < PlayerHealth.Instance.maxHealth)
+             {
+               PlayerHealth.Instance.IncreaseHealth(item.value);
+             }
+             else
+             {
+              return;
+             }
+             
 
-        break;
+               break;
 
         case Item.ItemType.ManaPotion:
-             PlayerMagic.Instance.IncreaseMana(item.value);
+             if(PlayerMagic.Instance.currentMana < PlayerMagic.Instance.maxMana)
+             {
+               PlayerMagic.Instance.IncreaseMana(item.value);
+
+
+
+             }
+             else
+             {
+              return;
+             }
              break;
       }
 

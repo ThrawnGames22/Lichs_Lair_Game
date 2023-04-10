@@ -7,15 +7,17 @@ using UnityEditor;
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth Instance;
-    public float currentHealth;
-    public float maxHealth = 100f;
-    public Text Health;
+    public int currentHealth;
+    public int maxHealth = 100;
+    
+    public HealthBar healthBar;
     
     // Start is called before the first frame update
     void Start()
     {
         
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     private void Awake()
@@ -26,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Health.text = currentHealth.ToString();
+       healthBar.SetHealth(currentHealth);
 
         if(currentHealth < 0)
         {
@@ -39,10 +41,10 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void IncreaseHealth(float value)
+    public void IncreaseHealth(int value)
     {
       currentHealth += value;
-      Health.text = currentHealth.ToString();
+      healthBar.SetHealth(currentHealth);
     }
 
     public void Die()
@@ -50,6 +52,13 @@ public class PlayerHealth : MonoBehaviour
         
         Destroy(this.gameObject);
         
+    }
+
+    public void TakeDamage(int Damage)
+    {
+      currentHealth -= Damage;
+
+      healthBar.SetHealth(currentHealth);
     }
 
     

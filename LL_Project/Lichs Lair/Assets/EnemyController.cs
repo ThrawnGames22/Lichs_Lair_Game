@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
     public float WithinRange;
     public float speed;
     public NavMeshAgent navMeshAgent; 
-    public float DamageToApply =5f;
+    public int DamageToApply;
 
     //public EnemyType enemyType;
     // Start is called before the first frame update
@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour
       if(col.gameObject.tag == "Player")
       {
         Debug.Log("EnemyHasHit");
-        col.gameObject.GetComponent<PlayerHealth>().currentHealth -= DamageToApply;
+        col.gameObject.GetComponent<PlayerHealth>().TakeDamage(DamageToApply);
       }
     }
 }
@@ -53,14 +53,24 @@ public class EnemyControllerEditor : Editor
     
     EnemyController EC;
 
+    void ForceSerialization()
+    {
+      #if UNITY_EDITOR
+          UnityEditor.EditorUtility.SetDirty(this);
+      #endif
+    }
+
     void OnEnable()
     {
         EC =(EnemyController)target;
         
     }
 
+
     public override void OnInspectorGUI()
     {
+        ForceSerialization();
+        EditorUtility.SetDirty(target);
         EC.enemyType = (EnemyType)EditorGUILayout.EnumPopup("EnemyType", EC.enemyType);
 
         switch(EC.enemyType)
@@ -69,8 +79,8 @@ public class EnemyControllerEditor : Editor
           EC.target = (GameObject)EditorGUILayout.ObjectField("Target", EC.target, typeof(GameObject), true);
           EC.WithinRange = EditorGUILayout.FloatField("Within Range", EC.WithinRange);
           EC.speed = EditorGUILayout.FloatField("Speed", EC.speed);
-          EC.DamageToApply = EditorGUILayout.FloatField("Damage To Apply", EC.DamageToApply);
-          EC.DamageToApply = 5f;
+          EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
+          EC.DamageToApply = 5;
           
           EC.navMeshAgent.speed = EC.speed;
 
@@ -80,7 +90,7 @@ public class EnemyControllerEditor : Editor
           EC.target = (GameObject)EditorGUILayout.ObjectField("Target", EC.target, typeof(GameObject), true);
           EC.WithinRange = EditorGUILayout.FloatField("Within Range", EC.WithinRange);
           EC.speed = EditorGUILayout.FloatField("Speed", EC.speed);
-          EC.DamageToApply = EditorGUILayout.FloatField("Damage To Apply", EC.DamageToApply);
+          EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
 
           
           EC.navMeshAgent.speed = EC.speed;
@@ -91,7 +101,7 @@ public class EnemyControllerEditor : Editor
           EC.target = (GameObject)EditorGUILayout.ObjectField("Target", EC.target, typeof(GameObject), true);
           EC.WithinRange = EditorGUILayout.FloatField("Within Range", EC.WithinRange);
           EC.speed = EditorGUILayout.FloatField("Speed", EC.speed);
-          EC.DamageToApply = EditorGUILayout.FloatField("Damage To Apply", EC.DamageToApply);
+          EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
 
           
           EC.navMeshAgent.speed = EC.speed;
