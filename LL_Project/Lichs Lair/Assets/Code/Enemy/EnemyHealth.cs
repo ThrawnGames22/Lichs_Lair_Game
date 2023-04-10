@@ -38,6 +38,7 @@ public class EnemyHealth : MonoBehaviour
 
         
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -54,6 +55,16 @@ public class EnemyHealth : MonoBehaviour
             }
             
         }
+        if(other.gameObject.tag == "DarkSpell")
+        {
+          TakeDamage(other.gameObject.GetComponent<DarkSlash>().DarkDamage);
+          print("Ememy Just Took Damage");
+        }
         
+    }
+
+    public void TakeDamage(int damageValue)
+    {
+        enemyCurrentHealth -=damageValue;
     }
 }

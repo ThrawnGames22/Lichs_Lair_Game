@@ -33,10 +33,7 @@ public class InventoryManager : MonoBehaviour
     public void ListItems()
     {
         //Cleans the Inventory content before opening to prevent item duplication
-        foreach(Transform item in ItemContent)
-        {
-            Destroy(item.gameObject);
-        }
+        
         foreach(var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
@@ -52,6 +49,14 @@ public class InventoryManager : MonoBehaviour
         }
 
         SetInventoryItems();
+    }
+
+    public void CleanInventory()
+    {
+        foreach(Transform item in ItemContent)
+        {
+            Destroy(item.gameObject);
+        }
     }
 
     public void EnableItemsRemove()

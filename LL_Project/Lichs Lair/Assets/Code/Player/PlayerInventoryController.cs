@@ -18,6 +18,7 @@ public class PlayerInventoryController : MonoBehaviour
       {
         InventoryIsOpen = !InventoryIsOpen;
         this.gameObject.GetComponent<InventoryManager>().ListItems();
+        
       }
 
       if(InventoryIsOpen)
@@ -25,9 +26,11 @@ public class PlayerInventoryController : MonoBehaviour
         InventoryWindow.SetActive(true);
         
       }
-      else
+      
+      if(!InventoryIsOpen)
       {
         InventoryWindow.SetActive(false);
+        this.gameObject.GetComponent<InventoryManager>().CleanInventory();
         //this.gameObject.GetComponent<InventoryManager>().ListItems();
       }
     }

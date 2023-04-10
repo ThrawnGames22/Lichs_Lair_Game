@@ -74,6 +74,16 @@ public class PlayerMagic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if(currentMana > maxMana)
+        {
+            currentMana = maxMana;
+        }
+
+        if(currentMana < 0)
+        {
+            currentMana = 0;
+        }
         manaBar.SetMana(currentMana);
         
         UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
@@ -89,7 +99,7 @@ public class PlayerMagic : MonoBehaviour
         }
         bool hasEnoughMana = currentMana - CombatSpellSlot1.spellToCast.ManaCost >= 0f || currentMana - UtilitySpell.spellToCast.ManaCost >= 0f || currentMana - CombatSpellSlot2.spellToCast.ManaCost >= 0f;
        
-        ManaText.text = currentMana.ToString();
+        //ManaText.text = currentMana.ToString();
 
       if(inventoryController.InventoryIsOpen == false)
       {
@@ -125,7 +135,9 @@ public class PlayerMagic : MonoBehaviour
         }
 
 
-        if(castingCombatMagic1)
+        
+      }
+      if(castingCombatMagic1)
         {
             currentCombatCastTimer += Time.deltaTime;
 
@@ -168,10 +180,33 @@ public class PlayerMagic : MonoBehaviour
         if(castingUtilityMagic)
         {
             currentUtilityCastTimer += Time.deltaTime;
+            slotUIController.cooldownSlider.gameObject.SetActive(true);
+            StartCoroutine(Cooldown());
 
-            if (currentUtilityCastTimer > UtilityCoolDown) castingUtilityMagic = false;
+            if (currentUtilityCastTimer > UtilityCoolDown)
+            {
+               currentUtilityCastTimer = UtilityCoolDown;
+               castingUtilityMagic = false;
+               
+            }
+            if (currentCombatCastTimer < UtilityCoolDown)
+            {
+               slotUIController.UtilitySpellCoolingImage.gameObject.SetActive(true);
+               slotUIController.UtilitySpellReadyImage.gameObject.SetActive(false);
+               
+
+            }
+            
+            if (currentUtilityCastTimer == UtilityCoolDown)
+            {
+               slotUIController.UtilitySpellCoolingImage.gameObject.SetActive(false);
+               slotUIController.UtilitySpellReadyImage.gameObject.SetActive(true);
+               StopCoroutine(Cooldown());
+               slotUIController.ResetCooldown();
+            }
+
+            
         }
-      }
     }
 
     void CastCombatSpell1()
@@ -200,6 +235,7 @@ public class PlayerMagic : MonoBehaviour
     public void IncreaseMana(int value)
     {
       currentMana += value;
+      manaBar.SetMana(currentMana);
       //ManaText.text = currentMana.ToString();
     }
 
@@ -207,5 +243,12 @@ public class PlayerMagic : MonoBehaviour
     {
       currentMana -= manaValue;
       manaBar.SetMana(currentMana);
+    }
+
+    public IEnumerator Cooldown()
+    {
+        slotUIController.cooldownSlider.value -= Time.deltaTime;
+        yield return new WaitForSeconds(0);
+
     }
 }

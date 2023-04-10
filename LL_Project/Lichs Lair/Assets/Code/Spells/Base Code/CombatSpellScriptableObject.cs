@@ -35,12 +35,12 @@ public class CombatSpellScriptableObject : ScriptableObject
     //public float DelayBetweenCast;
 
     //Type Based Attributes that will be accessed by seperate style based scripts e.g "Fire Script" or "Posion Script"
-    public float FireDamage;
-    public float PosionDamage;
-    public float FreezeDamage;
-    public float DrainAmount;
+    public int FireDamage;
+    public int PosionDamage;
+    public int FreezeDamage;
+    public int DrainAmount;
     public float SlowSpeed;
-    public float DarkenAmount;
+    public int DarkenAmount;
 
     public Sprite SpellIcon;
     public Sprite SpellCoolingIcon;
@@ -78,7 +78,7 @@ public class CombatSpellEditor : Editor
             {
                 CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
                 CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
-                CTS.FireDamage = EditorGUILayout.FloatField("Fire Damage Apllied", CTS.FireDamage);
+                CTS.FireDamage = EditorGUILayout.IntField("Fire Damage Apllied", CTS.FireDamage);
                 CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
@@ -95,7 +95,7 @@ public class CombatSpellEditor : Editor
             {
                 CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
                 CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
-                CTS.FreezeDamage = EditorGUILayout.FloatField("Freeze Damage Applied", CTS.FreezeDamage);
+                CTS.FreezeDamage = EditorGUILayout.IntField("Freeze Damage Applied", CTS.FreezeDamage);
                 CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
@@ -112,7 +112,7 @@ public class CombatSpellEditor : Editor
             {
                 CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
                 CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
-                CTS.PosionDamage = EditorGUILayout.FloatField("Poison Damage Apllied", CTS.PosionDamage);
+                CTS.PosionDamage = EditorGUILayout.IntField("Poison Damage Apllied", CTS.PosionDamage);
                 CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
@@ -129,7 +129,7 @@ public class CombatSpellEditor : Editor
             {
                 CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
                 CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
-                CTS.DrainAmount = EditorGUILayout.FloatField("Drain Damage Per Second", CTS.DrainAmount);
+                CTS.DrainAmount = EditorGUILayout.IntField("Drain Damage Per Second", CTS.DrainAmount);
                 CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
@@ -163,7 +163,7 @@ public class CombatSpellEditor : Editor
             {
                 CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
                 CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
-                CTS.DarkenAmount = EditorGUILayout.FloatField("Darken Damage Per Second", CTS.DarkenAmount);
+                CTS.DarkenAmount = EditorGUILayout.IntField("Darken Damage", CTS.DarkenAmount);
                 CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);

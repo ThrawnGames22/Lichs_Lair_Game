@@ -15,7 +15,8 @@ public class InventoryItemController : MonoBehaviour
 
         Destroy(gameObject);
     }
-
+    
+    
     public void AddItem(Item newItem)
     {
       item = newItem;
@@ -26,33 +27,33 @@ public class InventoryItemController : MonoBehaviour
       switch(item.itemType)
       {
         case Item.ItemType.HealthPotion:
-             if(PlayerHealth.Instance.currentHealth < PlayerHealth.Instance.maxHealth)
-             {
+             //if(PlayerHealth.Instance.currentHealth < PlayerHealth.Instance.maxHealth)
+             //{
                PlayerHealth.Instance.IncreaseHealth(item.value);
-             }
-             else
-             {
-              return;
-             }
+               RemoveItem();
+             //}
+             
              
 
                break;
 
+        
+      }
+      switch(item.itemType)
+      {
         case Item.ItemType.ManaPotion:
-             if(PlayerMagic.Instance.currentMana < PlayerMagic.Instance.maxMana)
-             {
+             //if(PlayerMagic.Instance.currentMana < PlayerMagic.Instance.maxMana)
+             //{
                PlayerMagic.Instance.IncreaseMana(item.value);
+               RemoveItem();
 
 
 
-             }
-             else
-             {
-              return;
-             }
+             //}
+             
              break;
       }
 
-      RemoveItem();
+      
     }
 }

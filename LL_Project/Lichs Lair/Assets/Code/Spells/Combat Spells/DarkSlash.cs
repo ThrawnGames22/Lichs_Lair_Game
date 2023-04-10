@@ -8,9 +8,9 @@ public class DarkSlash : MonoBehaviour
     public CombatSpell combatSpell;
 
 //Attributes
-    public float DarkDamage;
+    public int DarkDamage;
 
-    public float darkenDamagePerSecond;
+    //public float darkenDamagePerSecond;
      public float manaCost;
     public float lifetime;
     public float speed;
@@ -25,11 +25,11 @@ public class DarkSlash : MonoBehaviour
     void Update()
     {
         //takes data from Scriptable Object
-        DarkDamage = DarkCombatSpell.FireDamage;
+        DarkDamage = DarkCombatSpell.DarkenAmount;
         manaCost = DarkCombatSpell.ManaCost;
         lifetime = DarkCombatSpell.Lifetime;
         speed = DarkCombatSpell.Speed;
-        darkenDamagePerSecond = DarkCombatSpell.DarkenAmount;
+        //darkenDamagePerSecond = DarkCombatSpell.DarkenAmount;
 
     }
 }
