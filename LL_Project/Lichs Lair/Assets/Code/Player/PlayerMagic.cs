@@ -63,17 +63,26 @@ public class PlayerMagic : MonoBehaviour
         UI = GameObject.Find("UI");
         slotUIController = UI.GetComponent<SlotUIController>();
         manaBar.SetMaxMana(maxMana);
+        UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
         
     }
 
     private void Awake()
     {
       Instance = this;
+      
+    }
+
+    private void OnEnable()
+    {
+      
+      
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         
         if(currentMana > maxMana)
         {
@@ -86,7 +95,7 @@ public class PlayerMagic : MonoBehaviour
         }
         manaBar.SetMana(currentMana);
         
-        UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
+        
         //timeBetweenCasts = CombatSpellToCast.GetComponent<CombatSpell>().spellToCast.DelayBetweenCast;
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {

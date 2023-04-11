@@ -22,6 +22,9 @@ public class SlotUIController : MonoBehaviour
     
 
     public Image WeaponReadyImage1;
+    public Image FillImage;
+
+    public float HalfNumber;
     
 
     // Start is called before the first frame update
@@ -31,11 +34,10 @@ public class SlotUIController : MonoBehaviour
         SpellCoolingImage1.gameObject.SetActive(false);
         SpellCoolingImage2.gameObject.SetActive(false);
         UtilitySpellCoolingImage.gameObject.SetActive(false);
-        cooldownSlider.maxValue = PlayerMagic.Instance.UtilityCoolDown * 2;
-        cooldownSlider.value = PlayerMagic.Instance.UtilityCoolDown * 2;
+        SetValue();
         cooldownSlider.gameObject.SetActive(false); 
         //ResetCooldown();
-
+        HalfNumber += (cooldownSlider.value) / 2; 
 
     }
 
@@ -49,7 +51,16 @@ public class SlotUIController : MonoBehaviour
        SpellCoolingImage1.sprite = PM.CombatSpellSlot1.spellToCast.SpellCoolingIcon;
        SpellCoolingImage2.sprite = PM.CombatSpellSlot2.spellToCast.SpellCoolingIcon;
        UtilitySpellCoolingImage.sprite = PM.UtilitySpell.spellToCast.SpellCoolingIcon;
-
+       //SetValue();
+       if(cooldownSlider.value < HalfNumber)
+       {
+        
+        FillImage.color = new Color32(225, 0, 0, 18);
+       }
+       else
+       {
+         FillImage.color = new Color32(225, 214, 0, 18);
+       }
 
 
     }
@@ -63,6 +74,12 @@ public class SlotUIController : MonoBehaviour
        cooldownSlider.maxValue = PlayerMagic.Instance.UtilityCoolDown;
        cooldownSlider.value = PlayerMagic.Instance.UtilityCoolDown;
        cooldownSlider.gameObject.SetActive(false); 
+    }
+
+    public void SetValue()
+    {
+       cooldownSlider.maxValue = PlayerMagic.Instance.UtilityCoolDown;
+       cooldownSlider.value = PlayerMagic.Instance.UtilityCoolDown; 
     }
 
     

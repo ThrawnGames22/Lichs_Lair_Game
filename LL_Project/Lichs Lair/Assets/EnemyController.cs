@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     public GameObject target;
     public float WithinRange;
     public float speed;
+    public float OriginalSpeed;
     public NavMeshAgent navMeshAgent; 
     public int DamageToApply;
 
@@ -79,6 +80,8 @@ public class EnemyControllerEditor : Editor
           EC.target = (GameObject)EditorGUILayout.ObjectField("Target", EC.target, typeof(GameObject), true);
           EC.WithinRange = EditorGUILayout.FloatField("Within Range", EC.WithinRange);
           EC.speed = EditorGUILayout.FloatField("Speed", EC.speed);
+          EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
+
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
           EC.DamageToApply = 5;
           
