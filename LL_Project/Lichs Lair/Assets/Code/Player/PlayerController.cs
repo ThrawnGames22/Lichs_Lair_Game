@@ -99,11 +99,15 @@ public class PlayerController : MonoBehaviour
 
         if(canUseDash)
         {
-          if(Input.GetKeyDown(KeyCode.LeftShift))
-            {
+            //if(characterController.isGrounded)
+           // {
+              if(Input.GetKeyDown(KeyCode.LeftShift))
+              {
         
-              StartCoroutine(Dash());
-            }
+                StartCoroutine(Dash());
+              }
+           // }
+          
         }
         else
         {
