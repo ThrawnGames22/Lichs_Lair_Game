@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
     {
         target = GameObject.FindWithTag("Player");
         navMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = OriginalSpeed;
     }
 
     // Update is called once per frame
@@ -45,6 +46,11 @@ public class EnemyController : MonoBehaviour
         Debug.Log("EnemyHasHit");
         col.gameObject.GetComponent<PlayerHealth>().TakeDamage(DamageToApply);
       }
+    }
+
+    public void ResetSpeed()
+    {
+      navMeshAgent.speed = OriginalSpeed;
     }
 }
 
@@ -85,7 +91,7 @@ public class EnemyControllerEditor : Editor
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
           EC.DamageToApply = 5;
           
-          EC.navMeshAgent.speed = EC.speed;
+          //EC.navMeshAgent.speed = EC.speed;
 
           break;
 
@@ -96,7 +102,7 @@ public class EnemyControllerEditor : Editor
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
 
           
-          EC.navMeshAgent.speed = EC.speed;
+          //EC.navMeshAgent.speed = EC.speed;
 
           break;
 
@@ -107,7 +113,7 @@ public class EnemyControllerEditor : Editor
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
 
           
-          EC.navMeshAgent.speed = EC.speed;
+          //EC.navMeshAgent.speed = EC.speed;
 
           break;
         }

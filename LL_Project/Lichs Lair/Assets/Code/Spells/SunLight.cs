@@ -12,6 +12,7 @@ public class SunLight : MonoBehaviour
     void Start()
     {
       Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+      
     }
 
     // Update is called once per frame
@@ -21,15 +22,9 @@ public class SunLight : MonoBehaviour
         {
             foreach(GameObject Enemy in Enemies)
             {
-                Enemy.GetComponent<EnemyController>().speed = SlowedSpeed;
+                Enemy.GetComponent<NavMeshAgent>().speed = SlowedSpeed;
             }
         }
-        else
-        {
-             foreach(GameObject Enemy in Enemies)
-            {
-                Enemy.GetComponent<EnemyController>().speed = Enemy.GetComponent<EnemyController>().OriginalSpeed;
-            }
-        }
+       
     }
 }
