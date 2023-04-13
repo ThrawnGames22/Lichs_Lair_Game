@@ -79,7 +79,16 @@ public class EnemyController : MonoBehaviour
       navMeshAgent.speed = OriginalSpeed;
     }
 
-    
+    public void ApplyDamageToPlayer()
+    {
+      FistObject.GetComponent<SphereCollider>().enabled = true;
+      
+    }
+
+     public void StopApplyingDamageToPlayer()
+    {
+      FistObject.GetComponent<SphereCollider>().enabled = false;
+    }
 
     public void AttackPlayer()
     {

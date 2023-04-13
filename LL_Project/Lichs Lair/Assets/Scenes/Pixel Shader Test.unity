@@ -1755,12 +1755,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 175719352272122324}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &180689931 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3993472353691800673, guid: 962f9a1bf0d4745478fa763d9e6d9318,
-    type: 3}
-  m_PrefabInstance: {fileID: 3993472354016105513}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &180897021
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,7 +5182,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3993472354016105513}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180689931}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88e9c5bc41ed0f8459b4f3cc5b64640d, type: 3}
@@ -5390,7 +5384,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &689817672
 Transform:
@@ -15909,32 +15903,12 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3993472354016105513}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180689931}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac7b0bfccb27d0a46bcbb117419c62d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1546080560
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180689931}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ad50b2775687a548a205fede6440650, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1547215084
 GameObject:
   m_ObjectHideFlags: 0
@@ -23219,10 +23193,30 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 543450652959932318}
     m_Modifications:
+    - target: {fileID: 222177548546785284, guid: 429c649bbe60a0743a3deebe60c527e6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 246154946913661450, guid: 429c649bbe60a0743a3deebe60c527e6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1975525925429997572, guid: 429c649bbe60a0743a3deebe60c527e6,
         type: 3}
       propertyPath: m_Name
       value: Seat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975525925429997572, guid: 429c649bbe60a0743a3deebe60c527e6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570301934752310633, guid: 429c649bbe60a0743a3deebe60c527e6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2910446918619439604, guid: 429c649bbe60a0743a3deebe60c527e6,
         type: 3}
@@ -23278,6 +23272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921741268649412843, guid: 429c649bbe60a0743a3deebe60c527e6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -24439,21 +24438,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7640977438712996423, guid: 08212ed61f9c4eb42a73f71ae4552cf5,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9b8346cb7474b644289b878441bcb92b, type: 2}
     - target: {fileID: 8333783847532004325, guid: 08212ed61f9c4eb42a73f71ae4552cf5,
         type: 3}
       propertyPath: m_Name
       value: Throne
       objectReference: {fileID: 0}
-    - target: {fileID: 8765315580859315783, guid: 08212ed61f9c4eb42a73f71ae4552cf5,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9b8346cb7474b644289b878441bcb92b, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 08212ed61f9c4eb42a73f71ae4552cf5, type: 3}

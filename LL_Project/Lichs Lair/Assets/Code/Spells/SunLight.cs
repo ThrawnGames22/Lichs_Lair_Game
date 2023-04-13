@@ -44,6 +44,13 @@ public class SunLight : MonoBehaviour
                 
             }
         }
+        else
+        {
+            foreach(GameObject Enemy in Enemies)
+            {
+                Enemy.GetComponent<EnemyController>().speed = Enemy.GetComponent<EnemyController>().OriginalSpeed;
+            }
+        }
         
        
     }
