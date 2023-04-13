@@ -65,5 +65,13 @@ public class PlayerHealth : MonoBehaviour
       healthBar.SetHealth(currentHealth);
     }
 
+    //private OnTriggerEnter(Collider other)
+    //{
+     //   if(other.gameObject.tag == "Enemy")
+      //  {
+            
+       // }
+   // }
+
     
 }

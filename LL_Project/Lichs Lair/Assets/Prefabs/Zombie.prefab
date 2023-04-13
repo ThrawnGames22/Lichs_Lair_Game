@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6154267462473561070}
+  - component: {fileID: 2819621920744928242}
+  - component: {fileID: 749619407}
+  - component: {fileID: 749619406}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -32,6 +35,52 @@ Transform:
   m_Father: {fileID: 5759709405091239655}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2819621920744928242
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770736676873158196}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05121a7d2709b174d87847221d9dc95f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!135 &749619407
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770736676873158196}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.85
+  m_Center: {x: 0.6, y: 0.33, z: 0}
+--- !u!114 &749619406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770736676873158196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfa9c141a28de8498b10f228901b6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyController: {fileID: 6971747318157869055}
 --- !u!1 &5759709405091239644
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,7 +96,6 @@ GameObject:
   - component: {fileID: 5759709405091239654}
   - component: {fileID: 6971747318157869055}
   - component: {fileID: 6971747318157869040}
-  - component: {fileID: 630345282}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -69,7 +117,7 @@ Transform:
   m_Children:
   - {fileID: 6154267462473561070}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5759709405091239640
 MeshFilter:
@@ -137,11 +185,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   target: {fileID: 0}
-  WithinRange: 0
-  speed: 4
+  RangeToPlayer: 0
+  currentDistance: 0
+  speed: 0
   OriginalSpeed: 5
   navMeshAgent: {fileID: 6971747318157869040}
   DamageToApply: 5
+  CanApplyDamageToPlayer: 0
+  AttackDelay: 0.3
+  rotationDamping: 2
+  AttackBlocked: 0
+  FistObject: {fileID: 0}
+  EnemyAnimator: {fileID: 2819621920744928242}
 --- !u!195 &6971747318157869040
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -164,18 +219,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &630345282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5759709405091239644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37b488845f2f18b4b9b8cbe12ee38959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8779647788280031186
 PrefabInstance:
   m_ObjectHideFlags: 0
