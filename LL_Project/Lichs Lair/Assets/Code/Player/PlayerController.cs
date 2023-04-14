@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header ("Player Vairiables")]
-
+    public static PlayerController Instance;
     public float speed;
     public float rotationSpeed;
     public float jumpSpeed;
@@ -42,6 +42,11 @@ public class PlayerController : MonoBehaviour
     public float ChargedDamageValue;
     public float NormalDamageValue;
     public float AttackValue;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {

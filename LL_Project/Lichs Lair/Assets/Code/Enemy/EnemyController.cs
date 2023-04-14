@@ -9,7 +9,8 @@ public enum EnemyType
 {
         Zombie,
         DeathKnight,
-        Imp
+        Imp,
+        Tank
 }
 [System.Serializable]
 public class EnemyController : MonoBehaviour
@@ -49,9 +50,12 @@ public class EnemyController : MonoBehaviour
       //lookPos.y = 0;
       //var Rotation = Quaternion.LookRotation(lookPos);
       //transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * rotationDamping);
-
-      currentDistance = Vector3.Distance(target.transform.position, transform.position);
-      navMeshAgent.SetDestination(target.transform.position);
+     if(target != null)
+     {
+       currentDistance = Vector3.Distance(target.transform.position, transform.position);
+       navMeshAgent.SetDestination(target.transform.position);
+     }
+      
 
       if(currentDistance < 2 )
       {
@@ -187,6 +191,16 @@ public class EnemyControllerEditor : Editor
 
           
           //EC.navMeshAgent.speed = EC.speed;
+
+          break;
+
+          case EnemyType.Tank:
+          EC.target = (GameObject)EditorGUILayout.ObjectField("Target", EC.target, typeof(GameObject), true);
+          EC.EnemyAnimator = (Animator)EditorGUILayout.ObjectField("Enemy Animator", EC.EnemyAnimator, typeof(Animator), true);
+          EC.RangeToPlayer = EditorGUILayout.FloatField("Range To Player", EC.RangeToPlayer);
+          EC.currentDistance = EditorGUILayout.FloatField("Current Distance", EC.currentDistance);
+          EC.speed = EditorGUILayout.FloatField("Speed", EC.speed);
+          EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
 
           break;
         }

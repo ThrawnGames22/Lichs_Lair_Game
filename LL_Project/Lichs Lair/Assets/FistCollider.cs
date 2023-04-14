@@ -21,7 +21,7 @@ public class FistCollider : MonoBehaviour
     {
        if(other.gameObject.tag == "Player")
        {
-        other.GetComponent<PlayerHealth>().currentHealth -= enemyController.DamageToApply;
+        other.GetComponent<PlayerHealth>().TakeDamage(enemyController.DamageToApply);
        } 
     }
 

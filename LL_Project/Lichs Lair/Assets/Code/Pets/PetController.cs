@@ -23,6 +23,10 @@ public class PetController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        navMeshAgent.SetDestination(Owner.transform.position);
+        if(Owner != null)
+        {
+          navMeshAgent.SetDestination(Owner.transform.position);
+        }
+        
     }
 }

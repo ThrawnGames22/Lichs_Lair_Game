@@ -11,6 +11,16 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     
     public HealthBar healthBar;
+    public bool isTakingDamage;
+    public float CurrentDamageTimer;
+    public float MaxDamageTimer;
+
+    public GameObject DamageScreen;
+    public float ScreenAlpha;
+
+    //Death Screen Attributes
+    
+
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +28,13 @@ public class PlayerHealth : MonoBehaviour
         
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        CurrentDamageTimer = MaxDamageTimer;
+        
+        //DeathScreen.SetActive(false);
+        
+        
+        
+
     }
 
     private void Awake()
@@ -28,6 +45,8 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //var BScolor = BlackScreen.GetComponent<Image>().color;
+        //var YDIcolor = YouDiedImage.GetComponent<Image>().color;
        healthBar.SetHealth(currentHealth);
 
         if(currentHealth < 0)
@@ -38,10 +57,25 @@ public class PlayerHealth : MonoBehaviour
         if(currentHealth == 0)
         {
             Die();
+            
+            
+            
         }
          if(currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
+        }
+
+        if(DamageScreen != null)
+        {
+            if(DamageScreen.GetComponent<Image>().color.a > 0)
+            {
+                var color = DamageScreen.GetComponent<Image>().color;
+
+                color.a -= 0.01f;
+
+                DamageScreen.GetComponent<Image>().color = color;
+            }
         }
     }
 
@@ -55,15 +89,32 @@ public class PlayerHealth : MonoBehaviour
     {
         
         Destroy(this.gameObject);
+        DamageScreen.SetActive(false);
+        //DeathScreen.SetActive(true);
+        
         
     }
 
     public void TakeDamage(int Damage)
     {
       currentHealth -= Damage;
-
+      isTakingDamage = true;
+      //ResetDamageFlag();
+      var color = DamageScreen.GetComponent<Image>().color;
+      color.a = ScreenAlpha;
+      DamageScreen.GetComponent<Image>().color = color;
+      
       healthBar.SetHealth(currentHealth);
     }
+
+    public void ResetDamageFlag()
+    {
+        isTakingDamage = false;
+    }
+
+    
+
+    
 
     //private OnTriggerEnter(Collider other)
     //{

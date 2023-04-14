@@ -29,7 +29,14 @@ public class InventoryItemController : MonoBehaviour
         case Item.ItemType.HealthPotion:
              //if(PlayerHealth.Instance.currentHealth < PlayerHealth.Instance.maxHealth)
              //{
+               GameObject clone;
+               Vector3 rotationVector = transform.rotation.eulerAngles;
+               rotationVector.x = -90;
                PlayerHealth.Instance.IncreaseHealth(item.value);
+               clone = Instantiate(item.ItemEffects, PlayerController.Instance.transform.position, PlayerController.Instance.transform.rotation);
+               clone.transform.parent = PlayerController.Instance.transform;
+               
+               clone.transform.rotation = Quaternion.Euler(rotationVector);
                RemoveItem();
              //}
              
@@ -44,7 +51,14 @@ public class InventoryItemController : MonoBehaviour
         case Item.ItemType.ManaPotion:
              //if(PlayerMagic.Instance.currentMana < PlayerMagic.Instance.maxMana)
              //{
+               GameObject clone;
+               Vector3 rotationVector = transform.rotation.eulerAngles;
+               rotationVector.x = -90;
                PlayerMagic.Instance.IncreaseMana(item.value);
+               clone = Instantiate(item.ItemEffects, PlayerController.Instance.transform.position, PlayerController.Instance.transform.rotation);
+               clone.transform.parent = PlayerController.Instance.transform;
+               
+               clone.transform.rotation = Quaternion.Euler(rotationVector);
                RemoveItem();
 
 
