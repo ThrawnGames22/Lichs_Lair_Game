@@ -202,87 +202,12 @@ public class PlayerController : MonoBehaviour
         
         
      //Sword
-        WeaponAnimator.SetBool("Charging", ChargeAttacking);
-        if(CurrentWeaponSlot.gameObject.tag == "Sword")
-        {
-        ChargedDamageValue = 15f;
-        NormalDamageValue = 5f;
-          if(Input.GetKey(KeyCode.X))
-          {
-            ChargeAttackTimer += Time.deltaTime;
-            ChargeAttacking = true;
-            CurrentWeaponSlot.GetComponent<SwordController>().CanApplyDamage = true;
-          }
-
-          if((Input.GetKeyUp(KeyCode.X)) && ChargeAttackTimer > 1)
-          {
-            ChargeAttackTimer = 0;
-            ChargeAttacking = false;
-            //CurrentWeaponSlot.GetComponent<SwordController>().CanApplyDamage = false;
-            
-          }
-
-          if(Input.GetKeyUp(KeyCode.X))
-          {
-            ChargeAttacking = false;
-            CurrentWeaponSlot.GetComponent<SwordController>().CanApplyDamage = false;
-          }
-
-          if((Input.GetKeyUp(KeyCode.X)) && ChargeAttackTimer < 1)
-          {
-            ChargeAttackTimer = 0;
-            ChargeAttacking = false;
-            
-          }
-
-          
-
-          if(ChargeAttackTimer > 1)
-          {
-            AttackValue = ChargedDamageValue;
-          }
-
-          if(ChargeAttackTimer < 1)
-          {
-            AttackValue = NormalDamageValue;
-          }
-        }
+       
         
         
     }
 
-    public void ChargeSwordAttack()
-    {
-        ChargeAttacking = true;
-        if(!ChargeAttacking)
-        {
-            return;
-        }
-        
-        
-        //AttackBlocked = true;
-        //StartCoroutine(DelayAttack()); 
-    }
-
-    public void SwordAttack()
-    {
-
-        if(AttackBlocked)
-        {
-            return;
-        }
-        WeaponAnimator.SetTrigger("Attack");
-        AttackBlocked = true;
-        StartCoroutine(DelayAttack());
-        
-    }
-
-    public IEnumerator DelayAttack()
-    {
-        yield return new WaitForSeconds(MeleeWeaponDelay);
-        AttackBlocked = false;
-    }
-
+    
    
 }
 

@@ -16,6 +16,7 @@ public class Item : ScriptableObject
     public string ItemName;
     public int value;
     public Sprite ItemIcon;
+    public Sprite ItemCoolDownIcon;
     public ItemType itemType;
     public GameObject ItemEffects;
 }
