@@ -54,16 +54,19 @@ public class PlayerMagic : MonoBehaviour
     public ManaBar manaBar;
     public PlayerInventoryController inventoryController;
 
+    public bool UIHasActivated = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        AbilityManager = GameManager.GetComponent<AbilityList>();
-        CombatSpellToCast = CombatSpellSlot1;
-        UI = GameObject.Find("UI");
-        slotUIController = UI.GetComponent<SlotUIController>();
-        manaBar.SetMaxMana(maxMana);
-        UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
+        
+        
+        
+        //slotUIController = UI.GetComponent<SlotUIController>();
+        //manaBar.SetMaxMana(maxMana);
+        
+        
         
     }
 
@@ -82,6 +85,18 @@ public class PlayerMagic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if(!UIHasActivated)
+      {
+        manaBar = GameObject.Find("Mana Slider").GetComponent<ManaBar>();
+        GameManager = GameObject.Find("GameManager");
+        AbilityManager = GameManager.GetComponent<AbilityList>();
+        UI = GameObject.Find("UI");
+        slotUIController = UI.GetComponent<SlotUIController>();
+        manaBar.SetMana(maxMana);
+        UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
+        CombatSpellToCast = CombatSpellSlot1;
+        inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
+      }
         
         
         if(currentMana > maxMana)

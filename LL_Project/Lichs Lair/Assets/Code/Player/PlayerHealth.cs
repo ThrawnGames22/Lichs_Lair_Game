@@ -18,6 +18,8 @@ public class PlayerHealth : MonoBehaviour
     public GameObject DamageScreen;
     public float ScreenAlpha;
 
+    public bool UIHasActivated;
+
     //Death Screen Attributes
     
 
@@ -26,9 +28,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-        CurrentDamageTimer = MaxDamageTimer;
+        
         
         //DeathScreen.SetActive(false);
         
@@ -45,6 +45,14 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!UIHasActivated)
+        {
+            healthBar = GameObject.Find("Health Slider").GetComponent<HealthBar>();
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+            CurrentDamageTimer = MaxDamageTimer;
+            UIHasActivated = true;
+        }
         //var BScolor = BlackScreen.GetComponent<Image>().color;
         //var YDIcolor = YouDiedImage.GetComponent<Image>().color;
        healthBar.SetHealth(currentHealth);
