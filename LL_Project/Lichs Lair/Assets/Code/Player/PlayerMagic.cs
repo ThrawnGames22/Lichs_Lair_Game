@@ -60,7 +60,15 @@ public class PlayerMagic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        manaBar = GameObject.Find("Mana Slider").GetComponent<ManaBar>();
+        GameManager = GameObject.Find("GameManager");
+        AbilityManager = GameManager.GetComponent<AbilityList>();
+        UI = GameObject.Find("UI");
+        slotUIController = UI.GetComponent<SlotUIController>();
+        manaBar.SetMana(maxMana);
+        UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
+        CombatSpellToCast = CombatSpellSlot1;
+        inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
         
         
         //slotUIController = UI.GetComponent<SlotUIController>();
@@ -85,18 +93,7 @@ public class PlayerMagic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(!UIHasActivated)
-      {
-        manaBar = GameObject.Find("Mana Slider").GetComponent<ManaBar>();
-        GameManager = GameObject.Find("GameManager");
-        AbilityManager = GameManager.GetComponent<AbilityList>();
-        UI = GameObject.Find("UI");
-        slotUIController = UI.GetComponent<SlotUIController>();
-        manaBar.SetMana(maxMana);
-        UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
-        CombatSpellToCast = CombatSpellSlot1;
-        inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
-      }
+      
         
         
         if(currentMana > maxMana)
@@ -136,7 +133,7 @@ public class PlayerMagic : MonoBehaviour
            currentCombatCastTimer = 0;
            print("We Love Casting Combat Spells!");
            CastCombatSpell1();
-           manaBar.SetMana(currentMana);
+           //manaBar.SetMana(currentMana);
         }
         if(!castingCombatMagic2 && Input.GetKeyDown(KeyCode.Mouse1) && hasEnoughMana)
         {
@@ -145,7 +142,7 @@ public class PlayerMagic : MonoBehaviour
            currentCombatCastTimer = 0;
            print("We Love Casting Combat Spells!");
            CastCombatSpell2();
-           manaBar.SetMana(currentMana);
+           //manaBar.SetMana(currentMana);
         }
 
         if(!castingUtilityMagic && Input.GetKeyDown(KeyCode.Q))
@@ -155,7 +152,7 @@ public class PlayerMagic : MonoBehaviour
            currentUtilityCastTimer = 0;
            print("We Love Casting Utility Spells!");
            CastUtilitySpell();
-           manaBar.SetMana(currentMana);
+           //manaBar.SetMana(currentMana);
         }
 
 

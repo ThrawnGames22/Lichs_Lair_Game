@@ -42,8 +42,5 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    public void SetUiActive()
-    {
-        UI.SetActive(true);
-    }
+    
 }

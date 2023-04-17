@@ -11,8 +11,5 @@ public class UIActivater : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        GameObject.Find("GameManager").GetComponent<PlayerManager>().SetUiActive();
-    }
+    
 }
