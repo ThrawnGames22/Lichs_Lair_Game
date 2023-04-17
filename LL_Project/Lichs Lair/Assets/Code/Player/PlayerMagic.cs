@@ -65,8 +65,8 @@ public class PlayerMagic : MonoBehaviour
         AbilityManager = GameManager.GetComponent<AbilityList>();
         UI = GameObject.Find("UI");
         slotUIController = UI.GetComponent<SlotUIController>();
-        manaBar.SetMana(maxMana);
-        UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
+        manaBar.slider.maxValue = maxMana;
+         UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
         CombatSpellToCast = CombatSpellSlot1;
         inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
         
@@ -105,7 +105,7 @@ public class PlayerMagic : MonoBehaviour
         {
             currentMana = 0;
         }
-        manaBar.SetMana(currentMana);
+        manaBar.slider.value = currentMana;
         
         
         //timeBetweenCasts = CombatSpellToCast.GetComponent<CombatSpell>().spellToCast.DelayBetweenCast;
@@ -133,7 +133,7 @@ public class PlayerMagic : MonoBehaviour
            currentCombatCastTimer = 0;
            print("We Love Casting Combat Spells!");
            CastCombatSpell1();
-           //manaBar.SetMana(currentMana);
+           manaBar.slider.value = currentMana;
         }
         if(!castingCombatMagic2 && Input.GetKeyDown(KeyCode.Mouse1) && hasEnoughMana)
         {
@@ -142,7 +142,7 @@ public class PlayerMagic : MonoBehaviour
            currentCombatCastTimer = 0;
            print("We Love Casting Combat Spells!");
            CastCombatSpell2();
-           //manaBar.SetMana(currentMana);
+           manaBar.slider.value = currentMana;
         }
 
         if(!castingUtilityMagic && Input.GetKeyDown(KeyCode.Q))
@@ -152,7 +152,7 @@ public class PlayerMagic : MonoBehaviour
            currentUtilityCastTimer = 0;
            print("We Love Casting Utility Spells!");
            CastUtilitySpell();
-           //manaBar.SetMana(currentMana);
+           manaBar.slider.value = currentMana;
         }
 
 
@@ -256,14 +256,14 @@ public class PlayerMagic : MonoBehaviour
     public void IncreaseMana(int value)
     {
       currentMana += value;
-      manaBar.SetMana(currentMana);
+      manaBar.slider.value = currentMana;
       //ManaText.text = currentMana.ToString();
     }
 
     public void DecreaseMana(int manaValue)
     {
       currentMana -= manaValue;
-      manaBar.SetMana(currentMana);
+      manaBar.slider.value = currentMana;
     }
 
     public IEnumerator Cooldown()
