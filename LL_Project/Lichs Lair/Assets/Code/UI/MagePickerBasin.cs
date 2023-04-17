@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MagePickerBasin : MonoBehaviour
 {
@@ -8,11 +9,20 @@ public class MagePickerBasin : MonoBehaviour
     public ParticleSystem MageFire;
 
     public PlayerManager playerManager;
+    public GameObject MageImageFadeIn;
+    public GameObject MageImageFadeOut;
+
+    
     // Start is called before the first frame update
     void Start()
     {
-       ActivateNormalFire();
+       NormalFire.Play();
+       MageFire.Stop();
        playerManager = GameObject.Find("GameManager").GetComponent<PlayerManager>();
+       MageImageFadeIn.SetActive(false);
+       MageImageFadeOut.SetActive(false);
+
+       
     }
 
     // Update is called once per frame
@@ -25,12 +35,19 @@ public class MagePickerBasin : MonoBehaviour
     {
        NormalFire.Play();
        MageFire.Stop();
+       MageImageFadeOut.SetActive(true);
+       MageImageFadeIn.SetActive(false);
+      
+       
     }
 
     public void ActivateMageFire()
     {
-        NormalFire.Stop();
+       NormalFire.Stop();
        MageFire.Play();
+       MageImageFadeOut.SetActive(false);
+       MageImageFadeIn.SetActive(true);
+       
     }
 
     public void SetRedMage()
@@ -38,8 +55,15 @@ public class MagePickerBasin : MonoBehaviour
         playerManager.PlayAsRedMage();
     }
 
-     public void SetShadowMage()
+    public void SetShadowMage()
     {
         playerManager.PlayAsShadowMage();
     }
+
+    public void SetSunMage()
+    {
+        playerManager.PlayAsSunMage();
+    }
+
+    
 }

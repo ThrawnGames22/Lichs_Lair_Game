@@ -6,6 +6,7 @@ public class FireSpell : MonoBehaviour
 {
     public CombatSpellScriptableObject FireCombatSpell;
     public CombatSpell combatSpell;
+    public DetachParticles detachParticles;
 
 //Attributes
     public float fireDamage;
@@ -28,6 +29,14 @@ public class FireSpell : MonoBehaviour
         lifetime = FireCombatSpell.Lifetime;
         speed = FireCombatSpell.Speed;
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+            detachParticles.Detach();
+            Destroy(this.gameObject);
+        
     }
 
     
