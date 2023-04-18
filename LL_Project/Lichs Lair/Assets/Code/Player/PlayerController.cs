@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public ClassData MageClassData;
     [Header ("Player Vairiables")]
     public static PlayerController Instance;
     public float speed;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float dashCoolDownTimer;
     //determines if we can use dash
     public bool canUseDash;
+    public bool IsMoving;
 
     [Header ("Player Combat")]
     public GameObject CurrentWeaponSlot;
@@ -62,6 +64,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        
         WeaponAnimator = CurrentWeaponSlot.GetComponent<Animator>();
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -76,10 +80,12 @@ public class PlayerController : MonoBehaviour
         {
             characterController.stepOffset = originalStepOffset;
             ySpeed = -0.5f;
+           
 
             if (Input.GetButtonDown("Jump"))
             {
                 ySpeed = jumpSpeed;
+
             }
         }
         else
@@ -94,15 +100,20 @@ public class PlayerController : MonoBehaviour
 
         if (movementDirection != Vector3.zero)
         {
+            IsMoving = true;
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+          IsMoving = false;
         }
 
         //Dash and cooldown settings
 
 
-        if(canUseDash)
+        if(canUseDash && IsMoving)
         {
             //if(characterController.isGrounded)
            // {

@@ -6,9 +6,10 @@ using UnityEditor;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public ClassData MageClassData;
     public static PlayerHealth Instance;
     public int currentHealth;
-    public int maxHealth = 100;
+    public int maxHealth;
     
     public HealthBar healthBar;
     public bool isTakingDamage;
@@ -27,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        maxHealth = MageClassData.maxHealth;
         
         
         //DeathScreen.SetActive(false);

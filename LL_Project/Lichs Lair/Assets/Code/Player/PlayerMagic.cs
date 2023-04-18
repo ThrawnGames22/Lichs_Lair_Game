@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMagic : MonoBehaviour
 {
-
+    public ClassData MageClassData;
     public static PlayerMagic Instance;
     public PlayerController playerController;
     [Header("Spell Slots For Combat Spells")]
@@ -23,7 +23,7 @@ public class PlayerMagic : MonoBehaviour
     public GameObject UI;
 
     
-    public int maxMana = 100;
+    public int maxMana;
     public int currentMana;
     public float manaReplenishRate = 2f;
     public float timeBetweenCasts = 0.2f;
@@ -56,6 +56,8 @@ public class PlayerMagic : MonoBehaviour
 
     public bool UIHasActivated = false;
 
+    public bool StartAssigningValuesBasedOnClass = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +71,8 @@ public class PlayerMagic : MonoBehaviour
          UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
         CombatSpellToCast = CombatSpellSlot1;
         inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
+        
+
         
         
         //slotUIController = UI.GetComponent<SlotUIController>();
@@ -93,7 +97,14 @@ public class PlayerMagic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+      if(!StartAssigningValuesBasedOnClass)
+      {
+      maxMana = MageClassData.maxMana;
+      CombatSpellSlot1 = MageClassData.CombatSpell1;
+      CombatSpellSlot2 = MageClassData.CombatSpell2;
+      UtilitySpell = MageClassData.UtilitySpell;
+      StartAssigningValuesBasedOnClass = true;
+      }
         
         
         if(currentMana > maxMana)
