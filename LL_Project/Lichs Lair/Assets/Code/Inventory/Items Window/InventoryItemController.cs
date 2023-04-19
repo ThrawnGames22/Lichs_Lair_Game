@@ -24,18 +24,20 @@ public class InventoryItemController : MonoBehaviour
 
     public void UseItem()
     {
+      /*
       switch(item.itemType)
       {
         case Item.ItemType.HealthPotion:
              //if(PlayerHealth.Instance.currentHealth < PlayerHealth.Instance.maxHealth)
              //{
+              
                GameObject clone;
                Vector3 rotationVector = transform.rotation.eulerAngles;
                rotationVector.x = -90;
                PlayerHealth.Instance.IncreaseHealth(item.value);
                clone = Instantiate(item.ItemEffects, PlayerController.Instance.transform.position, PlayerController.Instance.transform.rotation);
                clone.transform.parent = PlayerController.Instance.transform;
-               
+               GameObject.Find("UI").GetComponent<SlotUIController>().HasHealthPotion = true;
                clone.transform.rotation = Quaternion.Euler(rotationVector);
                RemoveItem();
              //}
@@ -67,6 +69,7 @@ public class InventoryItemController : MonoBehaviour
              
              break;
       }
+      */
 
       
     }

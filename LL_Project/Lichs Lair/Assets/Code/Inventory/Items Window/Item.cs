@@ -7,8 +7,7 @@ public class Item : ScriptableObject
 {
     public enum ItemType
     {
-        HealthPotion,
-        ManaPotion,
+        
         EXPBook,
         Weapon
     }

@@ -13,6 +13,7 @@ public class ClassData : ScriptableObject
     }
     public MageClassType MageType;
     public string ClassName;
+    public string Class;
     public int maxMana;
     public int maxHealth;
     public CombatSpell CombatSpell1;

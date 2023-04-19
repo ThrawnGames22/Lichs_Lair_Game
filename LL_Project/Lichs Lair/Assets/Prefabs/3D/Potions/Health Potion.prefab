@@ -110,8 +110,7 @@ GameObject:
   - component: {fileID: 418350786680136323}
   - component: {fileID: 712944451972536756}
   - component: {fileID: 1859504873292393029}
-  - component: {fileID: 1310176719597016415}
-  - component: {fileID: 7268019612651601943}
+  - component: {fileID: 5999725790816330521}
   m_Layer: 0
   m_Name: Health Potion
   m_TagString: Untagged
@@ -134,7 +133,7 @@ Transform:
   - {fileID: 5387032222483259917}
   - {fileID: 8059268568337723831}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &418350786680136323
 MeshFilter:
@@ -199,7 +198,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1310176719597016415
+--- !u!114 &5999725790816330521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,23 +207,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6528747374783799875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa6808d13f09fe41856023d22ab80b6, type: 3}
+  m_Script: {fileID: 11500000, guid: de3ac2910138eb34b85ae4a17efed30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 17ca87c9dc09df946921d4dd583a86f2, type: 2}
---- !u!114 &7268019612651601943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6528747374783799875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78f8c7db619760945b7a114d9b55e7f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 17ca87c9dc09df946921d4dd583a86f2, type: 2}
 --- !u!1 &7079974394911003367
 GameObject:
   m_ObjectHideFlags: 0

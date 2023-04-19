@@ -54,11 +54,33 @@ public class PlayerController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         originalStepOffset = characterController.stepOffset;
-        CurrentWeaponSlot = Weapons[0];
-        Weapons[0].transform.parent = CurrentSlot.transform;
-        Weapons[0].SetActive(true);
-        Weapons[1].SetActive(false);
-        Weapons[2].SetActive(false);
+        
+
+
+        if(MageClassData.Class == "Fire")
+        {
+         CurrentWeaponSlot = Weapons[0];
+         Weapons[0].transform.parent = CurrentSlot.transform;
+         Weapons[0].SetActive(true);
+         Weapons[1].SetActive(false);
+         Weapons[2].SetActive(false);
+        }
+        if(MageClassData.Class == "Shadow")
+        {
+         CurrentWeaponSlot = Weapons[1];   
+         Weapons[2].transform.parent = CurrentSlot.transform;
+         Weapons[0].SetActive(false);
+         Weapons[1].SetActive(true);
+         Weapons[2].SetActive(false);
+        }
+        if(MageClassData.Class == "Sun")
+        {
+         CurrentWeaponSlot = Weapons[2]; 
+         Weapons[1].transform.parent = CurrentSlot.transform;
+         Weapons[0].SetActive(false);
+         Weapons[1].SetActive(false);
+         Weapons[2].SetActive(true);
+        }
         
     }
 
@@ -171,7 +193,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Weapon Mechanics
-
+      /*
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             CurrentWeaponSlot = Weapons[0];
@@ -207,6 +229,7 @@ public class PlayerController : MonoBehaviour
             Weapons[1].SetActive(false);
             Weapons[2].SetActive(true);
         }
+        */
         
     //Weapon Animations
 

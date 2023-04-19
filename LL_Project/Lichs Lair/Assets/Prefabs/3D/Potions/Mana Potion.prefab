@@ -208,8 +208,6 @@ GameObject:
   - component: {fileID: 8692759200957648584}
   - component: {fileID: 8397039083765724671}
   - component: {fileID: 7251618288054470158}
-  - component: {fileID: 1702511526422418095}
-  - component: {fileID: 979448580419094755}
   m_Layer: 0
   m_Name: Mana Potion
   m_TagString: Untagged
@@ -232,7 +230,7 @@ Transform:
   - {fileID: 4012198188503486022}
   - {fileID: 1347952521359416828}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8692759200957648584
 MeshFilter:
@@ -297,29 +295,3 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1702511526422418095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2879595220029492744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa6808d13f09fe41856023d22ab80b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 02ec4e2fc1c8e234fa51a32ee3003818, type: 2}
---- !u!114 &979448580419094755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2879595220029492744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78f8c7db619760945b7a114d9b55e7f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 02ec4e2fc1c8e234fa51a32ee3003818, type: 2}

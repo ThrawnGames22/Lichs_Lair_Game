@@ -27,7 +27,7 @@ public class WeaponSlotController : MonoBehaviour
       {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         WeaponCoolingImage.gameObject.SetActive(false);
-        ResetSwordValue();
+        //ResetSwordValue();
         CoolDownSlider = GameObject.Find("WeaponCoolDownSlider").GetComponent<Slider>();
         UIHasActivated = true;
       }
