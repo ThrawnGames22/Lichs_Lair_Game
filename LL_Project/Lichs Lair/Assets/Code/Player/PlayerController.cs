@@ -15,6 +15,13 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     private float ySpeed;
     private float originalStepOffset;
+    public bool IsInFrontCameraView;
+    public bool IsInBackCameraView;
+    public bool IsInLeftCameraView;
+    public bool IsInRightCameraView;
+
+    public float horizontalInput;
+    public float verticalInput;
 
     [Header ("Player Dash")]
     //cooldown
@@ -56,7 +63,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         originalStepOffset = characterController.stepOffset;
         
-
+        IsInFrontCameraView = true;
 
         if(MageClassData.Class == "Fire")
         {
@@ -82,16 +89,40 @@ public class PlayerController : MonoBehaviour
          Weapons[1].SetActive(false);
          Weapons[2].SetActive(true);
         }
+         
         
     }
 
     void FixedUpdate()
     {
+        if(IsInFrontCameraView)
+        {
+          horizontalInput = Input.GetAxis("Horizontal");
+          verticalInput = Input.GetAxis("Vertical");
+          
+        }
 
+        if(IsInRightCameraView)
+        {
+            horizontalInput = -Input.GetAxis("Vertical");
+            verticalInput = Input.GetAxis("Horizontal");
+        }
+
+        if(IsInLeftCameraView)
+        {
+            horizontalInput = Input.GetAxis("Vertical");
+            verticalInput = -Input.GetAxis("Horizontal");
+        }
+
+        if(IsInBackCameraView)
+        {
+          horizontalInput = -Input.GetAxis("Horizontal");
+          verticalInput = -Input.GetAxis("Vertical");
+        }
+        
         
         WeaponAnimator = CurrentWeaponSlot.GetComponent<Animator>();
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+       
 
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
@@ -245,9 +276,11 @@ public class PlayerController : MonoBehaviour
         
      //Sword
        
+      
         
         
     }
+     
 
     
    
