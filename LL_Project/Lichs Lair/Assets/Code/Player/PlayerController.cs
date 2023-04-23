@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     //determines if we can use dash
     public bool canUseDash;
     public bool IsMoving;
+    public bool CanJump;
 
     [Header ("Player Combat")]
     public GameObject CurrentWeaponSlot;
@@ -96,23 +97,30 @@ public class PlayerController : MonoBehaviour
         float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
         movementDirection.Normalize();
 
-        ySpeed += Physics.gravity.y * Time.deltaTime;
-
+       
+        ySpeed += Physics.gravity.y * Time.fixedDeltaTime;
         if (characterController.isGrounded)
         {
             characterController.stepOffset = originalStepOffset;
             ySpeed = -0.5f;
+            CanJump = true;
+
            
-
-            if (Input.GetButtonDown("Jump"))
-            {
-                ySpeed = jumpSpeed;
-
-            }
         }
         else
         {
             characterController.stepOffset = 0;
+            CanJump = false;
+        }
+
+        if(CanJump)
+        {
+             if (Input.GetButtonDown("Jump"))
+            {
+                
+                ySpeed = jumpSpeed;
+
+            }
         }
 
         Vector3 velocity = movementDirection * magnitude;
