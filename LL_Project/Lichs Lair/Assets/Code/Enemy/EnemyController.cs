@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour
     public float OriginalSpeed;
     public NavMeshAgent navMeshAgent; 
     public int DamageToApply;
+
+    public int OriginalDamageToApply;
     public bool CanApplyDamageToPlayer;
     public float AttackDelay = 0.3f;
     public float rotationDamping = 2f;
@@ -118,6 +120,11 @@ public class EnemyController : MonoBehaviour
         AttackBlocked = false;
     }
 
+    public void ResetDamage()
+    {
+      DamageToApply = OriginalDamageToApply;
+    }
+
 
 }
 
@@ -156,12 +163,16 @@ public class EnemyControllerEditor : Editor
 
 
           EC.RangeToPlayer = EditorGUILayout.FloatField("Range To Player", EC.RangeToPlayer);
+          
+
           EC.currentDistance = EditorGUILayout.FloatField("Current Distance", EC.currentDistance);
 
           EC.speed = EditorGUILayout.FloatField("Speed", EC.RangeToPlayer);
           EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
 
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
+          EC.OriginalDamageToApply = EditorGUILayout.IntField("Original Damage To Apply", EC.OriginalDamageToApply);
+
           EC.DamageToApply = 5;
           
           //EC.navMeshAgent.speed = EC.speed;

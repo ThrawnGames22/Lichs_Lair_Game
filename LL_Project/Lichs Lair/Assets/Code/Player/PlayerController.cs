@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public ClassData MageClassData;
     [Header ("Player Vairiables")]
     public static PlayerController Instance;
+    public PlayerHealth PH;
     public float speed;
     public float rotationSpeed;
     public float jumpSpeed;
@@ -53,10 +54,26 @@ public class PlayerController : MonoBehaviour
     public float NormalDamageValue;
     public float AttackValue;
 
+    [Header("PotionEffects")]
+    
+    public GameObject[] Enemies;
+    public bool DamageNegationActive;
+    public float DNTime;
+
+    public int CurrentDamageNegationAmount;
+    public int NormalDNAmount = 0;
+
+    public bool IsGrounded;
+
+    public float YSpeed;
+    
+
     private void Awake()
     {
         Instance = this;
     }
+
+   
 
     void Start()
     {
@@ -93,8 +110,32 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void Update() 
+    {
+        
+    }
+
     void FixedUpdate()
     {
+        
+        if(DamageNegationActive == true)
+        {
+          foreach(GameObject enemy in Enemies)
+          {
+            enemy.GetComponent<EnemyController>().DamageToApply = CurrentDamageNegationAmount;
+          }
+        }
+        if(!DamageNegationActive)
+        {
+          foreach(GameObject enemy in Enemies)
+          {
+            enemy.GetComponent<EnemyController>().ResetDamage();
+          }
+        }
+
+        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+
         if(IsInFrontCameraView)
         {
           horizontalInput = Input.GetAxis("Horizontal");
@@ -129,24 +170,27 @@ public class PlayerController : MonoBehaviour
         movementDirection.Normalize();
 
        
-        ySpeed += Physics.gravity.y * Time.fixedDeltaTime;
+        ySpeed += Physics.gravity.y * Time.deltaTime;
+        YSpeed = ySpeed;
         if (characterController.isGrounded)
         {
+            IsGrounded = true;
             characterController.stepOffset = originalStepOffset;
-            ySpeed = -0.5f;
+            ySpeed = -0.4f;
             CanJump = true;
 
            
         }
         else
         {
+            IsGrounded = false;
             characterController.stepOffset = 0;
             CanJump = false;
         }
 
-        if(CanJump)
+        if(IsGrounded)
         {
-             if (Input.GetButtonDown("Jump"))
+             if (Input.GetAxis("Jump") > 0)
             {
                 
                 ySpeed = jumpSpeed;
@@ -186,10 +230,7 @@ public class PlayerController : MonoBehaviour
            // }
           
         }
-        else
-        {
-          StopCoroutine(Dash());
-        }
+        
         
 
         IEnumerator Dash()
@@ -230,6 +271,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Dashed!");
             dashCoolDownTimer = dashCoolDown;
         }
+
+
+        //Potion Effects
+
+       
 
         //Weapon Mechanics
       /*
@@ -280,6 +326,29 @@ public class PlayerController : MonoBehaviour
         
         
     }
+     public IEnumerator DamageNegation()
+        {
+           DamageNegationActive = true;
+           
+           yield return new WaitForSeconds(DNTime);
+           DamageNegationActive = false;
+           ResetDamageNegation();
+        }
+
+     public void StopDamageNegation()
+     {
+        StopCoroutine(DamageNegation());
+     }
+
+     public void ResetDamageNegation()
+     {
+        CurrentDamageNegationAmount = NormalDNAmount;
+     }
+
+     public void StartDamageNegation()
+     {
+        StartCoroutine(DamageNegation());
+     }
      
 
     

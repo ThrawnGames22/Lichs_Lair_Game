@@ -71,6 +71,20 @@ public class InventoryItemController : MonoBehaviour
       }
       */
 
+
+       switch(item.itemType)
+        {
+          case Item.ItemType.PotionOfNegation:
+               GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().StartDamageNegation();
+                
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().CurrentDamageNegationAmount = item.value;
+                print("DNNNN");
+             
+                RemoveItem();
+
+
+          break;
+        }
       
     }
 }

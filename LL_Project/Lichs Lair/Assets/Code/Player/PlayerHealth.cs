@@ -23,7 +23,8 @@ public class PlayerHealth : MonoBehaviour
 
     //Death Screen Attributes
     
-
+    //Potion Effects
+    
     
     // Start is called before the first frame update
     void Start()

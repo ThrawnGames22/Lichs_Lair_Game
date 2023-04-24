@@ -7508,15 +7508,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MageClassData: {fileID: 11400000, guid: 9ea3eb3d793366843ac00bd52d77844f, type: 2}
+  PH: {fileID: 0}
   speed: 5
   rotationSpeed: 720
   jumpSpeed: 5
+  IsInFrontCameraView: 0
+  IsInBackCameraView: 0
+  IsInLeftCameraView: 0
+  IsInRightCameraView: 0
+  horizontalInput: 0
+  verticalInput: 0
   dashSpeed: 5
   dashTime: 0.25
   dashCoolDown: 2
   dashCoolDownTimer: 0
   canUseDash: 0
   IsMoving: 0
+  CanJump: 0
   CurrentWeaponSlot: {fileID: 0}
   CurrentSlot: {fileID: 9108813691127864635}
   WeaponsBank: {fileID: 1628456228116520533}
@@ -7533,6 +7541,11 @@ MonoBehaviour:
   ChargedDamageValue: 0
   NormalDamageValue: 0
   AttackValue: 0
+  Enemies: []
+  DamageNegationActive: 0
+  DNTime: 0
+  CurrentDamageNegationAmount: 0
+  NormalDNAmount: 0
 --- !u!143 &5260952273746040825
 CharacterController:
   m_ObjectHideFlags: 0
