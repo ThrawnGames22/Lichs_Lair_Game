@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    public PlayerData playerData;
     public ClassData MageClassData;
+    
     [Header ("Player Vairiables")]
     public static PlayerController Instance;
     public PlayerHealth PH;
+    public PlayerMagic PM;
     public float speed;
     public float rotationSpeed;
     public float jumpSpeed;
+    public Vector3 velocity;
+    public Vector3 CurrentPosition;
 
     private CharacterController characterController;
     private float ySpeed;
@@ -36,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public bool CanJump;
 
     [Header ("Player Combat")]
+    private GameObject WeaponSaveSlot;
     public GameObject CurrentWeaponSlot;
     public GameObject CurrentSlot;
     public GameObject WeaponsBank;
@@ -66,6 +73,10 @@ public class PlayerController : MonoBehaviour
     public bool IsGrounded;
 
     public float YSpeed;
+
+
+
+    
     
 
     private void Awake()
@@ -110,10 +121,44 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void Update() 
-    {
+    void Update()
+     {
+        WeaponSaveSlot = CurrentWeaponSlot;
+        CurrentPosition = this.transform.position;
+        if(Input.GetKeyDown(KeyCode.U))
+        {
+            SavePlayerData();
+        }
+        if(canUseDash)
+        {
+            //if(characterController.isGrounded)
+           // {
+              if(Input.GetKeyDown(KeyCode.LeftShift))
+              {
         
-    }
+                StartCoroutine(Dash());
+                
+              }
+           // }
+          
+        }
+        
+        
+
+        IEnumerator Dash()
+        {
+            float startTime = Time.time;
+
+        
+
+            while(Time.time < startTime + dashTime)
+            {
+                characterController.Move(velocity * dashSpeed * Time.deltaTime);
+                yield return null; 
+            }
+           
+        }
+     }
 
     void FixedUpdate()
     {
@@ -198,7 +243,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        Vector3 velocity = movementDirection * magnitude;
+        velocity = movementDirection * magnitude;
+
+        
         velocity.y = ySpeed;
 
         characterController.Move(velocity * Time.deltaTime);
@@ -218,34 +265,7 @@ public class PlayerController : MonoBehaviour
         //Dash and cooldown settings
 
 
-        if(canUseDash && IsMoving)
-        {
-            //if(characterController.isGrounded)
-           // {
-              if(Input.GetKeyDown(KeyCode.LeftShift))
-              {
         
-                StartCoroutine(Dash());
-              }
-           // }
-          
-        }
-        
-        
-
-        IEnumerator Dash()
-        {
-            float startTime = Time.time;
-
-        
-
-            while(Time.time < startTime + dashTime)
-            {
-                characterController.Move(velocity * dashSpeed * Time.deltaTime);
-                yield return null; 
-            }
-           
-        }
 
 
 
@@ -256,18 +276,18 @@ public class PlayerController : MonoBehaviour
             canUseDash = false;
         }
 
+       
+
         if(dashCoolDownTimer < 0)
         {
             dashCoolDownTimer = 0;
         }
        //if timer is reset we can use dash
-        if(dashCoolDownTimer == 0)
-        {
-            canUseDash = true;
-        }
+        
 
         if(Input.GetKeyDown(KeyCode.LeftShift) && dashCoolDownTimer == 0)
         {
+            canUseDash = true;
             Debug.Log("Dashed!");
             dashCoolDownTimer = dashCoolDown;
         }
@@ -349,9 +369,41 @@ public class PlayerController : MonoBehaviour
      {
         StartCoroutine(DamageNegation());
      }
+
+
+    //Saving Data
+     public void SavePlayerData()
+     {
+        playerData.CurrentHealth = PH.currentHealth;
+        playerData.CurrentMana = PM.currentMana;
+        playerData.CurrentPositionInLevel = CurrentPosition;
+        
+     }
      
 
     
    
 }
+
+/*
+[Serializable]
+public class CharacterData
+{
+    public int CurrentHealth;
+    public int CurrentMana;
+    public float positionX;
+    public float positionY;
+    public float positionZ;
+    public string Name;
+
+    
+}
+
+[Serializable]
+public class SaveData
+{
+  public list<CharacterData> characters;
+}
+*/
+
 

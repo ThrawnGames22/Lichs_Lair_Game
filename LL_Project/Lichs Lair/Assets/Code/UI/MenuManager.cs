@@ -40,6 +40,12 @@ public class MenuManager : MonoBehaviour
        StartCoroutine(LoadFirstLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
+    public void QuitToMenu()
+    {
+        StartCoroutine(LoadMenu());
+        
+    }
+
     IEnumerator LoadMagePickerLevel(int LevelIndex)
     {
         transition.SetTrigger("Start");
@@ -52,6 +58,13 @@ public class MenuManager : MonoBehaviour
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(TransitionTime);
         SceneManager.LoadScene(LevelIndex);
+    }
+
+    IEnumerator LoadMenu()
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(TransitionTime);
+        SceneManager.LoadScene("Menu");
     }
 
     

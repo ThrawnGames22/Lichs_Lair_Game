@@ -18,7 +18,7 @@ public class MagePickerBasin : MonoBehaviour
     {
        NormalFire.Play();
        MageFire.Stop();
-       playerManager = GameObject.Find("GameManager").GetComponent<PlayerManager>();
+       playerManager = GameObject.Find("GameManager(Clone)").GetComponent<PlayerManager>();
        MageImageFadeIn.SetActive(false);
        MageImageFadeOut.SetActive(false);
 

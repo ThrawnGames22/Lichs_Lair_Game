@@ -63,7 +63,7 @@ public class PlayerMagic : MonoBehaviour
     void Start()
     {
         manaBar = GameObject.Find("Mana Slider").GetComponent<ManaBar>();
-        GameManager = GameObject.Find("GameManager");
+        GameManager = GameObject.Find("GameManager(Clone)");
         AbilityManager = GameManager.GetComponent<AbilityList>();
         UI = GameObject.Find("UI");
         slotUIController = UI.GetComponent<SlotUIController>();

@@ -7507,20 +7507,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7b0bfccb27d0a46bcbb117419c62d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 3de50fcf89cf77441988ef6abcafd0e6, type: 2}
   MageClassData: {fileID: 11400000, guid: 9ea3eb3d793366843ac00bd52d77844f, type: 2}
-  PH: {fileID: 0}
+  PH: {fileID: 5260952273746040807}
+  PM: {fileID: 5260952273746040806}
   speed: 5
   rotationSpeed: 720
   jumpSpeed: 5
+  velocity: {x: 0, y: 0, z: 0}
   IsInFrontCameraView: 0
   IsInBackCameraView: 0
   IsInLeftCameraView: 0
   IsInRightCameraView: 0
   horizontalInput: 0
   verticalInput: 0
-  dashSpeed: 5
+  dashSpeed: 3
   dashTime: 0.25
-  dashCoolDown: 2
+  dashCoolDown: 4
   dashCoolDownTimer: 0
   canUseDash: 0
   IsMoving: 0
@@ -7543,9 +7546,11 @@ MonoBehaviour:
   AttackValue: 0
   Enemies: []
   DamageNegationActive: 0
-  DNTime: 0
+  DNTime: 5
   CurrentDamageNegationAmount: 0
   NormalDNAmount: 0
+  IsGrounded: 0
+  YSpeed: 0
 --- !u!143 &5260952273746040825
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7645,7 +7650,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!95 &9108813692638155439
 Animator:
   serializedVersion: 4

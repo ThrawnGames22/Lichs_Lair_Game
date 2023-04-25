@@ -16,7 +16,16 @@ public class MagePickerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(GameObject.Find("GameManager(Clone)").GetComponent<UIHandler>().IsPaused == true)
+        {
+          ClassButtons.SetActive(false);
+          InformationButton.SetActive(false);
+        }
+        if(GameObject.Find("GameManager(Clone)").GetComponent<UIHandler>().IsPaused == false)
+        {
+          ClassButtons.SetActive(true);
+          InformationButton.SetActive(true);
+        }
     }
 
     public void EnablePanel()
