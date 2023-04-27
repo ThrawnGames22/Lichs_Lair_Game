@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 6971747318157869055}
   - component: {fileID: 6971747318157869040}
   - component: {fileID: 1546092332075605542}
+  - component: {fileID: 6353208583104088589}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -179,7 +180,7 @@ Transform:
   - {fileID: 6154267462473561070}
   - {fileID: 194656906653757414}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &5759709405091239642
 CapsuleCollider:
@@ -252,6 +253,8 @@ MonoBehaviour:
   OriginalSpeed: 5
   navMeshAgent: {fileID: 6971747318157869040}
   DamageToApply: 5
+  IsAgitated: 0
+  ReturnPosition: {fileID: 0}
   OriginalDamageToApply: 5
   CanApplyDamageToPlayer: 0
   AttackDelay: 0.3
@@ -259,6 +262,11 @@ MonoBehaviour:
   AttackBlocked: 0
   FistObject: {fileID: 0}
   EnemyAnimator: {fileID: 2819621920744928242}
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!195 &6971747318157869040
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -269,16 +277,16 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2.5
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2.47
-  m_BaseOffset: 1
+  m_Height: 2
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1546092332075605542
@@ -291,6 +299,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37b488845f2f18b4b9b8cbe12ee38959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6353208583104088589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759709405091239644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c109cff87d4864da95eb91fa2fbe00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1119716461039852171

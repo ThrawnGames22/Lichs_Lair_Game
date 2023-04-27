@@ -17,6 +17,7 @@ public class PetController : MonoBehaviour
         Owner = GameObject.FindGameObjectWithTag("Player").transform;
         navMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
         navMeshAgent.speed = OriginalSpeed;
+        this.transform.position = Owner.transform.position;
 
     }
 

@@ -40,6 +40,11 @@ public class EnemyController : MonoBehaviour
     //Animation
     public Animator EnemyAnimator;
 
+    //Patrol Pathfinding
+    
+    public GameObject[] patrolPoints;
+    private int currentPoint;
+
     //public EnemyType enemyType;
     // Start is called before the first frame update
     void Start()
@@ -47,6 +52,9 @@ public class EnemyController : MonoBehaviour
         target = GameObject.FindWithTag("Player");
         navMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
         navMeshAgent.speed = OriginalSpeed;
+        navMeshAgent.destination = patrolPoints[currentPoint].transform.position;
+        currentPoint = 0;
+        
     }
 
     // Update is called once per frame
@@ -65,7 +73,7 @@ public class EnemyController : MonoBehaviour
      if(target != null)
      {
        currentDistance = Vector3.Distance(target.transform.position, transform.position);
-       navMeshAgent.SetDestination(target.transform.position);
+       //navMeshAgent.SetDestination(target.transform.position);
      }
       
 
@@ -81,12 +89,14 @@ public class EnemyController : MonoBehaviour
 
       if(currentDistance > 5)
       {
-        ReturnToNormalPosition();
-      }
-      else
+        if(Vector3.Distance(this.transform.position, patrolPoints[currentPoint].transform.position) <= 2f)
       {
-        FindPlayer();
+        Iterate();
       }
+      }
+      
+
+      
       
     }
    /*
@@ -155,6 +165,28 @@ public class EnemyController : MonoBehaviour
       navMeshAgent.destination = target.transform.position;
     }
 
+    public void Iterate()
+    {
+      if(currentPoint < patrolPoints.Length-1)
+      {
+        currentPoint++;
+      }
+      else
+      {
+        currentPoint = 0;
+      }
+      navMeshAgent.destination = patrolPoints[currentPoint].transform.position;
+      
+      
+      //PatrolTarget = patrolPoints[PatrolPointIndex].position;
+      //navMeshAgent.destination = patrolPoints[PatrolPointIndex].position;
+
+      //PatrolPointIndex = (PatrolPointIndex + 1) % patrolPoints.Length;
+    }
+    
+
+   
+
 
 }
 
@@ -184,14 +216,28 @@ public class EnemyControllerEditor : Editor
         EditorUtility.SetDirty(target);
         EC.enemyType = (EnemyType)EditorGUILayout.EnumPopup("EnemyType", EC.enemyType);
 
+        SerializedProperty m_PatrolPoints;
+
+        void OnEnable()
+        {
+          
+        }
+
         switch(EC.enemyType)
         {
           case EnemyType.Zombie:
+          m_PatrolPoints = serializedObject.FindProperty("patrolPoints");
           EC.target = (GameObject)EditorGUILayout.ObjectField("Target", EC.target, typeof(GameObject), true);
           EC.EnemyAnimator = (Animator)EditorGUILayout.ObjectField("Enemy Animator", EC.EnemyAnimator, typeof(Animator), true);
           EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
           EC.IsAgitated = EditorGUILayout.Toggle("IsAgitated", EC.IsAgitated);
           EC.ReturnPosition = (Transform)EditorGUILayout.ObjectField("Return Position", EC.ReturnPosition, typeof(Transform), true);
+          EditorGUILayout.PropertyField(serializedObject.FindProperty("patrolPoints"), includeChildren: true);
+          if(m_PatrolPoints.hasChildren)
+          {
+            serializedObject.ApplyModifiedProperties();
+          }
+
 
 
           EC.RangeToPlayer = EditorGUILayout.FloatField("Range To Player", EC.RangeToPlayer);
@@ -203,6 +249,8 @@ public class EnemyControllerEditor : Editor
           EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
 
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
+          //EC.PatrolPointIndex = EditorGUILayout.IntField("Patrol Point Index", EC.PatrolPointIndex);
+
           EC.OriginalDamageToApply = EditorGUILayout.IntField("Original Damage To Apply", EC.OriginalDamageToApply);
 
           EC.DamageToApply = 5;
