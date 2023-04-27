@@ -25,6 +25,10 @@ public class EnemyController : MonoBehaviour
     public NavMeshAgent navMeshAgent; 
     public int DamageToApply;
 
+
+    public bool IsAgitated;
+    public Transform ReturnPosition;
+
     public int OriginalDamageToApply;
     public bool CanApplyDamageToPlayer;
     public float AttackDelay = 0.3f;
@@ -48,6 +52,12 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      //currentDistance = Vector3.Distance(target.transform.position, transform.position);
+
+      if(target.GetComponent<PlayerController>().DamageNegationActive == false)
+      {
+        ResetDamage();
+      }
       //var lookPos = target.transform.position - transform.position;
       //lookPos.y = 0;
       //var Rotation = Quaternion.LookRotation(lookPos);
@@ -66,6 +76,16 @@ public class EnemyController : MonoBehaviour
       else
       {
         StopAttack();
+      }
+
+
+      if(currentDistance > 5)
+      {
+        ReturnToNormalPosition();
+      }
+      else
+      {
+        FindPlayer();
       }
       
     }
@@ -125,6 +145,16 @@ public class EnemyController : MonoBehaviour
       DamageToApply = OriginalDamageToApply;
     }
 
+    public void ReturnToNormalPosition()
+    {
+      navMeshAgent.destination = ReturnPosition.position;
+    }
+
+    public void FindPlayer()
+    {
+      navMeshAgent.destination = target.transform.position;
+    }
+
 
 }
 
@@ -160,6 +190,8 @@ public class EnemyControllerEditor : Editor
           EC.target = (GameObject)EditorGUILayout.ObjectField("Target", EC.target, typeof(GameObject), true);
           EC.EnemyAnimator = (Animator)EditorGUILayout.ObjectField("Enemy Animator", EC.EnemyAnimator, typeof(Animator), true);
           EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
+          EC.IsAgitated = EditorGUILayout.Toggle("IsAgitated", EC.IsAgitated);
+          EC.ReturnPosition = (Transform)EditorGUILayout.ObjectField("Return Position", EC.ReturnPosition, typeof(Transform), true);
 
 
           EC.RangeToPlayer = EditorGUILayout.FloatField("Range To Player", EC.RangeToPlayer);
@@ -186,6 +218,9 @@ public class EnemyControllerEditor : Editor
           EC.currentDistance = EditorGUILayout.FloatField("Current Distance", EC.currentDistance);
           EC.speed = EditorGUILayout.FloatField("Speed", EC.speed);
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
+          EC.IsAgitated = EditorGUILayout.Toggle("IsAgitated", EC.IsAgitated);
+          EC.ReturnPosition = (Transform)EditorGUILayout.ObjectField("Return Position", EC.ReturnPosition, typeof(Transform), true);
+          EC.OriginalDamageToApply = EditorGUILayout.IntField("Original Damage To Apply", EC.OriginalDamageToApply);
 
           
           //EC.navMeshAgent.speed = EC.speed;
@@ -199,6 +234,9 @@ public class EnemyControllerEditor : Editor
           EC.currentDistance = EditorGUILayout.FloatField("Current Distance", EC.currentDistance);
           EC.speed = EditorGUILayout.FloatField("Speed", EC.speed);
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
+          EC.IsAgitated = EditorGUILayout.Toggle("IsAgitated", EC.IsAgitated);
+          EC.ReturnPosition = (Transform)EditorGUILayout.ObjectField("Return Position", EC.ReturnPosition, typeof(Transform), true);
+          EC.OriginalDamageToApply = EditorGUILayout.IntField("Original Damage To Apply", EC.OriginalDamageToApply);
 
           
           //EC.navMeshAgent.speed = EC.speed;
@@ -212,6 +250,9 @@ public class EnemyControllerEditor : Editor
           EC.currentDistance = EditorGUILayout.FloatField("Current Distance", EC.currentDistance);
           EC.speed = EditorGUILayout.FloatField("Speed", EC.speed);
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
+          EC.IsAgitated = EditorGUILayout.Toggle("IsAgitated", EC.IsAgitated);
+          EC.ReturnPosition = (Transform)EditorGUILayout.ObjectField("Return Position", EC.ReturnPosition, typeof(Transform), true);
+          EC.OriginalDamageToApply = EditorGUILayout.IntField("Original Damage To Apply", EC.OriginalDamageToApply);
 
           break;
         }

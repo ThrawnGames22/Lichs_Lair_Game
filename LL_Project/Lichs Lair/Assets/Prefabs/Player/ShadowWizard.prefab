@@ -1972,6 +1972,7 @@ MonoBehaviour:
   TryAgainButton: {fileID: 0}
   YouDiedImageAnimator: {fileID: 0}
   TimeToActivateButton: 5
+  PlayerIsDead: 0
 --- !u!1 &1575067394496888910
 GameObject:
   m_ObjectHideFlags: 0
@@ -7515,6 +7516,8 @@ MonoBehaviour:
   rotationSpeed: 720
   jumpSpeed: 5
   velocity: {x: 0, y: 0, z: 0}
+  CurrentPosition: {x: 0, y: 0, z: 0}
+  characterController: {fileID: 0}
   IsInFrontCameraView: 0
   IsInBackCameraView: 0
   IsInLeftCameraView: 0
@@ -7635,6 +7638,8 @@ MonoBehaviour:
   DamageScreen: {fileID: 8262835466414922044}
   ScreenAlpha: 0.6
   UIHasActivated: 0
+  PlayerModel: {fileID: 3358985846511206501}
+  IsDead: 0
 --- !u!54 &5051377434870979113
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19607,6 +19612,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShadowWizard(noUV)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b242c8967cd1d24f9cd007f61e48062,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerRenderer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -91,8 +91,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9105480582946930745}
   - {fileID: 576655697308908896}
+  - {fileID: 9105480582946930745}
   m_Father: {fileID: 5759709405091239655}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,7 +151,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5759709405091239655}
-  - component: {fileID: 5759709405091239640}
   - component: {fileID: 5759709405091239642}
   - component: {fileID: 5759709405091239643}
   - component: {fileID: 5759709405091239654}
@@ -180,16 +179,8 @@ Transform:
   - {fileID: 6154267462473561070}
   - {fileID: 194656906653757414}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5759709405091239640
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5759709405091239644}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!136 &5759709405091239642
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -218,6 +209,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCurrentHealth: 0
   enemyMaxHealth: 30
+  col: {fileID: 5759709405091239642}
+  agent: {fileID: 6971747318157869040}
+  EH: {fileID: 5759709405091239643}
+  DS: {fileID: 1546092332075605542}
+  EC: {fileID: 6971747318157869055}
+  RB: {fileID: 5759709405091239654}
+  IsDead: 0
 --- !u!54 &5759709405091239654
 Rigidbody:
   m_ObjectHideFlags: 0

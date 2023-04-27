@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 velocity;
     public Vector3 CurrentPosition;
 
-    private CharacterController characterController;
+    public CharacterController characterController;
     private float ySpeed;
     private float originalStepOffset;
     public bool IsInFrontCameraView;
@@ -158,11 +158,8 @@ public class PlayerController : MonoBehaviour
             }
            
         }
-     }
 
-    void FixedUpdate()
-    {
-        
+      
         if(DamageNegationActive == true)
         {
           foreach(GameObject enemy in Enemies)
@@ -170,13 +167,14 @@ public class PlayerController : MonoBehaviour
             enemy.GetComponent<EnemyController>().DamageToApply = CurrentDamageNegationAmount;
           }
         }
-        if(!DamageNegationActive)
-        {
-          foreach(GameObject enemy in Enemies)
-          {
-            enemy.GetComponent<EnemyController>().ResetDamage();
-          }
-        }
+        
+        
+     }
+
+    void FixedUpdate()
+    {
+        
+        
 
         Enemies = GameObject.FindGameObjectsWithTag("Enemy");
 

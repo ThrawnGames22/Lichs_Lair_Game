@@ -29,6 +29,6 @@ public class GlobalSceneManager : MonoBehaviour
 
     public void ResetScene()
     {
-        SceneManager.LoadScene("Pixel Shader Test");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

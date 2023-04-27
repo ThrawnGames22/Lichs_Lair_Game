@@ -1,11 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class EnemyHealth : MonoBehaviour
 {
     public float enemyCurrentHealth;
     public float enemyMaxHealth;
+    
+    [Header("Components To Destroy On Death")]
+    public CapsuleCollider col;
+    public NavMeshAgent agent;
+    public EnemyHealth EH;
+    public DetectSunlight DS;
+    public EnemyController EC;
+    public Rigidbody RB;
+
+    public bool IsDead;
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +35,7 @@ public class EnemyHealth : MonoBehaviour
 
         if(enemyCurrentHealth == 0)
         {
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -66,5 +78,25 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damageValue)
     {
         enemyCurrentHealth -=damageValue;
+    }
+
+    public void Die()
+    {
+      IsDead = true;
+      Destroy(col);
+      Destroy(agent);
+      //Destroy(EH);
+      Destroy(DS);
+      Destroy(EC);
+      Destroy(RB);
+      StartCoroutine(DestroyAfterTime());
+    }
+
+    public IEnumerator DestroyAfterTime()
+    {
+        yield return new WaitForSeconds(5);
+        
+            Destroy(this.gameObject);
+        
     }
 }

@@ -283,4 +283,9 @@ public class PlayerMagic : MonoBehaviour
         yield return new WaitForSeconds(0);
 
     }
+
+    public void ResetMana()
+    {
+      currentMana = maxMana;
+    }
 }

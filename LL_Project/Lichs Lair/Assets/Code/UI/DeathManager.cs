@@ -16,12 +16,13 @@ public class DeathManager : MonoBehaviour
 
     public Animator YouDiedImageAnimator;
     public float TimeToActivateButton;
+    public bool PlayerIsDead;
 
     
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        
         DeathScreen = GameObject.Find("Death Screen");
         TryAgainButton = GameObject.Find("Try Again");
         
@@ -29,14 +30,9 @@ public class DeathManager : MonoBehaviour
         BlackScreen = GameObject.Find("BlackDeathScreen");
         YouDiedImage = GameObject.Find("You Died Image");
         YouDiedImageAnimator = GameObject.Find("You Died Image").GetComponent<Animator>();
+        SetScreen();
 
-        var BScolor = BlackScreen.GetComponent<Image>().color;
-        var YDIcolor = YouDiedImage.GetComponent<Image>().color;
         
-        BScolor.a = 0f;
-        YDIcolor.a = 0f;
-        BlackScreen.GetComponent<Image>().color = BScolor;
-        YouDiedImage.GetComponent<Image>().color = YDIcolor;
         TryAgainButton.SetActive(false);
         
     }
@@ -49,15 +45,18 @@ public class DeathManager : MonoBehaviour
     */
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if(Player == null)
+        
+        Player = GameObject.FindGameObjectWithTag("Player");
+        PlayerIsDead = Player.GetComponent<PlayerHealth>().IsDead;
+        if(PlayerIsDead == true)
         {
             YouDiedImageAnimator.SetTrigger("PlayerIsDead");
             //StartCoroutine(IncreaseAlphaOnDeathScreen());
         var BScolor = BlackScreen.GetComponent<Image>().color;
         var YDIcolor = YouDiedImage.GetComponent<Image>().color;
-        StartCoroutine(SetButtonsActive());
+         TryAgainButton.SetActive(true);
         
         BScolor.a += 0.3f * Time.deltaTime;
         YDIcolor.a += 0.3f * Time.deltaTime;
@@ -66,17 +65,41 @@ public class DeathManager : MonoBehaviour
         BlackScreen.GetComponent<Image>().color = BScolor;
         YouDiedImage.GetComponent<Image>().color = YDIcolor;
         }
+        
+        if(PlayerIsDead == false)
+        {
+           TryAgainButton.SetActive(false); 
+        }
     }
 
-    public IEnumerator SetButtonsActive()
-    {
-      yield return new WaitForSeconds(TimeToActivateButton);
-      TryAgainButton.SetActive(true);
-    }
+    
 
     public void Retry()
     {
         GlobalSceneManager.Instance.ResetScene();
+        ActivatePlayer();
+        
+    }
+
+    public void ActivatePlayer()
+    {
+        PlayerHealth.Instance.Revive();
+        
+    }
+
+   
+
+    public void SetScreen()
+    {
+        
+        //TryAgainButton.SetActive(false);
+        var BScolor = BlackScreen.GetComponent<Image>().color;
+        var YDIcolor = YouDiedImage.GetComponent<Image>().color;
+        
+        BScolor.a = 0f;
+        YDIcolor.a = 0f;
+        BlackScreen.GetComponent<Image>().color = BScolor;
+        YouDiedImage.GetComponent<Image>().color = YDIcolor;
     }
 
    

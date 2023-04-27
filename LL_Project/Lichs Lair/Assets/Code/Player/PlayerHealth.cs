@@ -21,6 +21,9 @@ public class PlayerHealth : MonoBehaviour
 
     public bool UIHasActivated;
 
+    public GameObject PlayerModel;
+    public bool IsDead;
+
     //Death Screen Attributes
     
     //Potion Effects
@@ -98,11 +101,25 @@ public class PlayerHealth : MonoBehaviour
     public void Die()
     {
         
-        Destroy(this.gameObject);
+        IsDead = true;
+        PlayerModel.SetActive(false);
+        PlayerController.Instance.speed = 0;
         DamageScreen.SetActive(false);
         //DeathScreen.SetActive(true);
         
         
+    }
+
+    public void Revive()
+    {
+        IsDead = false;
+        PlayerModel.SetActive(true);
+        PlayerController.Instance.speed = 5;
+        ResetHealth();
+        PlayerMagic.Instance.ResetMana();
+        DamageScreen.SetActive(true);
+        //GameObject.Find("Death Screen").GetComponent<DeathManager>().TryAgainButton.SetActive(false);
+
     }
 
     public void TakeDamage(int Damage)
@@ -120,6 +137,11 @@ public class PlayerHealth : MonoBehaviour
     public void ResetDamageFlag()
     {
         isTakingDamage = false;
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
     }
 
     
