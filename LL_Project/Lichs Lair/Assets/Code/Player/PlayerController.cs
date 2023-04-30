@@ -34,12 +34,17 @@ public class PlayerController : MonoBehaviour
     //cooldown
     public float dashSpeed;
     public float dashTime;
-    public float dashCoolDown = 1;
-    public float dashCoolDownTimer;
+    public float dashCD;
+    public float maxDashCD;
     //determines if we can use dash
     public bool canUseDash;
     public bool IsMoving;
     public bool CanJump;
+
+    public GameObject PlayerDashReadyIcon;
+    public GameObject PlayerDashNotReadyIcon;
+    public bool IconShow;
+
 
     [Header ("Player Combat")]
     private GameObject WeaponSaveSlot;
@@ -88,6 +93,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        dashCD = maxDashCD;
+        IconShow = true;
         characterController = GetComponent<CharacterController>();
         originalStepOffset = characterController.stepOffset;
         
@@ -129,35 +136,38 @@ public class PlayerController : MonoBehaviour
         {
             SavePlayerData();
         }
-        if(canUseDash)
-        {
+        dashCD -= Time.deltaTime;
+            
             //if(characterController.isGrounded)
            // {
-              if(Input.GetKeyDown(KeyCode.LeftShift))
+              if(Input.GetKeyDown(KeyCode.LeftShift) && IsMoving)
               {
+                if(dashCD <= 0)
+                {
+
+                
         
                 StartCoroutine(Dash());
+                }
                 
               }
            // }
           
-        }
         
         
-
-        IEnumerator Dash()
+        if(IconShow)
         {
-            float startTime = Time.time;
+            PlayerDashReadyIcon.SetActive(true);
+            PlayerDashNotReadyIcon.SetActive(false);
+        }
+
+        if(!IconShow)
+        {
+            PlayerDashReadyIcon.SetActive(false);
+            PlayerDashNotReadyIcon.SetActive(true);
+        }
 
         
-
-            while(Time.time < startTime + dashTime)
-            {
-                characterController.Move(velocity * dashSpeed * Time.deltaTime);
-                yield return null; 
-            }
-           
-        }
 
       
         if(DamageNegationActive == true)
@@ -166,6 +176,12 @@ public class PlayerController : MonoBehaviour
           {
             enemy.GetComponent<EnemyController>().DamageToApply = CurrentDamageNegationAmount;
           }
+        }
+
+        if(dashCD < 0)
+        {
+            dashCD = 0;
+            IconShow = true;
         }
         
         
@@ -268,27 +284,11 @@ public class PlayerController : MonoBehaviour
 
 
         //if timer is going we have to wait for it to expire before we can use dash again
-        if(dashCoolDownTimer > 0)
-        {
-            dashCoolDownTimer -= Time.deltaTime;
-            canUseDash = false;
-        }
-
-       
-
-        if(dashCoolDownTimer < 0)
-        {
-            dashCoolDownTimer = 0;
-        }
+        
        //if timer is reset we can use dash
         
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && dashCoolDownTimer == 0)
-        {
-            canUseDash = true;
-            Debug.Log("Dashed!");
-            dashCoolDownTimer = dashCoolDown;
-        }
+       
 
 
         //Potion Effects
@@ -377,6 +377,28 @@ public class PlayerController : MonoBehaviour
         playerData.CurrentPositionInLevel = CurrentPosition;
         
      }
+
+
+     IEnumerator Dash()
+        {
+            IconShow = false;
+            
+            float startTime = Time.time;
+
+        
+
+            while(Time.time < startTime + dashTime)
+            {
+                
+                
+                characterController.Move(velocity * dashSpeed * Time.deltaTime);
+                dashCD = maxDashCD;
+                yield return null; 
+            }
+
+            
+           
+        }
      
 
     
