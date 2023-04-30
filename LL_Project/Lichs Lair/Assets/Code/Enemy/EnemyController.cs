@@ -79,20 +79,37 @@ public class EnemyController : MonoBehaviour
 
       if(currentDistance < 2 )
       {
-        AttackPlayer();
+        IsAgitated = true;
+        
       }
       else
       {
         StopAttack();
       }
 
+      if(IsAgitated == true)
+      {
+        AttackPlayer();
+        StopIteration();
+        navMeshAgent.stoppingDistance = 2;
+      }
+
 
       if(currentDistance > 5)
       {
-        if(Vector3.Distance(this.transform.position, patrolPoints[currentPoint].transform.position) <= 2f)
+        
+        IsAgitated = false;
+        
+       
+      }
+
+      if(IsAgitated == false)
+      {
+       if(Vector3.Distance(this.transform.position, patrolPoints[currentPoint].transform.position) <= 2f)
       {
         Iterate();
       }
+     
       }
       
 
@@ -167,15 +184,20 @@ public class EnemyController : MonoBehaviour
 
     public void Iterate()
     {
+      
       if(currentPoint < patrolPoints.Length-1)
       {
         currentPoint++;
       }
-      else
-      {
-        currentPoint = 0;
-      }
-      navMeshAgent.destination = patrolPoints[currentPoint].transform.position;
+      
+       navMeshAgent.destination = patrolPoints[currentPoint].transform.position;
+      
+
+      
+      
+        
+      
+      
       
       
       //PatrolTarget = patrolPoints[PatrolPointIndex].position;
@@ -183,6 +205,17 @@ public class EnemyController : MonoBehaviour
 
       //PatrolPointIndex = (PatrolPointIndex + 1) % patrolPoints.Length;
     }
+
+    public void StopIteration()
+    {
+      
+       navMeshAgent.destination = target.transform.position;
+      
+    }
+
+   
+
+    
     
 
    

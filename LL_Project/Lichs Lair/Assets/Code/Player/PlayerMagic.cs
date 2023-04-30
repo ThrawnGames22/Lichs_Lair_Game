@@ -137,7 +137,7 @@ public class PlayerMagic : MonoBehaviour
       {
 
       
-        if(!castingCombatMagic1 && Input.GetKeyDown(KeyCode.Mouse0) && hasEnoughMana)
+        if(!castingCombatMagic1 && Input.GetKeyDown(KeyCode.Mouse0) && hasEnoughMana || !castingCombatMagic1 && Input.GetKeyDown(KeyCode.JoystickButton3) && hasEnoughMana )
         {
            castingCombatMagic1 = true;
            DecreaseMana(CombatSpellSlot1.spellToCast.ManaCost);
@@ -169,6 +169,15 @@ public class PlayerMagic : MonoBehaviour
 
         
       }
+      else
+      {
+         return;
+      }
+
+      
+
+
+
       if(castingCombatMagic1)
         {
             currentCombatCastTimer += Time.deltaTime;

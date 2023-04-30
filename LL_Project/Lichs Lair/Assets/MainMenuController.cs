@@ -25,17 +25,28 @@ public class MainMenuController : MonoBehaviour
     void Update()
     {
         PanelAnimator.SetBool("IsOpen", IsOpen);
+
+        if(IsOpen)
+        {
+          MainPanel.SetActive(false);
+        }
+
+        if(!IsOpen)
+        {
+          MainPanel.SetActive(true);
+        }
     }
 
     public void ShowControls()
     {
-      MainPanel.SetActive(false);
+      
       IsOpen = true;
       
     }
 
     public void HideControls()
     {
+      
       IsOpen = false;
     }
 

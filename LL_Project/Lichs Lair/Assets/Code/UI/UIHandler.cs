@@ -18,6 +18,8 @@ public class UIHandler : MonoBehaviour
     public Scene CurrentScene;
 
     public GameObject MagePickerUI;
+    public PlayerInventoryController inventoryController;
+    public PlayerMagic PM;
 
     private void Awake() 
     {
@@ -28,11 +30,15 @@ public class UIHandler : MonoBehaviour
     {
         PauseMenu.SetActive(false);
         
+        
+        
     }
 
     void Update()
     {
         
+        inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
+        PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMagic>();
         
         CurrentScene = SceneManager.GetActiveScene();
         CurrentSceneName = CurrentScene.name;
@@ -64,9 +70,11 @@ public class UIHandler : MonoBehaviour
 
     public void PauseGame()
     {
-        
+        IsPaused = true;
         Time.timeScale = 0;
         PauseMenu.SetActive(true);
+        PM.enabled = false;
+        
     }
 
     public void ResumeGame()
@@ -74,6 +82,9 @@ public class UIHandler : MonoBehaviour
         IsPaused = false;
         Time.timeScale = 1;
         PauseMenu.SetActive(false);
+        PM.enabled = true;
+        //inventoryController.InventoryIsOpen = false;
+        //GameObject.Find("ItemInventory").GetComponent<Canvas>().enabled = true;
 
         
     }
