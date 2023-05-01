@@ -24,7 +24,7 @@ public class ManaPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "PlayerPickupCollider")
         {
             if(GameObject.Find("UI").GetComponent<SlotUIController>().HasManaPotion == false)
             {

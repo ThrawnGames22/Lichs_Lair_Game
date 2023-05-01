@@ -36,6 +36,10 @@ public class EnemyController : MonoBehaviour
         
     public bool AttackBlocked = false;
     public GameObject FistObject;
+    public bool IsPatrolling;
+
+    public float minDistance;
+    public float maxDistance;
 
     //Animation
     public Animator EnemyAnimator;
@@ -77,9 +81,10 @@ public class EnemyController : MonoBehaviour
      }
       
 
-      if(currentDistance < 2 )
+      if(currentDistance < minDistance )
       {
         IsAgitated = true;
+        
         
       }
       else
@@ -95,21 +100,30 @@ public class EnemyController : MonoBehaviour
       }
 
 
-      if(currentDistance > 5)
+      if(currentDistance > maxDistance)
       {
         
         IsAgitated = false;
+        if(IsPatrolling == false)
+        {
+          navMeshAgent.destination = ReturnPosition.position;
+          navMeshAgent.stoppingDistance = 2;
+        }
         
        
       }
 
+      if(IsPatrolling)
+      {
       if(IsAgitated == false)
       {
+        navMeshAgent.stoppingDistance = 0;
        if(Vector3.Distance(this.transform.position, patrolPoints[currentPoint].transform.position) <= 2f)
       {
         Iterate();
       }
      
+      }
       }
       
 
@@ -189,6 +203,10 @@ public class EnemyController : MonoBehaviour
       {
         currentPoint++;
       }
+      else
+      {
+        currentPoint = 0;
+      }
       
        navMeshAgent.destination = patrolPoints[currentPoint].transform.position;
       
@@ -264,6 +282,7 @@ public class EnemyControllerEditor : Editor
           EC.EnemyAnimator = (Animator)EditorGUILayout.ObjectField("Enemy Animator", EC.EnemyAnimator, typeof(Animator), true);
           EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
           EC.IsAgitated = EditorGUILayout.Toggle("IsAgitated", EC.IsAgitated);
+          EC.IsPatrolling = EditorGUILayout.Toggle("IsPatrolling", EC.IsPatrolling);
           EC.ReturnPosition = (Transform)EditorGUILayout.ObjectField("Return Position", EC.ReturnPosition, typeof(Transform), true);
           EditorGUILayout.PropertyField(serializedObject.FindProperty("patrolPoints"), includeChildren: true);
           if(m_PatrolPoints.hasChildren)
@@ -287,12 +306,15 @@ public class EnemyControllerEditor : Editor
           EC.OriginalDamageToApply = EditorGUILayout.IntField("Original Damage To Apply", EC.OriginalDamageToApply);
 
           EC.DamageToApply = 5;
+          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Attack", EC.minDistance);
+          EC.maxDistance = EditorGUILayout.FloatField("Max Distance to Stop Chasing", EC.maxDistance);
           
           //EC.navMeshAgent.speed = EC.speed;
 
           break;
 
           case EnemyType.DeathKnight:
+          m_PatrolPoints = serializedObject.FindProperty("patrolPoints");
           EC.target = (GameObject)EditorGUILayout.ObjectField("Target", EC.target, typeof(GameObject), true);
           EC.EnemyAnimator = (Animator)EditorGUILayout.ObjectField("Enemy Animator", EC.EnemyAnimator, typeof(Animator), true);
           EC.RangeToPlayer = EditorGUILayout.FloatField("Range To Player", EC.RangeToPlayer);
@@ -300,8 +322,19 @@ public class EnemyControllerEditor : Editor
           EC.speed = EditorGUILayout.FloatField("Speed", EC.speed);
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
           EC.IsAgitated = EditorGUILayout.Toggle("IsAgitated", EC.IsAgitated);
+          EC.IsPatrolling = EditorGUILayout.Toggle("IsPatrolling", EC.IsPatrolling);
           EC.ReturnPosition = (Transform)EditorGUILayout.ObjectField("Return Position", EC.ReturnPosition, typeof(Transform), true);
           EC.OriginalDamageToApply = EditorGUILayout.IntField("Original Damage To Apply", EC.OriginalDamageToApply);
+          EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
+          EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
+          EditorGUILayout.PropertyField(serializedObject.FindProperty("patrolPoints"), includeChildren: true);
+          if(m_PatrolPoints.hasChildren)
+          {
+            serializedObject.ApplyModifiedProperties();
+          }
+          EC.DamageToApply = 15;
+          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Attack", EC.minDistance);
+          EC.maxDistance = EditorGUILayout.FloatField("Max Distance to Stop Chasing", EC.maxDistance);
 
           
           //EC.navMeshAgent.speed = EC.speed;
@@ -309,6 +342,7 @@ public class EnemyControllerEditor : Editor
           break;
 
           case EnemyType.Imp:
+          m_PatrolPoints = serializedObject.FindProperty("patrolPoints");
           EC.target = (GameObject)EditorGUILayout.ObjectField("Target", EC.target, typeof(GameObject), true);
           EC.EnemyAnimator = (Animator)EditorGUILayout.ObjectField("Enemy Animator", EC.EnemyAnimator, typeof(Animator), true);
           EC.RangeToPlayer = EditorGUILayout.FloatField("Range To Player", EC.RangeToPlayer);
@@ -316,8 +350,19 @@ public class EnemyControllerEditor : Editor
           EC.speed = EditorGUILayout.FloatField("Speed", EC.speed);
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
           EC.IsAgitated = EditorGUILayout.Toggle("IsAgitated", EC.IsAgitated);
+          EC.IsPatrolling = EditorGUILayout.Toggle("IsPatrolling", EC.IsPatrolling);
           EC.ReturnPosition = (Transform)EditorGUILayout.ObjectField("Return Position", EC.ReturnPosition, typeof(Transform), true);
           EC.OriginalDamageToApply = EditorGUILayout.IntField("Original Damage To Apply", EC.OriginalDamageToApply);
+          EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
+          EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
+          EditorGUILayout.PropertyField(serializedObject.FindProperty("patrolPoints"), includeChildren: true);
+          if(m_PatrolPoints.hasChildren)
+          {
+            serializedObject.ApplyModifiedProperties();
+          }
+          EC.DamageToApply = 10;
+          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Attack", EC.minDistance);
+          EC.maxDistance = EditorGUILayout.FloatField("Max Distance to Stop Chasing", EC.maxDistance);
 
           
           //EC.navMeshAgent.speed = EC.speed;
@@ -325,6 +370,7 @@ public class EnemyControllerEditor : Editor
           break;
 
           case EnemyType.Tank:
+          m_PatrolPoints = serializedObject.FindProperty("patrolPoints");
           EC.target = (GameObject)EditorGUILayout.ObjectField("Target", EC.target, typeof(GameObject), true);
           EC.EnemyAnimator = (Animator)EditorGUILayout.ObjectField("Enemy Animator", EC.EnemyAnimator, typeof(Animator), true);
           EC.RangeToPlayer = EditorGUILayout.FloatField("Range To Player", EC.RangeToPlayer);
@@ -332,8 +378,19 @@ public class EnemyControllerEditor : Editor
           EC.speed = EditorGUILayout.FloatField("Speed", EC.speed);
           EC.DamageToApply = EditorGUILayout.IntField("Damage To Apply", EC.DamageToApply);
           EC.IsAgitated = EditorGUILayout.Toggle("IsAgitated", EC.IsAgitated);
+          EC.IsPatrolling = EditorGUILayout.Toggle("IsPatrolling", EC.IsPatrolling);
           EC.ReturnPosition = (Transform)EditorGUILayout.ObjectField("Return Position", EC.ReturnPosition, typeof(Transform), true);
           EC.OriginalDamageToApply = EditorGUILayout.IntField("Original Damage To Apply", EC.OriginalDamageToApply);
+          EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
+          EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
+          EditorGUILayout.PropertyField(serializedObject.FindProperty("patrolPoints"), includeChildren: true);
+          if(m_PatrolPoints.hasChildren)
+          {
+            serializedObject.ApplyModifiedProperties();
+          }
+          EC.DamageToApply = 20;
+          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Attack", EC.minDistance);
+          EC.maxDistance = EditorGUILayout.FloatField("Max Distance to Stop Chasing", EC.maxDistance);
 
           break;
         }

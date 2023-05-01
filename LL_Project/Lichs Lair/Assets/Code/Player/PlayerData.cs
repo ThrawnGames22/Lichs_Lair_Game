@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     
-    public int CurrentHealth;
+    public float CurrentHealth;
     public int CurrentMana;
 
     

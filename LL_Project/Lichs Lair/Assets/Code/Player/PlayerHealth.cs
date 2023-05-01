@@ -8,8 +8,8 @@ public class PlayerHealth : MonoBehaviour
 {
     public ClassData MageClassData;
     public static PlayerHealth Instance;
-    public int currentHealth;
-    public int maxHealth;
+    public float currentHealth;
+    public float maxHealth;
     
     public HealthBar healthBar;
     public bool isTakingDamage;
@@ -62,12 +62,12 @@ public class PlayerHealth : MonoBehaviour
         //var YDIcolor = YouDiedImage.GetComponent<Image>().color;
        healthBar.SetHealth(currentHealth);
 
-        if(currentHealth < 0)
+        if(currentHealth < 0f)
         {
-            currentHealth = 0;
+            currentHealth = 0f;
         }
 
-        if(currentHealth == 0)
+        if(currentHealth == 0f)
         {
             Die();
             
@@ -92,7 +92,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void IncreaseHealth(int value)
+    public void IncreaseHealth(float value)
     {
       currentHealth += value;
       healthBar.SetHealth(currentHealth);
@@ -122,7 +122,7 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
-    public void TakeDamage(int Damage)
+    public void TakeDamage(float Damage)
     {
       currentHealth -= Damage;
       isTakingDamage = true;

@@ -127,7 +127,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.85
+  m_Radius: 0.97
   m_Center: {x: 0.6, y: 0.33, z: 0}
 --- !u!114 &749619406
 MonoBehaviour:
@@ -261,6 +261,9 @@ MonoBehaviour:
   rotationDamping: 2
   AttackBlocked: 0
   FistObject: {fileID: 0}
+  IsPatrolling: 0
+  minDistance: 2
+  maxDistance: 5
   EnemyAnimator: {fileID: 2819621920744928242}
   patrolPoints:
   - {fileID: 0}
