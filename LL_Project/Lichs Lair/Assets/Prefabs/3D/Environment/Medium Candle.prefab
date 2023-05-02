@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8306588274575145204}
   - component: {fileID: 4965558973109827409}
   - component: {fileID: 7137575226638205851}
+  - component: {fileID: 2115727622141985175}
   m_Layer: 0
   m_Name: Medium Candle
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 9163436506731054159}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4965558973109827409
 MeshFilter:
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2115727622141985175
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650639359445934670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5359771393718946927, guid: 8592b09368ae16443b1526f4053a09c8, type: 3}
 --- !u!1001 &7460827724075334133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -92,6 +107,16 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 8306588274575145204}
     m_Modifications:
+    - target: {fileID: 796587980308708831, guid: 6b768943b0237f343a5771eb660464cf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0262
+      objectReference: {fileID: 0}
+    - target: {fileID: 796587980308708831, guid: 6b768943b0237f343a5771eb660464cf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0136
+      objectReference: {fileID: 0}
     - target: {fileID: 1774769799988542906, guid: 6b768943b0237f343a5771eb660464cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -204,13 +229,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7787170241989739966, guid: 6b768943b0237f343a5771eb660464cf,
         type: 3}
+      propertyPath: m_Range
+      value: 43.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787170241989739966, guid: 6b768943b0237f343a5771eb660464cf,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787170241989739966, guid: 6b768943b0237f343a5771eb660464cf,
+        type: 3}
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7787170241989739966, guid: 6b768943b0237f343a5771eb660464cf,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
