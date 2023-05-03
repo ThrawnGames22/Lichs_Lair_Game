@@ -18,8 +18,10 @@ public class RoomDoor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-       MagicBarrier.GetComponent<MeshRenderer>().material.SetFloat("_Dissolve_Amount", dissolve); 
+       if(isMagicDoor)
+       {
+       MagicBarrier.GetComponent<MeshRenderer>().material.SetFloat("_Dissolve_Amount", dissolve);
+       }
     }
 
     // Update is called once per frame

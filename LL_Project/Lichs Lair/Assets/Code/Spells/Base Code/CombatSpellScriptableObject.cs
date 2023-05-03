@@ -48,6 +48,8 @@ public class CombatSpellScriptableObject : ScriptableObject
    
     
 }
+
+ #if UNITY_EDITOR
 [CustomEditor(typeof(CombatSpellScriptableObject))]
 public class CombatSpellEditor : Editor
 {
@@ -181,8 +183,10 @@ public class CombatSpellEditor : Editor
            
         
     }
+    
 
 
     
 }
+#endif
 

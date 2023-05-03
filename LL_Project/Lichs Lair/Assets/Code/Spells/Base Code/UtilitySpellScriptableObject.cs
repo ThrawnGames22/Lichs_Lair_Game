@@ -52,7 +52,7 @@ public class UtilitySpellScriptableObject : ScriptableObject
     
     
 }
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(UtilitySpellScriptableObject))]
 public class UtilitySpellEditor : Editor
 {
@@ -134,3 +134,4 @@ public class UtilitySpellEditor : Editor
 
     
 }
+#endif

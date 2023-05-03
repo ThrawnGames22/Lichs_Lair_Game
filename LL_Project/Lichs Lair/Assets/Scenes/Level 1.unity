@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0.52
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
+  m_SubtractiveShadowColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 2fec8540706df3e47adebafe187ea338, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -33,8 +33,8 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
-  m_ReflectionBounces: 5
+  m_DefaultReflectionResolution: 1024
+  m_ReflectionBounces: 2
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
@@ -4235,7 +4235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &410087040
 Light:
   m_ObjectHideFlags: 0
@@ -5851,6 +5851,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4586754387795893712, guid: 5facc10078e396749832b09ab29d1138,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4949899185045177988, guid: 5facc10078e396749832b09ab29d1138,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5935,6 +5940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7187804971469901563, guid: 5facc10078e396749832b09ab29d1138,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -6620,6 +6630,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 664456749670281567, guid: e481f2634d89c14488595458d9bce73a, type: 3}
+--- !u!1 &684905055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684905056}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &684905056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684905055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 8.29, z: 9.71}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1073285359}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &688685728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3660153133844597457, guid: 3cb0e8ed094668341b9aecfa464d7947,
@@ -7451,6 +7492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shroompile Small (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002921206811992562, guid: a0206783ffb45e44da497890f48c458c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4379446131035765576, guid: a0206783ffb45e44da497890f48c458c,
         type: 3}
@@ -8628,6 +8674,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shroompile Small (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002921206811992562, guid: a0206783ffb45e44da497890f48c458c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4379446131035765576, guid: a0206783ffb45e44da497890f48c458c,
         type: 3}
@@ -10102,6 +10153,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1050550060}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1073285357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1073285359}
+  - component: {fileID: 1073285358}
+  m_Layer: 0
+  m_Name: Level Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1073285358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073285357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1bedc77c181eca4d9b87550758c4afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  PlayerSpawnPoint: {x: 0, y: 8.29, z: 9.71}
+--- !u!4 &1073285359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073285357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6829386, y: -10.559083, z: -56.710808}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 684905056}
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1077836219
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18519,6 +18617,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shroompile Small (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4002921206811992562, guid: a0206783ffb45e44da497890f48c458c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379446131035765576, guid: a0206783ffb45e44da497890f48c458c,
         type: 3}
       propertyPath: m_RootOrder
@@ -18917,6 +19020,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dark Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862952074443539557, guid: 8a040cc02af418e4eb0d250d7e08eb31,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4862952074443539611, guid: 8a040cc02af418e4eb0d250d7e08eb31,
         type: 3}
@@ -23307,6 +23415,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shroompile Small (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4002921206811992562, guid: a0206783ffb45e44da497890f48c458c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379446131035765576, guid: a0206783ffb45e44da497890f48c458c,
         type: 3}
       propertyPath: m_RootOrder
@@ -25233,6 +25346,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shroompile Small (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002921206811992562, guid: a0206783ffb45e44da497890f48c458c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4379446131035765576, guid: a0206783ffb45e44da497890f48c458c,
         type: 3}
@@ -35332,7 +35450,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -41376,6 +41494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall Shroom Pile Normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272239983312695854, guid: 6b5744c51db2fcc4594aba118d3a4537,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6647499575830161556, guid: 6b5744c51db2fcc4594aba118d3a4537,
         type: 3}

@@ -240,7 +240,7 @@ public class EnemyController : MonoBehaviour
 
 
 }
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(EnemyController))]
 public class EnemyControllerEditor : Editor
 {
@@ -402,3 +402,4 @@ public class EnemyControllerEditor : Editor
 
 
 }
+#endif
