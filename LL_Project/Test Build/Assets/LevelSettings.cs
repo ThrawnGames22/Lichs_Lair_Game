@@ -5,7 +5,9 @@ using UnityEngine;
 public class LevelSettings : MonoBehaviour
 {
     public GameObject Player;
-    public Vector3 PlayerSpawnPoint;
+    public GameObject SpawnPoint;
+
+    public bool HasSpawned = false;
     // Start is called before the first frame update
 
     void Awake()
@@ -16,7 +18,8 @@ public class LevelSettings : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        
+        StartCoroutine(UnlockPlayer());
+        Player.transform.position = SpawnPoint.transform.position;
         
         
     }
@@ -25,5 +28,20 @@ public class LevelSettings : MonoBehaviour
     void Update()
     {
        
+    }
+
+    public IEnumerator UnlockPlayer()
+    {
+      Player.GetComponent<PlayerController>().characterController.enabled = false;
+      yield return new WaitForSeconds(0.1f);
+      
+        Player.GetComponent<PlayerController>().characterController.enabled = true;
+        StopUnlock();
+      
+    }
+
+    public void StopUnlock()
+    {
+      StopCoroutine(UnlockPlayer());
     }
 }

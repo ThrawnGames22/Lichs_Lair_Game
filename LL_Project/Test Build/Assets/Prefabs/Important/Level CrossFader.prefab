@@ -88,7 +88,7 @@ CanvasGroup:
   m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
+  m_IgnoreParentGroups: 1
 --- !u!1 &7792606210522151180
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &7792606210522151280
 MonoBehaviour:
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
 --- !u!95 &7792606210522151182
 Animator:
   serializedVersion: 4
@@ -236,14 +236,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7792606211234961144}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.7537949, y: 2.6715605, z: -85.76993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7792606210522151183}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7446120262955389635
 MonoBehaviour:
@@ -260,8 +260,10 @@ MonoBehaviour:
   CurrentSceneName: 
   CurrentScene:
     m_Handle: 0
-  MagePickerScene:
+  NextScene:
     m_Handle: 0
-  MageSceneName: 
+  NextSceneName: 
   transition: {fileID: 7792606210522151182}
-  TransitionTime: 0
+  TransitionTime: 3
+  LastScene:
+    m_Handle: 0

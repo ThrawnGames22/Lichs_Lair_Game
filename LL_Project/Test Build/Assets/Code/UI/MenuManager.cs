@@ -27,7 +27,10 @@ public class MenuManager : MonoBehaviour
     {
         CurrentScene = SceneManager.GetActiveScene();
         CurrentSceneName = CurrentScene.name;
-
+        if(CurrentScene.name == "Level 1")
+        {
+            
+        }
     }
 
     public void StartNewGameScene()
@@ -45,6 +48,12 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(LoadMenu());
         
     }
+     public void LoadNextLevel()
+    {
+        StartCoroutine(LoadFirstLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    
 
     IEnumerator LoadMagePickerLevel(int LevelIndex)
     {
