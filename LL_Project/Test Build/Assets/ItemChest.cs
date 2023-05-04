@@ -21,15 +21,22 @@ public class ItemChest : MonoBehaviour
     //ChestEffects
     public GameObject Effects;
 
+    public GameObject UnlockedCanvas;
+    public float UnlockedCanvasTime;
+
     
     // Start is called before the first frame update
     void Start()
     {
+      if(IsVSliceChest == false)
+      {
         Item1 = ItemsDictionary[Random.Range(0, ItemsDictionary.Length)];
         Item2 = ItemsDictionary[Random.Range(0, ItemsDictionary.Length)];
         Item3 = ItemsDictionary[Random.Range(0, ItemsDictionary.Length)];
-        Effects.SetActive(false);
         
+      }
+      Effects.SetActive(false);
+      UnlockedCanvas.SetActive(false);
         
         
     }
@@ -43,13 +50,36 @@ public class ItemChest : MonoBehaviour
           {
           if(Input.GetKeyDown(KeyCode.F))
           {
-            SpawnItem();
-
-            if(IsVSliceChest)
+            if(IsVSliceChest == false)
             {
-              PlayerController.Instance.HasAquiredWeapons = true;
+            SpawnItem();
+            }
+
+            if(IsVSliceChest == true)
+            {
+              
             }
           }
+          }
+        }
+        
+        if(isInRange)
+        {
+        if(HasUnlocked == false)
+          {
+          if(IsVSliceChest == true)
+          
+           {
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+              PlayerController.Instance.HasAquiredWeapons = true;
+              PlayerMagic.Instance.HasAquiredMagic = true;
+              SpawnWeapons();
+              StartCoroutine(UIUnlocked());
+            }
+
+           
+           }
           }
         }
     }
@@ -66,6 +96,16 @@ public class ItemChest : MonoBehaviour
 
     }
 
+    public void SpawnWeapons()
+    {
+      Effects.SetActive(true);
+      ChestAnimator.SetTrigger("IsUnlocked");
+      
+      HasUnlocked = true;
+
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
@@ -77,5 +117,19 @@ public class ItemChest : MonoBehaviour
         {
           isInRange = false;
         }
+    }
+
+    public IEnumerator UIUnlocked()
+    {
+      UnlockedCanvas.SetActive(true);
+      yield return new WaitForSeconds(UnlockedCanvasTime);
+      UnlockedCanvas.SetActive(false);
+      StopUIUnlocked();
+      
+    }
+
+    public void StopUIUnlocked()
+    {
+      StopCoroutine(UIUnlocked());
     }
 }

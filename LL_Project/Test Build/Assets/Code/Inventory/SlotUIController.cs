@@ -171,12 +171,17 @@ public class SlotUIController : MonoBehaviour
 
 
        SpellReadyImage1.sprite = PM.CombatSpellSlot1.spellToCast.SpellIcon;
-       SpellReadyImage2.sprite = PM.CombatSpellSlot2.spellToCast.SpellIcon;
-       UtilitySpellReadyImage.sprite = PM.UtilitySpell.spellToCast.SpellIcon;
-
        SpellCoolingImage1.sprite = PM.CombatSpellSlot1.spellToCast.SpellCoolingIcon;
-       SpellCoolingImage2.sprite = PM.CombatSpellSlot2.spellToCast.SpellCoolingIcon;
-       UtilitySpellCoolingImage.sprite = PM.UtilitySpell.spellToCast.SpellCoolingIcon;
+       if(PlayerMagic.Instance.HasAquiredMagic)
+       {
+        SpellReadyImage2.sprite = PM.CombatSpellSlot2.spellToCast.SpellIcon;
+        UtilitySpellReadyImage.sprite = PM.UtilitySpell.spellToCast.SpellIcon;
+        SpellCoolingImage2.sprite = PM.CombatSpellSlot2.spellToCast.SpellCoolingIcon;
+        UtilitySpellCoolingImage.sprite = PM.UtilitySpell.spellToCast.SpellCoolingIcon;
+       }
+
+       
+       
        //SetValue();
        if(cooldownSlider.value < HalfNumber)
        {

@@ -28,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     {
       GameObject Player;
       Player = Instantiate(RedMage, this.transform.position, this.transform.rotation);
+      Player.GetComponent<CharacterController>().enabled = false;
       Player.transform.parent = PlayerObject.transform;
       //UI.SetActive(true);
     }
@@ -36,6 +37,7 @@ public class PlayerManager : MonoBehaviour
     {
       GameObject Player;
       Player = Instantiate(ShadowMage, this.transform.position, this.transform.rotation);
+      Player.GetComponent<CharacterController>().enabled = false;
       Player.transform.parent = PlayerObject.transform;
     }
 
@@ -43,6 +45,7 @@ public class PlayerManager : MonoBehaviour
     {
       GameObject Player;
       Player = Instantiate(SunMage, this.transform.position, this.transform.rotation);
+      Player.GetComponent<CharacterController>().enabled = false;
       Player.transform.parent = PlayerObject.transform;
     }
 

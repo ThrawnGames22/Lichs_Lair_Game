@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
     {
         Instance = this;
         characterController = GetComponent<CharacterController>();
+        characterController.enabled = true;
     }
 
    
@@ -314,8 +315,12 @@ public class PlayerController : MonoBehaviour
 
         
         velocity.y = ySpeed;
-
-        characterController.Move(velocity * Time.deltaTime);
+        
+        
+        
+          characterController.Move(velocity * Time.deltaTime);
+       
+        
 
         if (movementDirection != Vector3.zero)
         {

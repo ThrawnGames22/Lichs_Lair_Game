@@ -180,7 +180,7 @@ Transform:
   - {fileID: 6154267462473561070}
   - {fileID: 194656906653757414}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &5759709405091239642
 CapsuleCollider:
@@ -262,8 +262,9 @@ MonoBehaviour:
   AttackBlocked: 0
   FistObject: {fileID: 0}
   IsPatrolling: 0
-  minDistance: 2
-  maxDistance: 5
+  minDistance: 1.5
+  DistanceToStartAnimation: 10
+  maxDistance: 10
   EnemyAnimator: {fileID: 2819621920744928242}
   patrolPoints:
   - {fileID: 0}

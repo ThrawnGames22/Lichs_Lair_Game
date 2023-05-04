@@ -39,6 +39,7 @@ public class EnemyController : MonoBehaviour
     public bool IsPatrolling;
 
     public float minDistance;
+    public float DistanceToStartAnimation;
     public float maxDistance;
 
     //Animation
@@ -80,6 +81,10 @@ public class EnemyController : MonoBehaviour
        //navMeshAgent.SetDestination(target.transform.position);
      }
       
+      if(currentDistance < DistanceToStartAnimation)
+      {
+        FindPlayer();
+      }
 
       if(currentDistance < minDistance )
       {
@@ -87,10 +92,14 @@ public class EnemyController : MonoBehaviour
         
         
       }
-      else
+      
+      if(currentDistance > minDistance)
       {
         StopAttack();
+        IsAgitated = false;
       }
+
+
 
       if(IsAgitated == true)
       {
@@ -98,6 +107,11 @@ public class EnemyController : MonoBehaviour
         StopIteration();
         navMeshAgent.stoppingDistance = 2;
       }
+      else
+      {
+        return;
+      }
+      
 
 
       if(currentDistance > maxDistance)
@@ -173,6 +187,7 @@ public class EnemyController : MonoBehaviour
     public void StopAttack()
     {
       StopCoroutine(DelayAttack());
+      
     }
 
     public IEnumerator DelayAttack()
@@ -307,6 +322,8 @@ public class EnemyControllerEditor : Editor
 
           EC.DamageToApply = 5;
           EC.minDistance = EditorGUILayout.FloatField("Min Distance To Attack", EC.minDistance);
+          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Chase", EC.DistanceToStartAnimation);
+
           EC.maxDistance = EditorGUILayout.FloatField("Max Distance to Stop Chasing", EC.maxDistance);
           
           //EC.navMeshAgent.speed = EC.speed;
@@ -328,6 +345,7 @@ public class EnemyControllerEditor : Editor
           EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
           EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
           EditorGUILayout.PropertyField(serializedObject.FindProperty("patrolPoints"), includeChildren: true);
+          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Chase", EC.DistanceToStartAnimation);
           if(m_PatrolPoints.hasChildren)
           {
             serializedObject.ApplyModifiedProperties();
@@ -356,6 +374,7 @@ public class EnemyControllerEditor : Editor
           EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
           EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
           EditorGUILayout.PropertyField(serializedObject.FindProperty("patrolPoints"), includeChildren: true);
+          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Chase", EC.DistanceToStartAnimation);
           if(m_PatrolPoints.hasChildren)
           {
             serializedObject.ApplyModifiedProperties();
@@ -384,6 +403,7 @@ public class EnemyControllerEditor : Editor
           EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
           EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
           EditorGUILayout.PropertyField(serializedObject.FindProperty("patrolPoints"), includeChildren: true);
+          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Chase", EC.DistanceToStartAnimation);
           if(m_PatrolPoints.hasChildren)
           {
             serializedObject.ApplyModifiedProperties();

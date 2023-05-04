@@ -12,6 +12,7 @@ public class CameraChange : MonoBehaviour
     //If any walls need Disabling
     public GameObject WallGroupToDisable;
     public GameObject WallGroupToEnable;
+    public bool IsInCameraChange;
 
 
     //bools
@@ -36,7 +37,9 @@ public class CameraChange : MonoBehaviour
     {
       if(other.gameObject.tag == "Player")
       {
-       
+        IsInCameraChange = true;
+        WallGroupToDisable.SetActive(false);
+        WallGroupToEnable.SetActive(true);
 
         
         
@@ -87,13 +90,15 @@ public class CameraChange : MonoBehaviour
     {
       if(other.gameObject.tag == "Player")
       {
+         IsInCameraChange = false;
         CSF.offset = OffsetNormal;
         
         PC.IsInFrontCameraView = true;
         PC.IsInRightCameraView = false;
           PC.IsInLeftCameraView = false;
           PC.IsInBackCameraView = false;
-
+       WallGroupToDisable.SetActive(true);
+       WallGroupToEnable.SetActive(false);
         
       }
         

@@ -30,6 +30,8 @@ public class PlayerMagic : MonoBehaviour
     public float currentCombatCastTimer;
     public float currentUtilityCastTimer;
 
+    public bool HasAquiredMagic;
+
     
 
     public float UtilityCoolDown;
@@ -58,7 +60,11 @@ public class PlayerMagic : MonoBehaviour
 
     public bool StartAssigningValuesBasedOnClass = false;
 
-
+    private void Awake()
+    {
+      Instance = this;
+      
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -82,11 +88,7 @@ public class PlayerMagic : MonoBehaviour
         
     }
 
-    private void Awake()
-    {
-      Instance = this;
-      
-    }
+    
 
     private void OnEnable()
     {
@@ -101,9 +103,16 @@ public class PlayerMagic : MonoBehaviour
       {
       maxMana = MageClassData.maxMana;
       CombatSpellSlot1 = MageClassData.CombatSpell1;
-      CombatSpellSlot2 = MageClassData.CombatSpell2;
-      UtilitySpell = MageClassData.UtilitySpell;
+      CombatSpellSlot2 = null;
+      UtilitySpell = null;
       StartAssigningValuesBasedOnClass = true;
+      }
+
+
+      if(HasAquiredMagic)
+      {
+       CombatSpellSlot2 = MageClassData.CombatSpell2;
+       UtilitySpell = MageClassData.UtilitySpell;
       }
         
         
