@@ -9,10 +9,19 @@ public class TutorialStone : MonoBehaviour
     public GameObject StoneUI;
     public GameObject Camera;
     public bool IsInRange;
+    public float UiTime;
+
+    //Prompts
+
+    public GameObject StartPrompt;
+    public GameObject InteractPrompt;
     // Start is called before the first frame update
     void Start()
     {
         Camera = GameObject.FindGameObjectWithTag("MainCamera");
+        StoneUI.SetActive(false);
+        StartPrompt.SetActive(true);
+        InteractPrompt.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,6 +33,11 @@ public class TutorialStone : MonoBehaviour
         {
          Camera.GetComponent<CameraSmoothFollow>().target = this.transform;
          PlayerController.Instance.speed = 0;
+         StartPrompt.SetActive(false);
+         InteractPrompt.SetActive(false);
+         this.GetComponent<BoxCollider>().enabled = false;
+         
+         StartCoroutine(UI());
         }
       }
     }
@@ -33,6 +47,7 @@ public class TutorialStone : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             IsInRange = true;
+            InteractPrompt.SetActive(true);
         
         }
         
@@ -42,6 +57,7 @@ public class TutorialStone : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             IsInRange = false;
+            InteractPrompt.SetActive(false);
        
         }
         
@@ -51,6 +67,24 @@ public class TutorialStone : MonoBehaviour
     {
         Camera.GetComponent<CameraSmoothFollow>().target = GameObject.FindGameObjectWithTag("Player").transform;
         PlayerController.Instance.speed = 5;
+        PlayerController.Instance.HasActivatedGameplay = true;
+
+        StoneUI.SetActive(false);
     }
+
+    public IEnumerator UI()
+    {
+      StoneUI.SetActive(true);
+      yield return new WaitForSeconds(UiTime);
+      UnlockAndCloseStoneTutorial();
+      StopUI();
+      
+    }
+
+    public void StopUI()
+    {
+      StopCoroutine(UI());
+    }
+
 }
 

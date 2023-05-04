@@ -37,6 +37,8 @@ public class BowController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    if(PlayerController.Instance.HasActivatedWeapons)
+    {
       if(currentArrowCount > 0)
       {
         if(CanUse == true)
@@ -59,6 +61,7 @@ public class BowController : MonoBehaviour
       {
         StopCoroutine(StartCoolDown());
       }
+    }
     }
 
     public void Shoot()

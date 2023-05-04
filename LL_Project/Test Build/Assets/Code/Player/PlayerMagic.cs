@@ -132,10 +132,11 @@ public class PlayerMagic : MonoBehaviour
         bool hasEnoughMana = currentMana - CombatSpellSlot1.spellToCast.ManaCost >= 0f || currentMana - UtilitySpell.spellToCast.ManaCost >= 0f || currentMana - CombatSpellSlot2.spellToCast.ManaCost >= 0f;
        
         //ManaText.text = currentMana.ToString();
-
+    if(PlayerController.Instance.HasActivatedMagic)
+    {
       if(inventoryController.InventoryIsOpen == false)
       {
-
+        
       
         if(!castingCombatMagic1 && Input.GetKeyDown(KeyCode.Mouse0) && hasEnoughMana || !castingCombatMagic1 && Input.GetKeyDown(KeyCode.JoystickButton3) && hasEnoughMana )
         {
@@ -248,6 +249,7 @@ public class PlayerMagic : MonoBehaviour
 
             
         }
+      }
     }
 
     void CastCombatSpell1()

@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     public Vector3 velocity;
     public Vector3 CurrentPosition;
 
+    public bool HasActivatedGameplay;
+    public bool HasActivatedWeapons;
+
+    public bool HasActivatedMagic;
+
     public bool HasAquiredWeapons;
 
     public CharacterController characterController;
@@ -133,6 +138,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
      {
+    if(HasActivatedGameplay)
+    {
+
+        
         if(HasAquiredWeapons == true)
       {
         if(Input.GetKeyDown(KeyCode.Alpha1))
@@ -228,7 +237,7 @@ public class PlayerController : MonoBehaviour
             IconShow = true;
         }
         
-        
+    }
      }
 
     void FixedUpdate()

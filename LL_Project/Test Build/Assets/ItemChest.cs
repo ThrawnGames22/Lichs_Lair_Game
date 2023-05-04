@@ -41,7 +41,7 @@ public class ItemChest : MonoBehaviour
         {
         if(HasUnlocked == false)
           {
-          if(Input.GetKeyDown(KeyCode.T))
+          if(Input.GetKeyDown(KeyCode.F))
           {
             SpawnItem();
 

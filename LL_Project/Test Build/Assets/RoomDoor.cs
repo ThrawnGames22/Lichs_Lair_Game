@@ -8,8 +8,10 @@ public class RoomDoor : MonoBehaviour
 
     public bool UnlockDoor;
     public bool isMagicDoor;
+    public bool isNormalOpeningDoor;
     public GameObject MagicBarrier;
     public bool MagicIsBroken;
+    public bool IsInRange;
 
     public Animator DoorAnimator;
     public float dissolve = 2.74f;
@@ -22,6 +24,8 @@ public class RoomDoor : MonoBehaviour
        {
        MagicBarrier.GetComponent<MeshRenderer>().material.SetFloat("_Dissolve_Amount", dissolve);
        }
+
+       MagicIsBroken = false;
     }
 
     // Update is called once per frame
@@ -54,12 +58,43 @@ public class RoomDoor : MonoBehaviour
         }
 
         
+
+        
       }
+
+      if(isNormalOpeningDoor == true)
+        {
+            if(IsInRange == true)
+            {
+              
+                UnlockDoor = true;
+              
+            }
+        }
 
       if(MagicSeals.Count == 0)
         {
            MagicIsBroken = true;
         }
        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if(other.gameObject.tag == "Player")
+        {
+            IsInRange = true;
+            
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        
+        if(other.gameObject.tag == "Player")
+        {
+            IsInRange = false;
+        }
     }
 }

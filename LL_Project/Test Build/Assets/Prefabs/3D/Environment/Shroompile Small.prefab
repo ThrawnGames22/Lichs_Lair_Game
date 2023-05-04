@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 822241839843603693}
   - component: {fileID: 3210441810472566823}
   - component: {fileID: 4272880791616560302}
-  - component: {fileID: 4272880791616560303}
   m_Layer: 0
   m_Name: Shroompile Small
   m_TagString: Untagged
@@ -34,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 1347619925108051224}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &822241839843603693
 MeshFilter:
@@ -101,20 +100,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 67881609821892039, guid: 461ececde72d2ba4fba44cdb3ed996fd, type: 3}
---- !u!64 &4272880791616560303
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4002921206811992562}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 67881609821892039, guid: 461ececde72d2ba4fba44cdb3ed996fd, type: 3}
 --- !u!1 &8953837502242538169
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8953837502242538169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0223, y: -0.0193, z: -0.0128}
+  m_LocalPosition: {x: 0.0223, y: 0.0143, z: -0.0128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -160,8 +145,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0, g: 1, b: 0.8982549, a: 1}
-  m_Intensity: 3
-  m_Range: 10
+  m_Intensity: 2.76
+  m_Range: 13.25
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
