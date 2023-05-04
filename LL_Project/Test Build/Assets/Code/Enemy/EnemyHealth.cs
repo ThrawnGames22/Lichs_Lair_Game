@@ -94,7 +94,7 @@ public class EnemyHealth : MonoBehaviour
 
     public IEnumerator DestroyAfterTime()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(0.5f);
         
             Destroy(this.gameObject);
         
