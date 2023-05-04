@@ -245,8 +245,10 @@ public class PlayerController : MonoBehaviour
     {
         
         
-
+        if(Enemies.Length != null)
+        {
         Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        }
 
 
         if(IsInFrontCameraView)
@@ -318,7 +320,7 @@ public class PlayerController : MonoBehaviour
         
         
         
-          characterController.Move(velocity * Time.deltaTime);
+        characterController.Move(velocity * Time.deltaTime);
        
         
 
@@ -402,7 +404,7 @@ public class PlayerController : MonoBehaviour
      }
 
 
-     IEnumerator Dash()
+      IEnumerator Dash()
         {
             IconShow = false;
             

@@ -19,8 +19,8 @@ public class LevelSettings : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        Player.GetComponent<CharacterController>().enabled = true;
-        StartCoroutine(UnlockPlayer());
+        //Player.GetComponent<CharacterController>().enabled = true;
+        
         Player.transform.position = SpawnPoint.transform.position;
         
         
@@ -29,17 +29,18 @@ public class LevelSettings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       Debug.Log("LevelWorking");
+       StartCoroutine(UnlockPlayer());
     }
 
     public IEnumerator UnlockPlayer()
     {
-      HasSpawned = true;
+      //HasSpawned = true;
       Player.GetComponent<PlayerController>().characterController.enabled = false;
       yield return new WaitForSeconds(0.1f);
       
-        Player.GetComponent<PlayerController>().characterController.enabled = true;
-        StopUnlock();
+      Player.GetComponent<PlayerController>().characterController.enabled = true;
+      StopUnlock();
       
     }
 
