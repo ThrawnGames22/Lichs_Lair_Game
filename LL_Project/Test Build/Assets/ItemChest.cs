@@ -9,6 +9,9 @@ public class ItemChest : MonoBehaviour
     public Transform ItemSpawnPoint;
     public bool HasUnlocked;
     public bool isInRange;
+
+    public bool IsVSliceChest;
+    public GiveWeapons GiveWeapons;
     
     public GameObject Item1;
     public GameObject Item2;
@@ -41,6 +44,11 @@ public class ItemChest : MonoBehaviour
           if(Input.GetKeyDown(KeyCode.T))
           {
             SpawnItem();
+
+            if(IsVSliceChest)
+            {
+              PlayerController.Instance.HasAquiredWeapons = true;
+            }
           }
           }
         }

@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public Vector3 velocity;
     public Vector3 CurrentPosition;
 
+    public bool HasAquiredWeapons;
+
     public CharacterController characterController;
     private float ySpeed;
     private float originalStepOffset;
@@ -87,6 +89,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        characterController = GetComponent<CharacterController>();
     }
 
    
@@ -95,7 +98,7 @@ public class PlayerController : MonoBehaviour
     {
         dashCD = maxDashCD;
         IconShow = true;
-        characterController = GetComponent<CharacterController>();
+        
         originalStepOffset = characterController.stepOffset;
         
         IsInFrontCameraView = true;
@@ -130,6 +133,47 @@ public class PlayerController : MonoBehaviour
 
     void Update()
      {
+        if(HasAquiredWeapons == true)
+      {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            CurrentWeaponSlot = Weapons[0];
+            Weapons[0].transform.parent = CurrentSlot.transform;
+            Weapons[1].transform.parent = WeaponsBank.transform;
+            Weapons[2].transform.parent = WeaponsBank.transform;
+
+            Weapons[0].SetActive(true);
+            Weapons[1].SetActive(false);
+            Weapons[2].SetActive(false);
+
+
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CurrentWeaponSlot = Weapons[1];
+            Weapons[1].transform.parent = CurrentSlot.transform;
+            Weapons[0].transform.parent = WeaponsBank.transform;
+            Weapons[2].transform.parent = WeaponsBank.transform;
+
+            Weapons[0].SetActive(false);
+            Weapons[1].SetActive(true);
+            Weapons[2].SetActive(false);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            CurrentWeaponSlot = Weapons[2];
+            Weapons[2].transform.parent = CurrentSlot.transform;
+            Weapons[1].transform.parent = WeaponsBank.transform;
+            Weapons[0].transform.parent = WeaponsBank.transform;
+
+            Weapons[0].SetActive(false);
+            Weapons[1].SetActive(false);
+            Weapons[2].SetActive(true);
+        }
+      }
+
+
+
         WeaponSaveSlot = CurrentWeaponSlot;
         CurrentPosition = this.transform.position;
         if(Input.GetKeyDown(KeyCode.U))
@@ -296,43 +340,8 @@ public class PlayerController : MonoBehaviour
        
 
         //Weapon Mechanics
-      /*
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            CurrentWeaponSlot = Weapons[0];
-            Weapons[0].transform.parent = CurrentSlot.transform;
-            Weapons[1].transform.parent = WeaponsBank.transform;
-            Weapons[2].transform.parent = WeaponsBank.transform;
-
-            Weapons[0].SetActive(true);
-            Weapons[1].SetActive(false);
-            Weapons[2].SetActive(false);
-
-
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            CurrentWeaponSlot = Weapons[1];
-            Weapons[1].transform.parent = CurrentSlot.transform;
-            Weapons[0].transform.parent = WeaponsBank.transform;
-            Weapons[2].transform.parent = WeaponsBank.transform;
-
-            Weapons[0].SetActive(false);
-            Weapons[1].SetActive(true);
-            Weapons[2].SetActive(false);
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            CurrentWeaponSlot = Weapons[2];
-            Weapons[2].transform.parent = CurrentSlot.transform;
-            Weapons[1].transform.parent = WeaponsBank.transform;
-            Weapons[0].transform.parent = WeaponsBank.transform;
-
-            Weapons[0].SetActive(false);
-            Weapons[1].SetActive(false);
-            Weapons[2].SetActive(true);
-        }
-        */
+      
+        
         
     //Weapon Animations
 
