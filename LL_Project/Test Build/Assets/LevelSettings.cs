@@ -8,12 +8,12 @@ public class LevelSettings : MonoBehaviour
     public GameObject SpawnPoint;
 
     public bool HasSpawned = false;
-    public static LevelSettings Instance;
+    
     // Start is called before the first frame update
 
     void Awake()
     {
-      Instance = this;
+      
       //Player.transform.position = PlayerSpawnPoint; 
     }
     void Start()
@@ -22,6 +22,7 @@ public class LevelSettings : MonoBehaviour
         //Player.GetComponent<CharacterController>().enabled = true;
         
         Player.transform.position = SpawnPoint.transform.position;
+        StartCoroutine(UnlockPlayer());
         
         
     }
@@ -29,15 +30,15 @@ public class LevelSettings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       Debug.Log("LevelWorking");
-       StartCoroutine(UnlockPlayer());
+       //Debug.Log("LevelWorking");
+       
     }
 
     public IEnumerator UnlockPlayer()
     {
       //HasSpawned = true;
       Player.GetComponent<PlayerController>().characterController.enabled = false;
-      yield return new WaitForSeconds(0.1f);
+      yield return new WaitForSeconds(0.01f);
       
       Player.GetComponent<PlayerController>().characterController.enabled = true;
       StopUnlock();

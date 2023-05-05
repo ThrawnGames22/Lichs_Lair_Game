@@ -13261,7 +13261,7 @@ Transform:
   - {fileID: 2891389279469937661}
   - {fileID: 5328104813366055404}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &4087299787984651128
 SphereCollider:
@@ -13297,6 +13297,9 @@ MonoBehaviour:
   jumpSpeed: 5
   velocity: {x: 0, y: 0, z: 0}
   CurrentPosition: {x: 0, y: 0, z: 0}
+  HasActivatedGameplay: 0
+  HasActivatedWeapons: 0
+  HasActivatedMagic: 0
   HasAquiredWeapons: 0
   characterController: {fileID: 0}
   IsInFrontCameraView: 0
@@ -13386,6 +13389,7 @@ MonoBehaviour:
   timeBetweenCasts: 0.2
   currentCombatCastTimer: 0
   currentUtilityCastTimer: 0
+  HasAquiredMagic: 0
   UtilityCoolDown: 5
   GameManager: {fileID: 0}
   AbilityManager: {fileID: 0}
@@ -18021,7 +18025,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_TargetDisplay: 0
 --- !u!114 &5521841171920280003
 MonoBehaviour:

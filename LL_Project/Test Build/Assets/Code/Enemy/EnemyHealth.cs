@@ -40,11 +40,11 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other.gameObject.tag == "FireSpell")
+        if(collision.gameObject.tag == "FireSpell")
         {
-          enemyCurrentHealth -= other.gameObject.GetComponent<FireSpell>().fireDamage;
+          enemyCurrentHealth -= collision.gameObject.GetComponent<FireSpell>().fireDamage;
           print("Ememy Just Took Damage");
         }
 

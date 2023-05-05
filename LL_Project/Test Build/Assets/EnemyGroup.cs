@@ -8,11 +8,18 @@ public class EnemyGroup : MonoBehaviour
 
     public bool EnemyGroupEliminated;
 
+    public bool IsTutorialScene;
+    public GameObject TutorialCompleteCanvas;
+
     public RoomDoor DoorToOpenOnElimination;
     // Start is called before the first frame update
     void Start()
     {
         EnemyGroupEliminated = false;
+        if(IsTutorialScene)
+        {
+        TutorialCompleteCanvas.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -34,7 +41,13 @@ public class EnemyGroup : MonoBehaviour
         if(EnemyGroupEliminated)
         {
             DoorToOpenOnElimination.UnlockDoor = true;
+             if(IsTutorialScene)
+        {
+          TutorialCompleteCanvas.SetActive(true);
         }
+        }
+
+       
         
     }
 }

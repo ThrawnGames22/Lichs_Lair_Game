@@ -57,8 +57,19 @@ public class EnemyController : MonoBehaviour
         target = GameObject.FindWithTag("Player");
         navMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
         navMeshAgent.speed = OriginalSpeed;
-        navMeshAgent.destination = patrolPoints[currentPoint].transform.position;
-        currentPoint = 0;
+        
+        
+        if(IsPatrolling == false)
+        {
+          navMeshAgent.destination = ReturnPosition.position;
+          navMeshAgent.stoppingDistance = 2;
+        }
+
+        if(IsPatrolling == true)
+        {
+          navMeshAgent.destination = patrolPoints[currentPoint].transform.position;
+          currentPoint = 0;
+        }
         
     }
 
@@ -107,10 +118,7 @@ public class EnemyController : MonoBehaviour
         StopIteration();
         navMeshAgent.stoppingDistance = 2;
       }
-      else
-      {
-        return;
-      }
+      
       
 
 
@@ -118,26 +126,31 @@ public class EnemyController : MonoBehaviour
       {
         
         IsAgitated = false;
+       
         if(IsPatrolling == false)
         {
+          if(ReturnPosition != null)
+          {
           navMeshAgent.destination = ReturnPosition.position;
+          }
           navMeshAgent.stoppingDistance = 2;
         }
-        
        
       }
 
-      if(IsPatrolling)
+       
+
+      if(IsPatrolling == true)
       {
-      if(IsAgitated == false)
-      {
+       if(IsAgitated == false)
+       {
         navMeshAgent.stoppingDistance = 0;
        if(Vector3.Distance(this.transform.position, patrolPoints[currentPoint].transform.position) <= 2f)
-      {
+       {
         Iterate();
-      }
+       }
      
-      }
+       }
       }
       
 

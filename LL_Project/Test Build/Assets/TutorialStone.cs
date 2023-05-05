@@ -15,6 +15,7 @@ public class TutorialStone : MonoBehaviour
 
     public GameObject StartPrompt;
     public GameObject InteractPrompt;
+    public GameObject DashPrompt;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class TutorialStone : MonoBehaviour
         StoneUI.SetActive(false);
         StartPrompt.SetActive(true);
         InteractPrompt.SetActive(false);
+        DashPrompt.SetActive(false);
     }
 
     // Update is called once per frame
@@ -68,6 +70,7 @@ public class TutorialStone : MonoBehaviour
         Camera.GetComponent<CameraSmoothFollow>().target = GameObject.FindGameObjectWithTag("Player").transform;
         PlayerController.Instance.speed = 5;
         PlayerController.Instance.HasActivatedGameplay = true;
+        DashPrompt.SetActive(true);
 
         StoneUI.SetActive(false);
     }

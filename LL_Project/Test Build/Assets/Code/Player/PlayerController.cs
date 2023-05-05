@@ -240,6 +240,7 @@ public class PlayerController : MonoBehaviour
         
     }
      }
+     
 
     void FixedUpdate()
     {
@@ -404,7 +405,7 @@ public class PlayerController : MonoBehaviour
      }
 
 
-      IEnumerator Dash()
+      public IEnumerator Dash()
         {
             IconShow = false;
             

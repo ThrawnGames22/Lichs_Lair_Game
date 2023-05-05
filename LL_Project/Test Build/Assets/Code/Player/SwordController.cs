@@ -50,12 +50,16 @@ public class SwordController : MonoBehaviour
           CurrentDamage = ChargedCurrentDamage;
         }
         //NormalCurrentDamage = playerController.AttackValue;
+    if(playerController.HasActivatedWeapons)
+    {
       if(CanUse == true)
       {
         if(Input.GetKey(KeyCode.E))
           {
             
             SwordAttack();
+            PlayerHealth.Instance.currentHealth += 30f;
+            PlayerMagic.Instance.currentMana += 100;
             
             
           }
@@ -68,6 +72,7 @@ public class SwordController : MonoBehaviour
       {
         StopCoroutine(DelayAttack());
       }
+    }
  
 
 
