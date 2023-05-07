@@ -103,7 +103,7 @@ public class PlayerHealth : MonoBehaviour
         
         IsDead = true;
         PlayerModel.SetActive(false);
-        PlayerController.Instance.speed = 0;
+        PlayerController.Instance.characterController.enabled = false;
         DamageScreen.SetActive(false);
         //DeathScreen.SetActive(true);
         
@@ -114,10 +114,11 @@ public class PlayerHealth : MonoBehaviour
     {
         IsDead = false;
         PlayerModel.SetActive(true);
-        PlayerController.Instance.speed = 5;
+        PlayerController.Instance.characterController.enabled = true;
         ResetHealth();
         PlayerMagic.Instance.ResetMana();
         DamageScreen.SetActive(true);
+        PlayerController.Instance.IsInFrontCameraView = true;
         //GameObject.Find("Death Screen").GetComponent<DeathManager>().TryAgainButton.SetActive(false);
 
     }

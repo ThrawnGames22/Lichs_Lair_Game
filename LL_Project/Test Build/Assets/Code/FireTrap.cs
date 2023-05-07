@@ -9,25 +9,32 @@ public class FireTrap : MonoBehaviour
     public GameObject FireObject;
     public MeshCollider meshCollider;
     public GameObject FireMainObject;
+    public bool IsSpecialFire;
     // Start is called before the first frame update
     void Start()
     {
-    FireMainObject.SetActive(false);
-    this.GetComponent<Animator>().enabled = false;
+     FireMainObject.SetActive(true);
+    
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if(EnableFire)
         {
             FireObject.SetActive(true);
+            FireMainObject.SetActive(true);
+
         }
 
          if(!EnableFire)
         {
             FireObject.SetActive(false);
+            FireMainObject.SetActive(false);
+
         }
+        
     }
 
     public void ApplyFireDamage()

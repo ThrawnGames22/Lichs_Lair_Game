@@ -450,7 +450,7 @@ MonoBehaviour:
   OffsetNormal: {x: 0, y: 10, z: 10}
   CSF: {fileID: 0}
   PC: {fileID: 0}
-  WallGroupToDisable: {fileID: 0}
+  WallGroupToDisable: {fileID: 2004158655489778558}
   WallGroupToEnable: {fileID: 0}
   IsInCameraChange: 0
   IsFront: 0
@@ -3907,7 +3907,7 @@ MonoBehaviour:
   OffsetNormal: {x: 0, y: 10, z: 10}
   CSF: {fileID: 0}
   PC: {fileID: 0}
-  WallGroupToDisable: {fileID: 0}
+  WallGroupToDisable: {fileID: 4305408895473115708}
   WallGroupToEnable: {fileID: 0}
   IsInCameraChange: 0
   IsFront: 0
@@ -6619,7 +6619,7 @@ MonoBehaviour:
   OffsetNormal: {x: 0, y: 10, z: 10}
   CSF: {fileID: 0}
   PC: {fileID: 0}
-  WallGroupToDisable: {fileID: 0}
+  WallGroupToDisable: {fileID: 3656427900185447754}
   WallGroupToEnable: {fileID: 0}
   IsInCameraChange: 0
   IsFront: 0
@@ -15638,7 +15638,7 @@ MonoBehaviour:
   OffsetNormal: {x: 0, y: 10, z: 10}
   CSF: {fileID: 0}
   PC: {fileID: 0}
-  WallGroupToDisable: {fileID: 0}
+  WallGroupToDisable: {fileID: 369340440259493478}
   WallGroupToEnable: {fileID: 0}
   IsInCameraChange: 0
   IsFront: 0
@@ -19230,7 +19230,7 @@ PrefabInstance:
     - target: {fileID: 4218904747777725979, guid: 538a19435d5f44a4d999b3b164183959,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -37051,6 +37051,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4713444383499871140, guid: 54ba6ab86fa13104b8d5ded1232def6e,
         type: 3}
+      propertyPath: IsPatrolling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713444383499871140, guid: 54ba6ab86fa13104b8d5ded1232def6e,
+        type: 3}
       propertyPath: ReturnPosition
       value: 
       objectReference: {fileID: 0}
@@ -37058,6 +37063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: patrolPoints.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713444383499871140, guid: 54ba6ab86fa13104b8d5ded1232def6e,
+        type: 3}
+      propertyPath: DistanceToStartAnimation
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4713444383499871140, guid: 54ba6ab86fa13104b8d5ded1232def6e,
         type: 3}
@@ -37727,6 +37737,30 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 507021020, guid: 6a75cb8edbb14b74ea3d2e49b039bc26, type: 3}
+      propertyPath: CameraChanges.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 507021020, guid: 6a75cb8edbb14b74ea3d2e49b039bc26, type: 3}
+      propertyPath: CameraChanges.Array.data[0]
+      value: 
+      objectReference: {fileID: 9186399514474357500}
+    - target: {fileID: 507021020, guid: 6a75cb8edbb14b74ea3d2e49b039bc26, type: 3}
+      propertyPath: CameraChanges.Array.data[1]
+      value: 
+      objectReference: {fileID: 937686793}
+    - target: {fileID: 507021020, guid: 6a75cb8edbb14b74ea3d2e49b039bc26, type: 3}
+      propertyPath: CameraChanges.Array.data[2]
+      value: 
+      objectReference: {fileID: 206395052}
+    - target: {fileID: 507021020, guid: 6a75cb8edbb14b74ea3d2e49b039bc26, type: 3}
+      propertyPath: CameraChanges.Array.data[3]
+      value: 
+      objectReference: {fileID: 351031175}
+    - target: {fileID: 507021020, guid: 6a75cb8edbb14b74ea3d2e49b039bc26, type: 3}
+      propertyPath: CameraChanges.Array.data[4]
+      value: 
+      objectReference: {fileID: 27794115}
     - target: {fileID: 2794221589181774328, guid: 6a75cb8edbb14b74ea3d2e49b039bc26,
         type: 3}
       propertyPath: m_RootOrder
@@ -58526,7 +58560,7 @@ GameObject:
   - component: {fileID: 5335714575282660632}
   - component: {fileID: 5335714575282660633}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Main Camera Main
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61664,6 +61698,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 773988508}
     m_Modifications:
+    - target: {fileID: 3590067876442447350, guid: bef05482bfbdf1a45b8b9f86cfe04946,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4974729353952994379, guid: bef05482bfbdf1a45b8b9f86cfe04946,
         type: 3}
       propertyPath: m_Name
@@ -63004,6 +63043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: patrolPoints.Array.size
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713444383499871140, guid: 54ba6ab86fa13104b8d5ded1232def6e,
+        type: 3}
+      propertyPath: DistanceToStartAnimation
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4713444383499871140, guid: 54ba6ab86fa13104b8d5ded1232def6e,
         type: 3}
@@ -72073,6 +72117,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b82a32cc2c6c5b48bd83cb9a1486a9a, type: 3}
+--- !u!1 &9186399514474357500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9186399513898988206, guid: 2b82a32cc2c6c5b48bd83cb9a1486a9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 9186399514474357499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9190748709593081088 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5260952273746040826, guid: 5facc10078e396749832b09ab29d1138,

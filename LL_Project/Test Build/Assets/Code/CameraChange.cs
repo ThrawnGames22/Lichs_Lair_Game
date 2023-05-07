@@ -26,14 +26,13 @@ public class CameraChange : MonoBehaviour
     {
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         PC.IsInFrontCameraView = true;
-        PC.horizontalInput = Input.GetAxis("Horizontal");
-        PC.verticalInput = Input.GetAxis("Vertical");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-      CSF = GameObject.Find("Main Camera").GetComponent<CameraSmoothFollow>();
+      CSF = GameObject.Find("Main Camera Main").GetComponent<CameraSmoothFollow>();
     }
 
     private void OnTriggerEnter(Collider other)

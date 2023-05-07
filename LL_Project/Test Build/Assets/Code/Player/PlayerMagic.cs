@@ -17,6 +17,8 @@ public class PlayerMagic : MonoBehaviour
     public CombatSpell CombatSpellToCast;
     public UtilitySpell UtilitySpell;
 
+    public bool MagicPaused;
+
     public Text ManaText;
 
     public SlotUIController slotUIController;
@@ -143,6 +145,8 @@ public class PlayerMagic : MonoBehaviour
         //ManaText.text = currentMana.ToString();
     if(PlayerController.Instance.HasActivatedMagic)
     {
+      if(MagicPaused == false)
+      {
       if(inventoryController.InventoryIsOpen == false)
       {
         
@@ -178,6 +182,7 @@ public class PlayerMagic : MonoBehaviour
 
 
         
+      }
       }
       else
       {

@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
+
 
 public class ItemChest : MonoBehaviour
 {
@@ -24,10 +28,18 @@ public class ItemChest : MonoBehaviour
     public GameObject UnlockedCanvas;
     public float UnlockedCanvasTime;
 
+    public GameObject Prompt;
+
+    public Volume volume;
+    private Vignette vig;
+    public float vigneteIntensity = 0.625f;
+    public float normalVigneteIntensity = 0.25f;
+
     
     // Start is called before the first frame update
     void Start()
     {
+      
       if(IsVSliceChest == false)
       {
         Item1 = ItemsDictionary[Random.Range(0, ItemsDictionary.Length)];
@@ -35,9 +47,15 @@ public class ItemChest : MonoBehaviour
         Item3 = ItemsDictionary[Random.Range(0, ItemsDictionary.Length)];
         
       }
+
+      if(IsVSliceChest == true)
+      {
+        volume.profile.TryGet(out vig);
+        vig.intensity.value = normalVigneteIntensity;
+      }
       Effects.SetActive(false);
       UnlockedCanvas.SetActive(false);
-        
+      Prompt.SetActive(false);  
         
     }
 
@@ -59,8 +77,16 @@ public class ItemChest : MonoBehaviour
             {
               
             }
+
+
+
+            
           }
           }
+
+
+
+
         }
         
         if(isInRange)
@@ -72,8 +98,13 @@ public class ItemChest : MonoBehaviour
            {
             if(Input.GetKeyDown(KeyCode.F))
             {
+              PlayerController.Instance.speed = 0;
               PlayerController.Instance.HasAquiredWeapons = true;
               PlayerMagic.Instance.HasAquiredMagic = true;
+              Prompt.SetActive(true);
+              volume.profile.TryGet(out vig);
+              vig.intensity.value = vigneteIntensity;
+              
               SpawnWeapons();
               StartCoroutine(UIUnlocked());
             }
@@ -131,5 +162,13 @@ public class ItemChest : MonoBehaviour
     public void StopUIUnlocked()
     {
       StopCoroutine(UIUnlocked());
+    }
+
+    public void ClosePrompt()
+    {
+      Prompt.SetActive(false);
+      volume.profile.TryGet(out vig);
+      vig.intensity.value = normalVigneteIntensity;
+      PlayerController.Instance.speed = 5;
     }
 }
