@@ -25,6 +25,9 @@ public class CameraChange : MonoBehaviour
     void Start()
     {
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        PC.IsInFrontCameraView = true;
+        PC.horizontalInput = Input.GetAxis("Horizontal");
+        PC.verticalInput = Input.GetAxis("Vertical");
     }
 
     // Update is called once per frame

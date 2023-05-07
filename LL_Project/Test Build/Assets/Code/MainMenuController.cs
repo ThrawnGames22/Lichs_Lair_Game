@@ -17,7 +17,7 @@ public class MainMenuController : MonoBehaviour
     {
         MainPanel.SetActive(true);
         //ControlsPanel.GetComponent<CanvasGroup>().alpha = 0;
-        ControlsPanel.SetActive(true);
+        ControlsPanel.SetActive(false);
         
     }
 
@@ -29,11 +29,13 @@ public class MainMenuController : MonoBehaviour
         if(IsOpen)
         {
           MainPanel.SetActive(false);
+          ControlsPanel.SetActive(true);
         }
 
         if(!IsOpen)
         {
           MainPanel.SetActive(true);
+           ControlsPanel.SetActive(false);
         }
     }
 

@@ -22,11 +22,15 @@ public class ArrowCollider : MonoBehaviour
       if(other.gameObject.tag == "EnemyCollider")
       {
         other.gameObject.GetComponent<DamageManager>().enemyHealth.TakeDamage(DamageApplied);
-         PlayerHealth.Instance.currentHealth += 30f;
-        PlayerMagic.Instance.currentMana += 100;
+        
+        if(other.gameObject.GetComponent<DamageManager>().enemyHealth.IsDead)
+        {
+          PlayerHealth.Instance.currentHealth += 30f;
+          PlayerMagic.Instance.currentMana += 100;
+        }
         Destroy(this.gameObject);
        
-
+         
       }
     }
 }

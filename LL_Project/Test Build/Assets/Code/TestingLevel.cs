@@ -10,6 +10,8 @@ public class TestingLevel : MonoBehaviour
         PlayerController.Instance.HasActivatedMagic = true;
         PlayerController.Instance.HasActivatedWeapons = true;
         PlayerController.Instance.HasActivatedGameplay = true;
+        PlayerController.Instance.HasAquiredWeapons = true;
+
 
     }
 

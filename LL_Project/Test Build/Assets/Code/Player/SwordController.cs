@@ -21,9 +21,9 @@ public class SwordController : MonoBehaviour
 
     [Header("Sword Damage Values")]
 
-    public float NormalCurrentDamage;
-    public float ChargedCurrentDamage;
-    public float CurrentDamage;
+    public int NormalCurrentDamage;
+    public int ChargedCurrentDamage;
+    public int CurrentDamage;
 
     public bool CanUse;
     
@@ -152,7 +152,26 @@ public class SwordController : MonoBehaviour
     }
 
     
+   private void OnTriggerEnter(Collider other)
+   {
+     if(other.gameObject.tag == "EnemyCollider")
+     {
+      if(CanApplyDamage == true)
+      {
+       other.gameObject.GetComponent<DamageManager>().enemyHealth.TakeDamage(50);
+      }
+      
+      
 
+       if(other.gameObject.GetComponent<DamageManager>().enemyHealth.IsDead)
+        {
+          PlayerHealth.Instance.currentHealth += 30f;
+          PlayerMagic.Instance.currentMana += 100;
+        }
+     }
+   }
+
+   
 
     
 }

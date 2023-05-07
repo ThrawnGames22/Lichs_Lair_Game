@@ -17,6 +17,7 @@ public class RoomDoor : MonoBehaviour
     public float dissolve = 2.74f;
 
     public List<GameObject> MagicSeals;
+    public bool HasPassedThrough;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,10 @@ public class RoomDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    
        DoorAnimator.SetBool("IsUnlocked", UnlockDoor);
+       DoorAnimator.SetBool("HasPassedThrough", HasPassedThrough);
+
        
       if(isMagicDoor)
       {

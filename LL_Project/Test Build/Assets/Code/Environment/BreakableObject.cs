@@ -39,5 +39,16 @@ public class BreakableObject : MonoBehaviour
         RigidObject.SetActive(true);
         
       }
+
+      if(other.gameObject.tag == "FireSpell")
+      {
+        this.gameObject.GetComponent<BoxCollider>().enabled = false;
+        Debug.Log("HasCollided");
+        HasCollided = true;
+
+        StaticObject.SetActive(false);
+        RigidObject.SetActive(true);
+        
+      }
     }
 }

@@ -54,19 +54,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Sword")
-        {
-            if(other.gameObject.GetComponent<SwordController>().CanApplyDamage == true)
-            {
-             enemyCurrentHealth -= other.gameObject.GetComponent<SwordController>().CurrentDamage;
-             print("HasCollided");
-            }
-            else
-            {
-                return;
-            }
-            
-        }
+        
         if(other.gameObject.tag == "DarkSpell")
         {
           TakeDamage(other.gameObject.GetComponent<DarkSlash>().DarkDamage);
