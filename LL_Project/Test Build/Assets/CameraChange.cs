@@ -38,8 +38,15 @@ public class CameraChange : MonoBehaviour
       if(other.gameObject.tag == "Player")
       {
         IsInCameraChange = true;
+        if(WallGroupToDisable != null)
+        {
         WallGroupToDisable.SetActive(false);
+        }
+
+        if(WallGroupToEnable != null)
+        {
         WallGroupToEnable.SetActive(true);
+        }
 
         
         
@@ -97,8 +104,15 @@ public class CameraChange : MonoBehaviour
         PC.IsInRightCameraView = false;
           PC.IsInLeftCameraView = false;
           PC.IsInBackCameraView = false;
-       WallGroupToDisable.SetActive(true);
-       WallGroupToEnable.SetActive(false);
+       if(WallGroupToDisable != null)
+        {
+        WallGroupToDisable.SetActive(true);
+        }
+
+        if(WallGroupToEnable != null)
+        {
+        WallGroupToEnable.SetActive(false);
+        }
         
       }
         

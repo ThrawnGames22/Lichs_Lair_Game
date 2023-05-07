@@ -10,6 +10,7 @@ public class TutorialStone : MonoBehaviour
     public GameObject Camera;
     public bool IsInRange;
     public float UiTime;
+    public GameObject Barrier;
 
     //Prompts
 
@@ -24,6 +25,7 @@ public class TutorialStone : MonoBehaviour
         StartPrompt.SetActive(true);
         InteractPrompt.SetActive(false);
         DashPrompt.SetActive(false);
+        Barrier.SetActive(true);
     }
 
     // Update is called once per frame
@@ -73,6 +75,7 @@ public class TutorialStone : MonoBehaviour
         DashPrompt.SetActive(true);
 
         StoneUI.SetActive(false);
+        Barrier.SetActive(false);
     }
 
     public IEnumerator UI()
@@ -81,6 +84,7 @@ public class TutorialStone : MonoBehaviour
       yield return new WaitForSeconds(UiTime);
       UnlockAndCloseStoneTutorial();
       StopUI();
+      
       
     }
 

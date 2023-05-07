@@ -18,6 +18,10 @@ public class PromptAreaManager : MonoBehaviour
 
     public GameObject PotionPrompt;
 
+    public GameObject HealthPotion;
+    public GameObject ManaPotion;
+
+
     public GameObject EnemyPrompt;
     public GameObject BasicCombatPrompt;
     public GameObject BasicAndEnemyPromptArea;
@@ -27,6 +31,10 @@ public class PromptAreaManager : MonoBehaviour
     public GameObject TrapPrompt;
     public GameObject TrapPromptArea;
 
+    public GameObject PotionPromptArea1;
+    public GameObject PotionPromptArea2;
+
+   public bool HasSpawnedPotions;
 
 
     public Volume volume;
@@ -48,7 +56,7 @@ public class PromptAreaManager : MonoBehaviour
         BasicCombatPrompt.SetActive(false);
         PotionPrompt.SetActive(false);
         
-        WeaponPrompt.SetActive(false);
+        //WeaponPrompt.SetActive(false);
         
         volume.profile.TryGet(out vig);
         
@@ -138,6 +146,41 @@ public class PromptAreaManager : MonoBehaviour
         PlayerController.Instance.HasActivatedWeapons = true;
         
 
+    }
+
+    public void PotionPromptStart()
+    {
+        PotionPrompt.SetActive(true);
+        volume.profile.TryGet(out vig);
+        vig.intensity.value = vigneteIntensity;
+        PlayerController.Instance.speed = 0;
+    }
+
+    public void PotionPromptClose()
+    {
+        
+        PotionPrompt.SetActive(false);
+        volume.profile.TryGet(out vig);
+        vig.intensity.value = normalVigneteIntensity;
+        PlayerController.Instance.speed = 5;
+        PotionPromptArea1.SetActive(false);
+        PotionPromptArea2.SetActive(false);
+        SpawnPotions();
+        
+        //PlayerController.Instance.HasActivatedMagic = true; 
+    }
+
+    public void SpawnPotions()
+    {
+      if(HasSpawnedPotions == false)
+      {
+        GameObject clone1;
+        GameObject clone2;
+
+        clone1 = Instantiate(HealthPotion, GameObject.FindGameObjectWithTag("Player").transform.position, GameObject.FindGameObjectWithTag("Player").transform.rotation);
+        clone1 = Instantiate(ManaPotion, GameObject.FindGameObjectWithTag("Player").transform.position, GameObject.FindGameObjectWithTag("Player").transform.rotation);
+        HasSpawnedPotions = true;
+      }  
     }
 
     

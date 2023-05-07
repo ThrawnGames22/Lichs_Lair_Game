@@ -20,6 +20,7 @@ public class BowController : MonoBehaviour
     public float NextShot;
     public float CurrentDelayTimer;
     public bool CanUse;
+    public bool isInCooldown;
 
 
 
@@ -41,6 +42,8 @@ public class BowController : MonoBehaviour
     {
       if(currentArrowCount > 0)
       {
+        if(PlayerController.Instance.CanUseWeapons == true)
+        {
         if(CanUse == true)
         {
            if(Input.GetKeyDown(KeyCode.E))
@@ -54,14 +57,26 @@ public class BowController : MonoBehaviour
         {
             return;
         }
+        }
        
       }
 
       if(CanUse == true)
       {
         StopCoroutine(StartCoolDown());
+        
       }
     }
+
+    if(isInCooldown)
+      {
+        PlayerController.Instance.CanUseWeapons = false;
+      }
+
+       if(!isInCooldown)
+      {
+        PlayerController.Instance.CanUseWeapons = true;
+      }
     }
 
     public void Shoot()
@@ -75,8 +90,12 @@ public class BowController : MonoBehaviour
 
     public IEnumerator StartCoolDown()
     {
+        
         CanUse = false;
+        isInCooldown = true;
         yield return new WaitForSeconds(CurrentDelayTimer);
+        isInCooldown = false;
         CanUse = true;
+
     }
 }

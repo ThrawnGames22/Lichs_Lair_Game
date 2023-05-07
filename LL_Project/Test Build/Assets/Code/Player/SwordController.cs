@@ -14,6 +14,7 @@ public class SwordController : MonoBehaviour
        
     public bool AttackBlocked;
     public float MeleeWeaponDelay;
+    public bool isInCooldown;
 
     
     
@@ -52,14 +53,16 @@ public class SwordController : MonoBehaviour
         //NormalCurrentDamage = playerController.AttackValue;
     if(playerController.HasActivatedWeapons)
     {
+      if(PlayerController.Instance.CanUseWeapons == true)
+      {
       if(CanUse == true)
       {
         if(Input.GetKey(KeyCode.E))
           {
-            
+            isInCooldown = true;
             SwordAttack();
-            PlayerHealth.Instance.currentHealth += 30f;
-            PlayerMagic.Instance.currentMana += 100;
+            //PlayerHealth.Instance.currentHealth += 30f;
+            //PlayerMagic.Instance.currentMana += 100;
             
             
           }
@@ -68,9 +71,21 @@ public class SwordController : MonoBehaviour
       {
         return;
       }
+      }
       if(CanUse == true)
       {
         StopCoroutine(DelayAttack());
+        //PlayerController.Instance.CanUseWeapons = true;
+      }
+
+      if(isInCooldown)
+      {
+        playerController.CanUseWeapons = false;
+      }
+
+       if(!isInCooldown)
+      {
+        playerController.CanUseWeapons = true;
       }
     }
  
@@ -127,9 +142,12 @@ public class SwordController : MonoBehaviour
 
     public IEnumerator DelayAttack()
     {
+      
+        
         CanUse = false;
         yield return new WaitForSeconds(MeleeWeaponDelay);
         AttackBlocked = false;
+        isInCooldown = false;
         CanUse = true;
     }
 

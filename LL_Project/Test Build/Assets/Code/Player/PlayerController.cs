@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed;
     public Vector3 velocity;
     public Vector3 CurrentPosition;
+    public bool CanUseWeapons;
 
     public bool HasActivatedGameplay;
     public bool HasActivatedWeapons;
@@ -143,8 +144,10 @@ public class PlayerController : MonoBehaviour
     {
 
         
-        if(HasAquiredWeapons == true)
+      if(HasAquiredWeapons == true)
       {
+        if(CanUseWeapons == true)
+        {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             CurrentWeaponSlot = Weapons[0];
@@ -179,6 +182,7 @@ public class PlayerController : MonoBehaviour
             Weapons[0].SetActive(false);
             Weapons[1].SetActive(false);
             Weapons[2].SetActive(true);
+        }
         }
       }
 
