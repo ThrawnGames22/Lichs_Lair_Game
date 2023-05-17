@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrapPrompt : MonoBehaviour
 {
    public PromptAreaManager PAM;
+   
     // Start is called before the first frame update
     void Start()
     {

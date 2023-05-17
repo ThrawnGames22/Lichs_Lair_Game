@@ -26,9 +26,10 @@ public class HealthPickup : MonoBehaviour
     {
         if(other.gameObject.tag == "PlayerPickupCollider")
         {
-            if(GameObject.Find("UI").GetComponent<SlotUIController>().HasHealthPotion == false)
+            if(GameObject.Find("UI").GetComponent<SlotUIController>().HasHealthPotion == false && GameObject.Find("UI").GetComponent<SlotUIController>().HasPotion == false)
             {
               PickupHealth();
+              GameObject.Find("UI").GetComponent<SlotUIController>().HasPotion = true;
             }
         }
     }

@@ -9,6 +9,7 @@ public class TutorialStone : MonoBehaviour
     public GameObject StoneUI;
     public GameObject Camera;
     public bool IsInRange;
+    public bool TutorialStoneIsDone;
     public float UiTime;
     public GameObject Barrier;
 
@@ -25,7 +26,7 @@ public class TutorialStone : MonoBehaviour
         StartPrompt.SetActive(true);
         InteractPrompt.SetActive(false);
         DashPrompt.SetActive(false);
-        Barrier.SetActive(true);
+        //Barrier.SetActive(true);
     }
 
     // Update is called once per frame
@@ -33,16 +34,24 @@ public class TutorialStone : MonoBehaviour
     {
       if(IsInRange)
       {
+        if(TutorialStoneIsDone == false)
+        {
+
         if(Input.GetKeyDown(KeyCode.F))
         {
          Camera.GetComponent<CameraSmoothFollow>().target = this.transform;
          PlayerController.Instance.speed = 0;
          StartPrompt.SetActive(false);
          InteractPrompt.SetActive(false);
-         this.GetComponent<BoxCollider>().enabled = false;
+         TutorialStoneIsDone = true;
          
          StartCoroutine(UI());
         }
+        }
+      }
+      else
+      {
+        return;
       }
     }
 
@@ -50,8 +59,11 @@ public class TutorialStone : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+          if(TutorialStoneIsDone == false)
+          {
             IsInRange = true;
             InteractPrompt.SetActive(true);
+          }
         
         }
         
@@ -60,8 +72,11 @@ public class TutorialStone : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+          if(TutorialStoneIsDone == false)
+          {
             IsInRange = false;
             InteractPrompt.SetActive(false);
+          }
        
         }
         
@@ -75,7 +90,7 @@ public class TutorialStone : MonoBehaviour
         DashPrompt.SetActive(true);
 
         StoneUI.SetActive(false);
-        Barrier.SetActive(false);
+        //Barrier.SetActive(false);
     }
 
     public IEnumerator UI()

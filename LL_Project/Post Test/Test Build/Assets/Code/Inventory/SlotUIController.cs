@@ -37,6 +37,8 @@ public class SlotUIController : MonoBehaviour
     public GameObject HealEffect;
     public GameObject ManaEffect;
 
+    public bool HasPotion;
+
 
     public bool TogglePotionUI;
 
@@ -94,7 +96,8 @@ public class SlotUIController : MonoBehaviour
       
 
       //PotionUses
-
+     if(HasManaPotion == false)
+     {
       if(HasHealthPotion == true && HealthPotionUI.active)
       {
          if(Input.GetKeyDown(KeyCode.R))
@@ -104,10 +107,13 @@ public class SlotUIController : MonoBehaviour
            EffectClone.transform.parent = Player.gameObject.transform;
            PH.IncreaseHealth(100);
            HasHealthPotion = false;
+           HasPotion = false;
          }
       }
+     }
       
-
+     if(HasHealthPotion == false)
+     {
       if(HasManaPotion == true && ManaPotionUI.active)
       {
          if(Input.GetKeyDown(KeyCode.R))
@@ -117,8 +123,10 @@ public class SlotUIController : MonoBehaviour
            EffectClone.transform.parent = Player.gameObject.transform;
            PM.IncreaseMana(100);
            HasManaPotion = false;
+           HasPotion = false;
          }
       }
+     }
       
 
       //PotionUI
@@ -148,7 +156,7 @@ public class SlotUIController : MonoBehaviour
         ManaPotionAV.SetActive(false);
          ManaPotionUV.SetActive(true); 
       }
-
+     /*
       if(Input.GetKeyDown(KeyCode.X))
       {
         TogglePotionUI = !TogglePotionUI;
@@ -168,6 +176,9 @@ public class SlotUIController : MonoBehaviour
          ManaPotionUI.SetActive(true);
 
       }
+      */
+
+      //spells
 
 
        SpellReadyImage1.sprite = PM.CombatSpellSlot1.spellToCast.SpellIcon;

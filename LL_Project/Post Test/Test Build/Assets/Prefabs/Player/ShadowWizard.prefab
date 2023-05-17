@@ -8333,6 +8333,7 @@ MonoBehaviour:
   jumpSpeed: 5
   velocity: {x: 0, y: 0, z: 0}
   CurrentPosition: {x: 0, y: 0, z: 0}
+  CanUseWeapons: 0
   HasActivatedGameplay: 0
   HasActivatedWeapons: 0
   HasActivatedMagic: 0
@@ -8347,7 +8348,7 @@ MonoBehaviour:
   dashSpeed: 3
   dashTime: 0.25
   dashCD: 0
-  maxDashCD: 2
+  maxDashCD: 1
   canUseDash: 0
   IsMoving: 0
   CanJump: 0
@@ -8377,6 +8378,8 @@ MonoBehaviour:
   NormalDNAmount: 0
   IsGrounded: 0
   YSpeed: 0
+  ScreenPosition: {x: 0, y: 0, z: 0}
+  CameraLookSpeed: 10
 --- !u!143 &5260952273746040825
 CharacterController:
   m_ObjectHideFlags: 0
@@ -8417,6 +8420,7 @@ MonoBehaviour:
     type: 3}
   UtilitySpell: {fileID: 6354494036018413768, guid: 3ede07262138eb946bc10d5927bd89ae,
     type: 3}
+  MagicPaused: 0
   ManaText: {fileID: 0}
   slotUIController: {fileID: 0}
   UI: {fileID: 0}

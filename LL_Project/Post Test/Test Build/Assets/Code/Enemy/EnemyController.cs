@@ -41,6 +41,7 @@ public class EnemyController : MonoBehaviour
     public float minDistance;
     public float DistanceToStartAnimation;
     public float maxDistance;
+    public bool IsHitFirst;
 
     //Animation
     public Animator EnemyAnimator;
@@ -96,25 +97,47 @@ public class EnemyController : MonoBehaviour
       {
         FindPlayer();
       }
-
+      if(IsHitFirst == false)
+      {
       if(currentDistance < minDistance )
       {
         IsAgitated = true;
+        minDistance = 100f;
         
         
       }
-      
+      }
+      if(IsHitFirst == false)
+      {
       if(currentDistance > minDistance)
       {
-        StopAttack();
+        
         IsAgitated = false;
       }
+      }
 
+      if(IsHitFirst == true)
+      {
+        IsAgitated = true;
+        minDistance = 100f;
+      }
+      
+
+      if(currentDistance > DistanceToStartAnimation)
+      {
+        StopAttack();
+      }
+
+      
+      if(currentDistance < DistanceToStartAnimation)
+      {
+        AttackPlayer();
+      }
 
 
       if(IsAgitated == true)
       {
-        AttackPlayer();
+        
         StopIteration();
         navMeshAgent.stoppingDistance = 2;
       }
@@ -334,9 +357,8 @@ public class EnemyControllerEditor : Editor
           EC.OriginalDamageToApply = EditorGUILayout.IntField("Original Damage To Apply", EC.OriginalDamageToApply);
 
           EC.DamageToApply = 5;
-          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Attack", EC.minDistance);
-          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Chase", EC.DistanceToStartAnimation);
-
+          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Chase", EC.minDistance);
+          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Attack", EC.DistanceToStartAnimation);
           EC.maxDistance = EditorGUILayout.FloatField("Max Distance to Stop Chasing", EC.maxDistance);
           
           //EC.navMeshAgent.speed = EC.speed;
@@ -358,13 +380,13 @@ public class EnemyControllerEditor : Editor
           EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
           EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
           EditorGUILayout.PropertyField(serializedObject.FindProperty("patrolPoints"), includeChildren: true);
-          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Chase", EC.DistanceToStartAnimation);
+          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Chase", EC.minDistance);
           if(m_PatrolPoints.hasChildren)
           {
             serializedObject.ApplyModifiedProperties();
           }
           EC.DamageToApply = 15;
-          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Attack", EC.minDistance);
+          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Attack", EC.DistanceToStartAnimation);
           EC.maxDistance = EditorGUILayout.FloatField("Max Distance to Stop Chasing", EC.maxDistance);
 
           
@@ -387,13 +409,13 @@ public class EnemyControllerEditor : Editor
           EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
           EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
           EditorGUILayout.PropertyField(serializedObject.FindProperty("patrolPoints"), includeChildren: true);
-          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Chase", EC.DistanceToStartAnimation);
+          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Chase", EC.minDistance);
           if(m_PatrolPoints.hasChildren)
           {
             serializedObject.ApplyModifiedProperties();
           }
           EC.DamageToApply = 10;
-          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Attack", EC.minDistance);
+          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Attack", EC.DistanceToStartAnimation);
           EC.maxDistance = EditorGUILayout.FloatField("Max Distance to Stop Chasing", EC.maxDistance);
 
           
@@ -416,13 +438,13 @@ public class EnemyControllerEditor : Editor
           EC.FistObject = (GameObject)EditorGUILayout.ObjectField("Fist Object", EC.FistObject, typeof(GameObject), true);
           EC.OriginalSpeed = EditorGUILayout.FloatField("Original Speed", EC.OriginalSpeed);
           EditorGUILayout.PropertyField(serializedObject.FindProperty("patrolPoints"), includeChildren: true);
-          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Chase", EC.DistanceToStartAnimation);
+          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Chase", EC.minDistance);
           if(m_PatrolPoints.hasChildren)
           {
             serializedObject.ApplyModifiedProperties();
           }
           EC.DamageToApply = 20;
-          EC.minDistance = EditorGUILayout.FloatField("Min Distance To Attack", EC.minDistance);
+          EC.DistanceToStartAnimation = EditorGUILayout.FloatField("Min Distance To Attack", EC.DistanceToStartAnimation);
           EC.maxDistance = EditorGUILayout.FloatField("Max Distance to Stop Chasing", EC.maxDistance);
 
           break;

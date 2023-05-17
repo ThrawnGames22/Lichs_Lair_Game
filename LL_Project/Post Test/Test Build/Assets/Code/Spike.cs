@@ -38,5 +38,12 @@ public class Spike : MonoBehaviour
         {
           other.GetComponent<PlayerHealth>().TakeDamage(Damage);
         }
+
+        if(other.gameObject.tag == "Enemy")
+        {
+          other.GetComponent<EnemyHealth>().TakeDamage(Damage);
+        }
     }
+
+    
 }

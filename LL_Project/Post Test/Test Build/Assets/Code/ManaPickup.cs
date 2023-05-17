@@ -26,9 +26,10 @@ public class ManaPickup : MonoBehaviour
     {
         if(other.gameObject.tag == "PlayerPickupCollider")
         {
-            if(GameObject.Find("UI").GetComponent<SlotUIController>().HasManaPotion == false)
+            if(GameObject.Find("UI").GetComponent<SlotUIController>().HasManaPotion == false && GameObject.Find("UI").GetComponent<SlotUIController>().HasPotion == false)
             {
               PickupMana();
+              GameObject.Find("UI").GetComponent<SlotUIController>().HasPotion = true;
             }
         }
     }

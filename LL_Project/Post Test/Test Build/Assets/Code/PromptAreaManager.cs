@@ -46,6 +46,8 @@ public class PromptAreaManager : MonoBehaviour
     public Camera camera;
     public GameObject Enemy;
 
+    public bool PromptisActive;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,7 @@ public class PromptAreaManager : MonoBehaviour
         EnemyPrompt.SetActive(false);
         BasicCombatPrompt.SetActive(false);
         PotionPrompt.SetActive(false);
+        PromptisActive = false;
         
         //WeaponPrompt.SetActive(false);
         
@@ -67,51 +70,73 @@ public class PromptAreaManager : MonoBehaviour
     void Update()
     {
 
+        if(PromptisActive == true)
+        {
+            PlayerMagic.Instance.MagicPaused = true;
+        }
+
+        if(PromptisActive == false)
+        {
+            PlayerMagic.Instance.MagicPaused = false;
+        }
+      /*
         //Magic
         if(MagicPrompt.active == true)
         {
-          PlayerMagic.Instance.MagicPaused = true;
+          PromptisActive = true;
+          //PlayerMagic.Instance.MagicPaused = true;
         }
         if(MagicPrompt.active == false)
         {
-            PlayerMagic.Instance.MagicPaused = false;
+            PromptisActive = false;
+            //PlayerMagic.Instance.MagicPaused = false;
         }
         //Potion
         if(PotionPrompt.active == true)
         {
-          PlayerMagic.Instance.MagicPaused = true;
+            PromptisActive = true;
+          //PlayerMagic.Instance.MagicPaused = true;
         }
         if(PotionPrompt.active == false)
         {
-            PlayerMagic.Instance.MagicPaused = false;
+            PromptisActive = false;
+            //PlayerMagic.Instance.MagicPaused = false;
         }
         //Trap
         if(TrapPrompt.active == true)
         {
-          PlayerMagic.Instance.MagicPaused = true;
+            PromptisActive = true;
+            
+          //PlayerMagic.Instance.MagicPaused = true;
         }
         if(TrapPrompt.active == false)
         {
-            PlayerMagic.Instance.MagicPaused = false;
+            PromptisActive = false;
+            //PlayerMagic.Instance.MagicPaused = false;
         }
         //Enemy
         if(EnemyPrompt.active == true)
         {
-          PlayerMagic.Instance.MagicPaused = true;
+            PromptisActive = true;
+          //PlayerMagic.Instance.MagicPaused = true;
         }
         if(EnemyPrompt.active == false)
         {
-            PlayerMagic.Instance.MagicPaused = false;
+            PromptisActive = false;
+            //PlayerMagic.Instance.MagicPaused = false;
         }
          //Weapon Combat
         if(BasicCombatPrompt.active == true)
         {
-          PlayerMagic.Instance.MagicPaused = true;
+            PromptisActive = true;
+          //PlayerMagic.Instance.MagicPaused = true;
         }
         if(BasicCombatPrompt.active == false)
         {
-            PlayerMagic.Instance.MagicPaused = false;
+            PromptisActive = false;
+            //PlayerMagic.Instance.MagicPaused = false;
         }
+        */
         
         
 
@@ -126,6 +151,7 @@ public class PromptAreaManager : MonoBehaviour
         volume.profile.TryGet(out vig);
         vig.intensity.value = vigneteIntensity;
         PlayerController.Instance.speed = 0;
+        PromptisActive = true;
         
     }
 
@@ -138,6 +164,7 @@ public class PromptAreaManager : MonoBehaviour
         MagicPromptArea1.SetActive(false);
         MagicPromptArea2.SetActive(false);
         PlayerController.Instance.HasActivatedMagic = true;
+        PromptisActive = false;
 
     }
     //Trap Prompts
@@ -147,7 +174,8 @@ public class PromptAreaManager : MonoBehaviour
         TrapPrompt.SetActive(true);
         volume.profile.TryGet(out vig);
         vig.intensity.value = vigneteIntensity;
-        PlayerController.Instance.speed = 0; 
+        PlayerController.Instance.speed = 0;
+        PromptisActive = true;
     }
 
     public void TrapPromptClose()
@@ -157,6 +185,7 @@ public class PromptAreaManager : MonoBehaviour
         vig.intensity.value = normalVigneteIntensity;
         PlayerController.Instance.speed = 5;
         TrapPromptArea.SetActive(false);
+        PromptisActive = false;
         
 
     }
@@ -173,6 +202,7 @@ public class PromptAreaManager : MonoBehaviour
         camera.GetComponent<CameraSmoothFollow>().offset.x = 0.72f;
         camera.GetComponent<CameraSmoothFollow>().offset.y = 0.24f;
         camera.GetComponent<CameraSmoothFollow>().offset.z = 3.09f;
+        PromptisActive = true;
 
     }
 
@@ -180,6 +210,7 @@ public class PromptAreaManager : MonoBehaviour
     {
         EnemyPrompt.SetActive(false);
         BasicCombatPrompt.SetActive(true);
+        PromptisActive = true;
         
         
     }
@@ -196,6 +227,7 @@ public class PromptAreaManager : MonoBehaviour
         camera.GetComponent<CameraSmoothFollow>().offset.y = 10f;
         camera.GetComponent<CameraSmoothFollow>().offset.z = 10f;
         PlayerController.Instance.HasActivatedWeapons = true;
+        PromptisActive = false;
         
 
     }
@@ -206,6 +238,7 @@ public class PromptAreaManager : MonoBehaviour
         volume.profile.TryGet(out vig);
         vig.intensity.value = vigneteIntensity;
         PlayerController.Instance.speed = 0;
+        PromptisActive = true;
     }
 
     public void PotionPromptClose()
@@ -218,6 +251,7 @@ public class PromptAreaManager : MonoBehaviour
         PotionPromptArea1.SetActive(false);
         PotionPromptArea2.SetActive(false);
         SpawnPotions();
+        PromptisActive = false;
         
         //PlayerController.Instance.HasActivatedMagic = true; 
     }

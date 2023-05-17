@@ -46,6 +46,7 @@ public class EnemyHealth : MonoBehaviour
         {
           enemyCurrentHealth -= collision.gameObject.GetComponent<FireSpell>().fireDamage;
           print("Ememy Just Took Damage");
+          EC.IsHitFirst = true;
         }
 
         
@@ -59,6 +60,7 @@ public class EnemyHealth : MonoBehaviour
         {
           TakeDamage(other.gameObject.GetComponent<DarkSlash>().DarkDamage);
           print("Ememy Just Took Damage");
+          EC.IsHitFirst = true;
         }
         
     }
