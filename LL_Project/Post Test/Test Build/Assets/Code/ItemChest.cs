@@ -35,6 +35,8 @@ public class ItemChest : MonoBehaviour
     public float vigneteIntensity = 0.625f;
     public float normalVigneteIntensity = 0.25f;
 
+    public WeaponChestManager WCM;
+
     
     // Start is called before the first frame update
     void Start()
@@ -70,7 +72,8 @@ public class ItemChest : MonoBehaviour
           {
             if(IsVSliceChest == false)
             {
-            SpawnItem();
+              
+              SpawnItem();
             }
 
             if(IsVSliceChest == true)
@@ -104,6 +107,8 @@ public class ItemChest : MonoBehaviour
               Prompt.SetActive(true);
               volume.profile.TryGet(out vig);
               vig.intensity.value = vigneteIntensity;
+              PlayerController.Instance.HasUnlockedWeaponChest = true;
+              WCM.GlobalOverrideUnlocked = true;
               
               SpawnWeapons();
               StartCoroutine(UIUnlocked());
@@ -113,6 +118,8 @@ public class ItemChest : MonoBehaviour
            }
           }
         }
+
+        
     }
 
     public void SpawnItem()

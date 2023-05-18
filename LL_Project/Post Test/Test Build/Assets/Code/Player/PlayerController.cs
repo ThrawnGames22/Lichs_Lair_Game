@@ -93,7 +93,8 @@ public class PlayerController : MonoBehaviour
 
     public float CameraLookSpeed = 5f;
 
-
+    [Header("Events")]
+    public bool HasUnlockedWeaponChest;
     
     
 
