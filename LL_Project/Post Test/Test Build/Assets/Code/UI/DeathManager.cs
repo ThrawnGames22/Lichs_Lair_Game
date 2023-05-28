@@ -102,5 +102,10 @@ public class DeathManager : MonoBehaviour
         YouDiedImage.GetComponent<Image>().color = YDIcolor;
     }
 
+    public void SetDeathScreenActive()
+    {
+        DeathScreen.SetActive(true);
+    }
+
    
 }

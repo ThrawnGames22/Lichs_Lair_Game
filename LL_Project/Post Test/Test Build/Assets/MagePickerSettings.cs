@@ -9,7 +9,9 @@ public class MagePickerSettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      GameObject.Find("DeathCanvas").GetComponent<DeathCanavsManager>().SetDeathScreenActive();
       GameObject.Find("DeathCanvas").GetComponent<Canvas>().sortingOrder = SortOrder;
+      
     }
 
     // Update is called once per frame
