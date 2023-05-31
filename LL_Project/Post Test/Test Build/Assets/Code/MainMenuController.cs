@@ -32,25 +32,25 @@ public class MainMenuController : MonoBehaviour
 
         if(IsOpenControls)
         {
-          MainPanel.SetActive(false);
+          //MainPanel.SetActive(false);
           ControlsPanel.SetActive(true);
         }
 
         if(!IsOpenControls)
         {
-          MainPanel.SetActive(true);
+          //MainPanel.SetActive(true);
            ControlsPanel.SetActive(false);
         }
 
         if(IsOpenOptions)
         {
-          MainPanel.SetActive(false);
+          //MainPanel.SetActive(false);
           OptionsPanel.SetActive(true);
         }
 
         if(!IsOpenOptions)
         {
-          MainPanel.SetActive(true);
+           //MainPanel.SetActive(true);
            OptionsPanel.SetActive(false);
         }
     }
@@ -80,7 +80,12 @@ public class MainMenuController : MonoBehaviour
       
       IsOpenOptions = false;
     }
+    
 
+    public void QuitGame()
+    {
+      Application.Quit();
+    }
     
 
     
