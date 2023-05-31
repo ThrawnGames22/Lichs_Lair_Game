@@ -12,6 +12,7 @@ public class CameraChange : MonoBehaviour
     //If any walls need Disabling
     public GameObject WallGroupToDisable;
     public GameObject WallGroupToEnable;
+    public GameObject Extras;
     public bool IsInCameraChange;
 
 
@@ -48,6 +49,10 @@ public class CameraChange : MonoBehaviour
         if(WallGroupToEnable != null)
         {
         WallGroupToEnable.SetActive(true);
+        }
+        if(Extras != null)
+        {
+        Extras.SetActive(true);
         }
 
         

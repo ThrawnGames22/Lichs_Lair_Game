@@ -7,9 +7,12 @@ public class MainMenuController : MonoBehaviour
 {
     public GameObject MainPanel;
     public GameObject ControlsPanel;
+    public GameObject OptionsPanel;
 
     public float FadeTime;
-    public bool IsOpen;
+    public bool IsOpenControls;
+    public bool IsOpenOptions;
+
     public Animator PanelAnimator;
     
     // Start is called before the first frame update
@@ -18,38 +21,64 @@ public class MainMenuController : MonoBehaviour
         MainPanel.SetActive(true);
         //ControlsPanel.GetComponent<CanvasGroup>().alpha = 0;
         ControlsPanel.SetActive(false);
+        OptionsPanel.SetActive(false);
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        PanelAnimator.SetBool("IsOpen", IsOpen);
+        //PanelAnimator.SetBool("IsOpen", IsOpen);
 
-        if(IsOpen)
+        if(IsOpenControls)
         {
           MainPanel.SetActive(false);
           ControlsPanel.SetActive(true);
         }
 
-        if(!IsOpen)
+        if(!IsOpenControls)
         {
           MainPanel.SetActive(true);
            ControlsPanel.SetActive(false);
+        }
+
+        if(IsOpenOptions)
+        {
+          MainPanel.SetActive(false);
+          OptionsPanel.SetActive(true);
+        }
+
+        if(!IsOpenOptions)
+        {
+          MainPanel.SetActive(true);
+           OptionsPanel.SetActive(false);
         }
     }
 
     public void ShowControls()
     {
       
-      IsOpen = true;
+      IsOpenControls = true;
       
     }
 
     public void HideControls()
     {
       
-      IsOpen = false;
+      IsOpenControls = false;
+    }
+
+     public void ShowOptions()
+    {
+      
+      IsOpenOptions = true;
+      
+    }
+
+    public void HideOptions()
+    {
+      
+      IsOpenOptions = false;
     }
 
     

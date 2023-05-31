@@ -86,7 +86,7 @@ public class TutorialStone : MonoBehaviour
     {
         Camera.GetComponent<CameraSmoothFollow>().target = GameObject.FindGameObjectWithTag("Player").transform;
         PlayerController.Instance.speed = 5;
-        PlayerController.Instance.HasActivatedGameplay = true;
+        //PlayerController.Instance.HasActivatedGameplay = true;
         DashPrompt.SetActive(true);
 
         StoneUI.SetActive(false);

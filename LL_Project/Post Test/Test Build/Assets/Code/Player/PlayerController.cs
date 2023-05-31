@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour
         Instance = this;
         characterController = GetComponent<CharacterController>();
         characterController.enabled = true;
+        HasActivatedGameplay = true;
         //mainCamera = Camera.main;
     }
 
