@@ -50,7 +50,7 @@ public class MenuManager : MonoBehaviour
     }
      public void LoadNextLevel()
     {
-        StartCoroutine(LoadFirstLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        StartCoroutine(LoadNextLV(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     
@@ -60,9 +60,17 @@ public class MenuManager : MonoBehaviour
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(TransitionTime);
         SceneManager.LoadScene(LevelIndex);
+        
     }
 
     IEnumerator LoadFirstLevel(int LevelIndex)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(TransitionTime);
+        LoadMenu("Load Into Game");
+    }
+
+    IEnumerator LoadNextLV(int LevelIndex)
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(TransitionTime);
@@ -73,7 +81,12 @@ public class MenuManager : MonoBehaviour
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(TransitionTime);
-        SceneManager.LoadScene("Menu");
+        LoadMenu("Load Back To Menu");
+    }
+
+    public void LoadMenu(string SceneName)
+    {
+        SceneManager.LoadScene(SceneName);
     }
 
     

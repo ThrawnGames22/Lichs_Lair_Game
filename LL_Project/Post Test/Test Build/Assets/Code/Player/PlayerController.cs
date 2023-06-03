@@ -475,7 +475,7 @@ public class PlayerController : MonoBehaviour
             while(Time.time < startTime + dashTime)
             {
                 
-                RB.constraints = RigidbodyConstraints.FreezeRotationY;
+                //RB.constraints = RigidbodyConstraints.FreezeRotationY;
                 characterController.Move(velocity * dashSpeed * Time.deltaTime);
                 dashCD = maxDashCD;
                 yield return null; 
