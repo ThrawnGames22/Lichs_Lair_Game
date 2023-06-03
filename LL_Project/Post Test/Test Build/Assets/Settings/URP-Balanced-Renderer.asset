@@ -41,7 +41,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: 2905960796572100223}
-  m_RendererFeatureMap: adc0de57c6d2eee57f26e4b2f20b5428
+  - {fileID: 2721378409219498966}
+  m_RendererFeatureMap: adc0de57c6d2eee57f26e4b2f20b5428d623f2a43e47c425
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -82,6 +83,20 @@ MonoBehaviour:
   m_ClusteredRendering: 0
   m_TileSize: 32
   m_IntermediateTextureMode: 0
+--- !u!114 &2721378409219498966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75271b67308be4244acffce59c2b3904, type: 3}
+  m_Name: FullScreenRenderPassFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  material: {fileID: 2100000, guid: b8d230a15e362de4a99f9688882c268b, type: 2}
 --- !u!114 &2905960796572100223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb696b0fb92984b4fb04a254bdda7de4, type: 3}
   m_Name: PixelizeFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     renderPassEvent: 550
     screenHeight: 428

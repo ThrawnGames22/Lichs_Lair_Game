@@ -1,6 +1,6 @@
 
 
-Shader "Pixelize"
+Shader "Hidden/Pixelize"
 {
     Properties
     {

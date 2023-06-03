@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 velocity;
     public Vector3 CurrentPosition;
     public bool CanUseWeapons;
+    public Rigidbody RB;
 
     public bool HasActivatedGameplay;
     public bool HasActivatedWeapons;
@@ -104,6 +105,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         characterController.enabled = true;
         HasActivatedGameplay = true;
+        RB = this.GetComponent<Rigidbody>();
         //mainCamera = Camera.main;
     }
 
@@ -473,7 +475,7 @@ public class PlayerController : MonoBehaviour
             while(Time.time < startTime + dashTime)
             {
                 
-                
+                RB.constraints = RigidbodyConstraints.FreezeRotationY;
                 characterController.Move(velocity * dashSpeed * Time.deltaTime);
                 dashCD = maxDashCD;
                 yield return null; 

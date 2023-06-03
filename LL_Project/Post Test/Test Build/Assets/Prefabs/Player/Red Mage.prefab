@@ -13290,13 +13290,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 0}
   MageClassData: {fileID: 11400000, guid: 2d9aa0d3dc29cd4448d15226897d5eaa, type: 2}
-  PH: {fileID: 0}
-  PM: {fileID: 0}
+  PH: {fileID: 4087299787984651104}
+  PM: {fileID: 4087299787984651105}
   speed: 5
   rotationSpeed: 720
   jumpSpeed: 5
   velocity: {x: 0, y: 0, z: 0}
   CurrentPosition: {x: 0, y: 0, z: 0}
+  CanUseWeapons: 0
+  RB: {fileID: 0}
   HasActivatedGameplay: 0
   HasActivatedWeapons: 0
   HasActivatedMagic: 0
@@ -13308,10 +13310,10 @@ MonoBehaviour:
   IsInRightCameraView: 0
   horizontalInput: 0
   verticalInput: 0
-  dashSpeed: 5
+  dashSpeed: 3
   dashTime: 0.25
   dashCD: 0
-  maxDashCD: 5
+  maxDashCD: 1
   canUseDash: 0
   IsMoving: 0
   CanJump: 0
@@ -13341,6 +13343,9 @@ MonoBehaviour:
   NormalDNAmount: 0
   IsGrounded: 0
   YSpeed: 0
+  ScreenPosition: {x: 0, y: 0, z: 0}
+  CameraLookSpeed: 10
+  HasUnlockedWeaponChest: 0
 --- !u!143 &4087299787984651134
 CharacterController:
   m_ObjectHideFlags: 0
@@ -13380,6 +13385,7 @@ MonoBehaviour:
     type: 3}
   UtilitySpell: {fileID: 6354494036018413768, guid: 3ede07262138eb946bc10d5927bd89ae,
     type: 3}
+  MagicPaused: 0
   ManaText: {fileID: 0}
   slotUIController: {fileID: 0}
   UI: {fileID: 0}
@@ -18101,6 +18107,7 @@ MonoBehaviour:
     type: 3}
   ManaEffect: {fileID: 836697144917474739, guid: e248b0f3ea9890f4f96fd74e92c69b91,
     type: 3}
+  HasPotion: 0
   TogglePotionUI: 0
   cooldownSlider: {fileID: 7101918701878848403}
   WeaponReadyImage1: {fileID: 3691978800778586959}
@@ -22562,6 +22569,7 @@ MonoBehaviour:
   NextShot: 1
   CurrentDelayTimer: 6
   CanUse: 0
+  isInCooldown: 0
   ArrowShootPoint: {fileID: 2700104207759633154}
   ArrowToShoot: {fileID: 383179967277287775, guid: e32047c33d487d049b9970956777a18a,
     type: 3}
