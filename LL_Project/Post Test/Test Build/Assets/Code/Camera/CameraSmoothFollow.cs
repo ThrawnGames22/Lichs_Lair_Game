@@ -55,6 +55,7 @@ public class CameraSmoothFollow : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Smooth Follow The camera based on Target
         if(target != null)
         {
         Vector3 desiredPosition = target.position + offset;

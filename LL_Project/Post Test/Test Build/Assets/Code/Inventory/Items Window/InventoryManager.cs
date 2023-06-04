@@ -20,20 +20,26 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
     }
 
+    // Adds items to inventory
+
     public void Add(Item item)
     {
         Items.Add(item);
     }
+
+    // Removes items from inventory
 
     public void Remove(Item item)
     {
         Items.Remove(item);
     }
 
+     // Lists the updated Items when opening the inventory
+
     public void ListItems()
     {
-        //Cleans the Inventory content before opening to prevent item duplication
         
+       
         foreach(var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
@@ -53,11 +59,14 @@ public class InventoryManager : MonoBehaviour
 
     public void CleanInventory()
     {
+        //Cleans the Inventory content before opening to prevent item duplication
         foreach(Transform item in ItemContent)
         {
             Destroy(item.gameObject);
         }
     }
+
+    // Enables to button to remove items  
 
     public void EnableItemsRemove()
     {
@@ -76,6 +85,8 @@ public class InventoryManager : MonoBehaviour
            }
         }
     }
+
+    // Sets the items in inventory on pickup
 
     public void SetInventoryItems()
     {

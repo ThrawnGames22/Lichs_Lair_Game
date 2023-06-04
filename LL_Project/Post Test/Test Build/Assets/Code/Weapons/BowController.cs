@@ -10,6 +10,8 @@ public enum BowType
     Poison,
     Sunlight
 }
+
+// Handles bow weapon values its usage
 public class BowController : MonoBehaviour
 {
     
@@ -78,7 +80,7 @@ public class BowController : MonoBehaviour
         PlayerController.Instance.CanUseWeapons = true;
       }
     }
-
+  // Shoot an arrow
     public void Shoot()
     {
       currentArrowCount -= 1;
@@ -87,7 +89,7 @@ public class BowController : MonoBehaviour
       clone.GetComponent<Rigidbody>().AddForce(-transform.right * ArrowSpeed);
       clone.transform.rotation = ArrowShootPoint.transform.rotation;
     }
-
+  // Cooldown between shots
     public IEnumerator StartCoolDown()
     {
         

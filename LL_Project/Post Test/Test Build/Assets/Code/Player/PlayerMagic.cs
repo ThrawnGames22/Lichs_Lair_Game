@@ -70,6 +70,7 @@ public class PlayerMagic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      // Find and set values
         manaBar = GameObject.Find("Mana Slider").GetComponent<ManaBar>();
         GameManager = GameObject.Find("GameManager(Clone)");
         AbilityManager = GameManager.GetComponent<AbilityList>();
@@ -101,6 +102,7 @@ public class PlayerMagic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      // Sets values based on Mage Class Data
       if(!StartAssigningValuesBasedOnClass)
       {
       maxMana = MageClassData.maxMana;
@@ -110,14 +112,14 @@ public class PlayerMagic : MonoBehaviour
       StartAssigningValuesBasedOnClass = true;
       }
 
-
+      // If Magic Gameplay has activated
       if(HasAquiredMagic)
       {
        CombatSpellSlot2 = MageClassData.CombatSpell2;
        UtilitySpell = MageClassData.UtilitySpell;
       }
         
-        
+      // Sets values
         if(currentMana > maxMana)
         {
             currentMana = maxMana;
@@ -143,6 +145,10 @@ public class PlayerMagic : MonoBehaviour
         bool hasEnoughMana = currentMana - CombatSpellSlot1.spellToCast.ManaCost >= 0f || currentMana - UtilitySpell.spellToCast.ManaCost >= 0f || currentMana - CombatSpellSlot2.spellToCast.ManaCost >= 0f;
        
         //ManaText.text = currentMana.ToString();
+
+
+
+    //If Magic gameplay has Activated then set values and activate the ability to use magic
     if(PlayerController.Instance.HasActivatedMagic)
     {
       
@@ -193,7 +199,7 @@ public class PlayerMagic : MonoBehaviour
       
 
 
-
+     // Casting Spell 1
       if(castingCombatMagic1)
         {
             currentCombatCastTimer += Time.deltaTime;
@@ -213,7 +219,7 @@ public class PlayerMagic : MonoBehaviour
             }
         }
       
-
+     // Casting Spell 2
         if(castingCombatMagic2)
         {
             currentCombatCastTimer += Time.deltaTime;
@@ -233,7 +239,7 @@ public class PlayerMagic : MonoBehaviour
 
             }
         }
-
+      // Casting Utility Spell 
         if(castingUtilityMagic)
         {
             currentUtilityCastTimer += Time.deltaTime;
@@ -267,6 +273,8 @@ public class PlayerMagic : MonoBehaviour
       }
     }
 
+    // Casting spell functions
+
     void CastCombatSpell1()
     {
         Instantiate(CombatSpellSlot1, CombatCastPoint.position, CombatCastPoint.rotation);
@@ -290,6 +298,7 @@ public class PlayerMagic : MonoBehaviour
         }
     }
 
+   //Increase and decrease mana
     public void IncreaseMana(int value)
     {
       currentMana += value;
@@ -302,14 +311,17 @@ public class PlayerMagic : MonoBehaviour
       currentMana -= manaValue;
       manaBar.slider.value = currentMana;
     }
-
+   
+    // Cooldown
     public IEnumerator Cooldown()
     {
         slotUIController.cooldownSlider.value -= Time.deltaTime;
         yield return new WaitForSeconds(0);
 
     }
+   
 
+   //Reset Mana
     public void ResetMana()
     {
       currentMana = maxMana;

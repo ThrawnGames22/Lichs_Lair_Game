@@ -65,12 +65,16 @@ public class SlotUIController : MonoBehaviour
 
     void Start()
     {
+
+      // Sets Cooling Images off and other sliders off at start
         SpellCoolingImage1.gameObject.SetActive(false);
         SpellCoolingImage2.gameObject.SetActive(false);
         UtilitySpellCoolingImage.gameObject.SetActive(false);
         SetValue();
         cooldownSlider.gameObject.SetActive(false); 
         //ResetCooldown();
+
+        // Sets The text and float values at start
         HalfNumber += (cooldownSlider.value) / 2; 
         CoinText.text = "Coins: " + Coins.ToString();
         
@@ -96,6 +100,8 @@ public class SlotUIController : MonoBehaviour
       
 
       //PotionUses
+
+      // If player has a Health Potion, turn Health Potion UI on;
      if(HasManaPotion == false)
      {
       if(HasHealthPotion == true && HealthPotionUI.active)
@@ -111,6 +117,8 @@ public class SlotUIController : MonoBehaviour
          }
       }
      }
+
+      // If player has a Mana Potion, turn Mana Potion UI on;
       
      if(HasHealthPotion == false)
      {
@@ -178,7 +186,7 @@ public class SlotUIController : MonoBehaviour
       }
       */
 
-      //spells
+      //Automatically slots the correct spell images based on their data files
 
 
        SpellReadyImage1.sprite = PM.CombatSpellSlot1.spellToCast.SpellIcon;
@@ -213,7 +221,7 @@ public class SlotUIController : MonoBehaviour
     
 
     
-
+   // Reset Cooldown values and Set Cooldown values on start
     public void ResetCooldown()
     {
        cooldownSlider.maxValue = PlayerMagic.Instance.UtilityCoolDown;
@@ -226,6 +234,8 @@ public class SlotUIController : MonoBehaviour
        cooldownSlider.maxValue = PlayerMagic.Instance.UtilityCoolDown;
        cooldownSlider.value = PlayerMagic.Instance.UtilityCoolDown; 
     }
+
+    // Set coin Amount on refresh 
 
     public void SetCoinAmount(int value)
     {

@@ -14,6 +14,8 @@ public class PlayerInventoryController : MonoBehaviour
 
     private void Update()
     {
+
+      // Open inventory
       if(Input.GetKeyDown(KeyCode.Tab))
       {
         InventoryIsOpen = !InventoryIsOpen;
@@ -27,6 +29,7 @@ public class PlayerInventoryController : MonoBehaviour
         
       }
       
+      // If inevntory is open, clean the inventory
       if(!InventoryIsOpen)
       {
         InventoryWindow.SetActive(false);

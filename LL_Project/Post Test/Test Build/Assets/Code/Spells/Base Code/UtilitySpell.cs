@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UtilitySpell : MonoBehaviour
 {
+    //HANDLES UTILITY SPELL
     public UtilitySpellScriptableObject spellToCast;
 
     private SphereCollider spellCollider;
@@ -25,6 +26,7 @@ public class UtilitySpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Attaches spell to player
         if(!IsAttachedToPlayer)
         {
            if(spellToCast.Speed > 0 ) spellRigidBody.AddForce(transform.forward * spellToCast.Speed * Time.deltaTime);

@@ -93,10 +93,14 @@ public class EnemyController : MonoBehaviour
        //navMeshAgent.SetDestination(target.transform.position);
      }
       
+
+      //If Enemy's current distance is less than distance to attack, then chase player
       if(currentDistance < DistanceToStartAnimation)
       {
         FindPlayer();
       }
+
+      // If Enemy isn't hit by a spell before player aproaching and less than the range of Agitation, then Agro the Enemy and make the enemy constantly chase the player.
       if(IsHitFirst == false)
       {
       if(currentDistance < minDistance )
@@ -107,6 +111,8 @@ public class EnemyController : MonoBehaviour
         
       }
       }
+
+      // If Enemy isn't hit by a spell before player aproaching and is Greater than Agro Range, Do not agitate Enemy
       if(IsHitFirst == false)
       {
       if(currentDistance > minDistance)
@@ -116,13 +122,15 @@ public class EnemyController : MonoBehaviour
       }
       }
 
+      // If Enemy is hit by a spell before player aproaching, Agro the Enemy and make the enemy constantly chase the player.
+
       if(IsHitFirst == true)
       {
         IsAgitated = true;
         minDistance = 100f;
       }
       
-
+      // Animation Events 
       if(currentDistance > DistanceToStartAnimation)
       {
         StopAttack();
@@ -134,7 +142,7 @@ public class EnemyController : MonoBehaviour
         AttackPlayer();
       }
 
-
+      // If Enemy is Agro and Has Patrol Path
       if(IsAgitated == true)
       {
         
@@ -143,7 +151,7 @@ public class EnemyController : MonoBehaviour
       }
       
       
-
+      // If Enemy Range is Less than player, cancel Agro
 
       if(currentDistance > maxDistance)
       {
@@ -162,6 +170,7 @@ public class EnemyController : MonoBehaviour
       }
 
        
+      // If Enemy Has a patrol path and is not agitated, resume pathing
 
       if(IsPatrolling == true)
       {
@@ -190,11 +199,16 @@ public class EnemyController : MonoBehaviour
       }
     }
     */
+    
 
+
+    // Reset Speed after Utility spell or is completed
     public void ResetSpeed()
     {
       navMeshAgent.speed = OriginalSpeed;
     }
+
+    //Animation Event functions
 
     public void ApplyDamageToPlayer()
     {
@@ -206,6 +220,8 @@ public class EnemyController : MonoBehaviour
     {
       FistObject.GetComponent<SphereCollider>().enabled = false;
     }
+
+    //Damage Window for Animation Events
 
     public void AttackPlayer()
     {
@@ -220,11 +236,15 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    //Stop Attack Function
+
     public void StopAttack()
     {
       StopCoroutine(DelayAttack());
       
     }
+
+    //Attack Delay
 
     public IEnumerator DelayAttack()
     {
@@ -232,24 +252,31 @@ public class EnemyController : MonoBehaviour
         AttackBlocked = false;
     }
 
+    //Reset Damage Apllied after Potion expires
+
     public void ResetDamage()
     {
       DamageToApply = OriginalDamageToApply;
     }
+
+    // If enemy has a starting position and no patrol path, move to start position
 
     public void ReturnToNormalPosition()
     {
       navMeshAgent.destination = ReturnPosition.position;
     }
 
+    // Chase The Player
+
     public void FindPlayer()
     {
       navMeshAgent.destination = target.transform.position;
     }
 
+    // Patrol Pathing
     public void Iterate()
     {
-      
+      // Move between each path point in list, then repeat
       if(currentPoint < patrolPoints.Length-1)
       {
         currentPoint++;
@@ -275,6 +302,8 @@ public class EnemyController : MonoBehaviour
       //PatrolPointIndex = (PatrolPointIndex + 1) % patrolPoints.Length;
     }
 
+    // Cancel patrol pathing
+
     public void StopIteration()
     {
       
@@ -291,6 +320,11 @@ public class EnemyController : MonoBehaviour
 
 
 }
+
+// CUSTOM EDITOR PROPERTIES
+
+// The custom Editor allows certain attributes to be shown or hidden based on Enemy type selected in the inspector. 
+
 #if UNITY_EDITOR
 [CustomEditor(typeof(EnemyController))]
 public class EnemyControllerEditor : Editor

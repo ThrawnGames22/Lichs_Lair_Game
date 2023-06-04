@@ -14,7 +14,10 @@ public class PetController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Find player and assign it as owner 
         Owner = GameObject.FindGameObjectWithTag("Player").transform;
+
+        // Find navmesh component on pet object and set its values
         navMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
         navMeshAgent.speed = OriginalSpeed;
         this.transform.position = Owner.transform.position;
@@ -24,6 +27,7 @@ public class PetController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If there is an owner set their position as the pets destination
         if(Owner != null)
         {
           navMeshAgent.SetDestination(Owner.transform.position);

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CombatSpellBoxCollider : MonoBehaviour
 {
+    //This script handles with spells that need box colliders
     public bool isProjectile;
     public CombatSpellScriptableObject spellToCast;
     public GameObject SpellObject;

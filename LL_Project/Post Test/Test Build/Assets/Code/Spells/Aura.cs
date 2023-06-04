@@ -17,7 +17,7 @@ public class Aura : MonoBehaviour
     {
         
     }
-
+   //Attaches Aura particle effect to Player
     public void AttachAuraToPlayer()
     {
         AuraEffect.transform.parent = Player.transform;

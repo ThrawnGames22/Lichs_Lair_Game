@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class CombatSpellInventoryManager : MonoBehaviour
 {
+
+    // This script acts the same way as the ITEM INVENTORY MANAGER
+
+    
     public static CombatSpellInventoryManager Instance;
     public List<CombatSpellScriptableObject> CombatSpellItems = new List<CombatSpellScriptableObject>();
     

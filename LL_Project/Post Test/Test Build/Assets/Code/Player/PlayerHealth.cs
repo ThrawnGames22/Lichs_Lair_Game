@@ -52,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(!UIHasActivated)
         {
+            //Find UI components
             healthBar = GameObject.Find("Health Slider").GetComponent<HealthBar>();
             currentHealth = maxHealth;
             healthBar.SetMaxHealth(maxHealth);
@@ -91,13 +92,13 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
-
+    // Increase Health
     public void IncreaseHealth(float value)
     {
       currentHealth += value;
       healthBar.SetHealth(currentHealth);
     }
-
+    // Player Death attributes
     public void Die()
     {
         
@@ -109,7 +110,7 @@ public class PlayerHealth : MonoBehaviour
         
         
     }
-
+    // Revive Player on retry level 
     public void Revive()
     {
         IsDead = false;
@@ -122,7 +123,7 @@ public class PlayerHealth : MonoBehaviour
         //GameObject.Find("Death Screen").GetComponent<DeathManager>().TryAgainButton.SetActive(false);
 
     }
-
+    // Take Damage From enemies or traps
     public void TakeDamage(float Damage)
     {
       currentHealth -= Damage;
@@ -134,7 +135,7 @@ public class PlayerHealth : MonoBehaviour
       
       healthBar.SetHealth(currentHealth);
     }
-
+//Animation Events to prevent constant health decreasing
     public void ResetDamageFlag()
     {
         isTakingDamage = false;

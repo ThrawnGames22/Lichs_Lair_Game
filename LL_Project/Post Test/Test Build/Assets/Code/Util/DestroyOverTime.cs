@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DestroyOverTime : MonoBehaviour
 {
+    //SCRIPT IS USED TO DESTROY OBJECTS OVER TIME TO PREVENT CLUTTER IN SCENE
     public float TimeTillDestroyed;
     // Start is called before the first frame update
     void Start()

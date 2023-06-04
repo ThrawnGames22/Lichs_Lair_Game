@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Item/Create New Item")]
 public class Item : ScriptableObject
 {
+
+    // This script is a scriptable object script that contains information about the 'Item" Class
+    
     public enum ItemType
     {
         //Potions

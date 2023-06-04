@@ -18,7 +18,7 @@ public enum CombatType
 [CreateAssetMenu(fileName = "New Combat Spell", menuName = "Combat Spells")]
 public class CombatSpellScriptableObject : ScriptableObject
 {
-    
+    //THIS SCRIPT HANDLES THE DATA ABOUT THE TYPE AND USAGE OF THE SPELLS
     //Name
     public string SpellName;
     public string Description;

@@ -115,12 +115,17 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+
+        // Set values
         dashCD = maxDashCD;
         IconShow = true;
         
         originalStepOffset = characterController.stepOffset;
         
         IsInFrontCameraView = true;
+        
+
+        // Sets weapons as starting weapon based on Mage Class
 
         if(MageClassData.Class == "Fire")
         {
@@ -153,6 +158,7 @@ public class PlayerController : MonoBehaviour
     void Update()
      {
         
+        //MouseLook Values
       
 
          Vector3 mousePosFar = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.farClipPlane);
@@ -179,8 +185,13 @@ public class PlayerController : MonoBehaviour
            transform.LookAt(new Vector3(pointToLook.x, transform.rotation.y, pointToLook.z));
         }
         */
+
+
+
         
-       
+//____TUTORIAL LEVEL BASED CODE____
+
+    // If the gameplay has been activated, activate these core attributes
     if(HasActivatedGameplay)
     {
 
@@ -228,17 +239,23 @@ public class PlayerController : MonoBehaviour
       }
 
 
-
+// TESTING WITH SAVE SYSTEM (CURRENTLY NOT FUNCTIONAL)
         WeaponSaveSlot = CurrentWeaponSlot;
         CurrentPosition = this.transform.position;
         if(Input.GetKeyDown(KeyCode.U))
         {
             SavePlayerData();
         }
+
+// DASH  
+
+    // Set Values
         dashCD -= Time.deltaTime;
             
             //if(characterController.isGrounded)
            // {
+
+            // If Player is moving and left shift key is pressed
               if(Input.GetKeyDown(KeyCode.LeftShift) && IsMoving)
               {
                 if(dashCD <= 0)
@@ -268,7 +285,9 @@ public class PlayerController : MonoBehaviour
 
         
 
-      
+// POTION EFFECT
+
+    // If Damage negation Potion is active
         if(DamageNegationActive == true)
         {
           foreach(GameObject enemy in Enemies)
@@ -276,7 +295,9 @@ public class PlayerController : MonoBehaviour
             enemy.GetComponent<EnemyController>().DamageToApply = CurrentDamageNegationAmount;
           }
         }
+// DASH CONTINUED
 
+    //If dash cooldown is less than 0, keep it at 0
         if(dashCD < 0)
         {
             dashCD = 0;
@@ -286,17 +307,17 @@ public class PlayerController : MonoBehaviour
     }
      }
      
-
+//FIXED UPDATE 
     void FixedUpdate()
     {
         Aim();
-        
+        //Find Enemies 
         if(Enemies.Length != null)
         {
         Enemies = GameObject.FindGameObjectsWithTag("Enemy");
         }
 
-
+    //In certain Camera views, change the axis to make movement easier and consistant 
         if(IsInFrontCameraView)
         {
           horizontalInput = Input.GetAxis("Horizontal");
@@ -322,10 +343,10 @@ public class PlayerController : MonoBehaviour
           verticalInput = -Input.GetAxis("Vertical");
         }
         
-        
+        // Get Animator component for Weapon
         WeaponAnimator = CurrentWeaponSlot.GetComponent<Animator>();
        
-
+//PLAYER MOVEMENT
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
         movementDirection.Normalize();
@@ -415,7 +436,7 @@ public class PlayerController : MonoBehaviour
         
         
     }
-
+//MOUSE AIMING 
     private void Aim()
     {
         Plane playerplane = new Plane(Vector3.up, transform.position);
@@ -429,6 +450,8 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetrotation, CameraLookSpeed * Time.deltaTime);
         }
     }
+
+//DAMAGE NEGATION    
      public IEnumerator DamageNegation()
         {
            DamageNegationActive = true;
@@ -463,7 +486,7 @@ public class PlayerController : MonoBehaviour
         
      }
 
-
+//DASH COROUTINE 
       public IEnumerator Dash()
         {
             IconShow = false;

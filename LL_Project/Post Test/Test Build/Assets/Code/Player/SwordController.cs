@@ -44,13 +44,18 @@ public class SwordController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Find objects and set them in slots
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+
+        // Set values
         if(playerController.ChargeAttackTimer > 1)
         {
           CurrentDamage = ChargedCurrentDamage;
         }
         //NormalCurrentDamage = playerController.AttackValue;
+
+
+    // Sets the player based   
     if(playerController.HasActivatedWeapons)
     {
       if(PlayerController.Instance.CanUseWeapons == true)
@@ -77,7 +82,7 @@ public class SwordController : MonoBehaviour
         StopCoroutine(DelayAttack());
         //PlayerController.Instance.CanUseWeapons = true;
       }
-
+//Cooldown
       if(isInCooldown)
       {
         playerController.CanUseWeapons = false;
@@ -94,7 +99,7 @@ public class SwordController : MonoBehaviour
         
         
     }
-
+//Animation Events
     public void StartDamage()
     {
         CanApplyDamage = true;
@@ -126,7 +131,7 @@ public class SwordController : MonoBehaviour
     }
 
     
-
+//Sword Attack
     public void SwordAttack()
     {
 
@@ -139,7 +144,7 @@ public class SwordController : MonoBehaviour
         StartCoroutine(DelayAttack());
         
     }
-
+//Delay the attack
     public IEnumerator DelayAttack()
     {
       
@@ -151,7 +156,7 @@ public class SwordController : MonoBehaviour
         CanUse = true;
     }
 
-    
+  //Collsions  
    private void OnTriggerEnter(Collider other)
    {
      if(other.gameObject.tag == "EnemyCollider")

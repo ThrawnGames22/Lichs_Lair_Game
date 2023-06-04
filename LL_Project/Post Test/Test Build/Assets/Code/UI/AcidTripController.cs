@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 
 public class AcidTripController : MonoBehaviour
 {
+  //THIS SCRIPT WAS PURELY FOR FUN
     public VolumeProfile NormalProfile;
     public VolumeProfile AcidProfile;
     public Volume SceneVolume;

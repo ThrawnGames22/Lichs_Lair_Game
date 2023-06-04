@@ -28,10 +28,14 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // If enemy health number is lower than 0, keep it at 0
         if(enemyCurrentHealth < 0)
         {
             enemyCurrentHealth = 0;
         }
+        
+        // If Enemy Health is 0, Enemy Dies
 
         if(enemyCurrentHealth == 0)
         {
@@ -39,7 +43,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-
+    // Collsion with Spells take damage
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "FireSpell")
@@ -65,10 +69,14 @@ public class EnemyHealth : MonoBehaviour
         
     }
 
+    //Take damage from Player or objects
+
     public void TakeDamage(int damageValue)
     {
         enemyCurrentHealth -=damageValue;
     }
+
+    //Enemy Dies
 
     public void Die()
     {
@@ -81,6 +89,8 @@ public class EnemyHealth : MonoBehaviour
       Destroy(RB);
       StartCoroutine(DestroyAfterTime());
     }
+
+    //Destroy Object to prevent clutter in scene
 
     public IEnumerator DestroyAfterTime()
     {

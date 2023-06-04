@@ -8,7 +8,9 @@ public class InventoryItemController : MonoBehaviour
     Item item;
 
     public Button RemoveButton;
+    
 
+    //Remove Item From Inventory
     public void RemoveItem()
     {
         InventoryManager.Instance.Remove(item);
@@ -16,7 +18,7 @@ public class InventoryItemController : MonoBehaviour
         Destroy(gameObject);
     }
     
-    
+    // Add item to Inventory
     public void AddItem(Item newItem)
     {
       item = newItem;
@@ -71,7 +73,7 @@ public class InventoryItemController : MonoBehaviour
       }
       */
 
-
+       // Use Item
        switch(item.itemType)
         {
           case Item.ItemType.PotionOfNegation:

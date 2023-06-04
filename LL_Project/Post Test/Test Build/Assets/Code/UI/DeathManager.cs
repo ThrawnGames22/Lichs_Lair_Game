@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DeathManager : MonoBehaviour
 {
+    //SCRIPT HANDLES PLAYER DEATH AND UI COMPONENTS TO ACTIVATE
     public GameObject Player;
 
     public GameObject DeathScreen;

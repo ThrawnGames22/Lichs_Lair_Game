@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class SunLight : MonoBehaviour
 {
+    //Script Handles The Utility Spell 'Sunlight'
     public GameObject SunParticlesToAttach;
     public GameObject[] Enemies;
     public int SlowedSpeed;

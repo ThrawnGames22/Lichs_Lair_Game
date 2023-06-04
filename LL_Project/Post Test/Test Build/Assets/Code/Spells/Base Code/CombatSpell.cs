@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class CombatSpell : MonoBehaviour
 {
+
+  // SCRIPT THAT AFFECTS THE PHYSICAL SPELL PREFAB NOT THE SPELL ABILITY ITSELF
     public bool UsesBox;
     public bool UsesSphere;
     public bool isProjectile;

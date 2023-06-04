@@ -12,6 +12,8 @@ public class BreakableObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+      //Set the static object active first before the broken object
       StaticObject.SetActive(true);
       RigidObject.SetActive(false);
 
@@ -28,6 +30,8 @@ public class BreakableObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+      //Seperate objects and turn off kinematic 
         
       if(other.gameObject.tag == "DarkSpell")
       {

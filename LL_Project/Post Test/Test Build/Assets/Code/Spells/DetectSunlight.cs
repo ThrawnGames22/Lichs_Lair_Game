@@ -14,6 +14,7 @@ public class DetectSunlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If enemy detects the sunlight spell, slow this objects speed
          if(GameObject.Find("Sunlight") == null)
         {
             
