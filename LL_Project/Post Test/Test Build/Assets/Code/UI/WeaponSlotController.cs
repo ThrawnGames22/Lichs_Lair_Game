@@ -32,8 +32,9 @@ public class WeaponSlotController : MonoBehaviour
         UIHasActivated = true;
       }
       
-      WeaponReadyImage.sprite = playerController.CurrentWeaponSlot.GetComponent<ItemHandler>().item.ItemIcon;
-      WeaponCoolingImage.sprite = playerController.CurrentWeaponSlot.GetComponent<ItemHandler>().item.ItemCoolDownIcon;
+      //finds wepon images from prefab
+      WeaponReadyImage.sprite = playerController.CurrentWeaponSlot.GetComponent<WeaponHandler>().weapon.WeaponIcon;
+      WeaponCoolingImage.sprite = playerController.CurrentWeaponSlot.GetComponent<WeaponHandler>().weapon.WeaponCoolDownIcon;
       
 
 

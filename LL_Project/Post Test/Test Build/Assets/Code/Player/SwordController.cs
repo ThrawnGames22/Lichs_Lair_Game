@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SwordController : MonoBehaviour
 {
-    
+    public Weapon WeaponData;
     public static SwordController SwordControllerinstance;
     public PlayerController playerController;
     public bool CanApplyDamage = false;
@@ -35,6 +35,7 @@ public class SwordController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      NormalCurrentDamage = WeaponData.Damage;
         SwordControllerinstance = this;
         CurrentDamage = NormalCurrentDamage;
         CanUse = true;

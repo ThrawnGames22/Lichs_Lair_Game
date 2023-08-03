@@ -14,7 +14,7 @@ public enum BowType
 // Handles bow weapon values its usage
 public class BowController : MonoBehaviour
 {
-    
+    public Weapon WeaponData;
     public int currentArrowCount;
     public int MaxArrowCount;
     public BowType bowType;
@@ -23,6 +23,7 @@ public class BowController : MonoBehaviour
     public float CurrentDelayTimer;
     public bool CanUse;
     public bool isInCooldown;
+    public int Damage;
 
 
 
@@ -33,6 +34,7 @@ public class BowController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Damage = WeaponData.Damage; 
         currentArrowCount = MaxArrowCount;
         CanUse = true;
     }

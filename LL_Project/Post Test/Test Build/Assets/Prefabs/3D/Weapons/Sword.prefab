@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8361022739608557604}
   - component: {fileID: 8361022739608557594}
   - component: {fileID: 8361022739608557595}
+  - component: {fileID: 421438742762694225}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Sword
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2418729530454406658}
-  m_LocalRotation: {x: -0.35355335, y: 0.61237186, z: -0.35355228, w: 0.61237377}
+  m_LocalRotation: {x: -0.3535534, y: 0.61237246, z: -0.3535534, w: 0.61237246}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 37.26029, y: 4.3744307, z: 4.3744307}
   m_ConstrainProportionsScale: 0
@@ -97,7 +98,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.03321216, y: 0.04897767, z: 0.018065514}
+  m_Size: {x: 0.03321216, y: 0.11, z: 0.11}
   m_Center: {x: -0.011606078, y: -0.00000002402634, z: 0.0000000061170486}
 --- !u!95 &8361022739608557594
 Animator:
@@ -133,6 +134,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   CanApplyDamage: 0
-  NormalCurrentDamage: 5
+  NextShot: 1
+  CurrentDelayTimer: 15
+  AttackBlocked: 0
+  MeleeWeaponDelay: 5
+  isInCooldown: 0
+  NormalCurrentDamage: 15
   ChargedCurrentDamage: 15
   CurrentDamage: 0
+  CanUse: 0
+--- !u!114 &421438742762694225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418729530454406658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28f7fd28ad651a4b96ad07dcf3ce02c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 4f98df313e0dde74e9837e84076b164a, type: 2}

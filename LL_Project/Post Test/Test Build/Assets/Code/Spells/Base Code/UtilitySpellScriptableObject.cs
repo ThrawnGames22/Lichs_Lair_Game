@@ -38,6 +38,7 @@ public class UtilitySpellScriptableObject : ScriptableObject
     public Object SummonToSpawn;
     public float SummonHealth;
     public float ProtectionAgainstEnemies;
+    public GameObject SpellObject;
 
     void OnEnable()
     {
@@ -90,6 +91,7 @@ public class UtilitySpellEditor : Editor
                 UTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", UTS.SpellRadius);
                 UTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", UTS.SpellIcon, typeof(Sprite), false);
                 UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
+                UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
 
 
                 break;
@@ -106,6 +108,7 @@ public class UtilitySpellEditor : Editor
                 UTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", UTS.SpellRadius);
                 UTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", UTS.SpellIcon, typeof(Sprite), false);
                 UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
+                UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
 
                 break;
             }
@@ -122,6 +125,7 @@ public class UtilitySpellEditor : Editor
                 UTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", UTS.SpellRadius);
                 UTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", UTS.SpellIcon, typeof(Sprite), false);
                 UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
+                UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
 
                 break;
             }

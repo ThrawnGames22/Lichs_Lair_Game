@@ -12,9 +12,16 @@ public class PlayerMagic : MonoBehaviour
     public CombatSpell CombatSpellSlot1;
     public CombatSpell CombatSpellSlot2;
 
+    public CombatSpellScriptableObject Spell1;
+    public CombatSpellScriptableObject Spell2;
+    public UtilitySpellScriptableObject UtilitySpellData;
+
+
+
     [Header("Spell Slots For Utility And Selected Comabt Spell")]
 
     public CombatSpell CombatSpellToCast;
+    public CombatSpell CombatSpellToCast2;
     public UtilitySpell UtilitySpell;
 
     public bool MagicPaused;
@@ -62,6 +69,9 @@ public class PlayerMagic : MonoBehaviour
 
     public bool StartAssigningValuesBasedOnClass = false;
 
+    [Header("Inventory")]
+    public CharacterBasedInventory Inventory;
+
     private void Awake()
     {
       Instance = this;
@@ -78,7 +88,7 @@ public class PlayerMagic : MonoBehaviour
         slotUIController = UI.GetComponent<SlotUIController>();
         manaBar.slider.maxValue = maxMana;
          UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
-        CombatSpellToCast = CombatSpellSlot1;
+        //ombatSpellToCast = CombatSpellSlot1;
         inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
         
 
@@ -102,21 +112,33 @@ public class PlayerMagic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+      //Allocate Slots
+
+      Spell1 = Inventory.CurrentCombatSpell1;
+      Spell2 = Inventory.CurrentCombatSpell2;
+      UtilitySpellData = Inventory.CurrentUtilitySpell;
+
+      //Allocate Spell Prefabs
+
+      CombatSpellToCast = Spell1.SpellObject.GetComponent<CombatSpell>();
+      CombatSpellToCast2 = Spell2.SpellObject.GetComponent<CombatSpell>();
+      UtilitySpell = UtilitySpellData.SpellObject.GetComponent<UtilitySpell>();
       // Sets values based on Mage Class Data
       if(!StartAssigningValuesBasedOnClass)
       {
       maxMana = MageClassData.maxMana;
-      CombatSpellSlot1 = MageClassData.CombatSpell1;
-      CombatSpellSlot2 = null;
-      UtilitySpell = null;
+      CombatSpellSlot1 = Spell1.SpellObject.GetComponent<CombatSpell>();
+      CombatSpellSlot2 = Spell2.SpellObject.GetComponent<CombatSpell>();
+      UtilitySpell = UtilitySpell;
       StartAssigningValuesBasedOnClass = true;
       }
 
       // If Magic Gameplay has activated
       if(HasAquiredMagic)
       {
-       CombatSpellSlot2 = MageClassData.CombatSpell2;
-       UtilitySpell = MageClassData.UtilitySpell;
+       CombatSpellSlot1 = Spell1.SpellObject.GetComponent<CombatSpell>();
+      CombatSpellSlot2 = Spell2.SpellObject.GetComponent<CombatSpell>();
       }
         
       // Sets values
@@ -151,7 +173,7 @@ public class PlayerMagic : MonoBehaviour
     //If Magic gameplay has Activated then set values and activate the ability to use magic
     if(PlayerController.Instance.HasActivatedMagic)
     {
-      
+      HasAquiredMagic = true;
       if(inventoryController.InventoryIsOpen == false)
       {
         if(MagicPaused == false)

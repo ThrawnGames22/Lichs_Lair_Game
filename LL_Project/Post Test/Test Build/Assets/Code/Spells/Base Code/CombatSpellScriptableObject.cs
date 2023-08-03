@@ -44,6 +44,7 @@ public class CombatSpellScriptableObject : ScriptableObject
 
     public Sprite SpellIcon;
     public Sprite SpellCoolingIcon;
+    public GameObject SpellObject;
      
    
     
@@ -89,6 +90,8 @@ public class CombatSpellEditor : Editor
 
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
+                CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                
 
                 break;
             }
@@ -106,6 +109,7 @@ public class CombatSpellEditor : Editor
 
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
+                CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
 
                 break;
             }
@@ -123,6 +127,8 @@ public class CombatSpellEditor : Editor
 
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
+                CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                
 
                 break;
             }
@@ -140,6 +146,8 @@ public class CombatSpellEditor : Editor
 
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
+                CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                
 
                 break;
             }
@@ -157,6 +165,8 @@ public class CombatSpellEditor : Editor
 
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
+                CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                
 
                 break;
             }
@@ -174,6 +184,8 @@ public class CombatSpellEditor : Editor
 
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
+                CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                
 
                 break;
             }
