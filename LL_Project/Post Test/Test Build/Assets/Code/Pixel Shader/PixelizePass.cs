@@ -23,7 +23,7 @@ public class PixelizePass : ScriptableRendererFeature
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
-            CommandBuffer commandBUffer = CommandBufferPool.Get("Full SCreen Render Feature");
+            CommandBuffer commandBUffer = CommandBufferPool.Get("Full Screen Render Feature");
 
             RenderTextureDescriptor targetDescriptor = renderingData.cameraData.cameraTargetDescriptor;
             targetDescriptor.depthBufferBits = 0;
