@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class ItemSlotContainer : MonoBehaviour, IDropHandler
 {
     public bool ItemIsInSlot;
+    public GameObject ItemInSlot;
 
     public bool IsWeaponSlot;
     public bool IsTrinketSlot;
@@ -36,6 +37,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler
             if(eventData.pointerDrag.GetComponent<DraggableItem>().IsWeapon)
             {
               eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+              
             }
         }
        }
@@ -47,6 +49,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler
             if(eventData.pointerDrag.GetComponent<DraggableItem>().IsTrinket)
             {
               eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+              
             }
         }
 
@@ -59,6 +62,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler
             if(eventData.pointerDrag.GetComponent<DraggableItem>().IsPotion)
             {
               eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+             
             }
         }
        }
@@ -70,6 +74,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler
             if(eventData.pointerDrag.GetComponent<DraggableItem>().IsPet)
             {
               eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+             
             }
         }
        }
@@ -80,4 +85,16 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler
        }
 
     }
+
+    private void Update() 
+    {
+      if(IsDropContainer == false)
+      {
+        if(ItemInSlot != null)
+        {
+        ItemInSlot = this.gameObject.transform.GetChild(0).gameObject;
+        }
+      }
+    }
+    
 }

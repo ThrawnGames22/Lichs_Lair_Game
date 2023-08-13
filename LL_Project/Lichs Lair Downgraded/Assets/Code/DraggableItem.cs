@@ -14,6 +14,7 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     public string ItemType;
     public Vector2 SlotSpace;
     public Image image;
+    public GameObject thisObject;
     
 
 
@@ -33,6 +34,7 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     public CombatSpellScriptableObject CombatSpell2;
     public UtilitySpellScriptableObject UtilitySpell;
     
+    public bool heldDown;
 
     
     
@@ -91,12 +93,34 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     
    public void OnPointerDown(PointerEventData eventData)
    {
-     
+     heldDown = true;
+   }
+
+   public void OnPointerUp(PointerEventData eventData)
+   {
+     heldDown = false;
    }
 
    public void OnBeginDrag(PointerEventData eventData)
    {
      canvasGroup.blocksRaycasts = false;
+
+     if(IsWeapon)
+     {
+      eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("UI").transform;
+     }
+      if(IsTrinket)
+     {
+      eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("UI").transform;
+     }
+      if(IsPotion)
+     {
+      eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("UI").transform;
+     }
+      if(IsPet)
+     {
+      eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("UI").transform;
+     }
    }
 
    public void OnEndDrag(PointerEventData eventData)
@@ -104,6 +128,23 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
      canvasGroup.blocksRaycasts = true;
 
      this.GetComponent<RectTransform>().anchoredPosition = ItemSlotRect.anchoredPosition;
+     if(IsWeapon)
+     {
+      ParentItemToSlot();
+     }
+     if(IsTrinket)
+     {
+      ParentItemToSlot();
+     }
+     if(IsPotion)
+     {
+      ParentItemToSlot();
+     }
+     if(IsPet)
+     {
+      ParentItemToSlot();
+     }
+     
    }
 
    public void OnDrag(PointerEventData eventData)
@@ -118,7 +159,13 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
 
    void Update() 
    {
-
+    if(heldDown == false)
+    {
+      ParentItemToSlot();
+    }
+    thisObject = this.gameObject;
+    if(ItemSlotRect.GetComponent<ItemSlotContainer>().ItemIsInSlot == false)
+    {
      if(IsWeapon)
      {
       ItemSlotRect = GameObject.Find("WeaponSlotContainer").GetComponent<RectTransform>();
@@ -138,6 +185,7 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
      {
       ItemSlotRect = GameObject.Find("PetSlotContainer").GetComponent<RectTransform>();
      }
+    }
 
 
 
@@ -201,9 +249,14 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     
    }
 
+   public void ParentItemToSlot()
+   {
+    this.gameObject.transform.parent = ItemSlotRect.gameObject.transform;
+   }
+
     public void DropItem()
     {
-      this.gameObject.SetActive(false);
+      Destroy(this.gameObject);
     }
     
     public void AutoAsign()
