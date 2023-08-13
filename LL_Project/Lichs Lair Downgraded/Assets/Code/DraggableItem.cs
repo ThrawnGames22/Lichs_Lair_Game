@@ -108,19 +108,24 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
      if(IsWeapon)
      {
       eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("UI").transform;
+      ItemSlotRect.GetComponent<ItemSlotContainer>().ItemInSlot = null;
      }
       if(IsTrinket)
      {
       eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("UI").transform;
+      ItemSlotRect.GetComponent<ItemSlotContainer>().ItemInSlot = null;
      }
       if(IsPotion)
      {
       eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("UI").transform;
+      ItemSlotRect.GetComponent<ItemSlotContainer>().ItemInSlot = null;
      }
       if(IsPet)
      {
       eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("UI").transform;
+      ItemSlotRect.GetComponent<ItemSlotContainer>().ItemInSlot = null;
      }
+     
    }
 
    public void OnEndDrag(PointerEventData eventData)

@@ -90,10 +90,9 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler
     {
       if(IsDropContainer == false)
       {
-        if(ItemInSlot != null)
-        {
+        
         ItemInSlot = this.gameObject.transform.GetChild(0).gameObject;
-        }
+        
       }
     }
     
