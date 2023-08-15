@@ -54,6 +54,7 @@
      <Compile Include="Assets\Code\Extra and Event Based Scripts\PlayerDash.cs" />
      <Compile Include="Assets\Code\Spells\Base Code\CombatSpell.cs" />
      <Compile Include="Assets\Code\Spells\Base Code\UtilitySpellScriptableObject.cs" />
+     <Compile Include="Assets\MechantItem.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\StopMagic.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\CoinPickup.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\ArenaGroup.cs" />
@@ -64,8 +65,10 @@
      <Compile Include="Assets\Code\UI\DeathManager.cs" />
      <Compile Include="Assets\Code\UI\ItemHandler.cs" />
      <Compile Include="Assets\Code\Spells\Aura.cs" />
+     <Compile Include="Assets\MerchantDatabase.cs" />
      <Compile Include="Assets\Code\Spells\Combat Spells\CombatSpellBoxCollider.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\PauseMenu.cs" />
+     <Compile Include="Assets\Merchant.cs" />
      <Compile Include="Assets\Code\Weapon.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\LevelSettings.cs" />
@@ -166,10 +169,10 @@
      <Compile Include="Assets\Code\Spells\Base Code\CombatSpellAbility.cs" />
      <Compile Include="Assets\PixelizeFeature.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\ResolutionManager.cs" />
-     <Compile Include="Assets\MerchantDatabase.cs" />
-     <Compile Include="Assets\MechantItem.cs" />
+     <Compile Include="Assets\MerchantSlot.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets\Wwise\Version.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
@@ -186,11 +189,14 @@
      <None Include="Assets\Shaders\Pixel.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\ProjectInfo.xml" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets\WwiseSettings.xml" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+     <None Include="Assets\StreamingAssets\desc.txt" />
     <Reference Include="UnityEngine">
         <HintPath>D:\Unity Editors\2021.2.2f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -434,23 +440,23 @@
     <Reference Include="UnityEditor.UnityConnectModule">
         <HintPath>D:\Unity Editors\2021.2.2f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+        <HintPath>G:\Lichs_Lair_Game\LL_Project\Lichs Lair DO NOT USE\Lichs_Lair_Game\LL_Project\Lichs Lair Downgraded\Library\PackageCache\com.unity.burst@1.6.0\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+        <HintPath>G:\Lichs_Lair_Game\LL_Project\Lichs Lair DO NOT USE\Lichs_Lair_Game\LL_Project\Lichs Lair Downgraded\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
         <HintPath>G:\Lichs_Lair_Game\LL_Project\Lichs Lair DO NOT USE\Lichs_Lair_Game\LL_Project\Lichs Lair Downgraded\Library\PackageCache\com.unity.burst@1.6.0\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
         <HintPath>G:\Lichs_Lair_Game\LL_Project\Lichs Lair DO NOT USE\Lichs_Lair_Game\LL_Project\Lichs Lair Downgraded\Library\PackageCache\com.unity.burst@1.6.0\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Cecil.Pdb">
-        <HintPath>G:\Lichs_Lair_Game\LL_Project\Lichs Lair DO NOT USE\Lichs_Lair_Game\LL_Project\Lichs Lair Downgraded\Library\PackageCache\com.unity.burst@1.6.0\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Cecil">
         <HintPath>G:\Lichs_Lair_Game\LL_Project\Lichs Lair DO NOT USE\Lichs_Lair_Game\LL_Project\Lichs Lair Downgraded\Library\PackageCache\com.unity.burst@1.6.0\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
         <HintPath>G:\Lichs_Lair_Game\LL_Project\Lichs Lair DO NOT USE\Lichs_Lair_Game\LL_Project\Lichs Lair Downgraded\Library\PackageCache\com.unity.burst@1.6.0\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-        <HintPath>G:\Lichs_Lair_Game\LL_Project\Lichs Lair DO NOT USE\Lichs_Lair_Game\LL_Project\Lichs Lair Downgraded\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
         <HintPath>D:\Unity Editors\2021.2.2f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
@@ -862,6 +868,10 @@
       <Project>{5833f8a6-1b04-b3c4-d81e-7bb87e4a38cb}</Project>
       <Name>Unity.VisualStudio.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="AK.Wwise.Unity.API.Editor.csproj">
+      <Project>{bb5aa127-1aad-ac8a-6859-5770a1746564}</Project>
+      <Name>AK.Wwise.Unity.API.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
       <Project>{c05c13a2-e151-44b1-a258-2cf4624da834}</Project>
       <Name>Unity.Timeline</Name>
@@ -869,6 +879,10 @@
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{32b074b0-0e01-7731-26a4-3cc31d1e9b0b}</Project>
       <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="AK.Wwise.Unity.API.csproj">
+      <Project>{44b831cf-b340-e9c5-24af-204bd160766f}</Project>
+      <Name>AK.Wwise.Unity.API</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Burst.Editor.csproj">
       <Project>{46ff76e7-164f-7a64-2749-ccd0f5e21488}</Project>
@@ -878,6 +892,14 @@
       <Project>{b530fad9-062c-fdd0-5eb1-9bac6cb5c151}</Project>
       <Name>Unity.Searcher.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="AK.Wwise.Unity.API.WwiseTypes.csproj">
+      <Project>{eb23ebd1-1c6f-80a3-b844-56034e988e30}</Project>
+      <Name>AK.Wwise.Unity.API.WwiseTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="AK.Wwise.Unity.Timeline.Editor.csproj">
+      <Project>{3e2f738c-ceb1-4c35-bc3e-bd9ece7375e2}</Project>
+      <Name>AK.Wwise.Unity.Timeline.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
       <Project>{e7cdf9ad-3213-f99f-d693-0bd1e40726c5}</Project>
       <Name>Unity.PlasticSCM.Editor</Name>
@@ -886,13 +908,25 @@
       <Project>{1eeeb18d-e86f-dbef-1437-3edc11d74c5c}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Ak.Wwise.Api.WAAPI.csproj">
+      <Project>{8d0f90ff-26a2-a0db-4016-ea74027dd605}</Project>
+      <Name>Ak.Wwise.Api.WAAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.csproj">
       <Project>{6a53d693-e4d8-b973-1495-acd5220c2813}</Project>
       <Name>Unity.Mathematics</Name>
     </ProjectReference>
+    <ProjectReference Include="AK.Wwise.Unity.Timeline.csproj">
+      <Project>{00085be8-6d4f-8505-4628-e90231dd51f3}</Project>
+      <Name>AK.Wwise.Unity.Timeline</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Burst.csproj">
       <Project>{1ecfd9cb-5fd5-a9a3-9ac7-67864f86f952}</Project>
       <Name>Unity.Burst</Name>
+    </ProjectReference>
+    <ProjectReference Include="AK.Wwise.Unity.MonoBehaviour.csproj">
+      <Project>{5a9bea73-4994-1450-3ecb-d813eff7b340}</Project>
+      <Name>AK.Wwise.Unity.MonoBehaviour</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{b3dc63c2-2752-d698-6930-efbde16b0181}</Project>
@@ -901,6 +935,10 @@
     <ProjectReference Include="Unity.Mathematics.Editor.csproj">
       <Project>{9167db67-a8ed-3a98-66de-cb934ec76a36}</Project>
       <Name>Unity.Mathematics.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="AK.Wwise.Unity.MonoBehaviour.Editor.csproj">
+      <Project>{9664e214-19b0-8bbb-96a5-c09eaa1eae3a}</Project>
+      <Name>AK.Wwise.Unity.MonoBehaviour.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

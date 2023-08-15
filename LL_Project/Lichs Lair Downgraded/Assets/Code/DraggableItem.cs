@@ -8,13 +8,15 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
 {
   public bool IsInSlot;
     private RectTransform rectTransform;
-    private CanvasGroup canvasGroup;
+    public CanvasGroup canvasGroup;
     [SerializeField] private Canvas canvas;
     public RectTransform ItemSlotRect;
     public string ItemType;
     public Vector2 SlotSpace;
     public Image image;
     public GameObject thisObject;
+
+    public bool IsStoreItem;
     
 
 
@@ -42,6 +44,8 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
 
     void Start() 
     {
+      if(IsStoreItem == false)
+      {
       if(IsWeapon)
      {
       ItemSlotRect = GameObject.Find("WeaponSlotContainer").GetComponent<RectTransform>();
@@ -61,6 +65,7 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
      {
       ItemSlotRect = GameObject.Find("PetSlotContainer").GetComponent<RectTransform>();
      }
+      }
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         //this.transform.parent = GameObject.Find("UI").transform;

@@ -8,5 +8,7 @@ public class MerchantDatabase : MonoBehaviour
     public List<CombatSpellScriptableObject> CombatSpells;
     public List<Item> Potions;
     public List<Weapon> Weapons;
+
+    public List<GameObject>ItemsToStore;
     
 }
