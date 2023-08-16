@@ -34,6 +34,10 @@ public class Merchant : MonoBehaviour
 
     public int MaxStoreItems = 8;
 
+    [Header("UI Handling")]
+
+    public GameObject ConfirmPurchasePanel;
+
 
 
     
@@ -48,6 +52,8 @@ public class Merchant : MonoBehaviour
         StoreItem6 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
         StoreItem7 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
         StoreItem8 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
+
+        ConfirmPurchasePanel.SetActive(false);
 
         
 

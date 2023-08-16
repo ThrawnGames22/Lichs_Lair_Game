@@ -1,3 +1,4 @@
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,10 @@ using UnityEngine.EventSystems;
 
 
 
-public class ItemSlotContainer : MonoBehaviour, IDropHandler
+public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler
 {
     public bool ItemIsInSlot;
+    public bool ItemIsHovering;
     public GameObject ItemInSlot;
 
     public bool IsWeaponSlot;
@@ -19,6 +21,8 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler
     public bool IsUTSSlot;
     public bool IsDropContainer;
 
+ 
+
 [Header("DataObjects")]
     //DataObjects
     public Weapon weapon;
@@ -29,6 +33,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler
     public UtilitySpellScriptableObject UtilitySpell;
     public void OnDrop(PointerEventData eventData)
     {
+      
         //Weapon
        if(IsWeaponSlot)
        {
@@ -40,6 +45,8 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler
               
             }
         }
+
+        
        }
 
        if(IsTrinketSlot)
@@ -84,6 +91,35 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler
         eventData.pointerDrag.GetComponent<DraggableItem>().DropItem();
        }
 
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(eventData.pointerDrag.tag == "StoreItem")
+        {
+          ItemIsHovering = true;
+        }
+        if(eventData.pointerDrag == null)
+        {
+          ItemIsHovering = false;
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if(eventData.pointerDrag.tag == "StoreItem")
+        {
+          ItemIsHovering = false;
+        }
+
+        
+
+        
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        ItemIsHovering = false;
     }
 
     private void Update() 

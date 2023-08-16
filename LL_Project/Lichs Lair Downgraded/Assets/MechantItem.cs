@@ -14,6 +14,8 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public RectTransform ItemSlotRect;
 
     public Merchant merchantScript;
+    
+    public GameObject[] slotContainers;
 
     
     public string ItemType;
@@ -89,6 +91,10 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
    {
      canvasGroup.blocksRaycasts = true;
      this.rectTransform.anchoredPosition = ItemSlotRect.anchoredPosition;
+     foreach(GameObject a in slotContainers)
+      {
+        a.GetComponent<ItemSlotContainer>().ItemIsHovering = false;
+      }
      
 
      
@@ -142,7 +148,9 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
        thisObject = this.gameObject;
        PlayerInventoryCanvas = GameObject.Find("UI").GetComponent<Canvas>();
        canvas = GameObject.Find("Merchant Inventory").GetComponent<Canvas>();
-       
+       slotContainers = GameObject.FindGameObjectsWithTag("InventorySlots");
+      
+      
     }
 
   
