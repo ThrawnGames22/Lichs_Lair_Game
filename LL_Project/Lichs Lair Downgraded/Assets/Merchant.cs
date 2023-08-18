@@ -53,7 +53,7 @@ public class Merchant : MonoBehaviour
         StoreItem7 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
         StoreItem8 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
 
-        ConfirmPurchasePanel.SetActive(false);
+        ConfirmPurchasePanel.GetComponent<PurchasePanel>().Panel.SetActive(false);
 
         
 

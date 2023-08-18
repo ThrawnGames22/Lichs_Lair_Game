@@ -44,28 +44,37 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
 
     void Start() 
     {
+      canvas = GameObject.Find("UI").GetComponent<Canvas>();
+      
       if(IsStoreItem == false)
       {
       if(IsWeapon)
      {
       ItemSlotRect = GameObject.Find("WeaponSlotContainer").GetComponent<RectTransform>();
+      this.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-485.6f, 165.6f);
      }
 
       if(IsPotion)
      {
       ItemSlotRect = GameObject.Find("PotionSlotContainer").GetComponent<RectTransform>();
+      this.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-485.6f, -47.5f);
      }
 
       if(IsTrinket)
      {
       ItemSlotRect = GameObject.Find("TrinketSlotContainer").GetComponent<RectTransform>();
+      this.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-485.6f, -50);
      }
 
       if(IsPet)
      {
       ItemSlotRect = GameObject.Find("PetSlotContainer").GetComponent<RectTransform>();
+      this.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-485.6f, -50);
      }
+     
       }
+
+
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         //this.transform.parent = GameObject.Find("UI").transform;
@@ -174,6 +183,7 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
       ParentItemToSlot();
     }
     thisObject = this.gameObject;
+    
     if(ItemSlotRect.GetComponent<ItemSlotContainer>().ItemIsInSlot == false)
     {
      if(IsWeapon)

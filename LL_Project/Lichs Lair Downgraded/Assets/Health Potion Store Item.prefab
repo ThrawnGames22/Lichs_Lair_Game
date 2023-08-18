@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2173439218551301158}
   - component: {fileID: 2173439218551301152}
   - component: {fileID: 2173439218551301153}
+  - component: {fileID: 5787004946435991640}
   m_Layer: 5
   m_Name: Health Potion Store Item
   m_TagString: StoreItem
@@ -94,11 +95,12 @@ MonoBehaviour:
   PlayerInventoryCanvas: {fileID: 0}
   ItemSlotRect: {fileID: 0}
   merchantScript: {fileID: 0}
+  slotContainers: []
   ItemType: 
   SlotSpace: {x: 0, y: 0}
   image: {fileID: 0}
   thisObject: {fileID: 2173439218551301156}
-  DraggableItemPrefab: {fileID: 0}
+  DraggableItemPrefab: {fileID: 6708894044966886586, guid: b9b62d722d1f61a4e9bac26bdc16d3c4, type: 3}
   IsWeapon: 0
   IsTrinket: 0
   IsPotion: 1
@@ -113,6 +115,7 @@ MonoBehaviour:
   CombatSpell2: {fileID: 0}
   UtilitySpell: {fileID: 0}
   heldDown: 0
+  IsHoveringOverSlot: 0
 --- !u!225 &2173439218551301153
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -125,3 +128,16 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5787004946435991640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2173439218551301156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []

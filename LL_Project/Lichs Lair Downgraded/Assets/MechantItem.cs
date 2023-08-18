@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Animations;
 
-public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
@@ -44,6 +44,8 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public UtilitySpellScriptableObject UtilitySpell;
 
     public bool heldDown;
+
+    public bool IsHoveringOverSlot;
 
 
 
@@ -95,6 +97,11 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
       {
         a.GetComponent<ItemSlotContainer>().ItemIsHovering = false;
       }
+
+      if(eventData.pointerDrag.tag == "InventorySlot")
+     {
+       Debug.Log("EquipItem");
+     }
      
 
      
@@ -111,6 +118,29 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
    {
      
    }
+
+   public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(eventData.pointerDrag.tag == "InventorySlot")
+        {
+          IsHoveringOverSlot = true;
+          
+        }
+        
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if(eventData.pointerDrag.tag == "InventorySlot")
+        {
+          IsHoveringOverSlot = false;
+        }
+
+        
+
+        
+    }
+    
     // Start is called before the first frame update
     void Start()
     {

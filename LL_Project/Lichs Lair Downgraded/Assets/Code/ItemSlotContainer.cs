@@ -20,6 +20,12 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
     public bool IsCBS2Slot;
     public bool IsUTSSlot;
     public bool IsDropContainer;
+    public Merchant Merchant;
+    public PurchasePanel purchasePanel;
+
+    public bool HasItemAlready;
+[Header("Last Merchant Item That Was Referenced")]
+    public GameObject ItemReference;
 
  
 
@@ -31,17 +37,35 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
     public CombatSpellScriptableObject CombatSpell1;
     public CombatSpellScriptableObject CombatSpell2;
     public UtilitySpellScriptableObject UtilitySpell;
+
+
+   
     public void OnDrop(PointerEventData eventData)
     {
       
         //Weapon
        if(IsWeaponSlot)
        {
-        if(eventData.pointerDrag != null)
+        if(eventData.pointerDrag.tag == "InventoryItem")
         {
             if(eventData.pointerDrag.GetComponent<DraggableItem>().IsWeapon)
             {
               eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+              
+            }
+        }
+
+        if(eventData.pointerDrag.tag == "StoreItem")
+        {
+            if(eventData.pointerDrag.GetComponent<MechantItem>().IsWeapon)
+            {
+              print("Buy");
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
+              eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+              
+              
+              
+              
               
             }
         }
@@ -98,11 +122,14 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
         if(eventData.pointerDrag.tag == "StoreItem")
         {
           ItemIsHovering = true;
+          ItemReference = eventData.pointerDrag.gameObject;
         }
-        if(eventData.pointerDrag == null)
+        if(eventData.pointerDrag)
         {
           ItemIsHovering = false;
+          print("IsHovering");
         }
+        
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -124,12 +151,39 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
 
     private void Update() 
     {
+      Merchant = GameObject.Find("MerchantManager").GetComponent<Merchant>();
+      purchasePanel = Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>();
       if(IsDropContainer == false)
       {
-        
+        if(ItemInSlot != null)
+        {
         ItemInSlot = this.gameObject.transform.GetChild(0).gameObject;
+        }
         
       }
+
+
+      if(purchasePanel.HasPressedConfirm == true)
+              {
+                GameObject WeaponClone = Instantiate(ItemReference.GetComponent<MechantItem>().DraggableItemPrefab);
+                ItemInSlot = WeaponClone;
+                Destroy(ItemReference);
+                ItemReference = null;
+                print("ItemDeleted");
+                
+              }
+
+              if(ItemInSlot != null)
+              {
+                HasItemAlready = true;
+              }
+              else
+              {
+                HasItemAlready = false;
+              }
     }
+
+    
+
     
 }
