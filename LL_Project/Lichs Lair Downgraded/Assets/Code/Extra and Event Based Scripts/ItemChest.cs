@@ -37,6 +37,8 @@ public class ItemChest : MonoBehaviour
 
     public WeaponChestManager WCM;
 
+    public bool IsItemChest;
+
     
     // Start is called before the first frame update
     void Start()
@@ -56,8 +58,13 @@ public class ItemChest : MonoBehaviour
         vig.intensity.value = normalVigneteIntensity;
       }
       Effects.SetActive(false);
-      UnlockedCanvas.SetActive(false);
-      Prompt.SetActive(false);  
+
+      if(!IsItemChest)
+      {
+        UnlockedCanvas.SetActive(false);
+        Prompt.SetActive(false);  
+      }
+      
         
     }
 

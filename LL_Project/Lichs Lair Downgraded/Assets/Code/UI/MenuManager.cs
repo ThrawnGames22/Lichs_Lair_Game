@@ -14,11 +14,29 @@ public class MenuManager : MonoBehaviour
     public float TransitionTime;
     public Scene LastScene;
 
+    [Header("Scene Randomnizer")]
+
+    public int Startinglevel;
+    public int EndingLevel;
+
+    public bool UseSceneRandomisation; 
+
+   public SceneTracker sceneTracker;
+
+   public int randomIndex;
+
+   public int NextSceneIndex;
+
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
         CurrentSceneName = CurrentScene.name;
+        sceneTracker = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
+        randomIndex = Random.Range(4, 7);
+        NextSceneIndex = randomIndex;
         
     }
 
@@ -30,6 +48,11 @@ public class MenuManager : MonoBehaviour
         if(CurrentScene.name == "Level 1")
         {
             
+        }
+        
+        if(sceneTracker.LevelsTillChange == 0)
+        {
+            NextSceneIndex = SceneManager.GetSceneByName("Chest Room").buildIndex;
         }
     }
 
@@ -50,8 +73,15 @@ public class MenuManager : MonoBehaviour
     }
      public void LoadNextLevel()
     {
-        StartCoroutine(LoadNextLV(SceneManager.GetActiveScene().buildIndex + 1));
+        StartCoroutine(LoadRandomLevel());
     }
+
+    public void LoadChestLevel()
+    {
+        StartCoroutine(LoadChestRoom());
+    }
+
+    
 
     
 
@@ -77,8 +107,25 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(LevelIndex);
     }
 
+    IEnumerator LoadRandomLevel()
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(TransitionTime);
+        SceneManager.LoadScene(NextSceneIndex);
+        sceneTracker.DecreaseLevelChange();
+    }
+
+    IEnumerator LoadChestRoom()
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(TransitionTime);
+        SceneManager.LoadScene("Chest Room");
+        
+    }
+
     IEnumerator LoadMenu()
     {
+        
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(TransitionTime);
         LoadMenu("Load Back To Menu");
@@ -89,6 +136,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(SceneName);
     }
 
+  
     
     
 }

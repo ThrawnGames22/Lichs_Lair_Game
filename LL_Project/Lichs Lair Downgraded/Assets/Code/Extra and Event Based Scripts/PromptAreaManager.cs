@@ -11,6 +11,8 @@ public class PromptAreaManager : MonoBehaviour
 {
     [Header("Prompts")]
 
+    public GameObject StartingPrompt;
+
     public GameObject MagicPrompt;
     public GameObject MagicPromptArea1;
     public GameObject MagicPromptArea2;

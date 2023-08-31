@@ -44,12 +44,15 @@
      <Compile Include="Assets\Code\Extra and Event Based Scripts\TrapPrompt.cs" />
      <Compile Include="Assets\Code\UI\MenuManager.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\ShaderHandler.cs" />
+     <Compile Include="Assets\SceneTracker.cs" />
+     <Compile Include="Assets\NextLevelTrigger.cs" />
      <Compile Include="Assets\Code\UI\MagePickerBasin.cs" />
      <Compile Include="Assets\InventoryItem.cs" />
      <Compile Include="Assets\Code\Weapons\FistCollider.cs" />
      <Compile Include="Assets\PurchasePanel.cs" />
      <Compile Include="Assets\Code\Environment\BreakableObject.cs" />
      <Compile Include="Assets\Code\UI\DoNotDestroy.cs" />
+     <Compile Include="Assets\VoidKiller.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\DetachParticles.cs" />
      <Compile Include="Assets\Code\Inventory\Items Window\ItemController.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\PlayerDash.cs" />
@@ -86,6 +89,7 @@
      <Compile Include="Assets\Code\Inventory\SlotUIController.cs" />
      <Compile Include="Assets\Code\UI\AcidTripController.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\ManaPickup.cs" />
+     <Compile Include="Assets\ChestTrigger.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\LoadingScreenManager.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\GameManagerDelete.cs" />
      <Compile Include="Assets\Code\UI\DamageManager.cs" />
@@ -99,6 +103,7 @@
      <Compile Include="Assets\Code\Extra and Event Based Scripts\IntroController.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\SealMagic.cs" />
      <Compile Include="Assets\Code\Spells\Combat Spells\DarkSlash.cs" />
+     <Compile Include="Assets\ChestRewardManager.cs" />
      <Compile Include="Assets\Code\Inventory\Items Window\Pet.cs" />
      <Compile Include="Assets\Code\Spells\DetectSunlight.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\PromptAreaManager.cs" />
@@ -114,7 +119,9 @@
      <Compile Include="Assets\Code\Spells\SunLight.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\RoomDoor.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\DisableWalls.cs" />
+     <Compile Include="Assets\EnemySpawnerTrigger.cs" />
      <Compile Include="Assets\DebugClickButton.cs" />
+     <Compile Include="Assets\ResetLevelChangeTrigger.cs" />
      <Compile Include="Assets\Code\Spells\Base Code\UtilitySpellAbility.cs" />
      <Compile Include="Assets\PixelizePass.cs" />
      <Compile Include="Assets\Code\Player\SwordController.cs" />
@@ -129,6 +136,7 @@
      <Compile Include="Assets\Code\Enemy\EnemyController.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\ResolutionChanger.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\EnemySpawner.cs" />
      <Compile Include="Assets\Reference\Pixel Shader Advanced\Character\MovementInput.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\NextSceneTrigger.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\WeaponChestManager.cs" />
@@ -141,6 +149,7 @@
      <Compile Include="Assets\Code\Extra and Event Based Scripts\MagicPrompt.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\CameraManager.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\TestingLevel.cs" />
+     <Compile Include="Assets\DoorTrigger.cs" />
      <Compile Include="Assets\Code\Inventory\Items Window\Character Inventory.cs" />
      <Compile Include="Assets\Code\ItemSlot.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\EndGame.cs" />
@@ -162,6 +171,7 @@
      <Compile Include="Assets\Code\Extra and Event Based Scripts\WeaponChestReactivate.cs" />
      <Compile Include="Assets\Code\Weapons\DamagedController.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\SkullDoor.cs" />
+     <Compile Include="Assets\SpawnPlayerInLevel.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\GiveWeapons.cs" />
      <Compile Include="Assets\Code\UI\TrippingOnAcid.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\ControlsPanel.cs" />
@@ -173,7 +183,6 @@
      <Compile Include="Assets\Code\Spells\Base Code\CombatSpellAbility.cs" />
      <Compile Include="Assets\PixelizeFeature.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\ResolutionManager.cs" />
-     <Compile Include="Assets\VoidKiller.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Wwise\Version.txt" />

@@ -16,16 +16,15 @@ public class TutorialStone : MonoBehaviour
     //Prompts
 
     public GameObject StartPrompt;
-    public GameObject InteractPrompt;
-    public GameObject DashPrompt;
+    
+    public 
     // Start is called before the first frame update
     void Start()
     {
         Camera = GameObject.FindGameObjectWithTag("MainCamera");
         StoneUI.SetActive(false);
-        StartPrompt.SetActive(true);
-        InteractPrompt.SetActive(false);
-        DashPrompt.SetActive(false);
+        StartPrompt.SetActive(false);
+        
         //Barrier.SetActive(true);
     }
 
@@ -39,13 +38,13 @@ public class TutorialStone : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.F))
         {
-         Camera.GetComponent<CameraSmoothFollow>().target = this.transform;
+         //Camera.GetComponent<CameraSmoothFollow>().target = this.transform;
          PlayerController.Instance.speed = 0;
-         StartPrompt.SetActive(false);
-         InteractPrompt.SetActive(false);
+         StartPrompt.SetActive(true);
+         
          TutorialStoneIsDone = true;
          
-         StartCoroutine(UI());
+         //StartCoroutine(UI());
         }
         }
       }
@@ -62,7 +61,7 @@ public class TutorialStone : MonoBehaviour
           if(TutorialStoneIsDone == false)
           {
             IsInRange = true;
-            InteractPrompt.SetActive(true);
+           
           }
         
         }
@@ -75,7 +74,7 @@ public class TutorialStone : MonoBehaviour
           if(TutorialStoneIsDone == false)
           {
             IsInRange = false;
-            InteractPrompt.SetActive(false);
+           
           }
        
         }
@@ -87,12 +86,13 @@ public class TutorialStone : MonoBehaviour
         Camera.GetComponent<CameraSmoothFollow>().target = GameObject.FindGameObjectWithTag("Player").transform;
         PlayerController.Instance.speed = 5;
         //PlayerController.Instance.HasActivatedGameplay = true;
-        DashPrompt.SetActive(true);
+       
 
-        StoneUI.SetActive(false);
+        StartPrompt.SetActive(false);
         //Barrier.SetActive(false);
     }
 
+/*
     public IEnumerator UI()
     {
       StoneUI.SetActive(true);
@@ -102,11 +102,13 @@ public class TutorialStone : MonoBehaviour
       
       
     }
+    
 
     public void StopUI()
     {
       StopCoroutine(UI());
     }
+    */
 
 }
 

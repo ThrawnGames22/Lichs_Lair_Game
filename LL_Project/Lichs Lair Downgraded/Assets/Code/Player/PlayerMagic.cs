@@ -89,7 +89,7 @@ public class PlayerMagic : MonoBehaviour
         manaBar.slider.maxValue = maxMana;
          UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
         //ombatSpellToCast = CombatSpellSlot1;
-        inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
+        //inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
         
 
         
@@ -174,8 +174,8 @@ public class PlayerMagic : MonoBehaviour
     if(PlayerController.Instance.HasActivatedMagic)
     {
       HasAquiredMagic = true;
-      if(inventoryController.InventoryIsOpen == false)
-      {
+      //if(inventoryController.InventoryIsOpen == false)
+      //{
         if(MagicPaused == false)
         {
       
@@ -207,7 +207,7 @@ public class PlayerMagic : MonoBehaviour
            CastUtilitySpell();
            manaBar.slider.value = currentMana;
         }
-        }
+        //}
 
 
         

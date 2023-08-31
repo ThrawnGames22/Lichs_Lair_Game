@@ -9,6 +9,7 @@ public class RoomDoor : MonoBehaviour
     public bool UnlockDoor;
     public bool isMagicDoor;
     public bool isNormalOpeningDoor;
+    public bool isStartingDoor;
     public GameObject MagicBarrier;
     public bool MagicIsBroken;
     public bool IsInRange;
@@ -18,6 +19,15 @@ public class RoomDoor : MonoBehaviour
 
     public List<GameObject> MagicSeals;
     public bool HasPassedThrough;
+
+[Header("Enemy Spawner Mechanic Intergration")]
+    public bool RequiresEnemiesDefeated;
+    public bool EnemyGroupEliminated;
+
+    public EnemySpawnerTrigger enemySpawnerTrigger;
+    public List<GameObject> EnemiesToBeDefeated;
+
+    public bool SpawnerIsTriggered;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +45,43 @@ public class RoomDoor : MonoBehaviour
     
        DoorAnimator.SetBool("IsUnlocked", UnlockDoor);
        DoorAnimator.SetBool("HasPassedThrough", HasPassedThrough);
+
+       if(RequiresEnemiesDefeated)
+       {
+        if(SpawnerIsTriggered)
+        {
+            
+          EnemiesToBeDefeated = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+
+         foreach (GameObject Enemy in EnemiesToBeDefeated)
+         {
+            if(Enemy.GetComponent<EnemyHealth>().IsDead)
+            {
+                EnemiesToBeDefeated.Remove(Enemy);
+            }
+
+            if(EnemiesToBeDefeated.Count == 0)
+        {
+           EnemyGroupEliminated = true;
+        }
+
+        if(EnemyGroupEliminated)
+        {
+            UnlockDoor = true;
+        
+        }
+         }
+
+        
+
+
+       
+        }
+         
+
+
+       }
+        
 
        
       if(isMagicDoor)
