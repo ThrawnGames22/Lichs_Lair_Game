@@ -15,6 +15,8 @@ public class SceneTracker : MonoBehaviour
     public int maxLevelCount;
 
     public bool NextLevelIsChestRoom;
+
+    public int LevelsPlayerHasCompleted;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,5 +47,10 @@ public class SceneTracker : MonoBehaviour
     {
         LevelsTillChange = 2;
         NextLevelIsChestRoom = false;
+    }
+
+    public void AddLevelCount()
+    {
+      LevelsPlayerHasCompleted += 1;
     }
 }

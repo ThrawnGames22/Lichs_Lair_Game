@@ -9,7 +9,29 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{986487A9-2683-E47A-8688-3D0FE6FDB954}">
+		<SoundBank Id="629305417" Type="User" Language="SFX" Hash="{260D5D78-FFE7-F1BF-0359-21363EA95233}">
+			<ShortName>ClearingMusic</ShortName>
+			<Path>ClearingMusic.bnk</Path>
+			<Media>
+				<File Id="848042855" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Clearing.wav</ShortName>
+					<CachePath>SFX/Clearing_D79FB2B7.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="969372971" Name="Play_Clearing">
+					<MediaRefs>
+						<MediaRef Id="848042855"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1147999721" Name="Stop_Clearing">
+					<MediaRefs>
+						<MediaRef Id="848042855"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{3BB0A055-9577-9207-2854-F1CE6086D675}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -21,7 +43,43 @@
 			<Busses>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<StateGroups>
+				<StateGroup Id="1021618141" Name="MusicState">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="1971647742" Name="CombatArea"/>
+						<State Id="2595635318" Name="ClearinArea"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="3733692670" Type="User" Language="SFX" Hash="{D4751606-2014-00E7-41E7-C81913BE82DE}">
+			<ShortName>CombatMusic</ShortName>
+			<Path>CombatMusic.bnk</Path>
+			<Media>
+				<File Id="972238156" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>dungeon-air-6983 (2).wav</ShortName>
+					<CachePath>SFX/dungeon-air-6983 (2)_D79FB2B7.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="969372971" Name="Play_Clearing">
+					<MediaRefs>
+						<MediaRef Id="972238156"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="513571230" Name="Play_Combat">
+					<MediaRefs>
+						<MediaRef Id="972238156"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="913896232" Name="Stop_Combat">
+					<MediaRefs>
+						<MediaRef Id="972238156"/>
+					</MediaRefs>
+				</Event>
+			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{728B0CF1-C3AD-A635-6DAF-778047395964}</FileHash>
+	<FileHash>{0F2A6296-26D1-ABFD-A1FF-5F99B870C91B}</FileHash>
 </SoundBanksInfo>

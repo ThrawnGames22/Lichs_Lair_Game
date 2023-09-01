@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{8690A4B6-D5CB-4F1D-B838-1902E1013BF4}" SchemaVersion="110">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{8690A4B6-D5CB-4F1D-B838-1902E1013BF4}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{8690A4B6-D5CB-4F1D-B838-1902E1013BF4}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="dungeon-air-6983 (2)" ID="{C1E2F9F6-9116-4D41-B2FD-B8ABD5A6EAFA}" ShortID="544822418">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{71AEF847-D5AF-4091-9675-D088B5BF518B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{12233831-BC27-43BE-AB17-D369227A07B8}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="dungeon-air-6983 (2)" ID="{13AAAE6F-19D9-4A44-962D-73E9114F6E9A}">
+							<Language>SFX</Language>
+							<AudioFile>dungeon-air-6983 (2).wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="462612507"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="dungeon-air-6983 (2)" ID="{13AAAE6F-19D9-4A44-962D-73E9114F6E9A}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Clearing" ID="{31ACF20F-57D6-4273-8E81-164660416014}" ShortID="52534359">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{71AEF847-D5AF-4091-9675-D088B5BF518B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{12233831-BC27-43BE-AB17-D369227A07B8}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Clearing" ID="{191667D7-3E0E-491F-A0F4-71EC6B279CA7}">
+							<Language>SFX</Language>
+							<AudioFile>Clearing.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="727318520"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Clearing" ID="{191667D7-3E0E-491F-A0F4-71EC6B279CA7}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

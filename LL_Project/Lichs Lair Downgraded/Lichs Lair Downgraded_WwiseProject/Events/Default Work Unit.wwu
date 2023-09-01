@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{E38880B3-8634-4A14-9382-33A887A598A2}" SchemaVersion="110">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{E38880B3-8634-4A14-9382-33A887A598A2}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E38880B3-8634-4A14-9382-33A887A598A2}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Clearing" ID="{0B9CEE9A-C314-4BAE-B519-4E593EEF813D}">
+					<ChildrenList>
+						<Action Name="" ID="{1ACEBB38-AC40-46C9-9398-8E4AB9D0F6F6}" ShortID="599728563">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clearing" ID="{987254D2-B57C-4C29-A4EA-FED6F9D222F1}" WorkUnitID="{EE7BDB4F-7BB5-403F-8023-8BE2A41EE789}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{BA420235-B9E5-41BA-9BD5-F7DD94CFA5AA}" ShortID="293753453">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat" ID="{33B14379-C7F1-4AE8-9452-0FEFC0C0C29C}" WorkUnitID="{EE7BDB4F-7BB5-403F-8023-8BE2A41EE789}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Combat" ID="{EA06483D-7C16-4EBA-A569-F3BE71A252E0}">
+					<ChildrenList>
+						<Action Name="" ID="{4299D29D-11F8-4C85-A843-076C5E8FCB80}" ShortID="341598588">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat" ID="{33B14379-C7F1-4AE8-9452-0FEFC0C0C29C}" WorkUnitID="{EE7BDB4F-7BB5-403F-8023-8BE2A41EE789}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Clearing" ID="{261D79F4-B388-4540-B95E-F7A93A7B0D85}">
+					<ChildrenList>
+						<Action Name="" ID="{0496F3D2-5A14-4C73-985D-AD3069D0BC18}" ShortID="206237140">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clearing" ID="{987254D2-B57C-4C29-A4EA-FED6F9D222F1}" WorkUnitID="{EE7BDB4F-7BB5-403F-8023-8BE2A41EE789}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Combat" ID="{C994A181-7133-4922-9A0C-A710919B94C7}">
+					<ChildrenList>
+						<Action Name="" ID="{E4164CA4-8FFC-4D18-BE0E-96318575AC09}" ShortID="363397279">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat" ID="{33B14379-C7F1-4AE8-9452-0FEFC0C0C29C}" WorkUnitID="{EE7BDB4F-7BB5-403F-8023-8BE2A41EE789}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>
