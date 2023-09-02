@@ -33,15 +33,39 @@ public class RoomDoor : MonoBehaviour
     {
        if(isMagicDoor)
        {
+        
+        
        MagicBarrier.GetComponent<MeshRenderer>().material.SetFloat("_Dissolve_Amount", dissolve);
+       MagicSeals = new  List<GameObject>(GameObject.FindGameObjectsWithTag("SealStone"));
+        
+       }
+       else
+       {
+        MagicBarrier.SetActive(false);
        }
 
        MagicIsBroken = false;
+
+       
+       
+       
+       
+         
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        if(MagicSeals[0] == null)
+        {
+           foreach(GameObject seals in MagicSeals)
+        {
+          MagicSeals.Remove(seals);
+          MagicBarrier.SetActive(false);
+        } 
+        }
     
        DoorAnimator.SetBool("IsUnlocked", UnlockDoor);
        DoorAnimator.SetBool("HasPassedThrough", HasPassedThrough);
@@ -99,13 +123,20 @@ public class RoomDoor : MonoBehaviour
         {
             Destroy(MagicBarrier);
         }
+        if(MagicSeals == null)
+        {
 
+        
         foreach(GameObject MS in MagicSeals)
         {
+            
+            
             if(MS.GetComponent<SealStone>().SealIsBroken)
             {
                 MagicSeals.Remove(MS);
             }
+            
+        }
         }
 
         

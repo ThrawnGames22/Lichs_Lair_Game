@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
 
+    public bool isStaticInPlace;
+
     [Header ("Player Dash")]
     //cooldown
     public float dashSpeed;
@@ -157,6 +159,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
      {
+
+        if(speed == 0)
+        {
+            isStaticInPlace = true;
+        }
+        else
+        {
+            isStaticInPlace = false;
+        }
         
         //MouseLook Values
       

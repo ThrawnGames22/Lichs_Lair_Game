@@ -20,6 +20,7 @@ public class SealStone : MonoBehaviour
         if(health == 0)
         {
             SealIsBroken = true;
+            StartCoroutine(DestroyOverTime());
             //DS.enabled = true;
         }
 
@@ -36,5 +37,17 @@ public class SealStone : MonoBehaviour
             health -= Damage;
             print("Stone Has Taken A Hit!");
         }
+
+        if(other.gameObject.tag == "FireSpell")
+        {
+            health -= Damage;
+            print("Stone Has Taken A Hit!");
+        }
+    }
+
+    public IEnumerator DestroyOverTime()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(this.gameObject);
     }
 }

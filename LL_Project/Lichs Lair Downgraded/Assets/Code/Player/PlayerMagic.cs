@@ -213,9 +213,14 @@ public class PlayerMagic : MonoBehaviour
         
       
       }
-      else
+      if(playerController.isStaticInPlace == true)
       {
-         return;
+         MagicPaused = true;
+      }
+
+      if(playerController.isStaticInPlace == false)
+      {
+         MagicPaused = false;
       }
 
       

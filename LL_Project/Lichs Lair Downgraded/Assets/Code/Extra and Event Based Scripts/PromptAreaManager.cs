@@ -72,73 +72,20 @@ public class PromptAreaManager : MonoBehaviour
     void Update()
     {
 
-        if(PromptisActive == true)
+        
+
+        
+      
+        if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isStaticInPlace == true)
         {
-            PlayerMagic.Instance.MagicPaused = true;
+            PromptIsActive = true;
         }
 
-        if(PromptisActive == false)
+        if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isStaticInPlace == false)
         {
-            PlayerMagic.Instance.MagicPaused = false;
+            PromptIsActive = false;
         }
-      /*
-        //Magic
-        if(MagicPrompt.active == true)
-        {
-          PromptisActive = true;
-          //PlayerMagic.Instance.MagicPaused = true;
-        }
-        if(MagicPrompt.active == false)
-        {
-            PromptisActive = false;
-            //PlayerMagic.Instance.MagicPaused = false;
-        }
-        //Potion
-        if(PotionPrompt.active == true)
-        {
-            PromptisActive = true;
-          //PlayerMagic.Instance.MagicPaused = true;
-        }
-        if(PotionPrompt.active == false)
-        {
-            PromptisActive = false;
-            //PlayerMagic.Instance.MagicPaused = false;
-        }
-        //Trap
-        if(TrapPrompt.active == true)
-        {
-            PromptisActive = true;
-            
-          //PlayerMagic.Instance.MagicPaused = true;
-        }
-        if(TrapPrompt.active == false)
-        {
-            PromptisActive = false;
-            //PlayerMagic.Instance.MagicPaused = false;
-        }
-        //Enemy
-        if(EnemyPrompt.active == true)
-        {
-            PromptisActive = true;
-          //PlayerMagic.Instance.MagicPaused = true;
-        }
-        if(EnemyPrompt.active == false)
-        {
-            PromptisActive = false;
-            //PlayerMagic.Instance.MagicPaused = false;
-        }
-         //Weapon Combat
-        if(BasicCombatPrompt.active == true)
-        {
-            PromptisActive = true;
-          //PlayerMagic.Instance.MagicPaused = true;
-        }
-        if(BasicCombatPrompt.active == false)
-        {
-            PromptisActive = false;
-            //PlayerMagic.Instance.MagicPaused = false;
-        }
-        */
+        
         
         
 
@@ -252,7 +199,7 @@ public class PromptAreaManager : MonoBehaviour
         PlayerController.Instance.speed = 5;
         PotionPromptArea1.SetActive(false);
         PotionPromptArea2.SetActive(false);
-        SpawnPotions();
+        //SpawnPotions();
         PromptisActive = false;
         
         //PlayerController.Instance.HasActivatedMagic = true; 
