@@ -64,6 +64,8 @@ public class ItemChest : MonoBehaviour
         UnlockedCanvas.SetActive(false);
         Prompt.SetActive(false);  
       }
+
+      StartCoroutine(SpawnItems());
       
         
     }
@@ -132,13 +134,21 @@ public class ItemChest : MonoBehaviour
     public void SpawnItem()
     {
       Effects.SetActive(true);
-      ChestAnimator.SetTrigger("IsUnlocked");
+      //ChestAnimator.SetTrigger("IsUnlocked");
       Instantiate(Item1, ItemSpawnPoint.transform.position, ItemSpawnPoint.rotation);
       Instantiate(Item2, ItemSpawnPoint.transform.position, ItemSpawnPoint.rotation);
       Instantiate(Item3, ItemSpawnPoint.transform.position, ItemSpawnPoint.rotation);
       HasUnlocked = true;
 
 
+    }
+
+    public void SpawnItemFromChest()
+    {
+      StopCoroutine(SpawnItems());
+      Instantiate(Item1, ItemSpawnPoint.transform.position, ItemSpawnPoint.rotation);
+      Instantiate(Item2, ItemSpawnPoint.transform.position, ItemSpawnPoint.rotation);
+      Instantiate(Item3, ItemSpawnPoint.transform.position, ItemSpawnPoint.rotation);
     }
 
     public void SpawnWeapons()
@@ -184,5 +194,12 @@ public class ItemChest : MonoBehaviour
       volume.profile.TryGet(out vig);
       vig.intensity.value = normalVigneteIntensity;
       PlayerController.Instance.speed = 5;
+    }
+
+    public IEnumerator SpawnItems()
+    {
+      yield return new WaitForSeconds(2.4f);
+      SpawnItemFromChest();
+      
     }
 }

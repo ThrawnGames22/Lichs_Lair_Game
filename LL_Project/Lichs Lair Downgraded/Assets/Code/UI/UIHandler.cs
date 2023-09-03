@@ -37,7 +37,7 @@ public class UIHandler : MonoBehaviour
     void Update()
     {
         
-        inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
+        //inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMagic>();
         
         CurrentScene = SceneManager.GetActiveScene();

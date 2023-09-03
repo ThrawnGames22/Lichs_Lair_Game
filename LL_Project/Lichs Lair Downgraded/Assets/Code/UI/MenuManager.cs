@@ -35,7 +35,7 @@ public class MenuManager : MonoBehaviour
     {
         CurrentSceneName = CurrentScene.name;
         sceneTracker = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
-        randomIndex = Random.Range(6, 8);
+        randomIndex = Random.Range(6, 11);
         NextSceneIndex = randomIndex;
         
     }
@@ -53,6 +53,11 @@ public class MenuManager : MonoBehaviour
         if(sceneTracker.LevelsTillChange == 0)
         {
             NextSceneIndex = SceneManager.GetSceneByName("Chest Room").buildIndex;
+        }
+
+        if(sceneTracker.NextLevelIsEndGame == true)
+        {
+            StartCoroutine(LoadEndGame());
         }
     }
 
@@ -134,6 +139,18 @@ public class MenuManager : MonoBehaviour
     public void LoadMenu(string SceneName)
     {
         SceneManager.LoadScene(SceneName);
+    }
+
+    public void LoadEndGameScene()
+    {
+        SceneManager.LoadScene("EndGame");
+    }
+
+    public IEnumerator LoadEndGame()
+    {
+        yield return new WaitForSeconds(2.5f);
+        LoadEndGameScene();
+        StopCoroutine(LoadEndGame());
     }
 
   

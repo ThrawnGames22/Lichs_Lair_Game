@@ -28,9 +28,12 @@ public class RoomDoor : MonoBehaviour
     public List<GameObject> EnemiesToBeDefeated;
 
     public bool SpawnerIsTriggered;
+
+    public bool HasSpawnerTrigger;
     // Start is called before the first frame update
     void Start()
     {
+     /*
        if(isMagicDoor)
        {
         
@@ -45,6 +48,7 @@ public class RoomDoor : MonoBehaviour
        }
 
        MagicIsBroken = false;
+       */
 
        
        
@@ -57,7 +61,7 @@ public class RoomDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*
         if(MagicSeals[0] == null)
         {
            foreach(GameObject seals in MagicSeals)
@@ -66,14 +70,33 @@ public class RoomDoor : MonoBehaviour
           MagicBarrier.SetActive(false);
         } 
         }
+        */
     
        DoorAnimator.SetBool("IsUnlocked", UnlockDoor);
        DoorAnimator.SetBool("HasPassedThrough", HasPassedThrough);
 
        if(RequiresEnemiesDefeated)
        {
+        if(!HasSpawnerTrigger)
+        {
+        EnemiesToBeDefeated = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+         if(EnemiesToBeDefeated.Count == 0)
+        {
+           EnemyGroupEliminated = true;
+        }
+        if(EnemyGroupEliminated)
+        {
+            UnlockDoor = true;
+        
+        }
+        }
+
+
+       
         if(SpawnerIsTriggered)
         {
+            if(HasSpawnerTrigger)
+           {
             
           EnemiesToBeDefeated = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
 
@@ -84,7 +107,7 @@ public class RoomDoor : MonoBehaviour
                 EnemiesToBeDefeated.Remove(Enemy);
             }
 
-            if(EnemiesToBeDefeated.Count == 0)
+        if(EnemiesToBeDefeated.Count == 0)
         {
            EnemyGroupEliminated = true;
         }
@@ -95,12 +118,14 @@ public class RoomDoor : MonoBehaviour
         
         }
          }
+           }
 
         
 
 
        
-        }
+        
+       }
          
 
 

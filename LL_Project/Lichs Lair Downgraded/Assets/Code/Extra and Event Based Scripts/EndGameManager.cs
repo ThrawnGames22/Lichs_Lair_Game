@@ -11,6 +11,9 @@ public class EndGameManager : MonoBehaviour
     void Start()
     {
         Destroy(GameObject.FindGameObjectWithTag("GameManager"));
+        Destroy(GameObject.Find("SceneTracker"));
+        GameObject.Find("Level CrossFader").GetComponent<MenuManager>().sceneTracker = null;
+
     }
 
     // Update is called once per frame

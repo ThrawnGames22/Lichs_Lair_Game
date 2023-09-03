@@ -104,6 +104,7 @@ public class Level3Settings : MonoBehaviour
     {
       StopCoroutine(FadeInPlayer());
       Player.GetComponent<PlayerController>().speed = 5;
+      Destroy(GetComponent<Level3Settings>());
     }
 
     public void StopUnlock()
