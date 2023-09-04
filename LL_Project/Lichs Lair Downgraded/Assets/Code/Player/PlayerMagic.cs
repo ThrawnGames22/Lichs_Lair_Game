@@ -72,6 +72,16 @@ public class PlayerMagic : MonoBehaviour
     [Header("Inventory")]
     public CharacterBasedInventory Inventory;
 
+    [Header ("Audio")]
+
+    public AudioSource MagicSpellSource;
+
+    public AudioClip[] SpellClipsSlot1;
+    public AudioClip[] SpellClipsSlot2;
+    public AudioClip[] SpellClipsSlot3;
+
+
+
     private void Awake()
     {
       Instance = this;
@@ -112,6 +122,10 @@ public class PlayerMagic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      SpellClipsSlot1 = Spell1.SpellAudioClips;
+      SpellClipsSlot2 = Spell2.SpellAudioClips;
+      SpellClipsSlot3 = UtilitySpellData.SpellAudioClips;
+
 
       //Allocate Slots
 

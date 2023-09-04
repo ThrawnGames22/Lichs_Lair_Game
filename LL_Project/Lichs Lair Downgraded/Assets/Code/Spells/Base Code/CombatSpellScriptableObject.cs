@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using UnityEditor;
+using UnityEngine.Rendering.Universal;
 
 public enum CombatType
 {
@@ -45,6 +46,8 @@ public class CombatSpellScriptableObject : ScriptableObject
     public Sprite SpellIcon;
     public Sprite SpellCoolingIcon;
     public GameObject SpellObject;
+
+    public AudioClip[] SpellAudioClips;
      
    
     
@@ -73,6 +76,8 @@ public class CombatSpellEditor : Editor
         ForceSerialization();
         EditorUtility.SetDirty(target);
         CTS.combatType = (CombatType)EditorGUILayout.EnumPopup("CombatType", CTS.combatType);
+        SerializedObject so = new SerializedObject(target);
+        SerializedProperty SpellAudioProperty = so.FindProperty("SpellAudioClips");
 
         switch(CTS.combatType)
         {
@@ -91,7 +96,8 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
-                
+                EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                so.ApplyModifiedProperties();
 
                 break;
             }
@@ -110,6 +116,8 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                so.ApplyModifiedProperties();
 
                 break;
             }
@@ -128,6 +136,8 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                so.ApplyModifiedProperties();
                 
 
                 break;
@@ -147,6 +157,8 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                so.ApplyModifiedProperties();
                 
 
                 break;
@@ -166,6 +178,8 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                so.ApplyModifiedProperties();
                 
 
                 break;
@@ -185,6 +199,8 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                so.ApplyModifiedProperties();
                 
 
                 break;
