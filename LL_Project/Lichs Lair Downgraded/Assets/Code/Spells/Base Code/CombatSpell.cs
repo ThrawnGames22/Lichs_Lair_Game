@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Rigidbody))]
+//[RequireComponent(typeof(Rigidbody))]
 
 public class CombatSpell : MonoBehaviour
 {
@@ -19,6 +19,13 @@ public class CombatSpell : MonoBehaviour
     private BoxCollider spellBoxCollider;
 
     private Rigidbody spellRigidBody;
+
+    public bool IsAngled;
+    public bool UseAngle;
+
+    public bool changeAngle;
+
+    public float LiftSpeed;
     // Start is called before the first frame update
     void Awake()
     {
@@ -48,6 +55,30 @@ public class CombatSpell : MonoBehaviour
         if(isProjectile)
         {
            if(spellToCast.Speed > 0 ) spellRigidBody.AddForce(transform.forward * spellToCast.Speed * Time.deltaTime);
+           
+           if(UseAngle)
+           {
+           if(IsAngled == true)
+           {
+            if(spellToCast.Speed > 0 ) spellRigidBody.AddForce(transform.up * LiftSpeed * Time.deltaTime);
+           }
+           
+           
+           if(IsAngled == false)
+           {
+             spellRigidBody.AddForce(-transform.up * LiftSpeed * Time.deltaTime);
+           }
+           }
+           
+
+           if(changeAngle == true)
+           {
+            if(spellToCast.Speed > 0 ) spellRigidBody.AddForce(-transform.up * spellToCast.Speed * Time.deltaTime);
+           }
+           if(changeAngle == false)
+           {
+            return;
+           }
         }
         else
         {

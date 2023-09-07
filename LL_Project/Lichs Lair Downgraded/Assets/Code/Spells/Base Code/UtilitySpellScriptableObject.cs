@@ -7,7 +7,11 @@ public enum UtilityType
 {
     Heal,
     Protect,
-    Summon
+    Summon,
+
+    Inflict,
+
+    Teleport
 
 }
 
@@ -28,6 +32,8 @@ public class UtilitySpellScriptableObject : ScriptableObject
     public float Lifetime = 2f;
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
+
+    public float CoolingDownTime;
 
     public Sprite SpellIcon;
     public Sprite SpellCoolingIcon;
@@ -96,6 +102,7 @@ public class UtilitySpellEditor : Editor
                 UTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", UTS.SpellIcon, typeof(Sprite), false);
                 UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
                 UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
+                UTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", UTS.CoolingDownTime);
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
 
@@ -115,6 +122,8 @@ public class UtilitySpellEditor : Editor
                 UTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", UTS.SpellIcon, typeof(Sprite), false);
                 UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
                 UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
+                UTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", UTS.CoolingDownTime);
+
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
 
@@ -134,6 +143,50 @@ public class UtilitySpellEditor : Editor
                 UTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", UTS.SpellIcon, typeof(Sprite), false);
                 UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
                 UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
+                UTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", UTS.CoolingDownTime);
+
+                EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                so.ApplyModifiedProperties();
+
+                break;
+            }
+
+             case UtilityType.Inflict:
+            {
+                UTS.SpellName = EditorGUILayout.TextField("Spell Name", UTS.SpellName);
+                UTS.Description = EditorGUILayout.TextField("Description", UTS.Description);
+                UTS.SummonToSpawn = EditorGUILayout.ObjectField("Summon Object",UTS.SummonToSpawn, typeof(Object), true);
+                UTS.SummonHealth = EditorGUILayout.FloatField("Summon Health", UTS.SummonHealth);
+                UTS.ManaCost = EditorGUILayout.IntField("Mana Cost", UTS.ManaCost);
+                UTS.Lifetime = EditorGUILayout.FloatField("Lifetime", UTS.Lifetime);
+                UTS.Speed = EditorGUILayout.FloatField("Speed", UTS.Speed);
+                UTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", UTS.SpellRadius);
+                UTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", UTS.SpellIcon, typeof(Sprite), false);
+                UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
+                UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
+                UTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", UTS.CoolingDownTime);
+
+                EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                so.ApplyModifiedProperties();
+
+                break;
+            }
+
+            case UtilityType.Teleport:
+            {
+                UTS.SpellName = EditorGUILayout.TextField("Spell Name", UTS.SpellName);
+                UTS.Description = EditorGUILayout.TextField("Description", UTS.Description);
+                UTS.SummonToSpawn = EditorGUILayout.ObjectField("Summon Object",UTS.SummonToSpawn, typeof(Object), true);
+                UTS.SummonHealth = EditorGUILayout.FloatField("Summon Health", UTS.SummonHealth);
+                UTS.ManaCost = EditorGUILayout.IntField("Mana Cost", UTS.ManaCost);
+                UTS.Lifetime = EditorGUILayout.FloatField("Lifetime", UTS.Lifetime);
+                UTS.Speed = EditorGUILayout.FloatField("Speed", UTS.Speed);
+                UTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", UTS.SpellRadius);
+                UTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", UTS.SpellIcon, typeof(Sprite), false);
+                UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
+                UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
+                UTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", UTS.CoolingDownTime);
+
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
 

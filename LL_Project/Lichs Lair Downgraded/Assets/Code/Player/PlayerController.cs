@@ -44,9 +44,17 @@ public class PlayerController : MonoBehaviour
     [Header ("Player Dash")]
     //cooldown
     public float dashSpeed;
+    public float TeleportSpeed;
+
     public float dashTime;
+
+    public float TeleportTime;
+
     public float dashCD;
     public float maxDashCD;
+
+    public float TeleportCD;
+    public float maxTeleportCD;
     //determines if we can use dash
     public bool canUseDash;
     public bool IsMoving;
@@ -262,6 +270,8 @@ public class PlayerController : MonoBehaviour
 
     // Set Values
         dashCD -= Time.deltaTime;
+        TeleportCD -= Time.deltaTime;
+
             
             //if(characterController.isGrounded)
            // {
@@ -313,6 +323,12 @@ public class PlayerController : MonoBehaviour
         {
             dashCD = 0;
             IconShow = true;
+        }
+
+        if(TeleportCD < 0)
+        {
+            TeleportCD = 0;
+            //IconShow = true;
         }
         
     }
@@ -519,6 +535,22 @@ public class PlayerController : MonoBehaviour
            
         }
      
+     public IEnumerator Teleport()
+     {
+        float startTime = Time.time;
+
+        
+
+            while(Time.time < startTime + TeleportTime)
+            {
+                
+                //RB.constraints = RigidbodyConstraints.FreezeRotationY;
+                characterController.Move(velocity * TeleportSpeed * Time.deltaTime);
+                TeleportCD = maxTeleportCD;
+                yield return null; 
+            }
+
+     }
 
     
    

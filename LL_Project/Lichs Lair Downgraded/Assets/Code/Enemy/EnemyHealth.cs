@@ -53,6 +53,13 @@ public class EnemyHealth : MonoBehaviour
           EC.IsHitFirst = true;
         }
 
+        if(collision.gameObject.name == "FireGrenade")
+        {
+          //enemyCurrentHealth -= collision.gameObject.GetComponent<FireSpell>().fireDamage;
+          print("Ememy Just Took Damage");
+          EC.IsHitFirst = true;
+        }
+
         
     }
     
@@ -63,6 +70,13 @@ public class EnemyHealth : MonoBehaviour
         if(other.gameObject.tag == "DarkSpell")
         {
           TakeDamage(other.gameObject.GetComponent<DarkSlash>().DarkDamage);
+          print("Ememy Just Took Damage");
+          EC.IsHitFirst = true;
+        }
+
+        if(other.gameObject.tag == "FireSpell")
+        {
+          //TakeDamage(other.gameObject.GetComponent<DarkSlash>().DarkDamage);
           print("Ememy Just Took Damage");
           EC.IsHitFirst = true;
         }
@@ -98,5 +112,11 @@ public class EnemyHealth : MonoBehaviour
         
             Destroy(this.gameObject);
         
+    }
+
+    public IEnumerator DecreaseHealth(int damageValue)
+    {
+       yield return new WaitForSeconds(0);
+       enemyCurrentHealth -= damageValue * Time.deltaTime;
     }
 }

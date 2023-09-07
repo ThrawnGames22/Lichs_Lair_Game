@@ -35,7 +35,9 @@ public class PlayerMagic : MonoBehaviour
     public int maxMana;
     public int currentMana;
     public float manaReplenishRate = 2f;
-    public float timeBetweenCasts = 0.2f;
+    public float timeBetweenCastsForSpell1 = 0.2f;
+    public float timeBetweenCastsForSpell2 = 0.2f;
+
     public float currentCombatCastTimer;
     public float currentUtilityCastTimer;
 
@@ -97,7 +99,7 @@ public class PlayerMagic : MonoBehaviour
         UI = GameObject.Find("UI");
         slotUIController = UI.GetComponent<SlotUIController>();
         manaBar.slider.maxValue = maxMana;
-         UtilityCoolDown = UtilitySpell.spellToCast.Lifetime * 2;
+         UtilityCoolDown = UtilitySpell.spellToCast.CoolingDownTime * 2;
         //ombatSpellToCast = CombatSpellSlot1;
         //inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
         
@@ -122,9 +124,22 @@ public class PlayerMagic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      //DEBUG MAGIC SOUND
+      /*
+      if(Input.GetKeyDown(KeyCode.L))
+      {
+         PlayCombatMagicSound1();
+      }
+      */
+
+      timeBetweenCastsForSpell1 = Spell1.CoolingDownTime;
+      timeBetweenCastsForSpell2 = Spell2.CoolingDownTime;
+      
+
+
       SpellClipsSlot1 = Spell1.SpellAudioClips;
       SpellClipsSlot2 = Spell2.SpellAudioClips;
-      SpellClipsSlot3 = UtilitySpellData.SpellAudioClips;
+      //SpellClipsSlot3 = UtilitySpellData.SpellAudioClips;
 
 
       //Allocate Slots
@@ -200,6 +215,7 @@ public class PlayerMagic : MonoBehaviour
            currentCombatCastTimer = 0;
            print("We Love Casting Combat Spells!");
            CastCombatSpell1();
+           PlayCombatMagicSound1();
            manaBar.slider.value = currentMana;
         }
         if(!castingCombatMagic2 && Input.GetKeyDown(KeyCode.Mouse1) && hasEnoughMana)
@@ -209,6 +225,7 @@ public class PlayerMagic : MonoBehaviour
            currentCombatCastTimer = 0;
            print("We Love Casting Combat Spells!");
            CastCombatSpell2();
+           PlayCombatMagicSound2();
            manaBar.slider.value = currentMana;
         }
 
@@ -219,6 +236,8 @@ public class PlayerMagic : MonoBehaviour
            currentUtilityCastTimer = 0;
            print("We Love Casting Utility Spells!");
            CastUtilitySpell();
+           PlayUtilityMagicSound();
+         
            manaBar.slider.value = currentMana;
         }
         //}
@@ -245,7 +264,7 @@ public class PlayerMagic : MonoBehaviour
         {
             currentCombatCastTimer += Time.deltaTime;
 
-            if (currentCombatCastTimer > timeBetweenCasts)
+            if (currentCombatCastTimer > timeBetweenCastsForSpell1)
             {
                castingCombatMagic1 = false;
                slotUIController.SpellCoolingImage1.gameObject.SetActive(false);
@@ -253,7 +272,7 @@ public class PlayerMagic : MonoBehaviour
 
             } 
 
-            if (currentCombatCastTimer < timeBetweenCasts)
+            if (currentCombatCastTimer < timeBetweenCastsForSpell1)
             {
                slotUIController.SpellCoolingImage1.gameObject.SetActive(true);
                slotUIController.SpellReadyImage1.gameObject.SetActive(false);
@@ -265,7 +284,7 @@ public class PlayerMagic : MonoBehaviour
         {
             currentCombatCastTimer += Time.deltaTime;
 
-            if (currentCombatCastTimer > timeBetweenCasts)
+            if (currentCombatCastTimer > timeBetweenCastsForSpell2)
             {
                castingCombatMagic2 = false;
                slotUIController.SpellCoolingImage2.gameObject.SetActive(false);
@@ -273,7 +292,7 @@ public class PlayerMagic : MonoBehaviour
                
             } 
 
-            if (currentCombatCastTimer < timeBetweenCasts)
+            if (currentCombatCastTimer < timeBetweenCastsForSpell2)
             {
                slotUIController.SpellCoolingImage2.gameObject.SetActive(true);
                slotUIController.SpellReadyImage2.gameObject.SetActive(false);
@@ -366,5 +385,23 @@ public class PlayerMagic : MonoBehaviour
     public void ResetMana()
     {
       currentMana = maxMana;
+    }
+
+    public void PlayCombatMagicSound1()
+    {
+      MagicSpellSource.clip = SpellClipsSlot1[Random.Range(0, SpellClipsSlot1.Length)];
+      MagicSpellSource.Play();
+    }
+
+    public void PlayCombatMagicSound2()
+    {
+      MagicSpellSource.clip = SpellClipsSlot2[Random.Range(0, SpellClipsSlot2.Length)];
+      MagicSpellSource.Play();
+    }
+
+    public void PlayUtilityMagicSound()
+    {
+      MagicSpellSource.clip = SpellClipsSlot3[Random.Range(0, SpellClipsSlot3.Length)];
+      MagicSpellSource.Play();
     }
 }

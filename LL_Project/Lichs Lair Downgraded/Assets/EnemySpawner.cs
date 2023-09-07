@@ -24,6 +24,12 @@ public class EnemySpawner : MonoBehaviour
     public int EnemiesSpawned;
 
     public bool hasMoreThanOneSpawnerLocation;
+
+    public GameObject CombatMusicTriggerSphere;
+
+    public List<GameObject> EnemiesJustSpawned;
+
+    public bool EnemiesHaveFilledTheList;
     
     
     //debug
@@ -31,14 +37,29 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        CombatMusicTriggerSphere.SetActive(false);
+        EnemiesHaveFilledTheList = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(SpawnerHasStarted == true)
+        {
+            CombatMusicTriggerSphere.SetActive(true);
 
+            
+
+            
+        }
         
+        if(EnemiesHaveFilledTheList == true)
+        {
+            if(EnemiesJustSpawned.Count == 0)
+            {
+                CombatMusicTriggerSphere.GetComponent<CloseRangeAndDestroy>().StartCoroutine(CombatMusicTriggerSphere.GetComponent<CloseRangeAndDestroy>().CloseDestroyRange());
+            }
+        }
 
         if(EnemiesSpawned == maxEnemiesToSpawn)
         {
@@ -49,6 +70,21 @@ public class EnemySpawner : MonoBehaviour
         {
          StopCoroutine(SpawnTimer());
         }
+
+        
+
+        foreach (GameObject Enemy in EnemiesJustSpawned)
+            {
+
+            if(Enemy.GetComponent<EnemyHealth>().IsDead)
+            {
+                EnemiesJustSpawned.Remove(Enemy);
+            }
+
+            
+            }
+
+        
     }
 
     public IEnumerator SpawnTimer()
@@ -66,8 +102,17 @@ public class EnemySpawner : MonoBehaviour
             foreach(Transform Spawn in MultipleEnemySpawnPoints)
             {
              GameObject EnemyClone = Instantiate(EnemiesToSpawn[Random.Range(0, EnemiesToSpawn.Length)], Spawn.position, Spawn.rotation); 
+              EnemiesJustSpawned.Add(EnemyClone);
+              EnemiesHaveFilledTheList = true;
+
             }
+
+          
+
+           
         }
+
+          
 
         if(EnemiesSpawned <= maxEnemiesToSpawn - 1)
         {
@@ -79,7 +124,7 @@ public class EnemySpawner : MonoBehaviour
           enemySpawnerTrigger.PlayerHasTriggeredSpawner = false;
           Destroy(enemySpawnerTrigger.gameObject);
         }
-
+        
 
     }
 

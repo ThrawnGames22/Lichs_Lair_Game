@@ -79,8 +79,8 @@
      <Compile Include="Packages\com.unity.services.core\Editor\Core\UiHelpers\ExceptionHelper.cs" />
      <Compile Include="Packages\com.unity.services.core\Editor\Core\UserRoleManagement\IUserRoleRequest.cs" />
      <Compile Include="Packages\com.unity.services.core\Editor\Core\AsyncOperation\AsyncOperationAwaiter.cs" />
-     <Compile Include="Packages\com.unity.services.core\Editor\Core\AsyncOperation\AsyncOperationStatus.cs" />
      <Compile Include="Packages\com.unity.services.core\Editor\Core\EditorGameService\IEditorGameServiceEnabler.cs" />
+     <Compile Include="Packages\com.unity.services.core\Editor\Core\AsyncOperation\AsyncOperationStatus.cs" />
      <Compile Include="Packages\com.unity.services.core\Editor\Core\ServiceActivationPopup\ServiceActivationPopupWindow.cs" />
      <Compile Include="Packages\com.unity.services.core\Editor\Core\AsyncOperation\AsyncOperationExtensions.cs" />
      <Compile Include="Packages\com.unity.services.core\Editor\Core\UserRoleManagement\UserRoleHandler.cs" />
@@ -785,13 +785,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{0eab12c4-6883-0494-2a6d-409b60803e5d}</Project>
-      <Name>UnityEngine.TestRunner</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
       <Project>{816a9ef1-7fec-28ad-53f7-5951eee088a1}</Project>
       <Name>UnityEditor.TestRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.TestRunner.csproj">
+      <Project>{0eab12c4-6883-0494-2a6d-409b60803e5d}</Project>
+      <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

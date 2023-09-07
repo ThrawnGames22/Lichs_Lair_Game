@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ManaPickup : MonoBehaviour
 {
+  //public AudioClip PickupSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,8 @@ public class ManaPickup : MonoBehaviour
     public void PickupMana()
     {
       GameObject.Find("UI").GetComponent<SlotUIController>().HasManaPotion = true;
+      
+           
       Destroy(this.gameObject);
     }
 
@@ -26,6 +29,7 @@ public class ManaPickup : MonoBehaviour
     {
         if(other.gameObject.tag == "PlayerPickupCollider")
         {
+          //GameObject.Find("PotionSource").GetComponent<AudioSource>().clip = PickupSound;
             if(GameObject.Find("UI").GetComponent<SlotUIController>().HasManaPotion == false && GameObject.Find("UI").GetComponent<SlotUIController>().HasPotion == false)
             {
               PickupMana();

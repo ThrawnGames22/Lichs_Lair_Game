@@ -116,8 +116,8 @@
      <Compile Include="Packages\com.unity.collab-proxy\Editor\PlasticSCM\UI\NotificationDrawer.cs" />
      <Compile Include="Packages\com.unity.collab-proxy\Editor\PlasticSCM\PlasticWindow\PlasticSCMWindow.cs" />
      <Compile Include="Packages\com.unity.collab-proxy\Editor\PlasticSCM\UI\DrawSearchField.cs" />
-     <Compile Include="Packages\com.unity.collab-proxy\Editor\PlasticSCM\Views\Diff\DiffPanel.cs" />
      <Compile Include="Packages\com.unity.collab-proxy\Editor\PlasticSCM\Views\Welcome\DownloadAndInstallOperation.cs" />
+     <Compile Include="Packages\com.unity.collab-proxy\Editor\PlasticSCM\Views\Diff\DiffPanel.cs" />
      <Compile Include="Packages\com.unity.collab-proxy\Editor\PlasticSCM\Gluon\ProgressOperationHandler.cs" />
      <Compile Include="Packages\com.unity.collab-proxy\Editor\PlasticSCM\Views\PendingChanges\Dialogs\CheckinMergeNeededDialog.cs" />
      <Compile Include="Packages\com.unity.collab-proxy\Editor\PlasticSCM\Views\PendingChanges\PendingChangesTab.cs" />
@@ -963,13 +963,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{0eab12c4-6883-0494-2a6d-409b60803e5d}</Project>
-      <Name>UnityEngine.TestRunner</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
       <Project>{816a9ef1-7fec-28ad-53f7-5951eee088a1}</Project>
       <Name>UnityEditor.TestRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.TestRunner.csproj">
+      <Project>{0eab12c4-6883-0494-2a6d-409b60803e5d}</Project>
+      <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

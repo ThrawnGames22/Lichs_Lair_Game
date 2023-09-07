@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 1480772385802375636}
   m_Father: {fileID: 5037105201200526196}
-  m_RootOrder: -1
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1480772385802375639
 GameObject:
@@ -64,7 +64,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1480772385701934650}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
 --- !u!198 &1480772385802375634
 ParticleSystem:
@@ -634,7 +634,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 0
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -4077,7 +4076,6 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 1
@@ -4855,7 +4853,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 0}
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 2100000, guid: 924b30148f7c6be41b4de7df4c2d5608, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4952,14 +4950,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735436660621849311}
-  m_LocalRotation: {x: -0, y: 0.0000011473894, z: -0, w: 1}
+  m_LocalRotation: {x: 0.70710677, y: 0.0000008113268, z: -0.0000008113268, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 45.15166, y: 45.15166, z: 26.69727}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5037105201200526196}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &2766963340464517761
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4967,7 +4965,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735436660621849311}
-  m_Mesh: {fileID: 4068373912626513877, guid: 6116a11406a7d0d4083c24356592b178, type: 3}
+  m_Mesh: {fileID: 5302568919011541938, guid: 0760d216832571e43bac76dd6b3f170c, type: 3}
 --- !u!23 &7933572093286540319
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4988,7 +4986,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 048f9ba3ae89c1448832b33594f88437, type: 2}
+  - {fileID: 2100000, guid: 3be27e3f4d9dc6a41ac9c3fd1c8a0bde, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5067,7 +5065,7 @@ Transform:
   - {fileID: 1480772385701934650}
   - {fileID: 74032898366565035}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6992075736800032820
 MonoBehaviour:
@@ -5084,7 +5082,6 @@ MonoBehaviour:
   DarkCombatSpell: {fileID: 11400000, guid: 63651d889b373aa44a69f7e7a850a256, type: 2}
   combatSpell: {fileID: 1720347624}
   DarkDamage: 5
-  darkenDamagePerSecond: 0
   manaCost: 5
   lifetime: 0
   speed: 0
@@ -5146,6 +5143,10 @@ MonoBehaviour:
   isProjectile: 1
   spellToCast: {fileID: 11400000, guid: 63651d889b373aa44a69f7e7a850a256, type: 2}
   SpellObject: {fileID: 1735436660621849311}
+  IsAngled: 0
+  UseAngle: 0
+  changeAngle: 0
+  LiftSpeed: 0
 --- !u!1 &7416057383295845449
 GameObject:
   m_ObjectHideFlags: 0
@@ -5176,11 +5177,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5037105201200526196}
-  m_RootOrder: -1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &6883473150325241001
 TrailRenderer:
-  serializedVersion: 3
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5272,11 +5273,8 @@ TrailRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
-  m_ApplyActiveColorSpace: 1

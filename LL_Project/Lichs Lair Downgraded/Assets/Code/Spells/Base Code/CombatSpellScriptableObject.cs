@@ -31,6 +31,8 @@ public class CombatSpellScriptableObject : ScriptableObject
     
     public int ManaCost = 5;
     public float Lifetime = 2f;
+
+    public float CoolingDownTime;
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
     //public float DelayBetweenCast;
@@ -90,6 +92,8 @@ public class CombatSpellEditor : Editor
                 CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
+                CTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", CTS.CoolingDownTime);
+
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
                 //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
 
@@ -111,6 +115,7 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", CTS.CoolingDownTime);
                 //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
 
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
@@ -131,6 +136,7 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", CTS.CoolingDownTime);
                 //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
 
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
@@ -152,6 +158,7 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", CTS.CoolingDownTime);
                 //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
 
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
@@ -173,6 +180,7 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", CTS.CoolingDownTime);
                 //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
 
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
@@ -194,6 +202,7 @@ public class CombatSpellEditor : Editor
                 CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
                 CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
                 CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", CTS.CoolingDownTime);
                 //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
 
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);

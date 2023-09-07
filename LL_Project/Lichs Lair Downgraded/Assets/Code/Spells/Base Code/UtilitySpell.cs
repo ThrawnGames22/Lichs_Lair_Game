@@ -10,9 +10,13 @@ public class UtilitySpell : MonoBehaviour
     private SphereCollider spellCollider;
     private Rigidbody spellRigidBody;
     public bool IsAttachedToPlayer;
+
+    public bool IsTeleportSpell;
     // Start is called before the first frame update
     void Awake()
     {
+        if(!IsTeleportSpell)
+        {
         spellCollider = GetComponent<SphereCollider>();
         spellCollider.isTrigger = true;
         spellCollider.radius = spellToCast.SpellRadius;
@@ -20,12 +24,17 @@ public class UtilitySpell : MonoBehaviour
         spellRigidBody = GetComponent<Rigidbody>();
         spellRigidBody.useGravity = false;
 
+
+        
         Destroy(this.gameObject, spellToCast.Lifetime);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!IsTeleportSpell)
+        {
         //Attaches spell to player
         if(!IsAttachedToPlayer)
         {
@@ -35,6 +44,7 @@ public class UtilitySpell : MonoBehaviour
         else
         {
             return;
+        }
         }
        
     }

@@ -27,6 +27,7 @@ public class EnemySpawnerTrigger : MonoBehaviour
       if(other.gameObject.tag == "Player")
       {
         enemySpawner.StartCoroutine(enemySpawner.SpawnTimer());
+        enemySpawner.SpawnerHasStarted = true;
         Destroy(this.gameObject);
 
 

@@ -83,9 +83,9 @@
      <Compile Include="Packages\com.unity.timeline\Editor\inspectors\TimeFieldDrawer.cs" />
      <Compile Include="Packages\com.unity.timeline\Editor\inspectors\TimelinePreferences.cs" />
      <Compile Include="Packages\com.unity.timeline\Editor\Manipulators\EditModeInputHandler.cs" />
-     <Compile Include="Packages\com.unity.timeline\Editor\inspectors\ClipInspector\ClipInspector.cs" />
      <Compile Include="Packages\com.unity.timeline\Editor\treeview\TrackGui\TrackResizeHandle.cs" />
      <Compile Include="Packages\com.unity.timeline\Editor\Manipulators\Move\IMoveItemMode.cs" />
+     <Compile Include="Packages\com.unity.timeline\Editor\inspectors\ClipInspector\ClipInspector.cs" />
      <Compile Include="Packages\com.unity.timeline\Editor\Window\TimelineWindowAnalytics.cs" />
      <Compile Include="Packages\com.unity.timeline\Editor\Animation\AnimationClipActions.cs" />
      <Compile Include="Packages\com.unity.timeline\Editor\inspectors\BuiltInCurvePresets.cs" />
@@ -971,13 +971,13 @@
       <Project>{c05c13a2-e151-44b1-a258-2cf4624da834}</Project>
       <Name>Unity.Timeline</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{0eab12c4-6883-0494-2a6d-409b60803e5d}</Project>
-      <Name>UnityEngine.TestRunner</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
       <Project>{816a9ef1-7fec-28ad-53f7-5951eee088a1}</Project>
       <Name>UnityEditor.TestRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.TestRunner.csproj">
+      <Project>{0eab12c4-6883-0494-2a6d-409b60803e5d}</Project>
+      <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
