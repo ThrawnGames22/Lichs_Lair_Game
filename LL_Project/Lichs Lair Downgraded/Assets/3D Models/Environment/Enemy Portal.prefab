@@ -10124,8 +10124,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3517528322541311161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0191, z: -0.2015}
-  m_LocalScale: {x: 0.21297245, y: 0.05424, z: 0.086781204}
+  m_LocalPosition: {x: 0, y: -0.0194, z: -0.192}
+  m_LocalScale: {x: 0.4461134, y: 0.05424, z: 0.086781204}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8657676298644656445}
@@ -10662,14 +10662,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesToSpawn:
   - {fileID: 5759709405091239644, guid: b2c51114d7de83d42a93a94001c0e25a, type: 3}
+  - {fileID: 7946463823604845191, guid: 01c489b43cab93b43b59b9085e04d16d, type: 3}
+  - {fileID: 1914929707903367295, guid: e435d79edac49ed4e8152ce2db9bd42d, type: 3}
   EnemySpawnPoint: {fileID: 8561700842875393751}
   MultipleEnemySpawnPoints: []
   SpawnerAnimator: {fileID: 3296640331995596333}
   enemySpawnerTrigger: {fileID: 445932988}
-  SpawnerDelay: 5
+  SpawnerDelay: 2.5
   maxEnemiesToSpawn: 5
   EnemiesSpawned: 0
   hasMoreThanOneSpawnerLocation: 0
+  CombatMusicTriggerSphere: {fileID: 0}
+  EnemiesJustSpawned: []
+  EnemiesHaveFilledTheList: 0
   SpawnerHasStarted: 0
 --- !u!1001 &9199877415196959216
 PrefabInstance:

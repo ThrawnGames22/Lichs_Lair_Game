@@ -30,6 +30,16 @@ public class RoomDoor : MonoBehaviour
     public bool SpawnerIsTriggered;
 
     public bool HasSpawnerTrigger;
+
+    public bool IsEndDoor;
+
+    public GameObject MiniBoss;
+
+    public MiniBossFightFire miniBossFightFire;
+
+    public Animator EndDoorAnimator;
+
+    public bool FightHasEnded;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +71,23 @@ public class RoomDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        EndDoorAnimator.SetBool("RaiseEndDoor", FightHasEnded);
+
+        if(IsEndDoor)
+        {
+            if(miniBossFightFire.FightHasEnded == true)
+            {
+                UnlockDoor = false;
+            }
+            //MiniBoss = GameObject.Find("Death Knight Guardian Boss");
+            
+
+            if(miniBossFightFire.FightHasEnded == true)
+            {
+             FightHasEnded = true;
+             UnlockDoor = true;
+            }
+        }
         /*
         if(MagicSeals[0] == null)
         {
