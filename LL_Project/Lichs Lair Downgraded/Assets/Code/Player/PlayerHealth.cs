@@ -22,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
     public bool UIHasActivated;
 
     public GameObject PlayerModel;
+
+    public GameObject DamageScreenObject;
     public bool IsDead;
 
     //Death Screen Attributes

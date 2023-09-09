@@ -18,6 +18,8 @@ public class EnemyHealth : MonoBehaviour
     public Rigidbody RB;
 
     public bool IsDead;
+
+    public bool DisableCollider;
     
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,16 @@ public class EnemyHealth : MonoBehaviour
         if(enemyCurrentHealth == 0)
         {
             Die();
+        }
+
+        if(DisableCollider)
+        {
+          this.GetComponent<CapsuleCollider>().enabled = false;
+        }
+
+        if(!DisableCollider)
+        {
+          this.GetComponent<CapsuleCollider>().enabled = true;
         }
     }
 

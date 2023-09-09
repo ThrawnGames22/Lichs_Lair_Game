@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6092022017646638131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6092022017646638129}
+  - component: {fileID: 6092022017646638128}
+  - component: {fileID: 2093725941919265185}
+  m_Layer: 0
+  m_Name: MistForm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6092022017646638129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092022017646638131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.3262205, y: 2.965261, z: -10.716545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6092022017646638128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092022017646638131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b39cd68120581e40bf7c167b36d2d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StandardVolume: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
+  MistEffect: {fileID: 11400000, guid: e076183bd98a0f548987631576e22db9, type: 2}
+  GlobalVolume: {fileID: 0}
+  EffectTime: 0
+  utilitySpell: {fileID: 2093725941919265185}
+  Player: {fileID: 0}
+  PlayerSpeedToAffect: 7
+  PlayerRenderer: {fileID: 0}
+  IsShadowWizard: 0
+  IsFireMage: 0
+  IsPaladin: 0
+  SWCD: {fileID: 0}
+  FMCD: {fileID: 0}
+  PDCD: {fileID: 0}
+  SPlayerElement0: {fileID: 2100000, guid: d6b19d0c62745d8449c195938dca99ae, type: 2}
+  SPlayerElement1: {fileID: 2100000, guid: 34a6e78bc9db3ec4db59609c9da3d275, type: 2}
+  SPlayerElement2: {fileID: 2100000, guid: c118740e03fe9ee458306532d6ba05f7, type: 2}
+  SPlayerElement3: {fileID: 2100000, guid: c262d314afe59ed4297bef9fba07c031, type: 2}
+  SPlayerElement4: {fileID: 2100000, guid: 022293d898b93d145b0fee136f5eba0b, type: 2}
+  SPlayerElement5: {fileID: 2100000, guid: 7343e03402464d44788d11ec625d7bea, type: 2}
+  SPlayerElement6: {fileID: 2100000, guid: 107103eb917ab494893cd51e415dd297, type: 2}
+  SPlayerElement7: {fileID: 2100000, guid: 277dbf432bcd31f45b225ce5229f6ff3, type: 2}
+  SPlayerElement8: {fileID: 2100000, guid: bf338b32289c68b49827bc61b0604516, type: 2}
+  RPlayerElement0: {fileID: 2100000, guid: 24e1a9fe18b4d8c4f8ffcb8d26128c41, type: 2}
+  RPlayerElement1: {fileID: 2100000, guid: e6e4bc43d526b0d4485e3567ee6c83f4, type: 2}
+  RPlayerElement2: {fileID: 2100000, guid: 36b150d3fd93b3844a7e76d6c1c5801f, type: 2}
+  RPlayerElement3: {fileID: 2100000, guid: b894bbb9d10d78a45be240b69a2a95db, type: 2}
+  RPlayerElement4: {fileID: 2100000, guid: 6b6fce09e34e2ae4c93d2538cecf8fdf, type: 2}
+  RPlayerElement5: {fileID: 2100000, guid: 82ad737b62796f347a2961aee47b3068, type: 2}
+  RPlayerElement6: {fileID: 2100000, guid: dafe22e6b314a5b4ab643aeb6ac37ca4, type: 2}
+  RPlayerElement7: {fileID: 2100000, guid: 6b6fce09e34e2ae4c93d2538cecf8fdf, type: 2}
+  RPlayerElement8: {fileID: 2100000, guid: 99738d9720a0a7e448f74657e3ea4f96, type: 2}
+  MistMaterial: {fileID: 2100000, guid: 3be27e3f4d9dc6a41ac9c3fd1c8a0bde, type: 2}
+--- !u!114 &2093725941919265185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092022017646638131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609d6c133b3eef14f9c088be14e87cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellToCast: {fileID: 11400000, guid: be0bacdd1b7ac194e9fc6741f6d15bc7, type: 2}
+  IsAttachedToPlayer: 0
+  IsTeleportSpell: 0
+  IsMistSpell: 1

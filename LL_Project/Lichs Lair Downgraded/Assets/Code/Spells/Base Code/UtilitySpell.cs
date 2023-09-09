@@ -12,10 +12,12 @@ public class UtilitySpell : MonoBehaviour
     public bool IsAttachedToPlayer;
 
     public bool IsTeleportSpell;
+    public bool IsMistSpell;
+
     // Start is called before the first frame update
     void Awake()
     {
-        if(!IsTeleportSpell)
+        if(!IsTeleportSpell || !IsMistSpell)
         {
         spellCollider = GetComponent<SphereCollider>();
         spellCollider.isTrigger = true;

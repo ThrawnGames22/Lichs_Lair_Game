@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class TeleportManager : MonoBehaviour
@@ -25,6 +26,9 @@ public class TeleportManager : MonoBehaviour
 
     public Animator ParticleAnimator;
 
+    public bool CanTeleport;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -38,23 +42,47 @@ public class TeleportManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+            
+        
         if(Input.GetKeyDown(KeyCode.Q))
         {
+           if(CanTeleport)
+           {
+
             TeleportUI.SetActive(true);
             HasPressedKey = true;
             Player.GetComponent<CharacterController>().enabled = false;
             //Player.transform.position = new Vector3(13,13,13);
+           }
+           if(CanTeleport == false)
+           {
+             TeleportUI.SetActive(false);
+             Player.GetComponent<CharacterController>().enabled = false;
+           }
         }
 
        
         if(Input.GetKeyUp(KeyCode.Q))
         {
+            if(CanTeleport == true)
+            {
             TeleportUI.SetActive(false);
             TeleportPlayerToLocation();
             DroppedTeleportLocation.transform.parent = null;
+            ParticleAnimator.SetBool("HasTeleported", HasTeleported);
+            }
+            if(CanTeleport == false)
+            {
+                this.gameObject.SetActive(false);
+                Player.GetComponent<CharacterController>().enabled = true;
+            }
         }
 
-        ParticleAnimator.SetBool("HasTeleported", HasTeleported);
+        
+        
+
+        
         
     }
 
@@ -84,4 +112,6 @@ public class TeleportManager : MonoBehaviour
         Destroy(this.gameObject);
        
     }
+
+    
 }

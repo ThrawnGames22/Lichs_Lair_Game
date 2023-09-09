@@ -106,6 +106,12 @@ public class PlayerController : MonoBehaviour
 
     [Header("Events")]
     public bool HasUnlockedWeaponChest;
+
+    [Header("Mage Type")]
+    public bool IsShadowWizard;
+    public bool IsFireMage;
+    public bool IsPaladin;
+
     
     
 
