@@ -20,7 +20,10 @@ public class FireBossFightTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
+      if(other.gameObject.tag == "Player")
+      {
       miniBossFightFire.FightHasStarted = true;
       Destroy(this.gameObject);
+      }
     }
 }

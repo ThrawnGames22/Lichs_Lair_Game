@@ -16,7 +16,7 @@ public class SceneTracker : MonoBehaviour
 
     public bool NextLevelIsChestRoom;
 
-    public bool NextLevelIsEndGame;
+    public bool NextLevelIsBossRoom;
 
     public int LevelsPlayerHasCompleted;
     // Start is called before the first frame update
@@ -39,9 +39,9 @@ public class SceneTracker : MonoBehaviour
             
         }
 
-        if(LevelsPlayerHasCompleted == 10)
+        if(LevelsPlayerHasCompleted == 15)
         {
-            NextLevelIsEndGame = true;
+            NextLevelIsBossRoom = true;
         }
     }
 

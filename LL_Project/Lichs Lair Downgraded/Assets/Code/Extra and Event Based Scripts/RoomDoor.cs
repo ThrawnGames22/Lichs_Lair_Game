@@ -75,6 +75,7 @@ public class RoomDoor : MonoBehaviour
 
         if(IsEndDoor)
         {
+            MiniBoss = GameObject.Find("Death Knight Guardian Boss(1)(Clone)");
             if(miniBossFightFire.FightHasEnded == true)
             {
                 UnlockDoor = false;

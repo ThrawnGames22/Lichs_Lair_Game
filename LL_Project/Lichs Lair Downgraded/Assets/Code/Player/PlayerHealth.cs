@@ -160,5 +160,11 @@ public class PlayerHealth : MonoBehaviour
        // }
    // }
 
+   public IEnumerator DecreaseHealth(int damageValue)
+    {
+       yield return new WaitForSeconds(0);
+       currentHealth -= damageValue * Time.deltaTime;
+    }
+
     
 }

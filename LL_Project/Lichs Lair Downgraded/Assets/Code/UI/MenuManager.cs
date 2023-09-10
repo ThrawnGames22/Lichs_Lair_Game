@@ -35,7 +35,7 @@ public class MenuManager : MonoBehaviour
     {
         CurrentSceneName = CurrentScene.name;
         sceneTracker = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
-        randomIndex = Random.Range(6, 11);
+        randomIndex = Random.Range(6, 15);
         NextSceneIndex = randomIndex;
         
     }
@@ -55,9 +55,9 @@ public class MenuManager : MonoBehaviour
             NextSceneIndex = SceneManager.GetSceneByName("Chest Room").buildIndex;
         }
 
-        if(sceneTracker.NextLevelIsEndGame == true)
+        if(sceneTracker.NextLevelIsBossRoom == true)
         {
-            StartCoroutine(LoadEndGame());
+            StartCoroutine(LoadBossRoom());
         }
     }
 
@@ -146,11 +146,24 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("EndGame");
     }
 
+    public void LoadBossRoomScene()
+    {
+        SceneManager.LoadScene("Level 8 Upgraded");
+    }
+
+
     public IEnumerator LoadEndGame()
     {
         yield return new WaitForSeconds(2.5f);
         LoadEndGameScene();
         StopCoroutine(LoadEndGame());
+    }
+
+    public IEnumerator LoadBossRoom()
+    {
+        yield return new WaitForSeconds(2.5f);
+        LoadBossRoomScene();
+        StopCoroutine(LoadBossRoom());
     }
 
   

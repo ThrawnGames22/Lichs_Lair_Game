@@ -23,6 +23,9 @@ public class FireGrenade : MonoBehaviour
 
     public float TimeBeforeDrop = 0.5f;
 
+    public bool isProjectile = true;
+    
+
     
     //public float speed;
     

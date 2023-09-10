@@ -75,6 +75,7 @@ MonoBehaviour:
   EC: {fileID: 3041699099954316273}
   RB: {fileID: 367130472893082344}
   IsDead: 0
+  DisableCollider: 0
 --- !u!54 &367130472893082344
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -173,16 +174,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeBetweenAttackPhases: 5
-  AttackPhaseTime: 5
+  AttackPhase1Time: 5
+  AttackPhase2Time: 9
+  AttackPhase3Time: 10
   SpinSpeed: 30
   MoveSpeed: 0.5
   EnemyAgent: {fileID: 3041699099954316286}
   IsPhase1: 0
   IsPhase1isActive: 0
+  IsPhase2isActive: 0
+  IsPhase3isActive: 0
   IsPhase2: 0
   IsPhase3: 0
   Player: {fileID: 0}
   spinAttackBoss: {fileID: 0}
+  fireBallAttack: {fileID: 0}
+  tornadoAttack: {fileID: 0}
+  CenterPoint: {fileID: 0}
 --- !u!1 &863507605708017508
 GameObject:
   m_ObjectHideFlags: 0

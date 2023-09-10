@@ -660,7 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCurrentHealth: 0
-  enemyMaxHealth: 30
+  enemyMaxHealth: 80
   col: {fileID: 7946463823604845185}
   agent: {fileID: 4713444383499871147}
   EH: {fileID: 7946463823604845184}
@@ -668,6 +668,7 @@ MonoBehaviour:
   EC: {fileID: 4713444383499871140}
   RB: {fileID: 7946463823604845245}
   IsDead: 0
+  DisableCollider: 0
 --- !u!54 &7946463823604845245
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -713,7 +714,7 @@ MonoBehaviour:
   AttackBlocked: 0
   FistObject: {fileID: 0}
   IsPatrolling: 1
-  minDistance: 50
+  minDistance: 100
   DistanceToStartAnimation: 2
   maxDistance: 500
   IsHitFirst: 0
