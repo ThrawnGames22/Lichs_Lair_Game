@@ -11,6 +11,10 @@ public class CharacterSoundManager : MonoBehaviour
     public AudioClip CombatMusic;
     public AudioClip NormalMusic;
 
+    public AudioClip[] CombatTracks;
+    public AudioClip[] NormalTracks;
+
+
     public GameObject NearestEnemy;
 
     public float DistanceBetweenEnemyAndPlayer;
@@ -65,6 +69,8 @@ public class CharacterSoundManager : MonoBehaviour
     void Start()
     {
         //CombatSoundManager.PlayMusic(gameObject, NormalMusic);
+        CombatMusic = CombatTracks[UnityEngine.Random.Range(0, CombatTracks.Length)];
+        NormalMusic = NormalTracks[UnityEngine.Random.Range(0, NormalTracks.Length)];
 
         ReturnToDefault();
         
@@ -129,7 +135,7 @@ public class CharacterSoundManager : MonoBehaviour
 
     public void ReturnToDefault()
     {
-        SwapTrack(DefaultAmbience);
+        SwapTrack(NormalMusic);
     }
 
     
