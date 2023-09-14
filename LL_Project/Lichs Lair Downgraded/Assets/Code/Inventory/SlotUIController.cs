@@ -109,7 +109,7 @@ public class SlotUIController : MonoBehaviour
          if(Input.GetKeyDown(KeyCode.R))
          {
            GameObject EffectClone;
-           EffectClone = Instantiate(HealEffect, Player.transform.position, Player.transform.rotation);
+           EffectClone = Instantiate(HealEffect, Player.transform.position, Quaternion.Euler(-90,0,0));
            EffectClone.transform.parent = Player.gameObject.transform;
            PH.IncreaseHealth(100);
            HasHealthPotion = false;
@@ -127,7 +127,7 @@ public class SlotUIController : MonoBehaviour
          if(Input.GetKeyDown(KeyCode.R))
          {
            GameObject EffectClone;
-           EffectClone = Instantiate(ManaEffect, Player.transform.position, Player.transform.rotation);
+           EffectClone = Instantiate(ManaEffect, Player.transform.position, Quaternion.Euler(-90,0,0));
            EffectClone.transform.parent = Player.gameObject.transform;
            PM.IncreaseMana(100);
            HasManaPotion = false;

@@ -13,6 +13,10 @@ public class PotionAudioManager : MonoBehaviour
 
     public SlotUIController slotUIController;
 
+    public bool HasHealthPotion;
+    public bool HasManaPotion;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +26,8 @@ public class PotionAudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(slotUIController.HasHealthPotion)
+        /*
+        if(HasHealthPotion)
         {
             
             //PotionSource.Play(); 
@@ -30,11 +35,31 @@ public class PotionAudioManager : MonoBehaviour
             {
                 PotionSource.clip = HealthPotionSound;
                 PotionSource.Play(); 
+                
             }
+        }
+        if(slotUIController.HasHealthPotion == false)
+        {
+            HasHealthPotion = false;
+        }
+
+        if(slotUIController.HasHealthPotion == true)
+        {
+            HasHealthPotion = true;
+        }
+
+        if(slotUIController.HasManaPotion == true)
+        {
+            HasManaPotion = true;
+        }
+
+        if(slotUIController.HasManaPotion == false)
+        {
+            HasManaPotion = false;
         }
         
 
-        if(slotUIController.HasManaPotion)
+        if(HasManaPotion == true)
         {
             
             //PotionSource.Play(); 
@@ -42,8 +67,10 @@ public class PotionAudioManager : MonoBehaviour
             {
                 PotionSource.clip = ManaPotionSound;
                 PotionSource.Play(); 
+                
             }
         }
+        */
     }
 
     private void OnTriggerEnter(Collider other) 

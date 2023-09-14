@@ -36,6 +36,12 @@ public class NextSceneTrigger : MonoBehaviour
           LevelCrossFader.GetComponent<MenuManager>().LoadChestLevel();
           sceneTracker.ResetLevelChange();
         }
+
+        if(sceneTracker.NextLevelIsEndGame)
+        {
+          LevelCrossFader.GetComponent<MenuManager>().LoadEndGameScene();
+          sceneTracker.ResetLevelChange();
+        }
         
       }
     }

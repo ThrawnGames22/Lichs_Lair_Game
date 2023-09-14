@@ -32,6 +32,11 @@ public class RoomDoor : MonoBehaviour
     public bool HasSpawnerTrigger;
 
     public bool IsEndDoor;
+    public bool IsTutorialDoor;
+
+    public bool IsChestDoor;
+
+
 
     public GameObject MiniBoss;
 
@@ -40,6 +45,8 @@ public class RoomDoor : MonoBehaviour
     public Animator EndDoorAnimator;
 
     public bool FightHasEnded;
+
+    public ChestRewardManager chestRewardManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,14 +78,35 @@ public class RoomDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EndDoorAnimator.SetBool("RaiseEndDoor", FightHasEnded);
+
+        if(IsChestDoor)
+        {
+            if(chestRewardManager.ChestHasSpawned)
+            {
+                UnlockDoor = true;
+            }
+        }
+        
+        if(!IsChestDoor)
+        {
+        if(UnlockDoor == true)
+        {
+            if(!IsTutorialDoor)
+            {
+            StartCoroutine(GameObject.Find("CombatMusicTriggerSphere").GetComponent<CloseRangeAndDestroy>().CloseDestroyRange());
+            }
+        }
+        }
+
+        
 
         if(IsEndDoor)
         {
+            EndDoorAnimator.SetBool("RaiseEndDoor", FightHasEnded);
             MiniBoss = GameObject.Find("Death Knight Guardian Boss(1)(Clone)");
             if(miniBossFightFire.FightHasEnded == true)
             {
-                UnlockDoor = false;
+                //UnlockDoor = false;
             }
             //MiniBoss = GameObject.Find("Death Knight Guardian Boss");
             
@@ -86,7 +114,21 @@ public class RoomDoor : MonoBehaviour
             if(miniBossFightFire.FightHasEnded == true)
             {
              FightHasEnded = true;
+             EndDoorAnimator.SetBool("RaiseEndDoor", true);
              UnlockDoor = true;
+            }
+        }
+
+        if(IsTutorialDoor)
+        {
+            EnemiesToBeDefeated = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+
+            foreach(GameObject enemy in EnemiesToBeDefeated)
+            {
+                if(enemy.GetComponent<EnemyHealth>().IsDead)
+                {
+                    EnemiesToBeDefeated.Remove(enemy);
+                }
             }
         }
         /*

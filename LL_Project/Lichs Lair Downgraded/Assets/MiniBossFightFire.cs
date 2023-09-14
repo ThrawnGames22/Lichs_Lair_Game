@@ -23,6 +23,10 @@ public class MiniBossFightFire : MonoBehaviour
 
     public Transform BossSpawn;
 
+    public List<GameObject> Boss;
+
+    public RoomDoor roomDoor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,8 @@ public class MiniBossFightFire : MonoBehaviour
           {
             GameObject BossClone = Instantiate(MiniBoss, BossSpawn.transform.position, BossSpawn.transform.rotation);
             StartEnemyPhases = true;
+            Boss.Add(BossClone);
+            
                 
             }
           
@@ -60,7 +66,7 @@ public class MiniBossFightFire : MonoBehaviour
         
 
 
-        if(MiniBoss.GetComponent<EnemyHealth>().IsDead)
+        if(Boss[0].GetComponent<EnemyHealth>().IsDead)
         {
             FightHasStarted = false;
             FightHasEnded = true;

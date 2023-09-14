@@ -35,7 +35,7 @@ public class MenuManager : MonoBehaviour
     {
         CurrentSceneName = CurrentScene.name;
         sceneTracker = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
-        randomIndex = Random.Range(6, 15);
+        randomIndex = Random.Range(6, 13);
         NextSceneIndex = randomIndex;
         
     }
@@ -85,6 +85,8 @@ public class MenuManager : MonoBehaviour
     {
         StartCoroutine(LoadChestRoom());
     }
+
+    
 
     
 

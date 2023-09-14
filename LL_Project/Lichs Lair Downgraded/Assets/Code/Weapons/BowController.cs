@@ -44,8 +44,8 @@ public class BowController : MonoBehaviour
     {
     if(PlayerController.Instance.HasActivatedWeapons)
     {
-      if(currentArrowCount > 0)
-      {
+      
+      
         if(PlayerController.Instance.CanUseWeapons == true)
         {
         if(CanUse == true)
@@ -61,7 +61,7 @@ public class BowController : MonoBehaviour
         {
             return;
         }
-        }
+        
        
       }
 

@@ -8,6 +8,8 @@ public class LevelSettings : MonoBehaviour
     public GameObject SpawnPoint;
 
     public bool HasSpawned = false;
+
+    public bool IsTutorialScene;
     
     // Start is called before the first frame update
 
@@ -22,7 +24,10 @@ public class LevelSettings : MonoBehaviour
         //Player.GetComponent<CharacterController>().enabled = true;
         
         Player.transform.position = SpawnPoint.transform.position;
+
+        
         StartCoroutine(UnlockPlayer());
+        
         
         
     }
@@ -39,6 +44,7 @@ public class LevelSettings : MonoBehaviour
       //HasSpawned = true;
       Player.GetComponent<PlayerController>().characterController.enabled = false;
       yield return new WaitForSeconds(0.01f);
+      HasSpawned = true;
       
       Player.GetComponent<PlayerController>().characterController.enabled = true;
       StopUnlock();

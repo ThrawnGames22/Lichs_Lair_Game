@@ -9,7 +9,7 @@ public class FireSpell : MonoBehaviour
     public DetachParticles detachParticles;
 
 //Attributes
-    public float fireDamage;
+    public int fireDamage;
      public float manaCost;
     public float lifetime;
     public float speed;

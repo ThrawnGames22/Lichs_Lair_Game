@@ -85,6 +85,7 @@ public class DeathManager : MonoBehaviour
     public void ActivatePlayer()
     {
         PlayerHealth.Instance.Revive();
+        SetScreen();
         
     }
 

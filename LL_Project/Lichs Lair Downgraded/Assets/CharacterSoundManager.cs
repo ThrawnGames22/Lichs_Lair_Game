@@ -71,6 +71,9 @@ public class CharacterSoundManager : MonoBehaviour
         //CombatSoundManager.PlayMusic(gameObject, NormalMusic);
         CombatMusic = CombatTracks[UnityEngine.Random.Range(0, CombatTracks.Length)];
         NormalMusic = NormalTracks[UnityEngine.Random.Range(0, NormalTracks.Length)];
+        CBMusicSource.loop = true;
+        NMMusicSource.loop = true;
+
 
         ReturnToDefault();
         

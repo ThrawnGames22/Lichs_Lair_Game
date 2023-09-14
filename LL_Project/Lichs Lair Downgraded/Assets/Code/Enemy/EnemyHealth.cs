@@ -20,16 +20,50 @@ public class EnemyHealth : MonoBehaviour
     public bool IsDead;
 
     public bool DisableCollider;
-    
+
+    public Animator HurtAnim;
+
+    public bool IsHurt;
+
+[Header("Audio")]
+
+public AudioClip[] HurtSounds;
+public AudioClip[] DeathSounds;
+public AudioClip[] IdleSounds;
+
+public AudioClip[] HitSounds;
+
+public AudioSource EnemyAudioSource;
+public AudioSource EnemyHitAudioSource;
+
+
+public bool HasPlayedSound;
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         enemyCurrentHealth = enemyMaxHealth;
+        EnemyAudioSource.volume = 1f;
+        EnemyAudioSource.spatialBlend = 1;
+        EnemyAudioSource.maxDistance = 300;
+        EnemyAudioSource.spread = 360;
+
+
+
+        EnemyHitAudioSource.volume = 1f;
+        EnemyHitAudioSource.spatialBlend = 1;
+        EnemyHitAudioSource.maxDistance = 300;
+        EnemyHitAudioSource.spread = 360;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+      HurtAnim.SetBool("IsHurt", IsHurt);
 
         // If enemy health number is lower than 0, keep it at 0
         if(enemyCurrentHealth < 0)
@@ -60,7 +94,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(collision.gameObject.tag == "FireSpell")
         {
-          enemyCurrentHealth -= collision.gameObject.GetComponent<FireSpell>().fireDamage;
+          TakeDamage(collision.gameObject.GetComponent<FireSpell>().fireDamage);
           print("Ememy Just Took Damage");
           EC.IsHitFirst = true;
         }
@@ -99,7 +133,20 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damageValue)
     {
+        if(HasPlayedSound == false)
+        {
+          if(IsDead == false)
+          {
+            EnemyAudioSource.PlayOneShot(HurtSounds[Random.Range(0, HurtSounds.Length)]);
+            EnemyHitAudioSource.PlayOneShot(HitSounds[Random.Range(0, HitSounds.Length)]);
+
+          HasPlayedSound = true;
+          }
+          
+        }
+        IsHurt = true;
         enemyCurrentHealth -=damageValue;
+        StartCoroutine(ResetHurtFlag());
     }
 
     //Enemy Dies
@@ -107,6 +154,18 @@ public class EnemyHealth : MonoBehaviour
     public void Die()
     {
       IsDead = true;
+
+       if(HasPlayedSound == false)
+        {
+          if(IsDead == true)
+          {
+            EnemyAudioSource.PlayOneShot(DeathSounds[Random.Range(0, DeathSounds.Length)]);
+            //EnemyHitAudioSource.PlayOneShot(HitSounds[Random.Range(0, HitSounds.Length)]);
+            
+          HasPlayedSound = true;
+          }
+          
+        }
       Destroy(col);
       Destroy(agent);
       //Destroy(EH);
@@ -120,7 +179,7 @@ public class EnemyHealth : MonoBehaviour
 
     public IEnumerator DestroyAfterTime()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         
             Destroy(this.gameObject);
         
@@ -130,5 +189,20 @@ public class EnemyHealth : MonoBehaviour
     {
        yield return new WaitForSeconds(0);
        enemyCurrentHealth -= damageValue * Time.deltaTime;
+    }
+
+    public IEnumerator ResetHurtFlag()
+    {
+      yield return new WaitForSeconds(0.1f);
+      IsHurt = false;
+      ResetFlag();
+
+      
+    }
+
+    public void ResetFlag()
+    {
+      HasPlayedSound = false;
+      StopCoroutine(ResetHurtFlag());
     }
 }

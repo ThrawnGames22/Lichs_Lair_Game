@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Code\Spells\Base Code\UtilitySpell.cs" />
+     <Compile Include="Assets\AudioSwapNormal.cs" />
      <Compile Include="Assets\Code\UI\CooldownBar.cs" />
      <Compile Include="Assets\Code\Inventory\Items Window\InventoryItemController.cs" />
      <Compile Include="Assets\Code\Player\PlayerController.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Code\Extra and Event Based Scripts\PlayerDash.cs" />
      <Compile Include="Assets\Code\Spells\Base Code\UtilitySpellScriptableObject.cs" />
      <Compile Include="Assets\MechantItem.cs" />
+     <Compile Include="Assets\TurnOffPlayerAudio.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\StopMagic.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\CoinPickup.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\ArenaGroup.cs" />
@@ -218,12 +220,19 @@
      <Compile Include="Assets\Code\Pets\PetController.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\FireTrap.cs" />
      <Compile Include="Assets\Code\Player\PlayerMagic.cs" />
+     <Compile Include="Assets\TurnOnMusic.cs" />
      <Compile Include="Assets\Code\Inventory\Items Window\Item.cs" />
      <Compile Include="Assets\Code\Spells\Base Code\CombatSpellAbility.cs" />
      <Compile Include="Assets\PixelizeFeature.cs" />
      <Compile Include="Assets\Code\Extra and Event Based Scripts\ResolutionManager.cs" />
      <Compile Include="Assets\SpawnChance.cs" />
-     <Compile Include="Assets\AudioSwapNormal.cs" />
+     <Compile Include="Assets\PetManager.cs" />
+     <Compile Include="Assets\ChestPrompt.cs" />
+     <Compile Include="Assets\FirstPrompt.cs" />
+     <Compile Include="Assets\SkipTutorial.cs" />
+     <Compile Include="Assets\MovePlayer.cs" />
+     <Compile Include="Assets\TurnOffSceneTracker.cs" />
+     <Compile Include="Assets\TurnOnEndGameTrigger.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Wwise\Version.txt" />

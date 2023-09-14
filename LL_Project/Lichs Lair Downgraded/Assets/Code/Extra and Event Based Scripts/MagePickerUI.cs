@@ -7,6 +7,8 @@ public class MagePickerUI : MonoBehaviour
     public GameObject ClassButtons;
     public GameObject InformationButton;
     public GameObject InformationPanel;
+
+    public bool HasClicked;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +25,12 @@ public class MagePickerUI : MonoBehaviour
         }
         if(GameObject.Find("GameManager(Clone)").GetComponent<UIHandler>().IsPaused == false)
         {
-          ClassButtons.SetActive(true);
+          if(HasClicked == false)
+          {
+            ClassButtons.SetActive(true);
           InformationButton.SetActive(true);
+          }
+          
         }
     }
 
@@ -40,5 +46,13 @@ public class MagePickerUI : MonoBehaviour
       InformationButton.SetActive(true);
       InformationPanel.SetActive(false);
       ClassButtons.SetActive(true);
+    }
+
+    public void HideEverything()
+    {
+      HasClicked = true;
+      InformationButton.SetActive(false);
+      InformationPanel.SetActive(false);
+      ClassButtons.SetActive(false);
     }
 }

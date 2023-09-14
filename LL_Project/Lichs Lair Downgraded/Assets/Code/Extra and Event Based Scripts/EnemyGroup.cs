@@ -12,6 +12,10 @@ public class EnemyGroup : MonoBehaviour
     public GameObject TutorialCompleteCanvas;
 
     public RoomDoor DoorToOpenOnElimination;
+
+    public GameObject SkipPrompt;
+
+    public bool HasSkippedTutorial;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +23,25 @@ public class EnemyGroup : MonoBehaviour
         if(IsTutorialScene)
         {
         TutorialCompleteCanvas.SetActive(false);
+        
+        
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(HasSkippedTutorial == true)
+        {
+          foreach(GameObject enemy in Enemies)
+          {
+                enemy.SetActive(false);
+                Enemies.Remove(enemy);
+                
+            
+          }
+        }
         foreach(GameObject enemy in Enemies)
         {
             if(enemy.GetComponent<EnemyHealth>().IsDead)

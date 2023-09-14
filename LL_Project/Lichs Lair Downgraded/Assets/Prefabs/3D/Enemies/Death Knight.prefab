@@ -669,6 +669,15 @@ MonoBehaviour:
   RB: {fileID: 7946463823604845245}
   IsDead: 0
   DisableCollider: 0
+  HurtAnim: {fileID: 1941576044433235005}
+  IsHurt: 0
+  HurtSounds: []
+  DeathSounds: []
+  IdleSounds: []
+  HitSounds: []
+  EnemyAudioSource: {fileID: 0}
+  EnemyHitAudioSource: {fileID: 0}
+  HasPlayedSound: 0
 --- !u!54 &7946463823604845245
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -839,8 +848,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf817ffe9367a864385ba9c682a67ee9, type: 3}
+--- !u!1 &6197751671447054919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bf817ffe9367a864385ba9c682a67ee9, type: 3}
+  m_PrefabInstance: {fileID: 6540281774476515094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6721911487702446333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf817ffe9367a864385ba9c682a67ee9, type: 3}
   m_PrefabInstance: {fileID: 6540281774476515094}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1941576044433235005
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197751671447054919}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f18cf69f31d41b4ab7899d6efe4ec1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

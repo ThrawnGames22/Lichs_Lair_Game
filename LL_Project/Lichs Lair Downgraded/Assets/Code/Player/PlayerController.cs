@@ -112,6 +112,8 @@ public class PlayerController : MonoBehaviour
     public bool IsFireMage;
     public bool IsPaladin;
 
+    public CombatSoundManager combatSoundManager;
+
     
     
 
@@ -556,6 +558,11 @@ public class PlayerController : MonoBehaviour
                 yield return null; 
             }
 
+     }
+
+     public void TurnOnCombatMusicManager()
+     {
+       combatSoundManager.gameObject.SetActive(true);
      }
 
     

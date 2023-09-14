@@ -1718,6 +1718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 334483773}
   - component: {fileID: 334483772}
+  - component: {fileID: 334483774}
   m_Layer: 0
   m_Name: SceneSettings
   m_TagString: Untagged
@@ -1753,6 +1754,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &334483774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334483771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ced7f804052644b932dd9a210beca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TurnOff: 1
 --- !u!1001 &348319693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7415,7 +7429,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1377771291}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2087945579}
+        m_TargetAssemblyTypeName: MagePickerUI, Assembly-CSharp
+        m_MethodName: HideEverything
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1377771291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8661,7 +8687,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1566988365}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2087945579}
+        m_TargetAssemblyTypeName: MagePickerUI, Assembly-CSharp
+        m_MethodName: HideEverything
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1566988365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10775,6 +10813,7 @@ MonoBehaviour:
   ClassButtons: {fileID: 717430014}
   InformationButton: {fileID: 1350282614}
   InformationPanel: {fileID: 1317264618}
+  HasClicked: 0
 --- !u!1 &2088669984
 GameObject:
   m_ObjectHideFlags: 0
@@ -13778,6 +13817,7 @@ GameObject:
   - component: {fileID: 5335714575282660634}
   - component: {fileID: 5335714575282660636}
   - component: {fileID: 5335714575282660635}
+  - component: {fileID: 5335714575282660637}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -13964,6 +14004,14 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!81 &5335714575282660637
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5335714575282660624}
+  m_Enabled: 1
 --- !u!4 &5364991103245621989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4112348879130212996, guid: 4f2ff8fabf99a6c43b9b45e2ae763dc0, type: 3}

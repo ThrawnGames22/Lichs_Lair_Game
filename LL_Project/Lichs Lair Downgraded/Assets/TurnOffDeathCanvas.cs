@@ -8,7 +8,7 @@ public class TurnOffDeathCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       GameObject.Find("DeathCanvas").SetActive(false); 
+       //GameObject.Find("Death Screen").SetActive(false); 
     }
 
     // Update is called once per frame
