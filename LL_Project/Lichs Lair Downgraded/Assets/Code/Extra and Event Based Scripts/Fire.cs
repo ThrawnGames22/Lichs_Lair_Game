@@ -13,6 +13,8 @@ public class Fire : MonoBehaviour
     public bool isCreated;
     public float damageWindow;
 
+    public GameObject MistFormClone;
+
     
     // Start is called before the first frame update
     void Start()
@@ -23,14 +25,18 @@ public class Fire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      MistFormClone = GameObject.Find("MistForm(Clone)");
       if(StartDamage == true)
       {
         Player.GetComponent<PlayerHealth>().currentHealth -= FireDamage * Time.deltaTime;
+        
       }
       else
       {
         return;
       }
+
+      
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,7 +50,12 @@ public class Fire : MonoBehaviour
           clone.transform.Rotate(-90,0,0);
           isCreated = true;
         }
-       StartCoroutine(InflictDamage());
+
+        if(MistFormClone == null)
+        {
+           StartCoroutine(InflictDamage()); 
+        }
+       
       }
     }
 

@@ -21,6 +21,8 @@ public class SceneTracker : MonoBehaviour
     public bool NextLevelIsEndGame;
 
     public int LevelsPlayerHasCompleted;
+
+    public int MaxlevelsPlayerCanComplete = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,7 @@ public class SceneTracker : MonoBehaviour
             
         }
 
-        if(LevelsPlayerHasCompleted == 15)
+        if(LevelsPlayerHasCompleted == MaxlevelsPlayerCanComplete)
         {
             NextLevelIsBossRoom = true;
         }

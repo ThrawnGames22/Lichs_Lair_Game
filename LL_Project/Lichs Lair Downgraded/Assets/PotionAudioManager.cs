@@ -77,14 +77,20 @@ public class PotionAudioManager : MonoBehaviour
     {
         if(other.gameObject.name == "Mana Potion")
         {
+            if(slotUIController.HasManaPotion == false)
+            {
             PotionSource.clip = PickupSound;
                 PotionSource.Play(); 
+            }
         }
 
         if(other.gameObject.name == "Health Potion")
         {
+             if(slotUIController.HasHealthPotion == false)
+            {
             PotionSource.clip = PickupSound;
                 PotionSource.Play(); 
+            }
         }
     }
 }

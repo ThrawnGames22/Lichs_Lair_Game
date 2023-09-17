@@ -5,6 +5,8 @@ using UnityEngine;
 public class ChestPrompt : MonoBehaviour
 {
     public GameObject ChestPromptUI;
+
+
     // Start is called before the first frame update
     void Start()
     {

@@ -55,8 +55,11 @@ public class FireTrap : MonoBehaviour
     {
       if(other.gameObject.tag == "Player")
       {
+        
+        
         FireMainObject.SetActive(true);
         this.GetComponent<Animator>().enabled = true;
+        
       }
     }
 }

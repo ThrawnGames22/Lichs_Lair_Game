@@ -29,6 +29,18 @@ public class PlayerHealth : MonoBehaviour
     //Death Screen Attributes
     
     //Potion Effects
+
+    [Header ("Damage Audio")]
+
+    public AudioClip[] hurtClip;
+
+    public AudioSource HurtSource;
+    public AudioSource DeathSource;
+
+
+    public AudioClip[] DeathSounds;
+
+    public bool HasPlayed;
     
     
     // Start is called before the first frame update
@@ -109,6 +121,13 @@ public class PlayerHealth : MonoBehaviour
         PlayerController.Instance.characterController.enabled = false;
         DamageScreen.SetActive(false);
         //DeathScreen.SetActive(true);
+
+      
+        
+        DeathSource.Play();
+        
+        
+      
         
         
     }
@@ -128,6 +147,7 @@ public class PlayerHealth : MonoBehaviour
     // Take Damage From enemies or traps
     public void TakeDamage(float Damage)
     {
+
       currentHealth -= Damage;
       isTakingDamage = true;
       //ResetDamageFlag();
@@ -136,6 +156,14 @@ public class PlayerHealth : MonoBehaviour
       DamageScreen.GetComponent<Image>().color = color;
       
       healthBar.SetHealth(currentHealth);
+
+      if(HasPlayed == false)
+      {
+        HurtSource.clip = hurtClip[Random.Range(0, hurtClip.Length)];
+        HurtSource.Play();
+        HasPlayed = true;
+        StartCoroutine(ResetPlayFlag());
+      }
     }
 //Animation Events to prevent constant health decreasing
     public void ResetDamageFlag()
@@ -164,6 +192,17 @@ public class PlayerHealth : MonoBehaviour
     {
        yield return new WaitForSeconds(0);
        currentHealth -= damageValue * Time.deltaTime;
+    }
+
+    public IEnumerator ResetPlayFlag()
+    {
+        yield return new WaitForSeconds(0.5f);
+        HasPlayed = false;
+    }
+
+    public void StopFlag()
+    {
+        StopCoroutine(ResetPlayFlag());
     }
 
     

@@ -19,6 +19,11 @@ public class DeathManager : MonoBehaviour
     public float TimeToActivateButton;
     public bool PlayerIsDead;
 
+    public AudioClip[] BossLaugh;
+
+    public AudioSource bossLaughSource;
+    public bool HasPlayed = false;
+
     
     // Start is called before the first frame update
     void Start()
@@ -54,6 +59,12 @@ public class DeathManager : MonoBehaviour
         if(PlayerIsDead == true)
         {
             YouDiedImageAnimator.SetTrigger("PlayerIsDead");
+            if(HasPlayed == false)
+            {
+               bossLaughSource.clip = BossLaugh[Random.Range(0, BossLaugh.Length)];
+               bossLaughSource.Play();
+               HasPlayed = true; 
+            }
             //StartCoroutine(IncreaseAlphaOnDeathScreen());
         var BScolor = BlackScreen.GetComponent<Image>().color;
         var YDIcolor = YouDiedImage.GetComponent<Image>().color;
@@ -61,6 +72,7 @@ public class DeathManager : MonoBehaviour
         
         BScolor.a += 0.3f * Time.deltaTime;
         YDIcolor.a += 0.3f * Time.deltaTime;
+
         
 
         BlackScreen.GetComponent<Image>().color = BScolor;
@@ -79,6 +91,7 @@ public class DeathManager : MonoBehaviour
     {
         GlobalSceneManager.Instance.ResetScene();
         ActivatePlayer();
+        HasPlayed = false;
         
     }
 

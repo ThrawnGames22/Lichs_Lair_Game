@@ -1739,7 +1739,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9408,6 +9408,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1334588581022695436, guid: 0edb4de772308ba4b8b5054529f4b101, type: 3}
+      propertyPath: HasSpawnerTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334588581022695436, guid: 0edb4de772308ba4b8b5054529f4b101, type: 3}
       propertyPath: enemySpawnerTrigger
       value: 
       objectReference: {fileID: 4013131046260556552}
@@ -11784,7 +11788,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13613,7 +13617,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13850,7 +13854,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14024,7 +14028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3449148343147624137, guid: 7e9e4e7ce3b3f4f4e82da64b58fb8f81, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3449148343147624137, guid: 7e9e4e7ce3b3f4f4e82da64b58fb8f81, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16252,7 +16256,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19004,7 +19008,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19399,6 +19403,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1334588581022695436, guid: 0edb4de772308ba4b8b5054529f4b101, type: 3}
+      propertyPath: HasSpawnerTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334588581022695436, guid: 0edb4de772308ba4b8b5054529f4b101, type: 3}
       propertyPath: enemySpawnerTrigger
       value: 
       objectReference: {fileID: 1022145316}
@@ -19460,6 +19468,17 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0edb4de772308ba4b8b5054529f4b101, type: 3}
+--- !u!114 &1266556419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1334588581022695436, guid: 0edb4de772308ba4b8b5054529f4b101, type: 3}
+  m_PrefabInstance: {fileID: 1266556418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d8222fcb493214aa56b403abfa464c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1268689787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19605,7 +19624,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273290224}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -19689,7 +19708,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20006,7 +20025,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27352,7 +27371,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30465,7 +30484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e43ed461c9f19294bb4c4eff3bb0552a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e43ed461c9f19294bb4c4eff3bb0552a, type: 3}
       propertyPath: m_LocalScale.x
@@ -32644,7 +32663,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -33682,30 +33701,10 @@ PrefabInstance:
     - target: {fileID: 4013131047160088014, guid: c21c39781acf3d340aea1b0f5c8a8007, type: 3}
       propertyPath: Door
       value: 
-      objectReference: {fileID: 231275841}
-    - target: {fileID: 4296913320890482723, guid: c21c39781acf3d340aea1b0f5c8a8007, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.020575823
-      objectReference: {fileID: 0}
-    - target: {fileID: 4296913320890482723, guid: c21c39781acf3d340aea1b0f5c8a8007, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0184
-      objectReference: {fileID: 0}
-    - target: {fileID: 4296913320890482723, guid: c21c39781acf3d340aea1b0f5c8a8007, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0016
-      objectReference: {fileID: 0}
-    - target: {fileID: 4296913320890482723, guid: c21c39781acf3d340aea1b0f5c8a8007, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.4739
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1266556419}
     - target: {fileID: 4961963456786672629, guid: c21c39781acf3d340aea1b0f5c8a8007, type: 3}
       propertyPath: m_Name
       value: Enemy Portal Lichs Army (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5019967659260491907, guid: c21c39781acf3d340aea1b0f5c8a8007, type: 3}
-      propertyPath: maxEnemiesToSpawn
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5019967659260491907, guid: c21c39781acf3d340aea1b0f5c8a8007, type: 3}
       propertyPath: CombatMusicTriggerSphere
@@ -35645,7 +35644,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -35980,7 +35979,7 @@ PrefabInstance:
     - target: {fileID: 7751337641295892081, guid: 49865aa76ae0ede40abf096020c163fe, type: 3}
       propertyPath: NormalMusic
       value: 
-      objectReference: {fileID: 8300000, guid: 85db629feb8e15542a48f061ead335e9, type: 3}
+      objectReference: {fileID: 8300000, guid: f9eadb346eedadc44ba23f68faa64536, type: 3}
     - target: {fileID: 7751337641295892083, guid: 49865aa76ae0ede40abf096020c163fe, type: 3}
       propertyPath: m_Name
       value: CombatMusicTriggerSphere
@@ -38979,7 +38978,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f26a3dc65d7ac5e479cb34eb00a1b370, type: 2}
+  - {fileID: 5380164602558608596, guid: cf66e7c81f7910341be417d6fa660bda, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
