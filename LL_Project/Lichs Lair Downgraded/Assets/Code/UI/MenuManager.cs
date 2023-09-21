@@ -36,7 +36,7 @@ public class MenuManager : MonoBehaviour
         CurrentSceneName = CurrentScene.name;
         sceneTracker = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
         //Range of levels
-        randomIndex = Random.Range(7, 15);
+        randomIndex = Random.Range(7, 14);
         NextSceneIndex = randomIndex;
         
     }
