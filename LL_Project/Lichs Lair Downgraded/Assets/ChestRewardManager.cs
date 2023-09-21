@@ -60,7 +60,7 @@ public class ChestRewardManager : MonoBehaviour
             }
             if(ChestHasSpawned == false)
             {
-                if(Input.GetKeyDown(KeyCode.E))
+                if(Input.GetKeyDown(KeyCode.F))
                 {
                     
                     GameObject ChestSpawn = Instantiate(ChosenChest, ChestSpawnPoint.position, ChestSpawnPoint.rotation);

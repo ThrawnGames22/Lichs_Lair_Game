@@ -42,6 +42,8 @@ public class BowController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+      ArrowShootPoint = GameObject.Find("Bow Shoot Point").transform;
     if(PlayerController.Instance.HasActivatedWeapons)
     {
       

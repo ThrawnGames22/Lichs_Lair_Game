@@ -100,6 +100,15 @@ public class PlayerMagic : MonoBehaviour
         slotUIController = UI.GetComponent<SlotUIController>();
         manaBar.slider.maxValue = maxMana;
          UtilityCoolDown = UtilitySpell.spellToCast.CoolingDownTime * 2;
+         if(playerController.IsShadowWizard)
+         {
+            currentMana = 125;
+         }
+
+         if(playerController.IsFireMage)
+         {
+            currentMana = 100;
+         }
         //ombatSpellToCast = CombatSpellSlot1;
         //inventoryController = GameObject.Find("Item Inventory Manager").GetComponent<PlayerInventoryController>();
         

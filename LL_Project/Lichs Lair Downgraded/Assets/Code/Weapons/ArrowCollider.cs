@@ -5,10 +5,15 @@ using UnityEngine;
 public class ArrowCollider : MonoBehaviour
 {
     public int DamageApplied;
+
+    public PlayerHealth playerHealth;
+    public PlayerMagic playerMagic;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerMagic = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMagic>();
+
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -25,10 +30,14 @@ public class ArrowCollider : MonoBehaviour
         
         if(other.gameObject.GetComponent<DamageManager>().enemyHealth.IsDead)
         {
-          PlayerHealth.Instance.currentHealth += 30f;
-          PlayerMagic.Instance.currentMana += 100;
+          playerHealth.currentHealth += 30;
+          playerMagic.currentMana += 100;
+          Destroy(this.gameObject);
+          
         }
-        Destroy(this.gameObject);
+
+        
+        
        
          
       }

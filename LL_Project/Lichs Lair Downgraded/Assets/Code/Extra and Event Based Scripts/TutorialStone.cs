@@ -33,8 +33,8 @@ public class TutorialStone : MonoBehaviour
     {
       if(IsInRange)
       {
-        if(TutorialStoneIsDone == false)
-        {
+        //if(TutorialStoneIsDone == false)
+        //{
 
         if(Input.GetKeyDown(KeyCode.F))
         {
@@ -42,11 +42,11 @@ public class TutorialStone : MonoBehaviour
          PlayerController.Instance.speed = 0;
          StartPrompt.SetActive(true);
          
-         TutorialStoneIsDone = true;
+         //TutorialStoneIsDone = true;
          
          //StartCoroutine(UI());
         }
-        }
+        //}
       }
       else
       {

@@ -7,6 +7,10 @@ public class ManaBar : MonoBehaviour
 {
     public Slider slider;
 
+    public PlayerMagic playerMagic;
+
+    public float CurrentMana;
+
     public void SetMaxMana(int mana)
     {
       slider.maxValue = mana;
@@ -27,6 +31,8 @@ public class ManaBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        slider.maxValue = playerMagic.maxMana;
+
+        CurrentMana = slider.value;
     }
 }

@@ -35,7 +35,8 @@ public class MenuManager : MonoBehaviour
     {
         CurrentSceneName = CurrentScene.name;
         sceneTracker = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
-        randomIndex = Random.Range(6, 14);
+        //Range of levels
+        randomIndex = Random.Range(7, 15);
         NextSceneIndex = randomIndex;
         
     }
@@ -100,11 +101,18 @@ public class MenuManager : MonoBehaviour
         
     }
 
+    IEnumerator LoadWarningLevel(int LevelIndex)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(TransitionTime);
+        LoadMenu("Warning");
+    }
+
     IEnumerator LoadFirstLevel(int LevelIndex)
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(TransitionTime);
-        LoadMenu("Load Into Game");
+        LoadMenu("Warning");
     }
 
     IEnumerator LoadNextLV(int LevelIndex)
