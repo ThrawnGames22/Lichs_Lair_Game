@@ -24,6 +24,10 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
     public PurchasePanel purchasePanel;
 
     public bool HasItemAlready;
+
+    public List<GameObject> ChildObjects;
+    public Transform[] ChildObjectTransforms;
+
 [Header("Last Merchant Item That Was Referenced")]
     public GameObject ItemReference;
 
@@ -37,6 +41,13 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
     public CombatSpellScriptableObject CombatSpell1;
     public CombatSpellScriptableObject CombatSpell2;
     public UtilitySpellScriptableObject UtilitySpell;
+
+    [Header("UISlotHolder")]
+    public SlotUIController UIController;
+
+
+
+    
 
 
    
@@ -61,7 +72,11 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
             {
               print("Buy");
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
-              eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsWeaponPurchase = true;
+              //eventData.pointerDrag.GetComponent<RectTransform>().anchorMax = Vector2.zero;
+              //eventData.pointerDrag.GetComponent<RectTransform>().anchorMin = Vector2.zero;
+
+              eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(2.462006f, 2.052948f);
               
               
               
@@ -75,7 +90,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
 
        if(IsTrinketSlot)
        {
-        if(eventData.pointerDrag != null)
+        if(eventData.pointerDrag.tag == "InventoryItem")
         {
             if(eventData.pointerDrag.GetComponent<DraggableItem>().IsTrinket)
             {
@@ -84,11 +99,28 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
             }
         }
 
+        if(eventData.pointerDrag.tag == "StoreItem")
+        {
+            if(eventData.pointerDrag.GetComponent<MechantItem>().IsTrinket)
+            {
+              print("Buy");
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsTrinketPurchase = true;
+
+              eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(2.462006f, 2.052948f);
+              
+              
+              
+              
+              
+            }
+        }
+
         
        }
        if(IsPotionSlot)
        {
-        if(eventData.pointerDrag != null)
+        if(eventData.pointerDrag.tag == "InventoryItem" )
         {
             if(eventData.pointerDrag.GetComponent<DraggableItem>().IsPotion)
             {
@@ -96,16 +128,50 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
              
             }
         }
+
+        if(eventData.pointerDrag.tag == "StoreItem")
+        {
+            if(eventData.pointerDrag.GetComponent<MechantItem>().IsPotion)
+            {
+              print("Buy");
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsPotionPurchase = true;
+
+              eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(2.462006f, 2.052948f);
+              
+              
+              
+              
+              
+            }
+        }
        }
 
        if(IsPetSlot)
        {
-        if(eventData.pointerDrag != null)
+        if(eventData.pointerDrag.tag == "InventoryItem")
         {
             if(eventData.pointerDrag.GetComponent<DraggableItem>().IsPet)
             {
               eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
              
+            }
+        }
+
+        if(eventData.pointerDrag.tag == "StoreItem")
+        {
+            if(eventData.pointerDrag.GetComponent<MechantItem>().IsPet)
+            {
+              print("Buy");
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsPetPurchase = true;
+
+              eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(2.462006f, 2.052948f);
+              
+              
+              
+              
+              
             }
         }
        }
@@ -151,16 +217,30 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
 
     private void Update() 
     {
+      UIController = GameObject.Find("UI").GetComponent<SlotUIController>();
       Merchant = GameObject.Find("MerchantManager").GetComponent<Merchant>();
       purchasePanel = Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>();
+      
+      ChildObjects = gameObject.GetChildren();
+      ItemInSlot = ChildObjects[0];
       if(IsDropContainer == false)
       {
         if(ItemInSlot != null)
         {
-        ItemInSlot = this.gameObject.transform.GetChild(0).gameObject;
+        //ItemInSlot = this.gameObject.transform.GetChild(0).gameObject;
+        ItemIsInSlot = true;
         }
         
+        
       }
+      if(ChildObjects[0] != null)
+        {
+          ItemIsInSlot = true;
+        }
+
+        
+      
+      
 
 
       if(purchasePanel.HasPressedConfirm == true)
@@ -183,7 +263,23 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
               }
     }
 
+
     
 
     
+
+    
+}
+
+public static class HelperMethods
+{
+    public static List<GameObject> GetChildren(this GameObject go)
+    {
+        List<GameObject> children = new List<GameObject>();
+        foreach (Transform tran in go.transform)
+        {
+            children.Add(tran.gameObject);
+        }
+        return children;
+    }
 }

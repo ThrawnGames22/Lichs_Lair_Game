@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4965932347036936040}
   - component: {fileID: 4965932347036936038}
   - component: {fileID: 4965932347036936039}
+  - component: {fileID: -9095414077215462132}
   m_Layer: 5
   m_Name: Standard Iron Sword
-  m_TagString: Untagged
+  m_TagString: InventoryItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +126,19 @@ MonoBehaviour:
   CombatSpell2: {fileID: 0}
   UtilitySpell: {fileID: 0}
   heldDown: 0
+--- !u!114 &-9095414077215462132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4965932347036936045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454dbe1867e26134f9236b7ed93bb8cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsWeapon: 1
+  IsPotion: 0
+  IsTrinket: 0
+  IsPet: 0

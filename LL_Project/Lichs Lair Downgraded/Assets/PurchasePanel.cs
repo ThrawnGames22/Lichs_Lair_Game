@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PurchasePanel : MonoBehaviour
 {
+    public bool IsWeaponPurchase;
+    public bool IsPotionPurchase;
+    public bool IsTrinketPurchase;
+    public bool IsPetPurchase;
+
     public bool HasPressedBack;
     public bool HasPressedConfirm;
     public GameObject Panel;
@@ -41,12 +46,38 @@ public class PurchasePanel : MonoBehaviour
         HasPressedConfirm = true;
         ClosePanel();
         StartCoroutine(ResetTriggerFlag());
+        if(IsWeaponPurchase)
+        {
+            Destroy(GameObject.Find("WeaponSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+            IsWeaponPurchase = false;
+        }
+        if(IsTrinketPurchase)
+        {
+            Destroy(GameObject.Find("TrinketSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+            IsTrinketPurchase = false;
+        }
+        if(IsPotionPurchase)
+        {
+            Destroy(GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+            IsPotionPurchase = false;
+        }
+        if(IsPetPurchase)
+        {
+            Destroy(GameObject.Find("PetSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+            IsPetPurchase = false;
+        }
+        
+        
+        
+
+        
     }
 
     public IEnumerator ResetTriggerFlag()
     {
         yield return new WaitForSeconds(0.7f);
         HasPressedConfirm = false;
+        
         
     }
 }

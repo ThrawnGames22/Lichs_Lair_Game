@@ -113,6 +113,7 @@ public class SlotUIController : MonoBehaviour
            EffectClone.transform.parent = Player.gameObject.transform;
            PH.IncreaseHealth(100);
            HasHealthPotion = false;
+           Destroy(GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
            HasPotion = false;
          }
       }
@@ -131,7 +132,9 @@ public class SlotUIController : MonoBehaviour
            EffectClone.transform.parent = Player.gameObject.transform;
            PM.IncreaseMana(100);
            HasManaPotion = false;
+           Destroy(GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
            HasPotion = false;
+           
          }
       }
      }

@@ -17,6 +17,8 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     
     public GameObject[] slotContainers;
 
+    public GameObject[] PlayerInventoryItems;
+
     
     public string ItemType;
     public Vector2 SlotSpace;
@@ -102,6 +104,11 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
      {
        Debug.Log("EquipItem");
      }
+
+     foreach(GameObject PlayerItem in PlayerInventoryItems)
+     {
+      PlayerItem.GetComponent<CanvasGroup>().blocksRaycasts = true;
+     }
      
 
      
@@ -112,6 +119,11 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
    {
      rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
      transform.position = Input.mousePosition;
+
+     foreach(GameObject PlayerItem in PlayerInventoryItems)
+     {
+      PlayerItem.GetComponent<CanvasGroup>().blocksRaycasts = false;
+     }
    }
 
    public void OnDrop(PointerEventData eventData)
@@ -179,6 +191,7 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
        PlayerInventoryCanvas = GameObject.Find("UI").GetComponent<Canvas>();
        canvas = GameObject.Find("Merchant Inventory").GetComponent<Canvas>();
        slotContainers = GameObject.FindGameObjectsWithTag("InventorySlots");
+       PlayerInventoryItems = GameObject.FindGameObjectsWithTag("InventoryItem");
       
       
     }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6708894044966886586
+--- !u!1 &2173439218551301156
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6708894044966886587}
-  - component: {fileID: 6708894044966886591}
-  - component: {fileID: 6708894044966886590}
-  - component: {fileID: 6708894044966886584}
-  - component: {fileID: 6708894044966886588}
-  - component: {fileID: -1958176346946646651}
+  - component: {fileID: 2173439218551301157}
+  - component: {fileID: 2173439218551301159}
+  - component: {fileID: 2173439218551301158}
+  - component: {fileID: 2173439218551301152}
+  - component: {fileID: 2173439218551301153}
+  - component: {fileID: 5787004946435991640}
   m_Layer: 5
-  m_Name: HealthPotionInventoryItem
-  m_TagString: InventoryItem
+  m_Name: Mana Potion Store Item
+  m_TagString: StoreItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6708894044966886587
+--- !u!224 &2173439218551301157
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708894044966886586}
+  m_GameObject: {fileID: 2173439218551301156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -36,26 +36,26 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -488.9, y: 61.4}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1375.26, y: -921.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6708894044966886591
+--- !u!222 &2173439218551301159
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708894044966886586}
+  m_GameObject: {fileID: 2173439218551301156}
   m_CullTransparentMesh: 1
---- !u!114 &6708894044966886590
+--- !u!114 &2173439218551301158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708894044966886586}
+  m_GameObject: {fileID: 2173439218551301156}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c8a88287b7e8acd4ab162384f748a553, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12623467818ae144e8d67a2cb82cd551, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -79,39 +79,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!225 &6708894044966886584
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708894044966886586}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!114 &6708894044966886588
+--- !u!114 &2173439218551301152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708894044966886586}
+  m_GameObject: {fileID: 2173439218551301156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d8a4c8dd25121e429b8c9a99658ed84, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a972750428e06a4ba87c09b8843ead3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInSlot: 0
-  canvasGroup: {fileID: 0}
   canvas: {fileID: 0}
+  PlayerInventoryCanvas: {fileID: 0}
   ItemSlotRect: {fileID: 0}
-  ItemType: Health Potion
+  merchantScript: {fileID: 0}
+  slotContainers: []
+  PlayerInventoryItems: []
+  ItemType: 
   SlotSpace: {x: 0, y: 0}
   image: {fileID: 0}
-  thisObject: {fileID: 0}
-  IsStoreItem: 0
+  thisObject: {fileID: 2173439218551301156}
+  DraggableItemPrefab: {fileID: 6708894044966886586, guid: efc83eed1c3f4384992938d43a0fd2f3, type: 3}
   IsWeapon: 0
   IsTrinket: 0
   IsPotion: 1
@@ -120,25 +110,35 @@ MonoBehaviour:
   IsCBS2: 0
   IsUTS: 0
   weapon: {fileID: 0}
-  potion: {fileID: 11400000, guid: 17ca87c9dc09df946921d4dd583a86f2, type: 2}
+  potion: {fileID: 11400000, guid: 02ec4e2fc1c8e234fa51a32ee3003818, type: 2}
   pet: {fileID: 0}
   CombatSpell1: {fileID: 0}
   CombatSpell2: {fileID: 0}
   UtilitySpell: {fileID: 0}
   heldDown: 0
---- !u!114 &-1958176346946646651
+  IsHoveringOverSlot: 0
+--- !u!225 &2173439218551301153
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2173439218551301156}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &5787004946435991640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708894044966886586}
+  m_GameObject: {fileID: 2173439218551301156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 454dbe1867e26134f9236b7ed93bb8cc, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsWeapon: 0
-  IsPotion: 1
-  IsTrinket: 0
-  IsPet: 0
+  m_Delegates: []
