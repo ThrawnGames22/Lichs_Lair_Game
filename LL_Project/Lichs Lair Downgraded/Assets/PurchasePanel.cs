@@ -12,6 +12,8 @@ public class PurchasePanel : MonoBehaviour
     public bool HasPressedBack;
     public bool HasPressedConfirm;
     public GameObject Panel;
+
+    public GameObject ItemToPurchase;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,10 @@ public class PurchasePanel : MonoBehaviour
     {
         
       Panel.SetActive(false);
+      IsWeaponPurchase = false;
+      IsPotionPurchase = false;
+      IsTrinketPurchase = false;
+      IsPetPurchase = false;
       //StartCoroutine(ResetTriggerFlag());
     }
 
@@ -38,6 +44,7 @@ public class PurchasePanel : MonoBehaviour
     {
         
       Panel.SetActive(true);
+      //ItemToPurchase = GameObject.Find()
       //StartCoroutine(ResetTriggerFlag());
     }
 
@@ -48,22 +55,27 @@ public class PurchasePanel : MonoBehaviour
         StartCoroutine(ResetTriggerFlag());
         if(IsWeaponPurchase)
         {
-            Destroy(GameObject.Find("WeaponSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+            ItemToPurchase = null;
+            //Destroy(GameObject.Find("WeaponSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
             IsWeaponPurchase = false;
+            
         }
         if(IsTrinketPurchase)
         {
-            Destroy(GameObject.Find("TrinketSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+            ItemToPurchase = null;
+            //Destroy(GameObject.Find("TrinketSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
             IsTrinketPurchase = false;
         }
         if(IsPotionPurchase)
         {
-            Destroy(GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+            ItemToPurchase = null;
+            //Destroy(GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
             IsPotionPurchase = false;
         }
         if(IsPetPurchase)
         {
-            Destroy(GameObject.Find("PetSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+            ItemToPurchase = null;
+            //Destroy(GameObject.Find("PetSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
             IsPetPurchase = false;
         }
         
@@ -79,6 +91,11 @@ public class PurchasePanel : MonoBehaviour
         HasPressedConfirm = false;
         
         
+    }
+
+    public IEnumerator RemovePreviousItem()
+    {
+        yield return null;
     }
 }
 

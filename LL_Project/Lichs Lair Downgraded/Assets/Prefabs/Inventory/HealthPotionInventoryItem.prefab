@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6708894044966886584}
   - component: {fileID: 6708894044966886588}
   - component: {fileID: -1958176346946646651}
+  - component: {fileID: -3383271360531124592}
   m_Layer: 5
   m_Name: HealthPotionInventoryItem
   m_TagString: InventoryItem
@@ -106,8 +107,8 @@ MonoBehaviour:
   IsInSlot: 0
   canvasGroup: {fileID: 0}
   canvas: {fileID: 0}
-  ItemSlotRect: {fileID: 0}
-  ItemType: Health Potion
+  ItemSlotRect: {fileID: 6708894044966886587}
+  ItemType: HealthPotion
   SlotSpace: {x: 0, y: 0}
   image: {fileID: 0}
   thisObject: {fileID: 0}
@@ -142,3 +143,15 @@ MonoBehaviour:
   IsPotion: 1
   IsTrinket: 0
   IsPet: 0
+--- !u!114 &-3383271360531124592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6708894044966886586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc200e84de3014429e2fab74634815e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

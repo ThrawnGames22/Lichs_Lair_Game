@@ -81,19 +81,19 @@ public class DraggableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
         image = GetComponent<Image>();
         if(IsWeapon)
         {
-         this.gameObject.name = weapon.WeaponName;
+         this.gameObject.name = weapon.WeaponName + " INVI";
          image.sprite = weapon.WeaponIcon;
         }
 
         if(IsPotion)
         {
-         this.gameObject.name = potion.ItemName;
+         this.gameObject.name = potion.ItemName + " INVI";
          image.sprite = potion.ItemIcon;
         }
 
         if(IsPet)
         {
-         this.gameObject.name = pet.PetName;
+         this.gameObject.name = pet.PetName + " INVI";
          image.sprite = pet.PetIcon;
         }
         

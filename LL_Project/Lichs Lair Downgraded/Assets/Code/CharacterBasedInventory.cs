@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterBasedInventory : MonoBehaviour
 {
@@ -29,14 +30,24 @@ public class CharacterBasedInventory : MonoBehaviour
 
     public GameObject InventoryPanel;
 
-    public GameObject WeaponSlot;
-    public GameObject TrinketSlot; 
-    public GameObject PotionSlot; 
-    public GameObject PetSlot;
+    public Image WeaponSlot;
+    public Image TrinketSlot; 
+    public Image PotionSlot; 
+    public Image PetSlot;
 
     public GameObject CBSSlot1;
     public GameObject CBSSlot2;
     public GameObject UTSSlot; 
+
+    public SlotUIController slotUIController;
+
+    public ItemSlotContainer PotionSlotContainer;
+
+    public bool InvenOpen;
+
+    public InventoryItemDataBase inventoryItemDataBase;
+
+    public PlayerController PC;
 
 
 
@@ -50,6 +61,40 @@ public class CharacterBasedInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            InvenOpen = !InvenOpen;
+
+            
+        }
+
+        if(InvenOpen)
+        {
+            //UpdateSlot();
+            InventoryPanel.GetComponent<CanvasGroup>().alpha = 1;
+
+            WeaponSlot.sprite = PC.CurrentWeaponSlot.GetComponent<WeaponHandler>().weapon.WeaponIcon;
+            
+        }
+        if(!InvenOpen)
+        {
+            InventoryPanel.GetComponent<CanvasGroup>().alpha = 0;
+        }
+
         
     }
+
+    /*public void UpdateSlot()
+    {
+      if(slotUIController.HasPotion == false)
+      {
+        Destroy(PotionSlotContainer.ChildObjects[0]);
+      }
+
+      if(slotUIController.HasHealthPotion == true)
+      {
+        GameObject HPClone = Instantiate(inventoryItemDataBase.HealthPotionItem);
+      }
+    }
+    */
 }

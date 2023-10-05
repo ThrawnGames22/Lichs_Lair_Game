@@ -114,6 +114,7 @@ public class SlotUIController : MonoBehaviour
            PH.IncreaseHealth(100);
            HasHealthPotion = false;
            Destroy(GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+           GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ItemInSlot = null;
            HasPotion = false;
          }
       }
@@ -133,6 +134,7 @@ public class SlotUIController : MonoBehaviour
            PM.IncreaseMana(100);
            HasManaPotion = false;
            Destroy(GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+           GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ItemInSlot = null;
            HasPotion = false;
            
          }

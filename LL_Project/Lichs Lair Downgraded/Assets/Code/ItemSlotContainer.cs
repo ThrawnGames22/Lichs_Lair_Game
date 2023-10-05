@@ -1,6 +1,8 @@
+using System;
 using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -25,11 +27,15 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
 
     public bool HasItemAlready;
 
+    public bool SlotIsEmpty;
+
     public List<GameObject> ChildObjects;
     public Transform[] ChildObjectTransforms;
 
 [Header("Last Merchant Item That Was Referenced")]
     public GameObject ItemReference;
+
+   
 
  
 
@@ -45,12 +51,10 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
     [Header("UISlotHolder")]
     public SlotUIController UIController;
 
+    public bool IsMissingObject;
 
+    public bool HasSpawnedItem { get; private set; }
 
-    
-
-
-   
     public void OnDrop(PointerEventData eventData)
     {
       
@@ -73,6 +77,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
               print("Buy");
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsWeaponPurchase = true;
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
               //eventData.pointerDrag.GetComponent<RectTransform>().anchorMax = Vector2.zero;
               //eventData.pointerDrag.GetComponent<RectTransform>().anchorMin = Vector2.zero;
 
@@ -106,6 +111,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
               print("Buy");
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsTrinketPurchase = true;
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
 
               eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(2.462006f, 2.052948f);
               
@@ -136,6 +142,8 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
               print("Buy");
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsPotionPurchase = true;
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
+              
 
               eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(2.462006f, 2.052948f);
               
@@ -165,6 +173,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
               print("Buy");
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsPetPurchase = true;
+              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
 
               eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(2.462006f, 2.052948f);
               
@@ -189,6 +198,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
         {
           ItemIsHovering = true;
           ItemReference = eventData.pointerDrag.gameObject;
+          
         }
         if(eventData.pointerDrag)
         {
@@ -200,10 +210,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(eventData.pointerDrag.tag == "StoreItem")
-        {
-          ItemIsHovering = false;
-        }
+        
 
         
 
@@ -240,16 +247,23 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
 
         
       
-      
-
+      if(ChildObjects.Count == 0)
+      {
+        IsMissingObject = ReferenceEquals(ItemInSlot, null);
+      }
 
       if(purchasePanel.HasPressedConfirm == true)
               {
-                GameObject WeaponClone = Instantiate(ItemReference.GetComponent<MechantItem>().DraggableItemPrefab);
-                ItemInSlot = WeaponClone;
+                if(HasSpawnedItem == false)
+                {
+                  
+                }
+                GameObject ItemClone = Instantiate(Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase.GetComponent<MechantItem>().DraggableItemPrefab);
+                ItemInSlot = ItemClone;
                 Destroy(ItemReference);
                 ItemReference = null;
                 print("ItemDeleted");
+                
                 
               }
 
@@ -261,9 +275,11 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
               {
                 HasItemAlready = false;
               }
+
+              
     }
 
-
+    
     
 
     

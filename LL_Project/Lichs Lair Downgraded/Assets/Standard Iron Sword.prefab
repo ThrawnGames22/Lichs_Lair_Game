@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4965932347036936038}
   - component: {fileID: 4965932347036936039}
   - component: {fileID: -9095414077215462132}
+  - component: {fileID: 1877872794}
   m_Layer: 5
   m_Name: Standard Iron Sword
   m_TagString: InventoryItem
@@ -28,7 +29,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4965932347036936045}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -104,9 +105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInSlot: 0
-  canvasGroup: {fileID: 0}
+  canvasGroup: {fileID: 4965932347036936038}
   canvas: {fileID: 0}
-  ItemSlotRect: {fileID: 0}
+  ItemSlotRect: {fileID: 4965932347036936042}
   ItemType: Weapon
   SlotSpace: {x: 0, y: 0}
   image: {fileID: 0}
@@ -142,3 +143,18 @@ MonoBehaviour:
   IsPotion: 0
   IsTrinket: 0
   IsPet: 0
+--- !u!114 &1877872794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4965932347036936045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc200e84de3014429e2fab74634815e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HasMoved: 0
+  IsPotion: 0
+  IsWeapon: 1

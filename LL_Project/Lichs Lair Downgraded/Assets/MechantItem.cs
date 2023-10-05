@@ -133,20 +133,13 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
    public void OnPointerEnter(PointerEventData eventData)
     {
-        if(eventData.pointerDrag.tag == "InventorySlot")
-        {
-          IsHoveringOverSlot = true;
-          
-        }
+        
         
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(eventData.pointerDrag.tag == "InventorySlot")
-        {
-          IsHoveringOverSlot = false;
-        }
+        
 
         
 

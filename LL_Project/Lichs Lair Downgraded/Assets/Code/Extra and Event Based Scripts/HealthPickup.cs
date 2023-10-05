@@ -19,7 +19,7 @@ public class HealthPickup : MonoBehaviour
 
     public void PickupHealth()
     {
-      GameObject.Find("UI").GetComponent<SlotUIController>().HasHealthPotion = true;
+      //GameObject.Find("UI").GetComponent<SlotUIController>().HasHealthPotion = true;
       GameObject HPClone = Instantiate(HealthPotionInventoryItem);
       Destroy(this.gameObject);
     }
@@ -31,7 +31,7 @@ public class HealthPickup : MonoBehaviour
             if(GameObject.Find("UI").GetComponent<SlotUIController>().HasHealthPotion == false && GameObject.Find("UI").GetComponent<SlotUIController>().HasPotion == false)
             {
               PickupHealth();
-              GameObject.Find("UI").GetComponent<SlotUIController>().HasPotion = true;
+              
             }
         }
     }
