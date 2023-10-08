@@ -10,12 +10,20 @@ public class PetManager : MonoBehaviour
     public GameObject Chicken;
     public GameObject Rat;
 
+    public GameObject CurrentPet;
+
+    public Pet CurrentPetData;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         playerController = Player.GetComponent<PlayerController>();
-        if(playerController.IsFireMage)
+        Chicken.SetActive(false);
+        Rat.SetActive(false);
+        /*if(playerController.IsFireMage)
         {
             Chicken.SetActive(true);
             Rat.SetActive(false);
@@ -26,11 +34,44 @@ public class PetManager : MonoBehaviour
             Chicken.SetActive(false);
             Rat.SetActive(true);
         }
+        */
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       if(GameObject.Find("UI").GetComponent<SlotUIController>().HasPet == true)
+       {
+        GameObject.Find("UI").GetComponent<SlotUIController>().currentPet = CurrentPet.GetComponent<PetController>().pet;
+       }
+
+       if(GameObject.Find("UI").GetComponent<SlotUIController>().HasPet == false)
+       {
+         TurnOffPets();
+       }
+       
+       if(CurrentPet.name == "Chicken Pet")
+       {
+        Chicken.SetActive(true);
+        Rat.SetActive(false);
+       }
+
+       if(CurrentPet == Rat)
+       {
+        Chicken.SetActive(false);
+        Rat.SetActive(true);
+       }
+
+       if(CurrentPetData == null)
+       {
+        TurnOffPets();
+        CurrentPet = null;
+       }
+    }
+
+    public void TurnOffPets()
+    {
+        Chicken.SetActive(false);
+        Rat.SetActive(false);
     }
 }

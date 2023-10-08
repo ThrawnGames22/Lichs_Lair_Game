@@ -22,6 +22,10 @@ public class CharacterBasedInventory : MonoBehaviour
 
     public Weapon CurrentWeapon;
 
+    [Header("Pet")]
+
+    public Pet CurrentPet;
+
 
     
 
@@ -35,9 +39,9 @@ public class CharacterBasedInventory : MonoBehaviour
     public Image PotionSlot; 
     public Image PetSlot;
 
-    public GameObject CBSSlot1;
-    public GameObject CBSSlot2;
-    public GameObject UTSSlot; 
+    public Image CBSSlot1;
+    public Image CBSSlot2;
+    public Image UTSSlot; 
 
     public SlotUIController slotUIController;
 
@@ -47,15 +51,36 @@ public class CharacterBasedInventory : MonoBehaviour
 
     public InventoryItemDataBase inventoryItemDataBase;
 
+    public TrinketManager trinketManager;
+
     public PlayerController PC;
 
+    public PlayerMagic PM;
+
+    [Header("Empty Slot Icons")]
+
+    public Sprite EmptyItemSprite;
+
+    [Header("Drop Slots")]
+    //public GameObject WDrop;
+    public GameObject PDrop;
+    public GameObject TDrop;
+    public GameObject PTDrop;
+
+    public Transform DropPos;
+
+   
+   
 
 
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        //WDrop.SetActive(false);
+        PDrop.SetActive(false);
+        TDrop.SetActive(false);
+        PTDrop.SetActive(false);
     }
 
     // Update is called once per frame
@@ -72,13 +97,59 @@ public class CharacterBasedInventory : MonoBehaviour
         {
             //UpdateSlot();
             InventoryPanel.GetComponent<CanvasGroup>().alpha = 1;
-
+            
+            //WEAPON//
             WeaponSlot.sprite = PC.CurrentWeaponSlot.GetComponent<WeaponHandler>().weapon.WeaponIcon;
+
+            CBSSlot1.sprite = PM.Spell1.SpellIcon;
+
+            UTSSlot.sprite = PM.UtilitySpellData.SpellIcon;
+
+            CBSSlot2.sprite = PM.Spell2.SpellIcon;
+
+
+            //POTION//
+            if(slotUIController.HasPotion == true)
+            {
+              PotionSlot.sprite = slotUIController.CurrentPotion.ItemIcon;
+            }
+
+            if(slotUIController.HasPotion == false)
+            {
+              PotionSlot.sprite = EmptyItemSprite; 
+            }
+
+            //TRINKETS//
+
+            if(trinketManager.HasTrinket == true)
+            {
+              TrinketSlot.sprite = trinketManager.CurrentTrinket.TrinketIcon;
+            }
+
+            if(trinketManager.HasTrinket == false)
+            {
+              TrinketSlot.sprite = EmptyItemSprite; 
+            }
+
+            //PET//
+            if(slotUIController.HasPet == true)
+            {
+              PetSlot.sprite = slotUIController.currentPet.PetIcon;
+            }
+
+            if(slotUIController.HasPet == false)
+            {
+              PetSlot.sprite = EmptyItemSprite; 
+            }
+
             
         }
         if(!InvenOpen)
         {
             InventoryPanel.GetComponent<CanvasGroup>().alpha = 0;
+            PDrop.SetActive(false);
+        TDrop.SetActive(false);
+        PTDrop.SetActive(false);
         }
 
         
@@ -97,4 +168,74 @@ public class CharacterBasedInventory : MonoBehaviour
       }
     }
     */
+   
+
+   //WEAPON//
+    public void WDropButtonOn()
+    {
+     //WDrop.SetActive(true);
+    }
+
+    public void WDropButtonOff()
+    {
+      //WDrop.SetActive(false);
+    }
+   //POTION
+    public void PDropButtonOn()
+    {
+     PDrop.SetActive(true);
+    }
+
+    public void PDropButtonOff()
+    {
+     PDrop.SetActive(false);
+    }
+   //TRINKET//
+    public void TDropButtonOn()
+    {
+      TDrop.SetActive(true);
+    }
+  
+    public void TDropButtonOff()
+    {
+      TDrop.SetActive(false);
+    }
+   //PET//
+    public void PTDropButtonOn()
+    {
+     PTDrop.SetActive(true);
+    }
+
+    public void PTDropButtonOff()
+    {
+     PTDrop.SetActive(false);
+    }
+
+    public void DropPotion()
+    {
+      GameObject PotionClone = Instantiate(slotUIController.CurrentPotion.ItemGameObject, DropPos.position, DropPos.rotation);
+      slotUIController.CurrentPotion = null;
+      slotUIController.ResetPotionFlags();
+      slotUIController.HasPotion = false;
+      
+    }
+
+    public void DropTrinket()
+    {
+      
+    }
+
+    public void DropPet()
+    {
+      GameObject PetCageClone = Instantiate(slotUIController.currentPet.PetDropObject, DropPos.position, DropPos.rotation);
+      GameObject.Find("Pets").GetComponent<PetManager>().CurrentPetData = null;
+      slotUIController.currentPet = null;
+      slotUIController.HasPet = false;
+    }
+
+    
+
+
+
+    
 }

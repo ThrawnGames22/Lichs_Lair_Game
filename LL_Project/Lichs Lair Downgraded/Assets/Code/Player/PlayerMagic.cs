@@ -65,7 +65,7 @@ public class PlayerMagic : MonoBehaviour
     //UI
 
     public ManaBar manaBar;
-    public PlayerInventoryController inventoryController;
+    public CharacterBasedInventory inventoryController;
 
     public bool UIHasActivated = false;
 
@@ -154,7 +154,7 @@ public class PlayerMagic : MonoBehaviour
       //Allocate Slots
 
       Spell1 = Inventory.CurrentCombatSpell1;
-      Spell2 = Inventory.CurrentCombatSpell2;
+      //Spell2 = Inventory.CurrentCombatSpell2;
       UtilitySpellData = Inventory.CurrentUtilitySpell;
 
       //Allocate Spell Prefabs
@@ -212,8 +212,8 @@ public class PlayerMagic : MonoBehaviour
     if(PlayerController.Instance.HasActivatedMagic)
     {
       HasAquiredMagic = true;
-      //if(inventoryController.InventoryIsOpen == false)
-      //{
+      if(inventoryController.InvenOpen == false)
+      {
         if(MagicPaused == false)
         {
       
@@ -249,7 +249,7 @@ public class PlayerMagic : MonoBehaviour
          
            manaBar.slider.value = currentMana;
         }
-        //}
+        }
 
 
         

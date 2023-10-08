@@ -5,6 +5,8 @@ using UnityEngine;
 public class HealthPickup : MonoBehaviour
 {
   public GameObject HealthPotionInventoryItem;
+
+  public Item PotionItem;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +21,10 @@ public class HealthPickup : MonoBehaviour
 
     public void PickupHealth()
     {
-      //GameObject.Find("UI").GetComponent<SlotUIController>().HasHealthPotion = true;
-      GameObject HPClone = Instantiate(HealthPotionInventoryItem);
+      GameObject.Find("UI").GetComponent<SlotUIController>().HasHealthPotion = true;
+      GameObject.Find("UI").GetComponent<SlotUIController>().HasPotion = true;
+      GameObject.Find("UI").GetComponent<SlotUIController>().CurrentPotion = PotionItem;
+      //GameObject HPClone = Instantiate(HealthPotionInventoryItem);
       Destroy(this.gameObject);
     }
 

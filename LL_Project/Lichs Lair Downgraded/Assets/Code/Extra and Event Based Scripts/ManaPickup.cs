@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ManaPickup : MonoBehaviour
 {
+  public Item PotionItem;
   //public AudioClip PickupSound;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class ManaPickup : MonoBehaviour
     public void PickupMana()
     {
       GameObject.Find("UI").GetComponent<SlotUIController>().HasManaPotion = true;
+      GameObject.Find("UI").GetComponent<SlotUIController>().CurrentPotion = PotionItem;
       
            
       Destroy(this.gameObject);

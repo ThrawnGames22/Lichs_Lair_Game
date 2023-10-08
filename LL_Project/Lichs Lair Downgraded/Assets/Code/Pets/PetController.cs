@@ -11,6 +11,8 @@ public class PetController : MonoBehaviour
     public float speed;
     public float OriginalSpeed;
     public NavMeshAgent navMeshAgent; 
+
+    public Pet pet;
     // Start is called before the first frame update
     void Start()
     {

@@ -27,6 +27,8 @@ public class Pet : ScriptableObject
     public Sprite PetIcon;
     
     public GameObject PetGameObject;
+    public GameObject PetDropObject;
+
     public PetType petType;
     public GameObject PetEffects;
 }

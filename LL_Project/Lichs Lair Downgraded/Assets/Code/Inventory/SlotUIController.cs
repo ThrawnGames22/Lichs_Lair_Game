@@ -39,6 +39,10 @@ public class SlotUIController : MonoBehaviour
 
     public bool HasPotion;
 
+    
+
+    public Item CurrentPotion;
+
 
     public bool TogglePotionUI;
 
@@ -59,6 +63,16 @@ public class SlotUIController : MonoBehaviour
     public int Coins;
     public Animator CoinUIAnimator;
     public bool ActivateCoinUI;
+
+    [Header("TrinketUI")]
+    public bool HasTrinket;
+
+    public Trinket currentTrinket;
+
+    [Header("Pet UI")]
+    public bool HasPet;
+
+    public Pet currentPet;
     
 
     // Start is called before the first frame update
@@ -84,6 +98,23 @@ public class SlotUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+      if(HasPotion == false)
+      {
+         CurrentPotion = null;
+      }
+
+      currentPet = GameObject.Find("Pets").GetComponent<PetManager>().CurrentPetData;
+
+      if(currentPet != null)
+      {
+         HasPet = true;
+      }
+
+       if(currentPet == null)
+      {
+         HasPet = false;
+      }
 
       //Coins
       CoinUIAnimator.SetBool("ActivateCoinUI", ActivateCoinUI);
@@ -113,8 +144,8 @@ public class SlotUIController : MonoBehaviour
            EffectClone.transform.parent = Player.gameObject.transform;
            PH.IncreaseHealth(100);
            HasHealthPotion = false;
-           Destroy(GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
-           GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ItemInSlot = null;
+           //Destroy(GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+           //GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ItemInSlot = null;
            HasPotion = false;
          }
       }
@@ -133,8 +164,8 @@ public class SlotUIController : MonoBehaviour
            EffectClone.transform.parent = Player.gameObject.transform;
            PM.IncreaseMana(100);
            HasManaPotion = false;
-           Destroy(GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
-           GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ItemInSlot = null;
+           //Destroy(GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ChildObjects[0]);
+           //GameObject.Find("PotionSlotContainer").GetComponent<ItemSlotContainer>().ItemInSlot = null;
            HasPotion = false;
            
          }
@@ -254,6 +285,12 @@ public class SlotUIController : MonoBehaviour
       ActivateCoinUI = true;
       yield return new WaitForSeconds(5);
       ActivateCoinUI = false;
+    }
+
+    public void ResetPotionFlags()
+    {
+      HasHealthPotion = false;
+      HasManaPotion = false;
     }
 
     
