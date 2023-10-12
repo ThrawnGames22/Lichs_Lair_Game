@@ -23,7 +23,7 @@ public class PetManager : MonoBehaviour
         playerController = Player.GetComponent<PlayerController>();
         Chicken.SetActive(false);
         Rat.SetActive(false);
-        /*if(playerController.IsFireMage)
+        if(playerController.IsFireMage)
         {
             Chicken.SetActive(true);
             Rat.SetActive(false);
@@ -34,12 +34,13 @@ public class PetManager : MonoBehaviour
             Chicken.SetActive(false);
             Rat.SetActive(true);
         }
-        */
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
        if(GameObject.Find("UI").GetComponent<SlotUIController>().HasPet == true)
        {
         GameObject.Find("UI").GetComponent<SlotUIController>().currentPet = CurrentPet.GetComponent<PetController>().pet;
@@ -67,6 +68,7 @@ public class PetManager : MonoBehaviour
         TurnOffPets();
         CurrentPet = null;
        }
+       */
     }
 
     public void TurnOffPets()

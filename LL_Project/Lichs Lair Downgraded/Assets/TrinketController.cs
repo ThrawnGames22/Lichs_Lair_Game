@@ -6,10 +6,12 @@ public class TrinketController : MonoBehaviour
 {
     public Trinket trinketData;
     public GameObject Player;
+
+    //public Quaternion RotationOffset;
     // Start is called before the first frame update
     void Start()
     {
-        
+       //this.transform.rotation = RotationOffset; 
     }
 
     // Update is called once per frame
@@ -22,7 +24,10 @@ public class TrinketController : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            if(other.gameObject.GetComponent<TrinketManager>().HasTrinket == false)
+            {
             PickupTrinket();
+            }
         }
     }
 

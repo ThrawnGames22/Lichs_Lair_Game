@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "New Trinket", menuName = "Item/Create New Trinket")]
 public class Trinket : ScriptableObject
@@ -27,7 +28,7 @@ public class Trinket : ScriptableObject
        
        ManaCrystal,
 
-       DwarvenSteelCharm,
+       DragonScaleCharm,
 
        BottledLightning,
 
@@ -35,7 +36,7 @@ public class Trinket : ScriptableObject
 
        GiantKinGuantlets,
 
-       LionHeartCharm,
+       SorceryFocus,
 
        //LEGENDARY//
 
@@ -54,7 +55,16 @@ public class Trinket : ScriptableObject
         
     }
 
+    public enum TrinketRarity
+    {
+        Uncommon,
+        Rare,
+        Legendary
+    }
+
     public TrinketType trinketType;
+
+    public TrinketRarity trinketRarity;
     public int id;
     public string TrinketName;
     public int value;
@@ -63,6 +73,15 @@ public class Trinket : ScriptableObject
     public GameObject TrinketGameObject;
     
     public GameObject TriketEffects;
+
+    //TEXT FOR ITEM INFORMATION//
+
+    public string Description;
+
+    public string Rarity;
+
+    public string TrinketEffect;
+
 
     
 }

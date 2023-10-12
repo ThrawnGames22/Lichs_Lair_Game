@@ -57,6 +57,8 @@ public class CharacterBasedInventory : MonoBehaviour
 
     public PlayerMagic PM;
 
+    public TrinketManager TM;
+
     [Header("Empty Slot Icons")]
 
     public Sprite EmptyItemSprite;
@@ -222,6 +224,62 @@ public class CharacterBasedInventory : MonoBehaviour
 
     public void DropTrinket()
     {
+      if(TM.CurrentTrinket.name == "Calm Stone")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(29.724f, 0f, 0f));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Book Of Heroic Tales")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(0, 90, 30));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Charged Coin")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(45, 0, 0));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Dragon Scale Charm")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(45.872f, 0, 0.299f));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Enchanted HartsHorn")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(60, 0, 0));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Small Blue Gem")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(-37.04f, 0, 0));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Mana Cyrstal")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(60, 0, 0));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Iron Beetle")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(-42.511f, 0.883f, 8.532f));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
       
     }
 
