@@ -26,6 +26,7 @@ public class PotionAudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        slotUIController = GameObject.Find("UI").GetComponent<SlotUIController>();
         /*
         if(HasHealthPotion)
         {

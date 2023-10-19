@@ -25,8 +25,8 @@ public class PetManager : MonoBehaviour
         Rat.SetActive(false);
         if(playerController.IsFireMage)
         {
-            Chicken.SetActive(true);
-            Rat.SetActive(false);
+            Chicken.SetActive(false);
+            Rat.SetActive(true);
         }
 
         if(playerController.IsShadowWizard)

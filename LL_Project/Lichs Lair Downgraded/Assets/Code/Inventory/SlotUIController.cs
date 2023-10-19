@@ -104,17 +104,17 @@ public class SlotUIController : MonoBehaviour
          CurrentPotion = null;
       }
 
-      currentPet = GameObject.Find("Pets").GetComponent<PetManager>().CurrentPetData;
+      //currentPet = GameObject.Find("Pets").GetComponent<PetManager>().CurrentPetData;
 
-      if(currentPet != null)
-      {
-         HasPet = true;
-      }
+      //if(currentPet != null)
+      //{
+      //   HasPet = true;
+      //}
 
-       if(currentPet == null)
-      {
-         HasPet = false;
-      }
+      // if(currentPet == null)
+      //{
+       //  HasPet = false;
+      //}
 
       //Coins
       CoinUIAnimator.SetBool("ActivateCoinUI", ActivateCoinUI);

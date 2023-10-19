@@ -99,6 +99,13 @@ public bool HasPlayedSound;
           EC.IsHitFirst = true;
         }
 
+        if(collision.gameObject.tag == "LightningSpell")
+        {
+          TakeDamage(collision.gameObject.GetComponent<LightningSpell>().LightningSpellData.LightningDamage);
+          print("Ememy Just Took Damage");
+          EC.IsHitFirst = true;
+        }
+
         if(collision.gameObject.name == "FireGrenade")
         {
           //enemyCurrentHealth -= collision.gameObject.GetComponent<FireSpell>().fireDamage;
@@ -112,6 +119,12 @@ public bool HasPlayedSound;
 
     private void OnTriggerEnter(Collider other)
     {
+      if(other.gameObject.tag == "LightningSpell")
+        {
+          TakeDamage(other.gameObject.GetComponent<LightningSpell>().LightningSpellData.LightningDamage);
+          print("Ememy Just Took Damage");
+          EC.IsHitFirst = true;
+        }
         
         if(other.gameObject.tag == "DarkSpell")
         {

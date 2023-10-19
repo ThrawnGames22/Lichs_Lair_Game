@@ -28,6 +28,8 @@ public class Item : ScriptableObject
     public GameObject ItemGameObject;
     public ItemType itemType;
     public GameObject ItemEffects;
+
+    public int ItemStoreCost;
 }
 
 

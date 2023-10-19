@@ -13,7 +13,9 @@ public enum CombatType
     Posion,
     Drain,
     Slow,
-    Darken
+    Darken,
+
+    Lightning
 
 }
 [CreateAssetMenu(fileName = "New Combat Spell", menuName = "Combat Spells")]
@@ -45,11 +47,17 @@ public class CombatSpellScriptableObject : ScriptableObject
     public float SlowSpeed;
     public int DarkenAmount;
 
+    public int LightningDamage;
+
     public Sprite SpellIcon;
     public Sprite SpellCoolingIcon;
     public GameObject SpellObject;
 
+    public GameObject SpellDropObject;
+
     public AudioClip[] SpellAudioClips;
+
+    public int ItemStoreCost;
      
    
     
@@ -100,7 +108,11 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                CTS.SpellDropObject = (GameObject)EditorGUILayout.ObjectField("SpellDropObject", CTS.SpellDropObject, typeof(GameObject), false);
+
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
+
                 so.ApplyModifiedProperties();
 
                 break;
@@ -121,6 +133,9 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                CTS.SpellDropObject = (GameObject)EditorGUILayout.ObjectField("SpellDropObject", CTS.SpellDropObject, typeof(GameObject), false);
+                CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
+
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
 
@@ -142,6 +157,9 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                CTS.SpellDropObject = (GameObject)EditorGUILayout.ObjectField("SpellDropObject", CTS.SpellDropObject, typeof(GameObject), false);
+                CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
+
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
                 
@@ -164,6 +182,9 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                CTS.SpellDropObject = (GameObject)EditorGUILayout.ObjectField("SpellDropObject", CTS.SpellDropObject, typeof(GameObject), false);
+                CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
+
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
                 
@@ -186,6 +207,9 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                CTS.SpellDropObject = (GameObject)EditorGUILayout.ObjectField("SpellDropObject", CTS.SpellDropObject, typeof(GameObject), false);
+                CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
+
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
                 
@@ -208,6 +232,36 @@ public class CombatSpellEditor : Editor
                 CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
                 CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
                 CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                CTS.SpellDropObject = (GameObject)EditorGUILayout.ObjectField("SpellDropObject", CTS.SpellDropObject, typeof(GameObject), false);
+                CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
+
+                EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                so.ApplyModifiedProperties();
+                
+
+                break;
+            }
+
+             case CombatType.Lightning:
+            {
+                CTS.SpellName = EditorGUILayout.TextField("Spell Name", CTS.SpellName);
+                CTS.Description = EditorGUILayout.TextField("Description", CTS.Description);
+                CTS.DarkenAmount = EditorGUILayout.IntField("Darken Damage", CTS.DarkenAmount);
+                CTS.LightningDamage = EditorGUILayout.IntField("Lightning Damage", CTS.LightningDamage);
+
+                CTS.ManaCost = EditorGUILayout.IntField("Mana Cost", CTS.ManaCost);
+                CTS.Lifetime = EditorGUILayout.FloatField("Lifetime", CTS.Lifetime);
+                CTS.Speed = EditorGUILayout.FloatField("Speed", CTS.Speed);
+                CTS.SpellRadius = EditorGUILayout.FloatField("Spell Radius", CTS.SpellRadius);
+                CTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", CTS.CoolingDownTime);
+                //CTS.DelayBetweenCast = EditorGUILayout.FloatField("DelayBetweenCast", CTS.DelayBetweenCast);
+
+                CTS.SpellIcon = (Sprite)EditorGUILayout.ObjectField("Spell Icon", CTS.SpellIcon, typeof(Sprite), false);
+                CTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", CTS.SpellCoolingIcon, typeof(Sprite), false);
+                CTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", CTS.SpellObject, typeof(GameObject), false);
+                CTS.SpellDropObject = (GameObject)EditorGUILayout.ObjectField("SpellDropObject", CTS.SpellDropObject, typeof(GameObject), false);
+                CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
+
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
                 

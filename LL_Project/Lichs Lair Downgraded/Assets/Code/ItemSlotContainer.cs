@@ -76,8 +76,8 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
             {
               print("Buy");
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
-              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsWeaponPurchase = true;
-              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
+              //Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsWeaponPurchase = true;
+              //Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
               //eventData.pointerDrag.GetComponent<RectTransform>().anchorMax = Vector2.zero;
               //eventData.pointerDrag.GetComponent<RectTransform>().anchorMin = Vector2.zero;
 
@@ -111,7 +111,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
               print("Buy");
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsTrinketPurchase = true;
-              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
+              //Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
 
               eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(2.462006f, 2.052948f);
               
@@ -142,7 +142,7 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
               print("Buy");
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsPotionPurchase = true;
-              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
+              //Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
               
 
               eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(2.462006f, 2.052948f);
@@ -172,8 +172,8 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
             {
               print("Buy");
               Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().OpenPanel();
-              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsPetPurchase = true;
-              Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
+              //Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().IsPetPurchase = true;
+             // Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase = eventData.pointerDrag.gameObject;
 
               eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(2.462006f, 2.052948f);
               
@@ -258,8 +258,8 @@ public class ItemSlotContainer : MonoBehaviour, IDropHandler, IPointerEnterHandl
                 {
                   
                 }
-                GameObject ItemClone = Instantiate(Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase.GetComponent<MechantItem>().DraggableItemPrefab);
-                ItemInSlot = ItemClone;
+                //GameObject ItemClone = Instantiate(Merchant.ConfirmPurchasePanel.GetComponent<PurchasePanel>().ItemToPurchase.GetComponent<MechantItem>().DraggableItemPrefab);
+                //ItemInSlot = ItemClone;
                 Destroy(ItemReference);
                 ItemReference = null;
                 print("ItemDeleted");

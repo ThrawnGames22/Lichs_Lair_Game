@@ -16,6 +16,8 @@ public class SwordController : MonoBehaviour
     public float MeleeWeaponDelay;
     public bool isInCooldown;
 
+    public ParticleSystem SwordParticleSystem;
+
     
     
 
@@ -39,6 +41,7 @@ public class SwordController : MonoBehaviour
         SwordControllerinstance = this;
         CurrentDamage = NormalCurrentDamage;
         CanUse = true;
+        SwordParticleSystem.Stop();
         
     }
 
@@ -131,6 +134,18 @@ public class SwordController : MonoBehaviour
       CurrentDamage = NormalCurrentDamage;
     }
 
+    public void ActivateParticles()
+    {
+      SwordParticleSystem.Play();
+
+    }
+
+    public void DeactivateParticles()
+    {
+      SwordParticleSystem.Stop();
+      
+    }
+
     
 //Sword Attack
     public void SwordAttack()
@@ -141,6 +156,7 @@ public class SwordController : MonoBehaviour
             return;
         }
         playerController.WeaponAnimator.SetTrigger("Attack");
+        
         AttackBlocked = true;
         StartCoroutine(DelayAttack());
         

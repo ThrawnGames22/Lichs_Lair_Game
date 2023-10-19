@@ -50,6 +50,8 @@ MonoBehaviour:
   playerController: {fileID: 0}
   Chicken: {fileID: 6434952599193803570}
   Rat: {fileID: 1920488959259219182}
+  CurrentPet: {fileID: 0}
+  CurrentPetData: {fileID: 0}
 --- !u!1001 &5989955043803148920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,6 +59,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6434952600240834856}
     m_Modifications:
+    - target: {fileID: 4660095038147252883, guid: 6d646380fd32c3f48aff4ac4b1e7937a, type: 3}
+      propertyPath: m_Intensity
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4813708379416886316, guid: 6d646380fd32c3f48aff4ac4b1e7937a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -103,11 +109,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5298039559765272214, guid: 6d646380fd32c3f48aff4ac4b1e7937a, type: 3}
       propertyPath: m_Name
-      value: Rat
+      value: Marcy The Cat
       objectReference: {fileID: 0}
     - target: {fileID: 5298039559765272214, guid: 6d646380fd32c3f48aff4ac4b1e7937a, type: 3}
       propertyPath: m_TagString
       value: Pet
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603783270175427195, guid: 6d646380fd32c3f48aff4ac4b1e7937a, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 6361781295741241936, guid: 6d646380fd32c3f48aff4ac4b1e7937a, type: 3}
       propertyPath: speed
@@ -141,6 +151,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -180
       objectReference: {fileID: 0}
+    - target: {fileID: 7772926192619143888, guid: 6d646380fd32c3f48aff4ac4b1e7937a, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.23
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d646380fd32c3f48aff4ac4b1e7937a, type: 3}
 --- !u!1 &1920488959259219182 stripped
@@ -168,6 +182,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4545271476876458662, guid: 03783af1d2bcc4a4096cb0018a411032, type: 3}
+      propertyPath: pet
+      value: 
+      objectReference: {fileID: 11400000, guid: e0378f69d864fc545bbae3bd79d3e9a9, type: 2}
     - target: {fileID: 4545271476876458662, guid: 03783af1d2bcc4a4096cb0018a411032, type: 3}
       propertyPath: speed
       value: 3

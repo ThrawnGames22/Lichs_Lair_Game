@@ -154,7 +154,7 @@ public class PlayerMagic : MonoBehaviour
       //Allocate Slots
 
       Spell1 = Inventory.CurrentCombatSpell1;
-      //Spell2 = Inventory.CurrentCombatSpell2;
+      Spell2 = Inventory.CurrentCombatSpell2;
       UtilitySpellData = Inventory.CurrentUtilitySpell;
 
       //Allocate Spell Prefabs

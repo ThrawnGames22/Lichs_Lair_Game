@@ -88,6 +88,7 @@ public class CharacterBasedInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         if(Input.GetKeyDown(KeyCode.I))
         {
             InvenOpen = !InvenOpen;
@@ -153,6 +154,8 @@ public class CharacterBasedInventory : MonoBehaviour
         TDrop.SetActive(false);
         PTDrop.SetActive(false);
         }
+
+        TrinketSlot.gameObject.GetComponent<Image>().preserveAspect = true;
 
         
     }
@@ -231,7 +234,7 @@ public class CharacterBasedInventory : MonoBehaviour
       TM.HasTrinket = false;
       }
 
-      if(TM.CurrentTrinket.name == "Book Of Heroic Tales")
+      if(TM.CurrentTrinket.name == "Wizards Journal")
       {
       GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(0, 90, 30));
       TM.CurrentTrinket = null;
@@ -276,6 +279,76 @@ public class CharacterBasedInventory : MonoBehaviour
       if(TM.CurrentTrinket.name == "Iron Beetle")
       {
       GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(-42.511f, 0.883f, 8.532f));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Sorcery Focus")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(51.51f, 0, 0));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Bottled Lightning")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(90, 0, 0));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Heart Ring")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(0, 90, 45));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Giant Kin Guantlets")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(60, 0, 0));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Vyngrids Wardmail")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(60, 0, 180));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Cultist Concoction")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(0, 0, 0));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Tome Of Forbidden Magic")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(45, 0, 0));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Devils Mark")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(45, 0, 0));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Black Gem")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(0, 0, 0));
+      TM.CurrentTrinket = null;
+      TM.HasTrinket = false;
+      }
+
+      if(TM.CurrentTrinket.name == "Lycans Ring")
+      {
+      GameObject TrinketClone = Instantiate(TM.CurrentTrinket.TrinketGameObject, DropPos.position, Quaternion.Euler(0, 0, 0));
       TM.CurrentTrinket = null;
       TM.HasTrinket = false;
       }

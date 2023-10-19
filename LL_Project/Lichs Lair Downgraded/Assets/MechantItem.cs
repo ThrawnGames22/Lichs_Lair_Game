@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Animations;
 
-public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class MechantItem : MonoBehaviour
 {
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
@@ -25,7 +25,9 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public Image image;
     public GameObject thisObject;
 
-    public GameObject DraggableItemPrefab;
+    public PurchasePanel purchasePanel;
+
+    
     
 
 
@@ -38,139 +40,52 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public bool IsUTS;
 
 
-    public Weapon weapon;
+    
     public Item potion;
-    public Pet pet;
-    public CombatSpellScriptableObject CombatSpell1;
+    public Trinket trinket;
+    
     public CombatSpellScriptableObject CombatSpell2;
-    public UtilitySpellScriptableObject UtilitySpell;
+    
 
     public bool heldDown;
 
     public bool IsHoveringOverSlot;
 
+    public Sprite ItemSprite;
 
 
-    public void OnPointerDown(PointerEventData eventData)
-   {
-     heldDown = true;
-   }
-
-   public void OnPointerUp(PointerEventData eventData)
-   {
-     heldDown = false;
-   }
-
-   public void OnBeginDrag(PointerEventData eventData)
-   {
-     canvasGroup.blocksRaycasts = false;
-      
-      if(IsWeapon)
-     {
-      eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("MerchantGrid").transform;
-      //ItemSlotRect.GetComponent<ItemSlotContainer>().ItemInSlot = null;
-     }
-      if(IsTrinket)
-     {
-      eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("MerchantGrid").transform;
-      //ItemSlotRect.GetComponent<ItemSlotContainer>().ItemInSlot = null;
-     }
-      if(IsPotion)
-     {
-      eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("MerchantGrid").transform;
-      //ItemSlotRect.GetComponent<ItemSlotContainer>().ItemInSlot = null;
-     }
-      if(IsPet)
-     {
-      eventData.pointerDrag.gameObject.transform.parent = GameObject.Find("MerchantGrid").transform;
-      //ItemSlotRect.GetComponent<ItemSlotContainer>().ItemInSlot = null;
-     }
-     
-     
-     
-     
-   }
-
-   public void OnEndDrag(PointerEventData eventData)
-   {
-     canvasGroup.blocksRaycasts = true;
-     this.rectTransform.anchoredPosition = ItemSlotRect.anchoredPosition;
-     foreach(GameObject a in slotContainers)
-      {
-        a.GetComponent<ItemSlotContainer>().ItemIsHovering = false;
-      }
-
-      if(eventData.pointerDrag.tag == "InventorySlot")
-     {
-       Debug.Log("EquipItem");
-     }
-
-     foreach(GameObject PlayerItem in PlayerInventoryItems)
-     {
-      PlayerItem.GetComponent<CanvasGroup>().blocksRaycasts = true;
-     }
-     
-
-     
-     
-   }
-
-   public void OnDrag(PointerEventData eventData)
-   {
-     rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-     transform.position = Input.mousePosition;
-
-     foreach(GameObject PlayerItem in PlayerInventoryItems)
-     {
-      PlayerItem.GetComponent<CanvasGroup>().blocksRaycasts = false;
-     }
-   }
-
-   public void OnDrop(PointerEventData eventData)
-   {
-     
-   }
-
-   public void OnPointerEnter(PointerEventData eventData)
-    {
-        
-        
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        
-
-        
-
-        
-    }
+   
+    
     
     // Start is called before the first frame update
     void Start()
     {
+
       ItemSlotRect = transform.parent.GetComponent<RectTransform>();
       
       rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         //this.transform.parent = GameObject.Find("UI").transform;
         image = GetComponent<Image>();
-        if(IsWeapon)
+        if(IsCBS2)
         {
-         this.gameObject.name = weapon.WeaponName;
-         image.sprite = weapon.WeaponIcon;
+         this.gameObject.name = CombatSpell2.SpellName;
+         image.sprite = CombatSpell2.SpellIcon;
+         ItemSprite = CombatSpell2.SpellIcon;
         }
 
         if(IsPotion)
         {
          this.gameObject.name = potion.ItemName;
          image.sprite = potion.ItemIcon;
+         ItemSprite = potion.ItemIcon;
         }
 
-        if(IsPet)
+        if(IsTrinket)
         {
-         this.gameObject.name = pet.PetName;
-         image.sprite = pet.PetIcon;
+         this.gameObject.name = trinket.TrinketName;
+         image.sprite = trinket.TrinketIcon;
+         ItemSprite = trinket.TrinketIcon;
         }
       
         
@@ -183,9 +98,47 @@ public class MechantItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
        thisObject = this.gameObject;
        PlayerInventoryCanvas = GameObject.Find("UI").GetComponent<Canvas>();
        canvas = GameObject.Find("Merchant Inventory").GetComponent<Canvas>();
-       slotContainers = GameObject.FindGameObjectsWithTag("InventorySlots");
-       PlayerInventoryItems = GameObject.FindGameObjectsWithTag("InventoryItem");
+       purchasePanel = GameObject.Find("Confirm Purchase Panel").GetComponent<PurchasePanel>();
+       
       
+      
+    }
+
+    public void CombatSpellPurchase()
+    {
+      purchasePanel.IsCombatSpell2Purchase = true;
+      purchasePanel.IsPotionPurchase = false;
+      purchasePanel.IsTrinketPurchase = false;
+      purchasePanel.CBSItemToPurchase = CombatSpell2;
+      purchasePanel.MerchantItemPrefab = this.gameObject;
+      purchasePanel.OpenPanel();
+    }
+
+    public void PotionPurchase()
+    {
+      purchasePanel.IsCombatSpell2Purchase = false;
+      purchasePanel.IsPotionPurchase = true;
+      purchasePanel.IsTrinketPurchase = false;
+      purchasePanel.PTItemToPurchase = potion;
+      purchasePanel.MerchantItemPrefab = this.gameObject;
+
+
+      purchasePanel.OpenPanel();
+
+    }
+
+    public void TrinketPurchase()
+    {
+      purchasePanel.IsCombatSpell2Purchase = false;
+      purchasePanel.IsPotionPurchase = false;
+      purchasePanel.IsTrinketPurchase = true;
+      purchasePanel.TKItemToPurchase = trinket;
+      purchasePanel.MerchantItemPrefab = this.gameObject;
+
+      
+
+      purchasePanel.OpenPanel();
+
       
     }
 

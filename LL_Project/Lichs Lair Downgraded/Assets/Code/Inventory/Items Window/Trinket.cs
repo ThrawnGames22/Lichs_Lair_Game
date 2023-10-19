@@ -22,7 +22,7 @@ public class Trinket : ScriptableObject
 
        EnchantedHartshorn,
 
-       BookOfHeroicTales,
+       WizardsJournal,
 
        //RARE//
        
@@ -40,11 +40,11 @@ public class Trinket : ScriptableObject
 
        //LEGENDARY//
 
-       DarkCrystal,
+       BlackGem,
 
        VyngridsWardmail,
 
-       BookOfForbiddenMagic,
+       TomeOfForbiddenMagic,
 
        DevilsMark,
 
@@ -72,7 +72,7 @@ public class Trinket : ScriptableObject
     
     public GameObject TrinketGameObject;
     
-    public GameObject TriketEffects;
+    public TrinketEffects trinketEffects;
 
     //TEXT FOR ITEM INFORMATION//
 
@@ -81,6 +81,8 @@ public class Trinket : ScriptableObject
     public string Rarity;
 
     public string TrinketEffect;
+
+    public int ItemStoreCost;
 
 
     
