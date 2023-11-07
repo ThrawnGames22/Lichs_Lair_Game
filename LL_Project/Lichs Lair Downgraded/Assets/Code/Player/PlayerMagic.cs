@@ -71,6 +71,15 @@ public class PlayerMagic : MonoBehaviour
 
     public bool StartAssigningValuesBasedOnClass = false;
 
+    public int ManaToRegen;
+
+    public float RegenTime;
+
+    public bool hasEnoughManaC1;
+    public bool hasEnoughManaC2;
+    public bool hasEnoughManaU;
+
+
     [Header("Inventory")]
     public CharacterBasedInventory Inventory;
 
@@ -84,6 +93,7 @@ public class PlayerMagic : MonoBehaviour
 
 
 
+
     private void Awake()
     {
       Instance = this;
@@ -92,6 +102,9 @@ public class PlayerMagic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      ManaToRegen = 1;
+        RegenTime = 1;
+        StartCoroutine(RegenMana());
       // Find and set values
         manaBar = GameObject.Find("Mana Slider").GetComponent<ManaBar>();
         GameManager = GameObject.Find("GameManager(Clone)");
@@ -99,7 +112,7 @@ public class PlayerMagic : MonoBehaviour
         UI = GameObject.Find("UI");
         slotUIController = UI.GetComponent<SlotUIController>();
         manaBar.slider.maxValue = maxMana;
-         UtilityCoolDown = UtilitySpell.spellToCast.CoolingDownTime * 2;
+         UtilityCoolDown = UtilitySpell.spellToCast.CoolingDownTime;
          if(playerController.IsShadowWizard)
          {
             currentMana = 125;
@@ -133,6 +146,8 @@ public class PlayerMagic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         UtilityCoolDown = UtilitySpell.spellToCast.CoolingDownTime;
+
       //DEBUG MAGIC SOUND
       /*
       if(Input.GetKeyDown(KeyCode.L))
@@ -202,7 +217,12 @@ public class PlayerMagic : MonoBehaviour
         {
            //CombatSpellToCast = CombatSpellSlot2;
         }
-        bool hasEnoughMana = currentMana - CombatSpellSlot1.spellToCast.ManaCost >= 0f || currentMana - UtilitySpell.spellToCast.ManaCost >= 0f || currentMana - CombatSpellSlot2.spellToCast.ManaCost >= 0f;
+        hasEnoughManaC1 = currentMana - CombatSpellSlot1.spellToCast.ManaCost >= 0f; 
+        hasEnoughManaC2 = currentMana - CombatSpellSlot2.spellToCast.ManaCost >= 0f; 
+        //hasEnoughManaU = currentMana - CombatSpellSlot1.spellToCast.ManaCost >= 0f; 
+
+        //currentMana - UtilitySpell.spellToCast.ManaCost >= 0f; 
+        //currentMana - CombatSpellSlot2.spellToCast.ManaCost >= 0f;
        
         //ManaText.text = currentMana.ToString();
 
@@ -217,7 +237,7 @@ public class PlayerMagic : MonoBehaviour
         if(MagicPaused == false)
         {
       
-        if(!castingCombatMagic1 && Input.GetKeyDown(KeyCode.Mouse0) && hasEnoughMana || !castingCombatMagic1 && Input.GetKeyDown(KeyCode.JoystickButton3) && hasEnoughMana )
+        if(!castingCombatMagic1 && Input.GetKeyDown(KeyCode.Mouse0) && hasEnoughManaC1 || !castingCombatMagic1 && Input.GetKeyDown(KeyCode.JoystickButton3) && hasEnoughManaC1!)
         {
            castingCombatMagic1 = true;
            DecreaseMana(CombatSpellSlot1.spellToCast.ManaCost);
@@ -227,7 +247,7 @@ public class PlayerMagic : MonoBehaviour
            PlayCombatMagicSound1();
            manaBar.slider.value = currentMana;
         }
-        if(!castingCombatMagic2 && Input.GetKeyDown(KeyCode.Mouse1) && hasEnoughMana)
+        if(!castingCombatMagic2 && Input.GetKeyDown(KeyCode.Mouse1) && hasEnoughManaC2)
         {
            castingCombatMagic2 = true;
            DecreaseMana(CombatSpellSlot2.spellToCast.ManaCost);
@@ -412,5 +432,12 @@ public class PlayerMagic : MonoBehaviour
     {
       MagicSpellSource.clip = SpellClipsSlot3[Random.Range(0, SpellClipsSlot3.Length)];
       MagicSpellSource.Play();
+    }
+
+    public IEnumerator RegenMana()
+    {
+        yield return new WaitForSeconds(RegenTime);
+        currentMana += ManaToRegen;
+        StartCoroutine(RegenMana());
     }
 }

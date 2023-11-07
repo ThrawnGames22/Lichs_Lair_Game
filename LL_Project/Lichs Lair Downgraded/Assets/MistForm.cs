@@ -44,7 +44,7 @@ public class MistForm : MonoBehaviour
     public Material SPlayerElement7;
     public Material SPlayerElement8;
 
-     [Header("Shadow Wizard Materials")]
+    [Header("Shadow Wizard Materials")]
 
     public Material RPlayerElement0;
     public Material RPlayerElement1;
@@ -55,6 +55,20 @@ public class MistForm : MonoBehaviour
     public Material RPlayerElement6;
     public Material RPlayerElement7;
     public Material RPlayerElement8;
+
+    [Header("Paladin Materials")]
+
+    public Material PPlayerElement0;
+    public Material PPlayerElement1;
+    public Material PPlayerElement2;
+    public Material PPlayerElement3;
+    public Material PPlayerElement4;
+    public Material PPlayerElement5;
+    public Material PPlayerElement6;
+    public Material PPlayerElement7;
+    public Material PPlayerElement8;
+    public Material PPlayerElement9;
+
     
 
     [Header("Mist Material")]
@@ -94,6 +108,13 @@ public class MistForm : MonoBehaviour
             IsShadowWizard = false;
             IsFireMage = true;
             IsPaladin = false;
+        }
+
+        if(Player.GetComponent<PlayerController>().IsPaladin)
+        {
+            IsShadowWizard = false;
+            IsFireMage = false;
+            IsPaladin = true;
         }
 
         Enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
@@ -195,6 +216,22 @@ public class MistForm : MonoBehaviour
         mats[6] = RPlayerElement6;
         mats[7] = RPlayerElement7;
         mats[8] = RPlayerElement8;
+        }
+
+        if(IsPaladin)
+        {
+
+        mats[0] = PPlayerElement0;
+        mats[1] = PPlayerElement1;
+        mats[2] = PPlayerElement2;
+        mats[3] = RPlayerElement3;
+        mats[4] = PPlayerElement4;
+        mats[5] = RPlayerElement5;
+        mats[6] = PPlayerElement6;
+        mats[7] = PPlayerElement7;
+        mats[8] = PPlayerElement8;
+        mats[9] = PPlayerElement9;
+
         }
         
 

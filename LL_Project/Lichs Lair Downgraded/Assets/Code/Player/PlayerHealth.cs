@@ -26,6 +26,12 @@ public class PlayerHealth : MonoBehaviour
     public GameObject DamageScreenObject;
     public bool IsDead;
 
+    public bool Regen;
+
+    public float HealthToRegen;
+
+    public float RegenTime;
+
     //Death Screen Attributes
     
     //Potion Effects
@@ -50,8 +56,9 @@ public class PlayerHealth : MonoBehaviour
         
         
         //DeathScreen.SetActive(false);
-        
-        
+        HealthToRegen = 0.5f;
+        RegenTime = 1;
+        StartCoroutine(RegenHealth());
         
 
     }
@@ -203,6 +210,13 @@ public class PlayerHealth : MonoBehaviour
     public void StopFlag()
     {
         StopCoroutine(ResetPlayFlag());
+    }
+
+    public IEnumerator RegenHealth()
+    {
+        yield return new WaitForSeconds(RegenTime);
+        currentHealth += HealthToRegen;
+        StartCoroutine(RegenHealth());
     }
 
     

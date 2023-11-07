@@ -34,6 +34,8 @@ public class UtilitySpellScriptableObject : ScriptableObject
     public float SpellRadius = 0.5f;
 
     public float CoolingDownTime;
+    public float NormalCoolingDownTime;
+
 
     public Sprite SpellIcon;
     public Sprite SpellCoolingIcon;
@@ -103,6 +105,8 @@ public class UtilitySpellEditor : Editor
                 UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
                 UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
                 UTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", UTS.CoolingDownTime);
+                UTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", UTS.NormalCoolingDownTime);
+
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
 
@@ -123,6 +127,8 @@ public class UtilitySpellEditor : Editor
                 UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
                 UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
                 UTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", UTS.CoolingDownTime);
+                UTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", UTS.NormalCoolingDownTime);
+
 
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
@@ -144,6 +150,8 @@ public class UtilitySpellEditor : Editor
                 UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
                 UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
                 UTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", UTS.CoolingDownTime);
+                UTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", UTS.NormalCoolingDownTime);
+
 
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
@@ -165,6 +173,8 @@ public class UtilitySpellEditor : Editor
                 UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
                 UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
                 UTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", UTS.CoolingDownTime);
+                UTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", UTS.NormalCoolingDownTime);
+
 
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();
@@ -186,6 +196,8 @@ public class UtilitySpellEditor : Editor
                 UTS.SpellCoolingIcon = (Sprite)EditorGUILayout.ObjectField("Spell Cooling Icon", UTS.SpellCoolingIcon, typeof(Sprite), false);
                 UTS.SpellObject = (GameObject)EditorGUILayout.ObjectField("Spell Object", UTS.SpellObject, typeof(GameObject), false);
                 UTS.CoolingDownTime = EditorGUILayout.FloatField("Cooldown Time", UTS.CoolingDownTime);
+                UTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", UTS.NormalCoolingDownTime);
+
 
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 so.ApplyModifiedProperties();

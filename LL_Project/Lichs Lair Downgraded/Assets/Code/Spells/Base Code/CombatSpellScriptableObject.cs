@@ -35,6 +35,8 @@ public class CombatSpellScriptableObject : ScriptableObject
     public float Lifetime = 2f;
 
     public float CoolingDownTime;
+    public float NormalCoolingDownTime;
+
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
     //public float DelayBetweenCast;
@@ -112,6 +114,8 @@ public class CombatSpellEditor : Editor
 
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
                 CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
+                CTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", CTS.NormalCoolingDownTime);
+
 
                 so.ApplyModifiedProperties();
 
@@ -137,6 +141,8 @@ public class CombatSpellEditor : Editor
                 CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
 
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                CTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", CTS.NormalCoolingDownTime);
+
                 so.ApplyModifiedProperties();
 
                 break;
@@ -161,6 +167,8 @@ public class CombatSpellEditor : Editor
                 CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
 
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                CTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", CTS.NormalCoolingDownTime);
+
                 so.ApplyModifiedProperties();
                 
 
@@ -186,6 +194,8 @@ public class CombatSpellEditor : Editor
                 CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
 
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                CTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", CTS.NormalCoolingDownTime);
+
                 so.ApplyModifiedProperties();
                 
 
@@ -211,6 +221,8 @@ public class CombatSpellEditor : Editor
                 CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
 
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                CTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", CTS.NormalCoolingDownTime);
+
                 so.ApplyModifiedProperties();
                 
 
@@ -236,6 +248,8 @@ public class CombatSpellEditor : Editor
                 CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
 
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                CTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", CTS.NormalCoolingDownTime);
+
                 so.ApplyModifiedProperties();
                 
 
@@ -263,6 +277,8 @@ public class CombatSpellEditor : Editor
                 CTS.ItemStoreCost = EditorGUILayout.IntField("Item Store Cost", CTS.ItemStoreCost);
 
                 EditorGUILayout.PropertyField(SpellAudioProperty, true);
+                CTS.NormalCoolingDownTime = EditorGUILayout.FloatField("Normal Cooldown Time", CTS.NormalCoolingDownTime);
+
                 so.ApplyModifiedProperties();
                 
 
