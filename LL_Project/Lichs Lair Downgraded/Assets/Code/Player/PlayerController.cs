@@ -104,6 +104,8 @@ public class PlayerController : MonoBehaviour
 
     public float CameraLookSpeed = 5f;
 
+    public bool IsLocked;
+
     [Header("Events")]
     public bool HasUnlockedWeaponChest;
 
@@ -190,7 +192,7 @@ public class PlayerController : MonoBehaviour
         //MouseLook Values
       
 
-         Vector3 mousePosFar = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.farClipPlane);
+        Vector3 mousePosFar = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.farClipPlane);
         Vector3 mousePosNear = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane);
 
         Vector3 mousePosF = Camera.main.ScreenToWorldPoint(mousePosFar);
@@ -347,7 +349,10 @@ public class PlayerController : MonoBehaviour
 //FIXED UPDATE 
     void FixedUpdate()
     {
+        if(IsLocked == false)
+        {
         Aim();
+        }
         //Find Enemies 
         if(Enemies.Length != null)
         {

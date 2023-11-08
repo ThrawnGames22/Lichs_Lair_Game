@@ -11,15 +11,19 @@ public class LightningWrath : MonoBehaviour
     public float LifeTime;
 
     public Transform LightningWrathLocator;
+
+    public PlayerController PC;
     // Start is called before the first frame update
     void Start()
     {
-        
+        PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        StartCoroutine(LockPlayerRotation());
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         LightningWrathLocator = GameObject.Find("LightningWrathLocator").transform;
         this.gameObject.transform.position = LightningWrathLocator.transform.position;
         this.gameObject.transform.rotation = LightningWrathLocator.transform.rotation;
@@ -34,5 +38,16 @@ public class LightningWrath : MonoBehaviour
         {
             other.gameObject.GetComponent<EnemyHealth>().enemyCurrentHealth -= Damage;
         }
+    }
+
+    public IEnumerator LockPlayerRotation()
+    {
+        PC.IsLocked = true;
+        PC.speed = 0;
+        yield return new WaitForSeconds(1.2f);
+        PC.speed = 5;
+
+        PC.IsLocked = false;
+
     }
 }

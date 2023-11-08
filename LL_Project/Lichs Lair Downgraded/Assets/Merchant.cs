@@ -27,8 +27,28 @@ public class Merchant : MonoBehaviour
     public GameObject StoreItem7;
     public GameObject StoreItem8;
 
-    public GameObject[] StoreItemsPrefabs;
-    public GameObject[] P2StoreItemsPrefabs;
+    public GameObject[] StoreItemsPrefabsCBS;
+    public GameObject[] StoreItemsPrefabsCBS2;
+
+    public GameObject[] StoreItemsPrefabsPotion;
+    public GameObject[] StoreItemsPrefabsPotion2;
+
+    public GameObject[] StoreItemsPrefabsTrinkets;
+    public GameObject[] StoreItemsPrefabsTrinkets2;
+
+
+
+    public GameObject[] P2StoreItemsPrefabsCBS;
+    public GameObject[] P2StoreItemsPrefabsCBS2;
+
+    public GameObject[] P2StoreItemsPrefabsPotion;
+    public GameObject[] P2StoreItemsPrefabsPotion2;
+
+
+    public GameObject[] P2StoreItemsPrefabsTrinkets;
+    public GameObject[] P2StoreItemsPrefabsTrinkets2;
+
+
 
 
     public GameObject Slot1;
@@ -59,14 +79,13 @@ public class Merchant : MonoBehaviour
         MerchantPanel.GetComponent<CanvasGroup>().alpha = 0;
         MerchantPanel.GetComponent<CanvasGroup>().interactable = false;
 
-        StoreItem1 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem2 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem3 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem4 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem5 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem6 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem7 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem8 = StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
+        StoreItem1 = StoreItemsPrefabsCBS[Random.Range(0, StoreItemsPrefabsCBS.Length)];
+        StoreItem2 = StoreItemsPrefabsCBS2[Random.Range(0, StoreItemsPrefabsCBS2.Length)];
+        StoreItem3 = StoreItemsPrefabsPotion[Random.Range(0, StoreItemsPrefabsPotion.Length)];
+        StoreItem4 = StoreItemsPrefabsPotion2[Random.Range(0, StoreItemsPrefabsPotion2.Length)];
+        StoreItem5 = StoreItemsPrefabsTrinkets[Random.Range(0, StoreItemsPrefabsTrinkets.Length)];
+        StoreItem6 = StoreItemsPrefabsTrinkets2[Random.Range(0, StoreItemsPrefabsTrinkets2.Length)];
+        
 
         ConfirmPurchasePanel.GetComponent<PurchasePanel>().Panel.GetComponent<CanvasGroup>().alpha = 0;
         ConfirmPurchasePanel.GetComponent<PurchasePanel>().Panel.GetComponent<CanvasGroup>().interactable = false;
@@ -105,15 +124,15 @@ public class Merchant : MonoBehaviour
         StoreItemClone6.GetComponent<RectTransform>().anchoredPosition = Slot6.GetComponent<RectTransform>().anchoredPosition;
         StoreItemClone6.GetComponent<RectTransform>().anchoredPosition = new Vector2(50, -50);
 
-        GameObject StoreItemClone7 = Instantiate(StoreItem7);
-        StoreItemClone7.transform.parent = Slot7.transform;
-        StoreItemClone7.GetComponent<RectTransform>().anchoredPosition = Slot7.GetComponent<RectTransform>().anchoredPosition;
-        StoreItemClone7.GetComponent<RectTransform>().anchoredPosition = new Vector2(50, -50);
+        //GameObject StoreItemClone7 = Instantiate(StoreItem7);
+        //StoreItemClone7.transform.parent = Slot7.transform;
+        //StoreItemClone7.GetComponent<RectTransform>().anchoredPosition = Slot7.GetComponent<RectTransform>().anchoredPosition;
+        //StoreItemClone7.GetComponent<RectTransform>().anchoredPosition = new Vector2(50, -50);
 
-        GameObject StoreItemClone8 = Instantiate(StoreItem8);
-        StoreItemClone8.transform.parent = Slot8.transform;
-        StoreItemClone8.GetComponent<RectTransform>().anchoredPosition = Slot8.GetComponent<RectTransform>().anchoredPosition;
-        StoreItemClone8.GetComponent<RectTransform>().anchoredPosition = new Vector2(50, -50);
+        //GameObject StoreItemClone8 = Instantiate(StoreItem8);
+        //StoreItemClone8.transform.parent = Slot8.transform;
+        //StoreItemClone8.GetComponent<RectTransform>().anchoredPosition = Slot8.GetComponent<RectTransform>().anchoredPosition;
+        //StoreItemClone8.GetComponent<RectTransform>().anchoredPosition = new Vector2(50, -50);
 
         }
 
@@ -122,14 +141,14 @@ public class Merchant : MonoBehaviour
         MerchantPanel.GetComponent<CanvasGroup>().alpha = 0;
         MerchantPanel.GetComponent<CanvasGroup>().interactable = false;
 
-        StoreItem1 = P2StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem2 = P2StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem3 = P2StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem4 = P2StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem5 = P2StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem6 = P2StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem7 = P2StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
-        StoreItem8 = P2StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
+        StoreItem1 = P2StoreItemsPrefabsCBS[Random.Range(0, P2StoreItemsPrefabsCBS.Length)];
+        StoreItem2 = P2StoreItemsPrefabsCBS2[Random.Range(0, P2StoreItemsPrefabsCBS2.Length)];
+        StoreItem3 = P2StoreItemsPrefabsPotion[Random.Range(0, P2StoreItemsPrefabsPotion.Length)];
+        StoreItem4 = P2StoreItemsPrefabsPotion2[Random.Range(0, P2StoreItemsPrefabsPotion2.Length)];
+        StoreItem5 = P2StoreItemsPrefabsTrinkets[Random.Range(0, P2StoreItemsPrefabsTrinkets.Length)];
+        StoreItem6 = P2StoreItemsPrefabsTrinkets2[Random.Range(0, P2StoreItemsPrefabsTrinkets2.Length)];
+        //StoreItem7 = P2StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
+        //StoreItem8 = P2StoreItemsPrefabs[Random.Range(0, StoreItemsPrefabs.Length)];
 
         ConfirmPurchasePanel.GetComponent<PurchasePanel>().Panel.GetComponent<CanvasGroup>().alpha = 0;
         ConfirmPurchasePanel.GetComponent<PurchasePanel>().Panel.GetComponent<CanvasGroup>().interactable = false;
