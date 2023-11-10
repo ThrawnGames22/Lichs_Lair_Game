@@ -19258,8 +19258,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1356430625}
   - component: {fileID: 1356430627}
-  - component: {fileID: 1356430626}
   - component: {fileID: 6207085798609391437}
+  - component: {fileID: 5515161750585611215}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -19291,20 +19291,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356430624}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1356430626
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356430624}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &6207085798609391437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19319,6 +19305,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragonsBreath: {fileID: 7637893944184258952}
   SetDamageFlag: 0
+--- !u!135 &5515161750585611215
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356430624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1398187481
 GameObject:
   m_ObjectHideFlags: 0

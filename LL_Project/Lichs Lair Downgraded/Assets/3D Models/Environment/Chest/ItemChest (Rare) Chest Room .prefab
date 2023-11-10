@@ -32,6 +32,37 @@ Transform:
   m_Father: {fileID: 3233226162206817020}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2774530145829394482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2013871180889574485}
+  m_Layer: 0
+  m_Name: TrinketSpawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2013871180889574485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2774530145829394482}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.04980003, y: 0.02, z: 0.030400058}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3233226162206817020}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2852303298829377606
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,6 +96,8 @@ Transform:
   - {fileID: 8210640430245967179}
   - {fileID: 7777057567571766614}
   - {fileID: 4596682812464980095}
+  - {fileID: 2013871180889574485}
+  - {fileID: 7516273447597142232}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -101,12 +134,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChestAnimator: {fileID: 3122124210035415011}
-  ItemsDictionary:
+  Potions:
   - {fileID: 2879595220029492744, guid: 7d549d67ba2bfd746835313104526522, type: 3}
   - {fileID: 6528747374783799875, guid: 3b718dfd6860c0d438ceb645c7cd5630, type: 3}
-  - {fileID: 2879595220029492744, guid: 7d549d67ba2bfd746835313104526522, type: 3}
-  - {fileID: 2879595220029492744, guid: 7d549d67ba2bfd746835313104526522, type: 3}
+  Trinkets:
+  - {fileID: 1841994655064868061, guid: b37407a826b21d54f9152f79013f2391, type: 3}
+  - {fileID: 3605720700683538261, guid: 11e09086c5183e849a129bf0385bf327, type: 3}
+  - {fileID: 3551626283221651179, guid: c033fb07dded0314aa10a858868a4e67, type: 3}
+  - {fileID: 5513931235391978734, guid: 6353255df4f5267438c09a131c83583d, type: 3}
+  - {fileID: 4636790188591944185, guid: 5bcc31217485262489c013e6d2350c55, type: 3}
+  - {fileID: 2834398851387343878, guid: d1996dfd034edd0468dd7a51550a2cc9, type: 3}
+  Coins:
+  - {fileID: 2088519682734870996, guid: 8f19671386bc1fa41ae0faff728ae1b7, type: 3}
+  - {fileID: 7952030102851153424, guid: 49cc5533d4a860049a712a3e112434c4, type: 3}
+  - {fileID: 8323392298966467663, guid: cb77e2eb5eb7fd84ab5788e469890b2c, type: 3}
+  Spells:
+  - {fileID: 941983644755701444, guid: 31ac586d24b80e14badf491fa8b3a7fd, type: 3}
+  - {fileID: 7377385597429494890, guid: 878b7e6893dd2ce46b218d153831c603, type: 3}
+  - {fileID: 1052904404961495714, guid: fdb1c597ba174e24f9817dba01b6b829, type: 3}
   ItemSpawnPoint: {fileID: 7777057567571766614}
+  TrinketSpawnPoint: {fileID: 2013871180889574485}
+  SpellsSpawnPoint: {fileID: 7516273447597142232}
   HasUnlocked: 0
   isInRange: 0
   IsVSliceChest: 0
@@ -114,6 +162,7 @@ MonoBehaviour:
   Item1: {fileID: 0}
   Item2: {fileID: 0}
   Item3: {fileID: 0}
+  Item4: {fileID: 0}
   Effects: {fileID: 394071950463896536}
   UnlockedCanvas: {fileID: 0}
   UnlockedCanvasTime: 0
@@ -442,6 +491,37 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &7394070064755544293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7516273447597142232}
+  m_Layer: 0
+  m_Name: Spell Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7516273447597142232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7394070064755544293}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.04980003, y: 0.02, z: 0.030400058}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3233226162206817020}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1948510115402093475
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class Merchant : MonoBehaviour
     public int MinItems = 3;
     public int MaxItems = 8;
 
+[Header("Picked Items")]
     public GameObject StoreItem1;
     public GameObject StoreItem2;
     public GameObject StoreItem3;
@@ -27,6 +28,7 @@ public class Merchant : MonoBehaviour
     public GameObject StoreItem7;
     public GameObject StoreItem8;
 
+[Header("Phase 1")]
     public GameObject[] StoreItemsPrefabsCBS;
     public GameObject[] StoreItemsPrefabsCBS2;
 
@@ -36,7 +38,7 @@ public class Merchant : MonoBehaviour
     public GameObject[] StoreItemsPrefabsTrinkets;
     public GameObject[] StoreItemsPrefabsTrinkets2;
 
-
+[Header("Phase 2")]
 
     public GameObject[] P2StoreItemsPrefabsCBS;
     public GameObject[] P2StoreItemsPrefabsCBS2;

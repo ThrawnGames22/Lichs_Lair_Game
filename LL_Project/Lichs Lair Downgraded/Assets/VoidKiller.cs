@@ -5,6 +5,8 @@ using UnityEngine;
 public class VoidKiller : MonoBehaviour
 {
     public GameObject Player;
+
+    public bool IsSpecialVoid;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +25,16 @@ public class VoidKiller : MonoBehaviour
      {
         other.gameObject.GetComponent<PlayerHealth>().Die();
      }   
+    }
+
+    private void OnCollisionEnter(Collision other) 
+    {
+     if(IsSpecialVoid == true)
+    {
+     if(other.gameObject.tag == "Player")
+     {
+        other.gameObject.GetComponent<PlayerHealth>().Die();
+     }  
+    }
     }
 }

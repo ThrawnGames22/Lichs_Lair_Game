@@ -33,6 +33,8 @@ Transform:
   - {fileID: 5876018904496516193}
   - {fileID: 5446106838948590716}
   - {fileID: 2284291887380937045}
+  - {fileID: 999488927696898929}
+  - {fileID: 6395334954612693605}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -69,12 +71,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChestAnimator: {fileID: 805544665325833929}
-  ItemsDictionary:
+  Potions:
   - {fileID: 2879595220029492744, guid: 7d549d67ba2bfd746835313104526522, type: 3}
   - {fileID: 6528747374783799875, guid: 3b718dfd6860c0d438ceb645c7cd5630, type: 3}
-  - {fileID: 2879595220029492744, guid: 7d549d67ba2bfd746835313104526522, type: 3}
-  - {fileID: 2879595220029492744, guid: 7d549d67ba2bfd746835313104526522, type: 3}
+  Trinkets:
+  - {fileID: 3557748626324129524, guid: 4fc6387dba904fa4ab7ea4de6f4b505e, type: 3}
+  - {fileID: 6978352227084646380, guid: f59835aa2e3b57c45b69fb1d30f70def, type: 3}
+  - {fileID: 4557813054375157384, guid: 8038fa3e13b682d49aa235d3e49f9f41, type: 3}
+  - {fileID: 4433501707347658139, guid: 600bb660dca6e2448acc051e7222f5c0, type: 3}
+  - {fileID: 4924592141263634903, guid: 08f54f78d63b62a4485c97617ca775f3, type: 3}
+  - {fileID: 718284083634504109, guid: 03ecbd7759bf5aa41b8e07c8dbe164ad, type: 3}
+  Coins:
+  - {fileID: 2088519682734870996, guid: 8f19671386bc1fa41ae0faff728ae1b7, type: 3}
+  - {fileID: 7952030102851153424, guid: 49cc5533d4a860049a712a3e112434c4, type: 3}
+  - {fileID: 8323392298966467663, guid: cb77e2eb5eb7fd84ab5788e469890b2c, type: 3}
+  Spells:
+  - {fileID: 5761585128243110794, guid: 341cf4b4dfabcde4ea9b08fee0825ecf, type: 3}
+  - {fileID: 1508557060789800456, guid: 1239f8e4adc0ed84481bf0485962c737, type: 3}
+  - {fileID: 391053234915193671, guid: 543adb25080d7ff41bf22fc3fac40111, type: 3}
   ItemSpawnPoint: {fileID: 5446106838948590716}
+  TrinketSpawnPoint: {fileID: 999488927696898929}
+  SpellsSpawnPoint: {fileID: 6395334954612693605}
   HasUnlocked: 0
   isInRange: 0
   IsVSliceChest: 0
@@ -82,6 +99,7 @@ MonoBehaviour:
   Item1: {fileID: 0}
   Item2: {fileID: 0}
   Item3: {fileID: 0}
+  Item4: {fileID: 0}
   Effects: {fileID: 2666653996225352434}
   UnlockedCanvas: {fileID: 0}
   UnlockedCanvasTime: 0
@@ -208,6 +226,68 @@ Transform:
   - {fileID: 2976837516501292261}
   m_Father: {fileID: 911811695233328086}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3267673589607953060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 999488927696898929}
+  m_Layer: 0
+  m_Name: TrinketSpawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &999488927696898929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3267673589607953060}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0498, y: 0.02, z: 0.0304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 911811695233328086}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4278008722798404829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6395334954612693605}
+  m_Layer: 0
+  m_Name: Spell Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6395334954612693605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278008722798404829}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0498, y: 0.02, z: 0.0304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 911811695233328086}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7208905421389953858
 GameObject:

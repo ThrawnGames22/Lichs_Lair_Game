@@ -27,10 +27,22 @@ public class SpellCollector : MonoBehaviour
         {
         if(Input.GetKeyDown(KeyCode.E))
             {
+                if(PM.HasSecondarySpell == true)
+                {
              GameObject SpellDrop = Instantiate(PM.inventoryController.CurrentCombatSpell2.SpellDropObject, GameObject.Find("PlayerDropPoint").transform.position, GameObject.Find("PlayerDropPoint").transform.rotation);
              PM.inventoryController.CurrentCombatSpell2 = null;
              PM.inventoryController.CurrentCombatSpell2 = ComabtSpellData;
+             PM.HasSecondarySpell = true;
              Destroy(this.gameObject);
+                }
+
+                if(PM.HasSecondarySpell == false)
+                {
+                    PM.inventoryController.CurrentCombatSpell2 = null;
+                    PM.inventoryController.CurrentCombatSpell2 = ComabtSpellData;
+                    PM.HasSecondarySpell = true;
+                    Destroy(this.gameObject);
+                }
             }
         }
         

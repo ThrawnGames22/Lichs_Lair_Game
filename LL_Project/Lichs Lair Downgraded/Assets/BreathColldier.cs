@@ -29,12 +29,12 @@ public class BreathColldier : MonoBehaviour
         {
           if(SetDamageFlag == true)
           {
-            other.gameObject.GetComponent<EnemyHealth>().enemyCurrentHealth -= dragonsBreath.Damage;
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(dragonsBreath.Damage);
           }
 
           if(SetDamageFlag == false)
           {
-            other.gameObject.GetComponent<EnemyHealth>().enemyCurrentHealth -= 0;
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(0);
           }
          
         }

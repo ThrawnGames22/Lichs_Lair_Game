@@ -229,9 +229,13 @@ public class SlotUIController : MonoBehaviour
        SpellCoolingImage1.sprite = PM.CombatSpellSlot1.spellToCast.SpellCoolingIcon;
        if(PlayerMagic.Instance.HasAquiredMagic)
        {
+        if(PM.HasSecondarySpell == true)
+        {
         SpellReadyImage2.sprite = PM.CombatSpellSlot2.spellToCast.SpellIcon;
-        UtilitySpellReadyImage.sprite = PM.UtilitySpell.spellToCast.SpellIcon;
         SpellCoolingImage2.sprite = PM.CombatSpellSlot2.spellToCast.SpellCoolingIcon;
+        }
+        UtilitySpellReadyImage.sprite = PM.UtilitySpell.spellToCast.SpellIcon;
+        
         UtilitySpellCoolingImage.sprite = PM.UtilitySpell.spellToCast.SpellCoolingIcon;
        }
 

@@ -28,12 +28,13 @@ public class CollapsingVoidManager : MonoBehaviour
         {
           if(SetDamageFlag == true)
           {
-            other.gameObject.GetComponent<EnemyHealth>().enemyCurrentHealth -= collapsingDarkness.Damage;
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(collapsingDarkness.Damage);
           }
 
           if(SetDamageFlag == false)
           {
-            other.gameObject.GetComponent<EnemyHealth>().enemyCurrentHealth -= 0;
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(0);
+            
           }
          
         }

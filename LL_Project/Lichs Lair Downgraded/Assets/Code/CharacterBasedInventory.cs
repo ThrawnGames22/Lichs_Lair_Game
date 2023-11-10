@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -107,8 +108,11 @@ public class CharacterBasedInventory : MonoBehaviour
             CBSSlot1.sprite = PM.Spell1.SpellIcon;
 
             UTSSlot.sprite = PM.UtilitySpellData.SpellIcon;
-
+            
+            if(PM.HasSecondarySpell)
+            {
             CBSSlot2.sprite = PM.Spell2.SpellIcon;
+            }
 
 
             //POTION//

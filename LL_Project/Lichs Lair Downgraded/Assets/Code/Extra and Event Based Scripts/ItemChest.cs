@@ -9,8 +9,17 @@ using UnityEngine.Rendering.Universal;
 public class ItemChest : MonoBehaviour
 {
     public Animator ChestAnimator;
-    public GameObject[] ItemsDictionary;
+    public GameObject[] Potions;
+    public GameObject[] Trinkets;
+    public GameObject[] Coins;
+    public GameObject[] Spells;
+
     public Transform ItemSpawnPoint;
+    public Transform TrinketSpawnPoint;
+    public Transform SpellsSpawnPoint;
+
+
+    
     public bool HasUnlocked;
     public bool isInRange;
 
@@ -20,6 +29,10 @@ public class ItemChest : MonoBehaviour
     public GameObject Item1;
     public GameObject Item2;
     public GameObject Item3;
+    public GameObject Item4;
+
+
+    
     
 
     //ChestEffects
@@ -46,9 +59,11 @@ public class ItemChest : MonoBehaviour
       
       if(IsVSliceChest == false)
       {
-        Item1 = ItemsDictionary[Random.Range(0, ItemsDictionary.Length)];
-        Item2 = ItemsDictionary[Random.Range(0, ItemsDictionary.Length)];
-        Item3 = ItemsDictionary[Random.Range(0, ItemsDictionary.Length)];
+        Item1 = Potions[Random.Range(0, Potions.Length)];
+        Item2 = Trinkets[Random.Range(0, Trinkets.Length)];
+        Item3 = Spells[Random.Range(0, Spells.Length)];
+        Item4 = Coins[Random.Range(0, Coins.Length)];
+
         
       }
 
@@ -147,8 +162,12 @@ public class ItemChest : MonoBehaviour
     {
       StopCoroutine(SpawnItems());
       Instantiate(Item1, ItemSpawnPoint.transform.position, ItemSpawnPoint.rotation);
-      Instantiate(Item2, ItemSpawnPoint.transform.position, ItemSpawnPoint.rotation);
-      Instantiate(Item3, ItemSpawnPoint.transform.position, ItemSpawnPoint.rotation);
+      Instantiate(Item2, TrinketSpawnPoint.transform.position, TrinketSpawnPoint.rotation);
+      Instantiate(Item3, SpellsSpawnPoint.transform.position, SpellsSpawnPoint.rotation);
+      Instantiate(Item4, ItemSpawnPoint.transform.position, ItemSpawnPoint.rotation);
+      
+
+
     }
 
     public void SpawnWeapons()

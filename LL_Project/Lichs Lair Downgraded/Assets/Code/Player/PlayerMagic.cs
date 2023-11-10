@@ -83,6 +83,8 @@ public class PlayerMagic : MonoBehaviour
     [Header("Inventory")]
     public CharacterBasedInventory Inventory;
 
+    public bool HasSecondarySpell;
+
     [Header ("Audio")]
 
     public AudioSource MagicSpellSource;
@@ -156,33 +158,50 @@ public class PlayerMagic : MonoBehaviour
       }
       */
 
-      timeBetweenCastsForSpell1 = Spell1.CoolingDownTime;
-      timeBetweenCastsForSpell2 = Spell2.CoolingDownTime;
       
-
-
-      SpellClipsSlot1 = Spell1.SpellAudioClips;
-      SpellClipsSlot2 = Spell2.SpellAudioClips;
       //SpellClipsSlot3 = UtilitySpellData.SpellAudioClips;
 
 
       //Allocate Slots
 
       Spell1 = Inventory.CurrentCombatSpell1;
+      if(HasSecondarySpell == true)
+      {
       Spell2 = Inventory.CurrentCombatSpell2;
+      }
       UtilitySpellData = Inventory.CurrentUtilitySpell;
+
+      timeBetweenCastsForSpell1 = Spell1.CoolingDownTime;
+      if(HasSecondarySpell == true)
+      {
+      timeBetweenCastsForSpell2 = Spell2.CoolingDownTime;
+      }
+      
+
+
+      SpellClipsSlot1 = Spell1.SpellAudioClips;
+      if(HasSecondarySpell == true)
+      {
+      SpellClipsSlot2 = Spell2.SpellAudioClips;
+      }
 
       //Allocate Spell Prefabs
 
       CombatSpellToCast = Spell1.SpellObject.GetComponent<CombatSpell>();
+      if(HasSecondarySpell == true)
+      {
       CombatSpellToCast2 = Spell2.SpellObject.GetComponent<CombatSpell>();
+      }
       UtilitySpell = UtilitySpellData.SpellObject.GetComponent<UtilitySpell>();
       // Sets values based on Mage Class Data
       if(!StartAssigningValuesBasedOnClass)
       {
       maxMana = MageClassData.maxMana;
       CombatSpellSlot1 = Spell1.SpellObject.GetComponent<CombatSpell>();
+      if(HasSecondarySpell == true)
+      {
       CombatSpellSlot2 = Spell2.SpellObject.GetComponent<CombatSpell>();
+      }
       UtilitySpell = UtilitySpell;
       StartAssigningValuesBasedOnClass = true;
       }
@@ -191,7 +210,10 @@ public class PlayerMagic : MonoBehaviour
       if(HasAquiredMagic)
       {
        CombatSpellSlot1 = Spell1.SpellObject.GetComponent<CombatSpell>();
-      CombatSpellSlot2 = Spell2.SpellObject.GetComponent<CombatSpell>();
+      if(HasSecondarySpell == true)
+      {
+       CombatSpellSlot2 = Spell2.SpellObject.GetComponent<CombatSpell>();
+      }
       }
         
       // Sets values
@@ -218,7 +240,10 @@ public class PlayerMagic : MonoBehaviour
            //CombatSpellToCast = CombatSpellSlot2;
         }
         hasEnoughManaC1 = currentMana - CombatSpellSlot1.spellToCast.ManaCost >= 0f; 
+        if(HasSecondarySpell == true)
+      {
         hasEnoughManaC2 = currentMana - CombatSpellSlot2.spellToCast.ManaCost >= 0f; 
+      }
         //hasEnoughManaU = currentMana - CombatSpellSlot1.spellToCast.ManaCost >= 0f; 
 
         //currentMana - UtilitySpell.spellToCast.ManaCost >= 0f; 
@@ -359,6 +384,14 @@ public class PlayerMagic : MonoBehaviour
 
             
         }
+
+
+      }
+
+      if(HasSecondarySpell == false)
+      {
+         Spell2 = null;
+         CombatSpellSlot2 = null;
       }
     }
 

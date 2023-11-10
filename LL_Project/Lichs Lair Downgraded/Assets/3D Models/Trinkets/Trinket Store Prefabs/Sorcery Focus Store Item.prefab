@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5787004946435991640}
   - component: {fileID: 1697480961966178426}
   m_Layer: 5
-  m_Name: Dark Cloud Store Item 1
+  m_Name: Sorcery Focus Store Item
   m_TagString: StoreItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db0a57f15f927f34d9b02f9ee7215035, type: 3}
+  m_Sprite: {fileID: -644406755, guid: 4d2d88e08ac2da0469168dc0b68ecd08, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -104,15 +104,15 @@ MonoBehaviour:
   thisObject: {fileID: 2173439218551301156}
   purchasePanel: {fileID: 0}
   IsWeapon: 0
-  IsTrinket: 0
+  IsTrinket: 1
   IsPotion: 0
   IsPet: 0
   IsCBS1: 0
-  IsCBS2: 1
+  IsCBS2: 0
   IsUTS: 0
   potion: {fileID: 0}
-  trinket: {fileID: 0}
-  CombatSpell2: {fileID: 11400000, guid: cbc2cd5a9ba52224799e7f73ead7df61, type: 2}
+  trinket: {fileID: 11400000, guid: 990e462a052ed074e9dbcd5b39b9d6c9, type: 2}
+  CombatSpell2: {fileID: 0}
   heldDown: 0
   IsHoveringOverSlot: 0
   ItemSprite: {fileID: 0}
@@ -187,7 +187,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2173439218551301152}
         m_TargetAssemblyTypeName: MechantItem, Assembly-CSharp
-        m_MethodName: CombatSpellPurchase
+        m_MethodName: TrinketPurchase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

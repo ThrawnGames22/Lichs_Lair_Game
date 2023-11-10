@@ -8018,6 +8018,7 @@ Transform:
   - {fileID: 1404936053432224685}
   - {fileID: 6800072612644132623}
   - {fileID: 525175149845055191}
+  - {fileID: 5304896445971299841}
   m_Father: {fileID: 5260952273746040826}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12648,6 +12649,7 @@ MonoBehaviour:
   YSpeed: 0
   ScreenPosition: {x: 0, y: 0, z: 0}
   CameraLookSpeed: 10
+  IsLocked: 0
   HasUnlockedWeaponChest: 0
   IsShadowWizard: 1
   IsFireMage: 0
@@ -12720,6 +12722,9 @@ MonoBehaviour:
   StartAssigningValuesBasedOnClass: 0
   ManaToRegen: 0
   RegenTime: 0
+  hasEnoughManaC1: 0
+  hasEnoughManaC2: 0
+  hasEnoughManaU: 0
   Inventory: {fileID: 1572534879881553450}
   MagicSpellSource: {fileID: 921629119}
   SpellClipsSlot1: []
@@ -27666,14 +27671,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a47bceefb80063845893c59bdf8d4197, type: 3}
---- !u!1 &5027074818577405470 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5744049950110619591, guid: a47bceefb80063845893c59bdf8d4197, type: 3}
-  m_PrefabInstance: {fileID: 753569083050394073}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5658791920616230052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4971171703938993533, guid: a47bceefb80063845893c59bdf8d4197, type: 3}
+  m_PrefabInstance: {fileID: 753569083050394073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5027074818577405470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5744049950110619591, guid: a47bceefb80063845893c59bdf8d4197, type: 3}
   m_PrefabInstance: {fileID: 753569083050394073}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &936108733153252302
@@ -28143,6 +28148,80 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8865374204259704902, guid: 3ede07262138eb946bc10d5927bd89ae, type: 3}
   m_PrefabInstance: {fileID: 5260952273846058823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5765100640959725323
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8188623904880906736}
+    m_Modifications:
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.12041122
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.12041122
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.12041122
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05647287
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.13654523
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08953329
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375076257116812717, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+      propertyPath: m_Name
+      value: LightningWrathLocator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+--- !u!4 &5304896445971299841 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1846202390925934858, guid: b52620eed9617e443b18422d30efc38f, type: 3}
+  m_PrefabInstance: {fileID: 5765100640959725323}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6472815599171498212
 PrefabInstance:
