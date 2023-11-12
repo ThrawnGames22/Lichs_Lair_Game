@@ -14,6 +14,10 @@ public class TheLich : MonoBehaviour
     public bool FightHasStarted;
 
     public bool StartFight;
+    public bool SwipeIsActive1;
+    public bool SwipeIsActive2;
+
+
 
     public BossTrigger bossTrigger;
 
@@ -23,6 +27,26 @@ public class TheLich : MonoBehaviour
     public GameObject Imps;
     public GameObject Zombies;
     public GameObject DeathKnights;
+
+    public GameObject ManaPotion;
+    public GameObject HealthPotion;
+
+
+    public bool HasSpawned;
+
+    public Transform SpawnPoint1;
+    public Transform SpawnPoint2;
+    public Transform SpawnPoint3;
+    public Transform SpawnPoint4;
+    public Transform SpawnPoint5;
+    public Transform SpawnPoint6;
+
+    public Transform PotionSpawnPoint1;
+    public Transform PotionSpawnPoint2;
+    public Transform PotionSpawnPoint3;
+    public Transform PotionSpawnPoint4;
+
+
 
     
     [Header("Walls")]
@@ -41,6 +65,10 @@ public class TheLich : MonoBehaviour
     public Animator LichAnimator;
 
     public Animator LichRiseAnimator;
+    public Animator NecromancyLightAnimator1;
+    public Animator NecromancyLightAnimator2;
+
+
     
 
 
@@ -72,6 +100,11 @@ public class TheLich : MonoBehaviour
 
     public AudioSource LichSoundSource;
 
+    [Header("Particles")]
+    public ParticleSystem LeftHandParticles;
+    public ParticleSystem RightHandParticles;
+
+
 
 
 
@@ -92,6 +125,14 @@ public class TheLich : MonoBehaviour
         HealthBar.maxValue = MaxHealth;
         CurrentHealth = MaxHealth;
 
+        SpawnPoint1.gameObject.SetActive(false);
+            SpawnPoint2.gameObject.SetActive(false);
+            SpawnPoint3.gameObject.SetActive(false);
+            SpawnPoint4.gameObject.SetActive(false);
+            SpawnPoint5.gameObject.SetActive(false);
+            SpawnPoint6.gameObject.SetActive(false);
+        LeftHandParticles.Stop();
+        RightHandParticles.Stop();
 
         
     }
@@ -109,6 +150,11 @@ public class TheLich : MonoBehaviour
 
         HurtAnim.SetBool("IsHurt", IsHurt);
         LichRiseAnimator.SetBool("FightHasStarted", FightHasStarted);
+        NecromancyLightAnimator1.SetBool("SwipeIsActive", SwipeIsActive1);
+        NecromancyLightAnimator2.SetBool("SwipeIsActive", SwipeIsActive2);
+        
+
+
 
         if(FightHasStarted == true)
         {
@@ -159,6 +205,9 @@ public class TheLich : MonoBehaviour
     public IEnumerator Phase1Idle1()
     {
         StopCoroutine(Phase1Walls4());
+        Destroy(GameObject.Find("Mana Potion"));
+        Destroy(GameObject.Find("Health Potion"));
+
         IsDead = false;
         IsCastingLeft = false;
         IsCastingRight = false;
@@ -173,15 +222,60 @@ public class TheLich : MonoBehaviour
         StopCoroutine(Phase1Idle1());
         IsCastingLeft = true;
         IsCastingRight = false;
+        SwipeIsActive1 = true;
+        LeftHandParticles.Play();
+        RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
+        
+        
         yield return new WaitForSeconds(2.292f);
+        SwipeIsActive1 = false;
+        LeftHandParticles.Stop();
+
+
+        foreach(GameObject wall in RightWalls)
+        {
+            wall.SetActive(false);
+        }
+
         IsCastingLeft = false;
         IsCastingRight = true;
+        SwipeIsActive2 = true;
+        RightHandParticles.Play();
+
+
+        LeftWalls[Random.Range(0, LeftWalls.Length)].SetActive(true);
+
         yield return new WaitForSeconds(2.292f);
+        SwipeIsActive2 = false;
+        RightHandParticles.Stop();
+
+
+        foreach(GameObject wall in LeftWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = true;
         IsCastingRight = false;
+        SwipeIsActive1 = true;
+        LeftHandParticles.Play();
+
+
+        RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
+
         yield return new WaitForSeconds(2.292f);
+        SwipeIsActive1 = false;
+        LeftHandParticles.Stop();
+
+
+        foreach(GameObject wall in RightWalls)
+        {
+            wall.SetActive(false);
+        }
+
         IsCastingLeft = false;
         IsCastingRight = false;
+        SwipeIsActive1 = false;
+
         StartCoroutine(Phase1Idle2());
         
     }
@@ -200,15 +294,58 @@ public class TheLich : MonoBehaviour
     {
         StopCoroutine(Phase1Idle2());
         IsSummoning = true;
+        LeftHandParticles.Play();
+        RightHandParticles.Play();
+
+
         yield return new WaitForSeconds(5.333f);
+         LeftHandParticles.Stop();
+        RightHandParticles.Stop();
+        if(HasSpawned == false)
+        {
+            SpawnPoint1.gameObject.SetActive(true);
+            SpawnPoint2.gameObject.SetActive(true);
+            SpawnPoint3.gameObject.SetActive(true);
+            SpawnPoint4.gameObject.SetActive(true);
+            SpawnPoint5.gameObject.SetActive(true);
+            SpawnPoint6.gameObject.SetActive(true);
+
+
+
+
+            GameObject EnemyClone1 = Instantiate(Zombies, SpawnPoint1.position, SpawnPoint1.rotation);
+            GameObject EnemyClone2 = Instantiate(Zombies, SpawnPoint2.position, SpawnPoint2.rotation);
+            GameObject EnemyClone3 = Instantiate(Zombies, SpawnPoint3.position, SpawnPoint3.rotation);
+            GameObject EnemyClone4 = Instantiate(Zombies, SpawnPoint4.position, SpawnPoint4.rotation);
+            GameObject EnemyClone5 = Instantiate(Zombies, SpawnPoint5.position, SpawnPoint5.rotation);
+            GameObject EnemyClone6 = Instantiate(Zombies, SpawnPoint6.position, SpawnPoint6.rotation);
+
+            GameObject PotionClone1 = Instantiate(ManaPotion, PotionSpawnPoint1.position, PotionSpawnPoint1.rotation);
+            GameObject PotionClone2 = Instantiate(HealthPotion, PotionSpawnPoint2.position, PotionSpawnPoint2.rotation);
+            GameObject PotionClone3 = Instantiate(ManaPotion, PotionSpawnPoint3.position, PotionSpawnPoint3.rotation);
+            GameObject PotionClone4 = Instantiate(HealthPotion, PotionSpawnPoint4.position, PotionSpawnPoint4.rotation);
+
+
+            HasSpawned = true;
+
+            
+
+        }
         IsSummoning = false;
-        yield return new WaitForSeconds(9);
+        yield return new WaitForSeconds(30);
         StartCoroutine(Phase1Idle3());
     }
 
     public IEnumerator Phase1Idle3()
     {
+            
         StopCoroutine(Phase1Spawning1());
+        SpawnPoint1.gameObject.SetActive(false);
+            SpawnPoint2.gameObject.SetActive(false);
+            SpawnPoint3.gameObject.SetActive(false);
+            SpawnPoint4.gameObject.SetActive(false);
+            SpawnPoint5.gameObject.SetActive(false);
+            SpawnPoint6.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(5);
 
@@ -222,24 +359,89 @@ public class TheLich : MonoBehaviour
         IsCastingLeft = false;
         IsCastingRight = false;
         IsCastingForward = true;
+        SwipeIsActive1 = true;
+        SwipeIsActive2 = true;
+        LeftHandParticles.Play();
+        RightHandParticles.Play();
+
+
+
+
+        FrontWalls[Random.Range(0, FrontWalls.Length)].SetActive(true);
+
         yield return new WaitForSeconds(2.292f);
+        LeftHandParticles.Stop();
+        LeftHandParticles.Stop();
+
+
+        SwipeIsActive1 = false;
+        SwipeIsActive2 = false;
+        foreach(GameObject wall in FrontWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = false;
         IsCastingRight = true;
         IsCastingForward = false;
+        SwipeIsActive2 = true;
+        RightHandParticles.Play();
+
+
+        LeftWalls[Random.Range(0, LeftWalls.Length)].SetActive(true);
+        RightHandParticles.Stop();
+        
 
         yield return new WaitForSeconds(2.292f);
+        SwipeIsActive2 = false;
+
+        foreach(GameObject wall in LeftWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingForward = false;
         IsCastingRight = false;
         IsCastingForward = true;
+        SwipeIsActive2 = true;
+        SwipeIsActive1 = true;
+        RightHandParticles.Play();
+        LeftHandParticles.Play();
+
+
+
+
+        FrontWalls[Random.Range(0, FrontWalls.Length)].SetActive(true);
+
 
         yield return new WaitForSeconds(2.292f);
+        RightHandParticles.Stop();
+        LeftHandParticles.Stop();
+
+        SwipeIsActive2 = false;
+        SwipeIsActive1 = false;
+        foreach(GameObject wall in FrontWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = true;
         IsCastingRight = false;
         IsCastingForward = false;
+        SwipeIsActive1 = true;
+        LeftHandParticles.Play();
+
+        RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
+
 
 
 
         yield return new WaitForSeconds(2.292f);
+        LeftHandParticles.Stop();
+
+        SwipeIsActive1 = false;
+
+        foreach(GameObject wall in RightWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = false;
         IsCastingRight = false;
         IsCastingForward = false;
@@ -265,27 +467,90 @@ public class TheLich : MonoBehaviour
         IsCastingLeft = false;
         IsCastingRight = true;
         IsCastingForward = false;
+        SwipeIsActive2 = true;
+        RightHandParticles.Play();
+
+
+        LeftWalls[Random.Range(0, LeftWalls.Length)].SetActive(true);
+
         yield return new WaitForSeconds(2.292f);
+        RightHandParticles.Stop();
+
+        SwipeIsActive2 = false;
+
+        foreach(GameObject wall in LeftWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = true;
         IsCastingRight = false;
         IsCastingForward = false;
+        SwipeIsActive1 = true;
+        LeftHandParticles.Play();
+
+
+        RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
+
 
         yield return new WaitForSeconds(2.292f);
-        IsCastingForward = false;
-        IsCastingRight = false;
-        IsCastingForward = true;
+        LeftHandParticles.Stop();
 
-        yield return new WaitForSeconds(2.292f);
+        SwipeIsActive1 = false;
+
+        foreach(GameObject wall in RightWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = false;
         IsCastingRight = false;
         IsCastingForward = true;
+        SwipeIsActive1 = true;
+        SwipeIsActive2 = true;
+        LeftHandParticles.Play();
+        RightHandParticles.Play();
 
+
+
+        FrontWalls[Random.Range(0, FrontWalls.Length)].SetActive(true);
 
 
         yield return new WaitForSeconds(2.292f);
+        LeftHandParticles.Play();
+        RightHandParticles.Play();
+        SwipeIsActive1 = false;
+        SwipeIsActive2 = false;
+        foreach(GameObject wall in FrontWalls)
+        {
+            wall.SetActive(false);
+        }
+        IsCastingLeft = true;
+        IsCastingRight = false;
+        IsCastingForward = false;
+        SwipeIsActive1 = true;
+        LeftHandParticles.Play();
+        
+
+
+        RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
+        
+
+
+        yield return new WaitForSeconds(2.292f);
+        SwipeIsActive1 = false;
+        LeftHandParticles.Stop();
+        
+
+
+        foreach(GameObject wall in RightWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = false;
         IsCastingRight = false;
         IsCastingForward = false;
+        SwipeIsActive1 = false;
+        HasSpawned = false;
+
         StartCoroutine(Phase1Idle1());
         //yield return new WaitForSeconds(5);
     }
@@ -309,15 +574,28 @@ public class TheLich : MonoBehaviour
     {
       IsPhase2 = true;
       LichAnimator.speed = 1f;
+      foreach(GameObject wall in RightWalls)
+        {
+            wall.GetComponent<Animator>().speed = 2;
+        }
+
+      foreach(GameObject wall in LeftWalls)
+        {
+            wall.GetComponent<Animator>().speed = 2;
+        }
+
+      foreach(GameObject wall in FrontWalls)
+        {
+            wall.GetComponent<Animator>().speed = 2;
+        }    
       StartCoroutine(Phase2Idle1());
     }
     
-
-    public IEnumerator Phase2Idle1()
+public IEnumerator Phase2Idle1()
     {
         StopCoroutine(Phase2Walls4());
-        LichAnimator.speed = 1f;
-
+        Destroy(GameObject.Find("Mana Potion"));
+        Destroy(GameObject.Find("Health Potion"));
         IsDead = false;
         IsCastingLeft = false;
         IsCastingRight = false;
@@ -329,18 +607,49 @@ public class TheLich : MonoBehaviour
 
     public IEnumerator Phase2Walls()
     {
-        StopCoroutine(Phase1Idle1());
-       LichAnimator.speed = 2f;
-
+        StopCoroutine(Phase2Idle1());
         IsCastingLeft = true;
         IsCastingRight = false;
+        SwipeIsActive1 = true;
+
+        RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
+        
+        
         yield return new WaitForSeconds(1.146f);
+        SwipeIsActive1 = false;
+
+        foreach(GameObject wall in RightWalls)
+        {
+            wall.SetActive(false);
+        }
+
         IsCastingLeft = false;
         IsCastingRight = true;
+        SwipeIsActive2 = true;
+
+        LeftWalls[Random.Range(0, LeftWalls.Length)].SetActive(true);
+
         yield return new WaitForSeconds(1.146f);
+        SwipeIsActive2 = false;
+
+        foreach(GameObject wall in LeftWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = true;
         IsCastingRight = false;
+        SwipeIsActive1 = true;
+
+        RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
+
         yield return new WaitForSeconds(1.146f);
+        SwipeIsActive1 = false;
+
+        foreach(GameObject wall in RightWalls)
+        {
+            wall.SetActive(false);
+        }
+
         IsCastingLeft = false;
         IsCastingRight = false;
         StartCoroutine(Phase2Idle2());
@@ -349,13 +658,9 @@ public class TheLich : MonoBehaviour
 
     public IEnumerator Phase2Idle2()
     {
-        
-
         StopCoroutine(Phase2Walls());
-        LichAnimator.speed = 1f;
 
-
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(5);
 
         StartCoroutine(Phase2Spawning1());
 
@@ -363,27 +668,69 @@ public class TheLich : MonoBehaviour
 
     public IEnumerator Phase2Spawning1()
     {
-        
-
-        StopCoroutine(Phase1Idle2());
-        LichAnimator.speed = 1f;
-
+        StopCoroutine(Phase2Idle2());
         IsSummoning = true;
         yield return new WaitForSeconds(5.333f);
+        SpawnPoint1.gameObject.SetActive(true);
+            SpawnPoint2.gameObject.SetActive(true);
+            SpawnPoint3.gameObject.SetActive(true);
+            SpawnPoint4.gameObject.SetActive(true);
+            SpawnPoint5.gameObject.SetActive(true);
+            SpawnPoint6.gameObject.SetActive(true);
+
+
+
+
+            GameObject EnemyClone1 = Instantiate(Zombies, SpawnPoint1.position, SpawnPoint1.rotation);
+            GameObject EnemyClone2 = Instantiate(Zombies, SpawnPoint2.position, SpawnPoint2.rotation);
+            GameObject EnemyClone3 = Instantiate(Zombies, SpawnPoint3.position, SpawnPoint3.rotation);
+            GameObject EnemyClone4 = Instantiate(Zombies, SpawnPoint4.position, SpawnPoint4.rotation);
+            GameObject EnemyClone5 = Instantiate(Zombies, SpawnPoint5.position, SpawnPoint5.rotation);
+            GameObject EnemyClone6 = Instantiate(Zombies, SpawnPoint6.position, SpawnPoint6.rotation);
+
+            GameObject EnemyClone7 = Instantiate(Zombies, SpawnPoint1.position, SpawnPoint1.rotation);
+            GameObject EnemyClone8 = Instantiate(Zombies, SpawnPoint2.position, SpawnPoint2.rotation);
+            GameObject EnemyClone9 = Instantiate(Zombies, SpawnPoint3.position, SpawnPoint3.rotation);
+            GameObject EnemyClone10 = Instantiate(Zombies, SpawnPoint4.position, SpawnPoint4.rotation);
+            GameObject EnemyClone11 = Instantiate(Zombies, SpawnPoint5.position, SpawnPoint5.rotation);
+            GameObject EnemyClone12 = Instantiate(Zombies, SpawnPoint6.position, SpawnPoint6.rotation);
+
+            GameObject EnemyClone13 = Instantiate(DeathKnights, SpawnPoint1.position, SpawnPoint1.rotation);
+            GameObject EnemyClone14 = Instantiate(DeathKnights, SpawnPoint2.position, SpawnPoint2.rotation);
+            GameObject EnemyClone15 = Instantiate(DeathKnights, SpawnPoint3.position, SpawnPoint3.rotation);
+            GameObject EnemyClone16 = Instantiate(DeathKnights, SpawnPoint4.position, SpawnPoint4.rotation);
+            GameObject EnemyClone17 = Instantiate(DeathKnights, SpawnPoint5.position, SpawnPoint5.rotation);
+
+            GameObject EnemyClone18 = Instantiate(Imps, SpawnPoint1.position, SpawnPoint1.rotation);
+            GameObject EnemyClone19 = Instantiate(Imps, SpawnPoint2.position, SpawnPoint2.rotation);
+            GameObject EnemyClone20 = Instantiate(Imps, SpawnPoint3.position, SpawnPoint3.rotation);
+            GameObject EnemyClone21 = Instantiate(Imps, SpawnPoint4.position, SpawnPoint4.rotation);
+
+            GameObject PotionClone1 = Instantiate(ManaPotion, PotionSpawnPoint1.position, PotionSpawnPoint1.rotation);
+            GameObject PotionClone2 = Instantiate(HealthPotion, PotionSpawnPoint2.position, PotionSpawnPoint2.rotation);
+            GameObject PotionClone3 = Instantiate(ManaPotion, PotionSpawnPoint3.position, PotionSpawnPoint3.rotation);
+            GameObject PotionClone4 = Instantiate(HealthPotion, PotionSpawnPoint4.position, PotionSpawnPoint4.rotation);
+
+            HasSpawned = true;
+
+
+
         IsSummoning = false;
         yield return new WaitForSeconds(9);
         StartCoroutine(Phase2Idle3());
     }
 
     public IEnumerator Phase2Idle3()
-    
     {
-        
-        StopCoroutine(Phase1Spawning1());
-        LichAnimator.speed = 1f;
-        
+        StopCoroutine(Phase2Spawning1());
+        SpawnPoint1.gameObject.SetActive(false);
+            SpawnPoint2.gameObject.SetActive(false);
+            SpawnPoint3.gameObject.SetActive(false);
+            SpawnPoint4.gameObject.SetActive(false);
+            SpawnPoint5.gameObject.SetActive(false);
+            SpawnPoint6.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2.5f);
 
         StartCoroutine(Phase2Walls2());
     }
@@ -391,29 +738,72 @@ public class TheLich : MonoBehaviour
     public IEnumerator Phase2Walls2()
     {
         StopCoroutine(Phase2Idle3());
-        LichAnimator.speed = 2f;
-        
+
         IsCastingLeft = false;
         IsCastingRight = false;
         IsCastingForward = true;
+        SwipeIsActive1 = true;
+        SwipeIsActive2 = true;
+
+
+        FrontWalls[Random.Range(0, FrontWalls.Length)].SetActive(true);
+
         yield return new WaitForSeconds(1.146f);
+        SwipeIsActive1 = false;
+        SwipeIsActive2 = false;
+        foreach(GameObject wall in FrontWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = false;
         IsCastingRight = true;
         IsCastingForward = false;
+        SwipeIsActive2 = true;
+
+        LeftWalls[Random.Range(0, LeftWalls.Length)].SetActive(true);
+
 
         yield return new WaitForSeconds(1.146f);
+        SwipeIsActive2 = false;
+
+        foreach(GameObject wall in LeftWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingForward = false;
         IsCastingRight = false;
         IsCastingForward = true;
+        SwipeIsActive2 = true;
+        SwipeIsActive1 = true;
+
+
+        FrontWalls[Random.Range(0, FrontWalls.Length)].SetActive(true);
+
 
         yield return new WaitForSeconds(1.146f);
+        SwipeIsActive2 = false;
+        SwipeIsActive1 = false;
+        foreach(GameObject wall in FrontWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = true;
         IsCastingRight = false;
         IsCastingForward = false;
+        SwipeIsActive1 = true;
+
+        RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
+
 
 
 
         yield return new WaitForSeconds(1.146f);
+        SwipeIsActive1 = false;
+
+        foreach(GameObject wall in RightWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = false;
         IsCastingRight = false;
         IsCastingForward = false;
@@ -425,47 +815,90 @@ public class TheLich : MonoBehaviour
 
     public IEnumerator Phase2Idle4()
     {
-        
-
         StopCoroutine(Phase2Walls2());
-        LichAnimator.speed = 1f;
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2);
 
         StartCoroutine(Phase2Walls4());
     }
 
     public IEnumerator Phase2Walls4()
     {
-        StopCoroutine(Phase1Idle4());
-        LichAnimator.speed = 2f;
-        
+        StopCoroutine(Phase2Idle4());
+
         IsCastingLeft = false;
         IsCastingRight = true;
         IsCastingForward = false;
+        SwipeIsActive2 = true;
+
+        LeftWalls[Random.Range(0, LeftWalls.Length)].SetActive(true);
+
         yield return new WaitForSeconds(1.146f);
+        SwipeIsActive2 = false;
+
+        foreach(GameObject wall in LeftWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = true;
         IsCastingRight = false;
         IsCastingForward = false;
+        SwipeIsActive1 = true;
+
+        RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
+
 
         yield return new WaitForSeconds(1.146f);
-        IsCastingForward = false;
-        IsCastingRight = false;
-        IsCastingForward = true;
+        SwipeIsActive1 = false;
 
-        yield return new WaitForSeconds(1.146f);
+        foreach(GameObject wall in RightWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = false;
         IsCastingRight = false;
         IsCastingForward = true;
+        SwipeIsActive1 = true;
+        SwipeIsActive2 = true;
 
+
+        FrontWalls[Random.Range(0, FrontWalls.Length)].SetActive(true);
 
 
         yield return new WaitForSeconds(1.146f);
+        SwipeIsActive1 = false;
+        SwipeIsActive2 = false;
+        foreach(GameObject wall in FrontWalls)
+        {
+            wall.SetActive(false);
+        }
+        IsCastingLeft = true;
+        IsCastingRight = false;
+        IsCastingForward = false;
+        SwipeIsActive1 = true;
+
+        RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
+        
+
+
+        yield return new WaitForSeconds(1.146f);
+        SwipeIsActive1 = false;
+
+        foreach(GameObject wall in RightWalls)
+        {
+            wall.SetActive(false);
+        }
         IsCastingLeft = false;
         IsCastingRight = false;
         IsCastingForward = false;
+        SwipeIsActive1 = false;
+        HasSpawned = false;
+
+
         StartCoroutine(Phase2Idle1());
         //yield return new WaitForSeconds(5);
     }
+
+    
 
 }
