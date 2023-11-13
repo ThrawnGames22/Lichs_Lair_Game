@@ -11,7 +11,7 @@ public class NextSceneTrigger : MonoBehaviour
     void Start()
     {
       LevelCrossFader = GameObject.Find("Level CrossFader");
-      sceneTracker = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
+      //sceneTracker = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
     }
 
     // Update is called once per frame
@@ -28,19 +28,19 @@ public class NextSceneTrigger : MonoBehaviour
       if(other.gameObject.tag == "Player")
       {
         LevelCrossFader.GetComponent<MenuManager>().LoadNextLevel();
-        sceneTracker.AddLevelCount();
+        //sceneTracker.AddLevelCount();
         
 
         if(sceneTracker.LevelsTillChange == 0)
         {
           LevelCrossFader.GetComponent<MenuManager>().LoadChestLevel();
-          sceneTracker.ResetLevelChange();
+          //sceneTracker.ResetLevelChange();
         }
 
         if(sceneTracker.NextLevelIsEndGame)
         {
           LevelCrossFader.GetComponent<MenuManager>().LoadEndGameScene();
-          sceneTracker.ResetLevelChange();
+          //sceneTracker.ResetLevelChange();
         }
         
       }

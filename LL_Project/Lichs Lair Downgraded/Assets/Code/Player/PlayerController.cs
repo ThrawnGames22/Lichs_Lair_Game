@@ -116,6 +116,9 @@ public class PlayerController : MonoBehaviour
 
     public CombatSoundManager combatSoundManager;
 
+    [Header("Animation")]
+    public Animator PlayerAnimator;
+
    
 
     
@@ -152,15 +155,15 @@ public class PlayerController : MonoBehaviour
         if(MageClassData.Class == "Fire")
         {
          CurrentWeaponSlot = Weapons[0];
-         Weapons[0].transform.parent = CurrentSlot.transform;
+         //Weapons[0].transform.parent = CurrentSlot.transform;
          Weapons[0].SetActive(true);
-         Weapons[1].SetActive(false);
-         Weapons[2].SetActive(false);
+         //Weapons[1].SetActive(false);
+         //Weapons[2].SetActive(false);
         }
         if(MageClassData.Class == "Shadow")
         {
          CurrentWeaponSlot = Weapons[1];   
-         Weapons[2].transform.parent = CurrentSlot.transform;
+         //Weapons[2].transform.parent = CurrentSlot.transform;
          Weapons[0].SetActive(false);
          Weapons[1].SetActive(true);
          Weapons[2].SetActive(false);
@@ -168,7 +171,7 @@ public class PlayerController : MonoBehaviour
         if(MageClassData.Class == "Sun")
         {
          CurrentWeaponSlot = Weapons[2]; 
-         Weapons[1].transform.parent = CurrentSlot.transform;
+         //Weapons[1].transform.parent = CurrentSlot.transform;
          Weapons[0].SetActive(false);
          Weapons[1].SetActive(false);
          Weapons[2].SetActive(true);
@@ -203,6 +206,8 @@ public class PlayerController : MonoBehaviour
         
         ScreenPosition = Input.mousePosition;
         ScreenPosition.z = Camera.main.nearClipPlane + 1;
+
+        
         /*
         Ray cameraRay = MainCamera.ScreenPointToRay(Input.mousePosition);
         Plane groundPlane = new Plane(Vector3.up, transform.position);
@@ -231,7 +236,7 @@ public class PlayerController : MonoBehaviour
       {
         if(CanUseWeapons == true)
         {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        /*if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             CurrentWeaponSlot = Weapons[0];
             Weapons[0].transform.parent = CurrentSlot.transform;
@@ -266,6 +271,7 @@ public class PlayerController : MonoBehaviour
             Weapons[1].SetActive(false);
             Weapons[2].SetActive(true);
         }
+        */
         }
       }
 
@@ -393,7 +399,9 @@ public class PlayerController : MonoBehaviour
         float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
         movementDirection.Normalize();
 
-       
+        PlayerAnimator.SetFloat("Y", verticalInput);
+        PlayerAnimator.SetFloat("X", horizontalInput);
+
         ySpeed += Physics.gravity.y * Time.deltaTime;
         YSpeed = ySpeed;
         if (characterController.isGrounded)

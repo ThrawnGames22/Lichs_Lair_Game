@@ -79,7 +79,7 @@ public class MenuManager : MonoBehaviour
     }
      public void LoadNextLevel()
     {
-        StartCoroutine(LoadRandomLevel());
+        StartCoroutine(LoadNextLV(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     public void LoadChestLevel()

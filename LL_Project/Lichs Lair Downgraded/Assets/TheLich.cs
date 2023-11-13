@@ -17,9 +17,37 @@ public class TheLich : MonoBehaviour
     public bool SwipeIsActive1;
     public bool SwipeIsActive2;
 
+    public bool HasStartedPhase2;
+
+    public SkinnedMeshRenderer Pupils;
+
+    public SkinnedMeshRenderer LichRenderer;
+
+
+    //DeathMats
+    public Material CapeDeathMat;
+    public Material GoldDeathMat;
+    public Material GemDeathMat;
+    public Material Bone1DeathMat;
+    public Material Bone2DeathMat;
+    public Material BlackDeathMat;
+    
+    public Material[]NormalMats;
+
+
+
+
+    public MeshRenderer Phalactory1;
+    public MeshRenderer Phalactory2;
+
+
+    public Material Phase2PupilMaterial;
+
 
 
     public BossTrigger bossTrigger;
+
+    public GameObject BlockerBox;
 
     
 
@@ -80,6 +108,8 @@ public class TheLich : MonoBehaviour
 
     public bool IsSummoning;
 
+    public bool StartDisolve;
+
     [Header("Health")]
 
     public int MaxHealth;
@@ -93,6 +123,18 @@ public class TheLich : MonoBehaviour
 
     public Animator HurtAnim;
 
+    public Sprite Phase1Bar;
+    public Sprite Phase2Bar;
+
+    public Image HealthBarImage;
+
+    public int HalfWayPoint;
+
+    public bool HasDied;
+
+    public GameObject VictoryText;
+
+
 
 
 
@@ -100,9 +142,40 @@ public class TheLich : MonoBehaviour
 
     public AudioSource LichSoundSource;
 
-    [Header("Particles")]
+    public AudioClip[]Screeches;
+
+    public AudioClip SpawnSound;
+
+    public bool HasPlayed;
+
+    public AudioClip CombatMusic;
+    public AudioClip VictoryMusic;
+
+    public GameObject CombatMusicTriggerSphere;
+
+    [Header("Particles and FX")]
     public ParticleSystem LeftHandParticles;
     public ParticleSystem RightHandParticles;
+
+    public ParticleSystem DarkParticles;
+    public ParticleSystem DarkAsh;
+
+    public Light PurpleLight;
+    public Light PurpleRoomLight;
+
+    public Light RoomLight;
+
+
+
+
+    [Header("MaterialData")]
+    public float DisolveAmount1;
+    public float DisolveAmount2;
+    public float DisolveAmount3;
+    public float DisolveAmount4;
+    public float DisolveAmount5;
+    public float DisolveAmount6;
+
 
 
 
@@ -111,6 +184,14 @@ public class TheLich : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BlockerBox.SetActive(false);
+        VictoryText.SetActive(false);
+        DarkParticles.Stop();
+        DarkAsh.Stop();
+        PurpleLight.enabled = false;
+        PurpleRoomLight.gameObject.SetActive(false);
+        //CombatMusicTriggerSphere.SetActive(false);
+
         foreach(GameObject wall in LeftWalls)
         {
             wall.SetActive(false);
@@ -134,7 +215,12 @@ public class TheLich : MonoBehaviour
         LeftHandParticles.Stop();
         RightHandParticles.Stop();
 
-        
+        //LichRenderer.materials[0] = CapeDeathMat;
+        //LichRenderer.materials[1] = GoldDeathMat;
+        //LichRenderer.materials[2] = GemDeathMat;
+        //LichRenderer.materials[3] = Bone1DeathMat;
+        //LichRenderer.materials[4] = Bone2DeathMat;
+        //LichRenderer.materials[5] = BlackDeathMat;
     }
 
     // Update is called once per frame
@@ -149,9 +235,14 @@ public class TheLich : MonoBehaviour
         HealthBar.value = CurrentHealth;
 
         HurtAnim.SetBool("IsHurt", IsHurt);
+        //HurtAnim.SetBool("IsDead", StartDisolve);
+
         LichRiseAnimator.SetBool("FightHasStarted", FightHasStarted);
+        LichRiseAnimator.SetBool("IsDead", IsDead);
+
         NecromancyLightAnimator1.SetBool("SwipeIsActive", SwipeIsActive1);
         NecromancyLightAnimator2.SetBool("SwipeIsActive", SwipeIsActive2);
+        
         
 
 
@@ -163,9 +254,69 @@ public class TheLich : MonoBehaviour
             Phase1();
             HealthBarUI.alpha = 1;
             StartFight = true;
+            LichSoundSource.clip = SpawnSound;
+            LichSoundSource.Play();
+            GameObject.Find("CombatAudioManager").GetComponent<CharacterSoundManager>().SwapTrack(CombatMusic);
+            BlockerBox.SetActive(true);
+            //CombatMusicTriggerSphere.SetActive(true);
             }
         }
 
+        if(CurrentHealth <= HalfWayPoint)
+        {
+            FightHasStarted = false;
+            
+            HealthBarImage.sprite = Phase2Bar;
+            HealthBarImage.color = new Color(255, 124, 0);
+            Pupils.material = Phase2PupilMaterial; 
+            Phalactory1.material = Phase2PupilMaterial;
+            Phalactory2.material = Phase2PupilMaterial;
+
+
+            if(HasStartedPhase2 == false)
+            {
+                Phase2();
+                HasStartedPhase2 = true;
+            }
+        }
+
+        if(CurrentHealth <= 0)
+        {
+          
+            if(HasDied == false)
+        {
+            Die();
+            StartCoroutine(DeathDisolve());
+            GameObject.Find("CombatAudioManager").GetComponent<CharacterSoundManager>().SwapTrack(VictoryMusic);
+            HealthBarUI.alpha = 0;
+            HasDied = true;
+            
+            
+
+        }
+        }
+
+
+
+        if(IsPhase2 == true)
+        {
+            
+            
+
+            
+
+        }
+
+        
+
+    }
+
+    public IEnumerator LerpColor()
+    {
+        yield return new WaitForSeconds(0);
+        Color RoomColor = new Color(255,0, 197);
+            float lerpTime = Random.Range(0f, 1f); 
+            RoomLight.color = Color.Lerp(RoomLight.color, RoomColor, lerpTime);
     }
 
     public void TakeDamage(int Damage)
@@ -174,6 +325,68 @@ public class TheLich : MonoBehaviour
       IsHurt = true;
       
       StartCoroutine(ResetHurtFlag());
+    }
+
+    public void Die()
+    {
+        StopAllCoroutines();
+        IsDead = true;
+        LichRenderer.materials = new Material[]{
+            CapeDeathMat,
+             GoldDeathMat,
+     GemDeathMat,
+    Bone1DeathMat,
+    Bone2DeathMat,
+     BlackDeathMat
+        };
+
+        Pupils.gameObject.SetActive(false); 
+        Phalactory1.gameObject.SetActive(false); 
+        Phalactory2.gameObject.SetActive(false); 
+
+        DarkParticles.Stop();
+        DarkAsh.Stop();
+        PurpleLight.enabled = false;
+        PurpleRoomLight.gameObject.SetActive(false);
+        StartCoroutine(VictoryTextShow());
+
+        
+        HasDied = true;
+
+    }
+
+    public IEnumerator VictoryTextShow()
+    {
+        yield return new WaitForSeconds(5f);
+        VictoryText.SetActive(true);
+    }
+    
+
+
+    public IEnumerator DeathDisolve()
+    {
+        
+
+        
+        yield return new WaitForSeconds(0.06f);
+        LichRenderer.materials[0].SetFloat("_DisolveAmount", DisolveAmount1); 
+        LichRenderer.materials[1].SetFloat("_DisolveAmount", DisolveAmount2); 
+        LichRenderer.materials[2].SetFloat("_DisolveAmount", DisolveAmount3); 
+        LichRenderer.materials[3].SetFloat("_DisolveAmount", DisolveAmount4); 
+        LichRenderer.materials[4].SetFloat("_DisolveAmount", DisolveAmount5); 
+        LichRenderer.materials[5].SetFloat("_DisolveAmount", DisolveAmount6); 
+      
+        
+        DisolveAmount1 += 1f * Time.deltaTime;
+        DisolveAmount2 += 1f * Time.deltaTime;
+        DisolveAmount3 += 1f * Time.deltaTime;
+        DisolveAmount4 += 1f * Time.deltaTime;
+        DisolveAmount5 += 1f * Time.deltaTime;
+        DisolveAmount6 += 1f * Time.deltaTime;
+        StartCoroutine(DeathDisolve());
+        
+
+        
     }
 
     public IEnumerator ResetHurtFlag()
@@ -570,26 +783,50 @@ public class TheLich : MonoBehaviour
 
     // ________________PHASE 2________________//
 
+
+    
     public void Phase2()
     {
+        
+      StopAllCoroutines();
       IsPhase2 = true;
-      LichAnimator.speed = 1f;
+      IsPhase1 = false;
+      DarkParticles.Play();
+        DarkAsh.Play();
+        PurpleLight.enabled = true;
+        PurpleRoomLight.gameObject.SetActive(true);
+        
+        
+
+
+      
+      //LichAnimator.speed = 2f;
+      
       foreach(GameObject wall in RightWalls)
         {
-            wall.GetComponent<Animator>().speed = 2;
+            wall.GetComponent<Animator>().speed = 1.5f;
         }
 
       foreach(GameObject wall in LeftWalls)
         {
-            wall.GetComponent<Animator>().speed = 2;
+            wall.GetComponent<Animator>().speed = 1.5f;
         }
 
       foreach(GameObject wall in FrontWalls)
         {
-            wall.GetComponent<Animator>().speed = 2;
-        }    
-      StartCoroutine(Phase2Idle1());
+            wall.GetComponent<Animator>().speed = 1.5f;
+        } 
+
+        
+        StartPhase2();
     }
+
+    public void StartPhase2()
+    {
+        StartCoroutine(Phase2Idle1());
+    }
+
+    
     
 public IEnumerator Phase2Idle1()
     {
@@ -601,6 +838,14 @@ public IEnumerator Phase2Idle1()
         IsCastingRight = false;
         IsCastingForward = false;
         IsSummoning = false;
+        StopCoroutine(Phase1Idle1());
+            StopCoroutine(Phase1Idle2());
+            StopCoroutine(Phase1Idle3());
+            StopCoroutine(Phase1Idle4());
+            StopCoroutine(Phase1Spawning1());
+            StopCoroutine(Phase1Walls());
+            StopCoroutine(Phase1Walls2());
+            StopCoroutine(Phase1Walls4());
         yield return new WaitForSeconds(2.5f);
         StartCoroutine(Phase2Walls());
     }
@@ -615,7 +860,7 @@ public IEnumerator Phase2Idle1()
         RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
         
         
-        yield return new WaitForSeconds(1.146f);
+        yield return new WaitForSeconds(2.292f);
         SwipeIsActive1 = false;
 
         foreach(GameObject wall in RightWalls)
@@ -629,7 +874,7 @@ public IEnumerator Phase2Idle1()
 
         LeftWalls[Random.Range(0, LeftWalls.Length)].SetActive(true);
 
-        yield return new WaitForSeconds(1.146f);
+        yield return new WaitForSeconds(2.292f);
         SwipeIsActive2 = false;
 
         foreach(GameObject wall in LeftWalls)
@@ -642,7 +887,7 @@ public IEnumerator Phase2Idle1()
 
         RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
 
-        yield return new WaitForSeconds(1.146f);
+        yield return new WaitForSeconds(2.292f);
         SwipeIsActive1 = false;
 
         foreach(GameObject wall in RightWalls)
@@ -672,6 +917,9 @@ public IEnumerator Phase2Idle1()
         IsSummoning = true;
         yield return new WaitForSeconds(5.333f);
         SpawnPoint1.gameObject.SetActive(true);
+
+        if(HasSpawned == false)
+        {
             SpawnPoint2.gameObject.SetActive(true);
             SpawnPoint3.gameObject.SetActive(true);
             SpawnPoint4.gameObject.SetActive(true);
@@ -714,7 +962,7 @@ public IEnumerator Phase2Idle1()
             HasSpawned = true;
 
 
-
+        }
         IsSummoning = false;
         yield return new WaitForSeconds(9);
         StartCoroutine(Phase2Idle3());
@@ -763,7 +1011,7 @@ public IEnumerator Phase2Idle1()
         LeftWalls[Random.Range(0, LeftWalls.Length)].SetActive(true);
 
 
-        yield return new WaitForSeconds(1.146f);
+        yield return new WaitForSeconds(2.292f);
         SwipeIsActive2 = false;
 
         foreach(GameObject wall in LeftWalls)
@@ -780,7 +1028,7 @@ public IEnumerator Phase2Idle1()
         FrontWalls[Random.Range(0, FrontWalls.Length)].SetActive(true);
 
 
-        yield return new WaitForSeconds(1.146f);
+        yield return new WaitForSeconds(2.292f);
         SwipeIsActive2 = false;
         SwipeIsActive1 = false;
         foreach(GameObject wall in FrontWalls)
@@ -797,7 +1045,7 @@ public IEnumerator Phase2Idle1()
 
 
 
-        yield return new WaitForSeconds(1.146f);
+        yield return new WaitForSeconds(2.292f);
         SwipeIsActive1 = false;
 
         foreach(GameObject wall in RightWalls)
@@ -833,7 +1081,7 @@ public IEnumerator Phase2Idle1()
 
         LeftWalls[Random.Range(0, LeftWalls.Length)].SetActive(true);
 
-        yield return new WaitForSeconds(1.146f);
+        yield return new WaitForSeconds(2.292f);
         SwipeIsActive2 = false;
 
         foreach(GameObject wall in LeftWalls)
@@ -848,7 +1096,7 @@ public IEnumerator Phase2Idle1()
         RightWalls[Random.Range(0, RightWalls.Length)].SetActive(true);
 
 
-        yield return new WaitForSeconds(1.146f);
+        yield return new WaitForSeconds(2.292f);
         SwipeIsActive1 = false;
 
         foreach(GameObject wall in RightWalls)
@@ -865,7 +1113,7 @@ public IEnumerator Phase2Idle1()
         FrontWalls[Random.Range(0, FrontWalls.Length)].SetActive(true);
 
 
-        yield return new WaitForSeconds(1.146f);
+        yield return new WaitForSeconds(2.292f);
         SwipeIsActive1 = false;
         SwipeIsActive2 = false;
         foreach(GameObject wall in FrontWalls)
@@ -881,7 +1129,7 @@ public IEnumerator Phase2Idle1()
         
 
 
-        yield return new WaitForSeconds(1.146f);
+        yield return new WaitForSeconds(2.292f);
         SwipeIsActive1 = false;
 
         foreach(GameObject wall in RightWalls)

@@ -18,6 +18,10 @@ public class SwordController : MonoBehaviour
 
     public ParticleSystem SwordParticleSystem;
 
+    public PlayerAnimationManager PAM;
+
+    public BoxCollider boxCollider;
+
     
     
 
@@ -68,6 +72,10 @@ public class SwordController : MonoBehaviour
       {
         if(Input.GetKey(KeyCode.E))
           {
+            PAM.StartCoroutine(PAM.Swinging());
+            PAM.StartCoroutine(PAM.SwingingBoxCollider());
+            
+
             isInCooldown = true;
             SwordAttack();
             //PlayerHealth.Instance.currentHealth += 30f;
@@ -78,11 +86,13 @@ public class SwordController : MonoBehaviour
       }
       else
       {
+        
         return;
       }
       }
       if(CanUse == true)
       {
+        
         StopCoroutine(DelayAttack());
         //PlayerController.Instance.CanUseWeapons = true;
       }
@@ -90,13 +100,19 @@ public class SwordController : MonoBehaviour
       if(isInCooldown)
       {
         playerController.CanUseWeapons = false;
+        //StartDamage();
       }
 
        if(!isInCooldown)
       {
         playerController.CanUseWeapons = true;
+        //StopDamage();
+        
+        
       }
     }
+
+    
  
 
 
