@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -94,6 +96,18 @@ public class PlayerMagic : MonoBehaviour
     public AudioClip[] SpellClipsSlot3;
 
 
+    [Header("Animations")]
+
+    public Animator PlayerAnimator;
+
+    public bool HasLightningWrath;
+    public bool HasCollapsingDarkness;
+    public bool HasDragonsBreath;
+
+    public bool HasSpell;
+
+
+
 
 
     private void Awake()
@@ -110,7 +124,7 @@ public class PlayerMagic : MonoBehaviour
       // Find and set values
         manaBar = GameObject.Find("Mana Slider").GetComponent<ManaBar>();
         GameManager = GameObject.Find("GameManager(Clone)");
-        AbilityManager = GameManager.GetComponent<AbilityList>();
+        //AbilityManager = GameManager.GetComponent<AbilityList>();
         UI = GameObject.Find("UI");
         slotUIController = UI.GetComponent<SlotUIController>();
         manaBar.slider.maxValue = maxMana;
@@ -148,6 +162,96 @@ public class PlayerMagic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+      if(inventoryController.CurrentCombatSpell2.name == "Lighnting Wrath")
+           {
+             HasLightningWrath = true;
+             PlayerAnimator.SetBool("IsCastingLightningWrath", castingCombatMagic2);
+
+             
+           }
+
+           if(inventoryController.CurrentCombatSpell2.name == "Dragons Breath")
+           {
+             HasDragonsBreath = true;
+             PlayerAnimator.SetBool("IsCastingDragonsBreath", castingCombatMagic2);
+
+           }
+           
+           if(inventoryController.CurrentCombatSpell2.name == "CollapsingDarkness")
+           {
+             HasCollapsingDarkness = true;
+             PlayerAnimator.SetBool("IsCastingCollapsingDarkness", castingCombatMagic2);
+
+           }
+
+      if(inventoryController.CurrentCombatSpell2.name == "Dark Slash" || inventoryController.CurrentCombatSpell2.name == "FireBall" || 
+      inventoryController.CurrentCombatSpell2.name == "FireGrenade" || inventoryController.CurrentCombatSpell2.name == "Lightning Toss" ||
+      inventoryController.CurrentCombatSpell2.name == "SpiritDefenders" || inventoryController.CurrentCombatSpell2.name == "DarkCloud")
+           {
+             HasLightningWrath = false;
+             HasDragonsBreath = false;
+             HasCollapsingDarkness = false;
+             HasSpell = false;
+           }
+
+           /*if(inventoryController.CurrentCombatSpell2.name == "Dragons Breath")
+           {
+             HasDragonsBreath = true;
+             HasCollapsingDarkness = true;
+
+             
+
+           }
+           
+           if(inventoryController.CurrentCombatSpell2.name == "CollapsingDarkness")
+           {
+             HasCollapsingDarkness = true;
+             
+
+           }  
+           */   
+           
+
+      PlayerAnimator.SetBool("IsCastingC1", castingCombatMagic1);
+
+      if(HasLightningWrath == true || HasDragonsBreath == true || HasCollapsingDarkness == true)
+      {
+         HasSpell = true;
+      }
+      else
+      {
+         HasSpell = false;
+      }
+
+      if(HasSpell == false)
+      {
+        PlayerAnimator.SetBool("IsCastingC2", castingCombatMagic2);
+      }
+
+      if(HasLightningWrath == true)
+      {
+         HasCollapsingDarkness = false;
+         HasDragonsBreath = false;
+      }
+
+      if(HasDragonsBreath == true)
+      {
+         HasCollapsingDarkness = false;
+         HasLightningWrath = false;
+      }
+
+      if(HasCollapsingDarkness == true)
+      {
+         HasLightningWrath = false;
+         HasDragonsBreath = false;
+      }
+
+      
+      
+      PlayerAnimator.SetBool("IsCastingUtility", castingUtilityMagic);
+      
+
          UtilityCoolDown = UtilitySpell.spellToCast.CoolingDownTime;
 
       //DEBUG MAGIC SOUND
@@ -262,7 +366,7 @@ public class PlayerMagic : MonoBehaviour
         if(MagicPaused == false)
         {
       
-        if(!castingCombatMagic1 && Input.GetKeyDown(KeyCode.Mouse0) && hasEnoughManaC1 || !castingCombatMagic1 && Input.GetKeyDown(KeyCode.JoystickButton3) && hasEnoughManaC1!)
+        if(!castingCombatMagic1 && Input.GetKeyDown(KeyCode.Mouse0) && hasEnoughManaC1)
         {
            castingCombatMagic1 = true;
            DecreaseMana(CombatSpellSlot1.spellToCast.ManaCost);
@@ -271,6 +375,7 @@ public class PlayerMagic : MonoBehaviour
            CastCombatSpell1();
            PlayCombatMagicSound1();
            manaBar.slider.value = currentMana;
+           playerController.IsAirborne = false;
         }
         if(!castingCombatMagic2 && Input.GetKeyDown(KeyCode.Mouse1) && hasEnoughManaC2)
         {
@@ -281,6 +386,9 @@ public class PlayerMagic : MonoBehaviour
            CastCombatSpell2();
            PlayCombatMagicSound2();
            manaBar.slider.value = currentMana;
+
+           
+           
         }
 
         if(!castingUtilityMagic && Input.GetKeyDown(KeyCode.Q))
@@ -393,6 +501,51 @@ public class PlayerMagic : MonoBehaviour
          Spell2 = null;
          CombatSpellSlot2 = null;
       }
+
+      //ANIMATIONS//
+      
+    }
+
+    //ANIMATION FUNCTIONS//
+    public IEnumerator LightWrath()
+    {
+     
+      PlayerAnimator.SetLayerWeight(5, 1);
+      yield return new WaitForSeconds(1.667f);
+      PlayerAnimator.SetLayerWeight(5, 0);
+      ResetMagicAnimationFlag();
+
+    }
+
+    public IEnumerator CollapDarkness()
+    {
+      
+      PlayerAnimator.SetLayerWeight(5, 1);
+      yield return new WaitForSeconds(1.667f);
+      PlayerAnimator.SetLayerWeight(5, 0);
+      ResetMagicAnimationFlag();
+
+    }
+
+    public IEnumerator DragonBreath()
+    {
+      
+      PlayerAnimator.SetLayerWeight(4, 1);
+      yield return new WaitForSeconds(1.667f);
+      PlayerAnimator.SetLayerWeight(4, 0);
+      ResetMagicAnimationFlag();
+
+    }
+
+    public void ResetMagicAnimationFlag()
+    {
+      StopCoroutine(LightWrath());
+      StopCoroutine(CollapDarkness());
+      StopCoroutine(DragonBreath());
+      PlayerAnimator.SetLayerWeight(1,1);
+      
+
+      //PlayerAnimator.SetLayerWeight(5, 0);
     }
 
     // Casting spell functions
@@ -404,6 +557,25 @@ public class PlayerMagic : MonoBehaviour
     void CastCombatSpell2()
     {
         Instantiate(CombatSpellSlot2, CombatCastPoint.position, CombatCastPoint.rotation);
+        if(HasLightningWrath == true)
+           {
+             StartCoroutine(LightWrath());
+             PlayerAnimator.SetLayerWeight(1,0);
+           }
+
+           if(HasDragonsBreath == true)
+           {
+             StartCoroutine(DragonBreath());
+             PlayerAnimator.SetLayerWeight(1,0);
+
+           }
+
+           if(HasCollapsingDarkness == true)
+           {
+             StartCoroutine(CollapDarkness());
+             PlayerAnimator.SetLayerWeight(1,0);
+
+           }
     }
 
     void CastUtilitySpell()

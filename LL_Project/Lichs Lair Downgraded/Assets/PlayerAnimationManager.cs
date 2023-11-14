@@ -11,7 +11,11 @@ public class PlayerAnimationManager : MonoBehaviour
 
     public bool IsSwinging;
 
+    public bool IsUsingBow;
+
     public SwordController Sword;
+    public BowController Bow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +28,23 @@ public class PlayerAnimationManager : MonoBehaviour
         if(playerController.IsFireMage)
         {
         Sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SwordController>();
+        PlayerAnimator.SetBool("IsSwinging", IsSwinging);
+        }
+
+        if(playerController.IsShadowWizard)
+        {
+        Bow = GameObject.FindGameObjectWithTag("Bow").GetComponent<BowController>();
+        PlayerAnimator.SetBool("IsUsingBow", IsUsingBow);
+        }
+
+        if(playerController.IsPaladin)
+        {
+        Sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SwordController>();
+        PlayerAnimator.SetBool("IsSwinging", IsSwinging);
         }
        speed = playerController.velocity;
 
-       PlayerAnimator.SetBool("IsSwinging", IsSwinging);
+       
 
        
     }
@@ -48,6 +65,22 @@ public class PlayerAnimationManager : MonoBehaviour
 
         
         ResetSwingFlag();
+
+    }
+
+    public IEnumerator UsingBow()
+    {
+        IsUsingBow = true;
+        PlayerAnimator.SetLayerWeight(3, 1);
+        yield return new WaitForSeconds(0.525f);
+        Bow.Shoot();
+        yield return new WaitForSeconds(0.525f);
+        PlayerAnimator.SetLayerWeight(3, 0);
+
+        
+
+        
+        ResetBowFlag();
 
     }
 
@@ -74,5 +107,13 @@ public class PlayerAnimationManager : MonoBehaviour
         StopCoroutine(SwingingBoxCollider());
 
         IsSwinging = false;
+    }
+
+    public void ResetBowFlag()
+    {
+        StopCoroutine(Swinging());
+        
+
+        IsUsingBow = false;
     }
 }

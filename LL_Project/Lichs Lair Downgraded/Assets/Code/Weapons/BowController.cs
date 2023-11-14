@@ -31,6 +31,8 @@ public class BowController : MonoBehaviour
     public Transform ArrowShootPoint;
     public GameObject ArrowToShoot;
     public float ArrowSpeed;
+
+    public PlayerAnimationManager PAM;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +56,8 @@ public class BowController : MonoBehaviour
         {
            if(Input.GetKeyDown(KeyCode.E))
              {
-              Shoot();
+              
+              PAM.StartCoroutine(PAM.UsingBow());
               StartCoroutine(StartCoolDown());
         
              }

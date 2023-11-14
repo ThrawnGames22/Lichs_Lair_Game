@@ -286,7 +286,7 @@ public class TheLich : MonoBehaviour
             if(HasDied == false)
         {
             Die();
-            StartCoroutine(DeathDisolve());
+            StartCoroutine(StartDeathDisolve());
             GameObject.Find("CombatAudioManager").GetComponent<CharacterSoundManager>().SwapTrack(VictoryMusic);
             HealthBarUI.alpha = 0;
             HasDied = true;
@@ -360,6 +360,16 @@ public class TheLich : MonoBehaviour
         yield return new WaitForSeconds(5f);
         VictoryText.SetActive(true);
     }
+
+    public IEnumerator StartDeathDisolve()
+    {
+        yield return new WaitForSeconds(3.09f);
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>().start = true;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>().duration = 1;
+
+        StartCoroutine(DeathDisolve());
+        
+    }
     
 
 
@@ -367,7 +377,7 @@ public class TheLich : MonoBehaviour
     {
         
 
-        
+        StopCoroutine(StartDeathDisolve());
         yield return new WaitForSeconds(0.06f);
         LichRenderer.materials[0].SetFloat("_DisolveAmount", DisolveAmount1); 
         LichRenderer.materials[1].SetFloat("_DisolveAmount", DisolveAmount2); 

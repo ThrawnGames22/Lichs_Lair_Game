@@ -118,8 +118,16 @@ public class PlayerController : MonoBehaviour
 
     [Header("Animation")]
     public Animator PlayerAnimator;
+    
+    public Vector3 TargetRotation;
 
    
+    public bool IsLookingForward;
+    public bool IsLookingBack;
+    public bool IsLookingLeft;
+    public bool IsLookingRight;
+    
+    public bool IsAirborne;
 
     
     
@@ -355,6 +363,7 @@ public class PlayerController : MonoBehaviour
 //FIXED UPDATE 
     void FixedUpdate()
     {
+        
         if(IsLocked == false)
         {
         Aim();
@@ -399,25 +408,36 @@ public class PlayerController : MonoBehaviour
         float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
         movementDirection.Normalize();
 
-        PlayerAnimator.SetFloat("Y", verticalInput);
-        PlayerAnimator.SetFloat("X", horizontalInput);
+        
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
         YSpeed = ySpeed;
-        if (characterController.isGrounded)
+        if (characterController.isGrounded == true)
         {
             IsGrounded = true;
             characterController.stepOffset = originalStepOffset;
             ySpeed = -0.4f;
             CanJump = true;
+            
 
            
         }
-        else
+        if(characterController.isGrounded == false)
         {
             IsGrounded = false;
             characterController.stepOffset = 0;
             CanJump = false;
+            
+        }
+
+        if(CanJump == true)
+        {
+            IsAirborne = false;
+        }
+
+        if(CanJump == false)
+        {
+          IsAirborne = true;
         }
 
         if(IsGrounded)
@@ -482,8 +502,92 @@ public class PlayerController : MonoBehaviour
         
      //Sword
        
+      //ANIMATIONS//
+
       
-        
+
+      if(TargetRotation.y > 120 && TargetRotation.y < 220)
+      {
+        IsLookingForward = true;
+      }
+      else
+      {
+        IsLookingForward = false;
+
+      }
+
+      if(TargetRotation.y > 220 && TargetRotation.y < 290)
+      {
+        IsLookingRight = true;
+      }
+      else
+      {
+        IsLookingRight = false;
+
+      }
+
+      if(TargetRotation.y > 290 && TargetRotation.y < 360 || TargetRotation.y > 0 && TargetRotation.y < 55)
+      {
+        IsLookingBack = true;
+      }
+      else
+      {
+        IsLookingBack = false;
+
+      }
+
+      if(TargetRotation.y > 55 && TargetRotation.y < 120)
+      {
+        IsLookingLeft = true;
+      }
+      else
+      {
+        IsLookingLeft = false;
+
+      }
+
+      
+      if(IsMoving == true)
+      {
+      if(IsLookingForward == true)
+      {
+       PlayerAnimator.SetFloat("Y", verticalInput);
+      PlayerAnimator.SetFloat("X", horizontalInput);
+      }
+
+      if(IsLookingRight == true)
+      {
+       PlayerAnimator.SetFloat("Y", horizontalInput);
+       PlayerAnimator.SetFloat("X", -verticalInput);
+      }
+
+      if(IsLookingLeft == true)
+      {
+       PlayerAnimator.SetFloat("Y", -horizontalInput);
+       PlayerAnimator.SetFloat("X", verticalInput);
+      }
+
+      if(IsLookingBack == true)
+      {
+       PlayerAnimator.SetFloat("Y", -verticalInput);
+       PlayerAnimator.SetFloat("X", -horizontalInput);
+      }
+      }
+      
+
+      if(IsMoving == false)
+      {
+        PlayerAnimator.SetFloat("Y", 0);
+       PlayerAnimator.SetFloat("X", 0);
+      }
+
+      if(CanJump == false)
+      {
+        PlayerAnimator.SetFloat("Y", 0);
+       PlayerAnimator.SetFloat("X", 0);
+      }
+
+      PlayerAnimator.SetBool("IsAirborne", IsAirborne);
         
     }
 //MOUSE AIMING 
@@ -498,6 +602,7 @@ public class PlayerController : MonoBehaviour
             Vector3 targetpoint = ray.GetPoint(hitdist);
             Quaternion targetrotation = Quaternion.LookRotation(targetpoint - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetrotation, CameraLookSpeed * Time.deltaTime);
+            TargetRotation = targetrotation.eulerAngles;
         }
     }
 

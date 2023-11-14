@@ -11681,6 +11681,8 @@ MonoBehaviour:
   MeleeWeaponDelay: 5
   isInCooldown: 0
   SwordParticleSystem: {fileID: 0}
+  PAM: {fileID: 0}
+  boxCollider: {fileID: 0}
   NormalCurrentDamage: 15
   ChargedCurrentDamage: 15
   CurrentDamage: 0
@@ -16601,6 +16603,7 @@ MonoBehaviour:
   ArrowShootPoint: {fileID: 2700104208618368229}
   ArrowToShoot: {fileID: 383179967277287775, guid: e32047c33d487d049b9970956777a18a, type: 3}
   ArrowSpeed: 1000
+  PAM: {fileID: 0}
 --- !u!1001 &1144083476098479327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35414,6 +35417,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6609901748262480321, guid: 63464f87fdfe65b4f976a320075f01b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609901748262480321, guid: 63464f87fdfe65b4f976a320075f01b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0089
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609901748262480321, guid: 63464f87fdfe65b4f976a320075f01b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0326
+      objectReference: {fileID: 0}
     - target: {fileID: 6948734338741267070, guid: 63464f87fdfe65b4f976a320075f01b0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -35421,6 +35436,10 @@ PrefabInstance:
     - target: {fileID: 6948734338741267070, guid: 63464f87fdfe65b4f976a320075f01b0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120725999986957670, guid: 63464f87fdfe65b4f976a320075f01b0, type: 3}
+      propertyPath: m_Name
+      value: Dragons Breath Locator
       objectReference: {fileID: 0}
     - target: {fileID: 8875803135095370013, guid: 63464f87fdfe65b4f976a320075f01b0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -72683,6 +72702,11 @@ MonoBehaviour:
   SpellClipsSlot1: []
   SpellClipsSlot2: []
   SpellClipsSlot3: []
+  PlayerAnimator: {fileID: 0}
+  HasLightningWrath: 0
+  HasCollapsingDarkness: 0
+  HasDragonsBreath: 0
+  HasSpell: 0
 --- !u!114 &4087299786123379847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72796,6 +72820,13 @@ MonoBehaviour:
   IsFireMage: 0
   IsPaladin: 0
   combatSoundManager: {fileID: 0}
+  PlayerAnimator: {fileID: 0}
+  TargetRotation: {x: 0, y: 0, z: 0}
+  IsLookingForward: 0
+  IsLookingBack: 0
+  IsLookingLeft: 0
+  IsLookingRight: 0
+  IsAirborne: 0
 --- !u!143 &4087299786123379865
 CharacterController:
   m_ObjectHideFlags: 0
@@ -97444,10 +97475,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 947813167991591854, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
-      propertyPath: CurrentCombatSpell2
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2374419080417888588, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
