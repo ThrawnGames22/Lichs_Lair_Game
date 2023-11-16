@@ -4832,8 +4832,8 @@ MonoBehaviour:
   ActivateCoinUI: 0
   HasTrinket: 0
   currentTrinket: {fileID: 0}
-  HasPet: 0
-  currentPet: {fileID: 0}
+  HasPet: 1
+  currentPet: {fileID: 11400000, guid: 5485740c36a185c4fab4833acd4d2331, type: 2}
 --- !u!1 &1772607082755298612
 GameObject:
   m_ObjectHideFlags: 0
@@ -6711,7 +6711,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -12765,7 +12765,7 @@ MonoBehaviour:
   DamageScreen: {fileID: 8262835466414922044}
   ScreenAlpha: 0.6
   UIHasActivated: 0
-  PlayerModel: {fileID: 3358985846511206501}
+  PlayerModel: {fileID: 1153411460834421580}
   DamageScreenObject: {fileID: 8262835466414922044}
   IsDead: 0
   Regen: 0
@@ -17765,7 +17765,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -28009,17 +28009,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShadowWizardRigged
       objectReference: {fileID: 0}
+    - target: {fileID: 1880783399194888838, guid: 743a346467aada149898811d656cc254, type: 3}
+      propertyPath: m_TagString
+      value: PlayerRenderer
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 743a346467aada149898811d656cc254, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 642380334637d904ba91302b56ebd4c1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 743a346467aada149898811d656cc254, type: 3}
---- !u!95 &5504706501021076149 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 743a346467aada149898811d656cc254, type: 3}
-  m_PrefabInstance: {fileID: 2093664530476676900}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1910803536411152591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 743a346467aada149898811d656cc254, type: 3}
@@ -28033,6 +28032,16 @@ Transform:
 --- !u!4 &820880984173599234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7608151884059120346, guid: 743a346467aada149898811d656cc254, type: 3}
+  m_PrefabInstance: {fileID: 2093664530476676900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1153411460834421580 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 941126225823521896, guid: 743a346467aada149898811d656cc254, type: 3}
+  m_PrefabInstance: {fileID: 2093664530476676900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5504706501021076149 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 743a346467aada149898811d656cc254, type: 3}
   m_PrefabInstance: {fileID: 2093664530476676900}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2175005071059875317

@@ -21,6 +21,8 @@ public class UIHandler : MonoBehaviour
     public PlayerInventoryController inventoryController;
     public PlayerMagic PM;
 
+    public bool InventoryIsOpen;
+
     private void Awake() 
     {
         instance = this;
@@ -63,9 +65,20 @@ public class UIHandler : MonoBehaviour
         }
         }
 
-        
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+        InventoryIsOpen = !InventoryIsOpen;
+        }
 
-        
+        if(InventoryIsOpen == true)
+        {
+            GameObject.Find("DeathCanvas").GetComponent<CanvasGroup>().blocksRaycasts = false;
+        }
+
+        if(InventoryIsOpen == false)
+        {
+            GameObject.Find("DeathCanvas").GetComponent<CanvasGroup>().blocksRaycasts = true;
+        }
     }
 
     public void PauseGame()

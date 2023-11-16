@@ -171,7 +171,7 @@ public class SwordController : MonoBehaviour
         {
             return;
         }
-        playerController.WeaponAnimator.SetTrigger("Attack");
+        //playerController.WeaponAnimator.SetTrigger("Attack");
         
         AttackBlocked = true;
         StartCoroutine(DelayAttack());

@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
 
     public bool UIHasActivated;
 
-    public GameObject PlayerModel;
+    public SkinnedMeshRenderer PlayerModel;
 
     public GameObject DamageScreenObject;
     public bool IsDead;
@@ -124,7 +124,7 @@ public class PlayerHealth : MonoBehaviour
     {
         
         IsDead = true;
-        PlayerModel.SetActive(false);
+        PlayerModel.enabled = false;
         PlayerController.Instance.characterController.enabled = false;
         DamageScreen.SetActive(false);
         //DeathScreen.SetActive(true);
@@ -142,7 +142,8 @@ public class PlayerHealth : MonoBehaviour
     public void Revive()
     {
         IsDead = false;
-        PlayerModel.SetActive(true);
+        PlayerModel.enabled = true;
+        
         PlayerController.Instance.characterController.enabled = true;
         ResetHealth();
         PlayerMagic.Instance.ResetMana();

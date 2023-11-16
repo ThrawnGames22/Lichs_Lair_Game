@@ -3,7 +3,62 @@ guid: 743a346467aada149898811d656cc254
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: 89b5aadc624cd234b8287e5b9673e05a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Overcoat
+    second: {fileID: 2100000, guid: 01fc96254ab4b0e408d8fb3e4e6194dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoes
+    second: {fileID: 2100000, guid: cdb447da4061e7b4da37730fc5b749ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: afa7566590b3a354980b2a734fa574d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sleeves
+    second: {fileID: 2100000, guid: ed28990342a5d404ea7dbfc20159d272, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 4fb4a1e0050ee1e4f8a9851518839a4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert7
+    second: {fileID: 2100000, guid: 0dc6687cb9918e843a7622a1c5bd7449, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert8
+    second: {fileID: 2100000, guid: cb67f88600a126747bd450392f372792, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leather
+    second: {fileID: 2100000, guid: 6667ed6dcaa0bfd48ab1127dc72705cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shirt
+    second: {fileID: 2100000, guid: 02b4b8d0a9401fc4a98d4881d3e231ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: silver
+    second: {fileID: 2100000, guid: 215691e6d43f8954e8dbedd385b30138, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -79,8 +134,259 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftThigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightThigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftCalf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightCalf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TopHalf
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: HeadTip
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftShoulder
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightShoulder
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftForearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightForearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftFootTip
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightFootTip
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: ShadowWizardRigged(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ShadowWizardRig
+      parentName: ShadowWizardRigged(Clone)
+      position: {x: -0, y: 0, z: 0.121568374}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hips
+      parentName: ShadowWizardRig
+      position: {x: -0, y: 0.10736924, z: -0.119339965}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftThigh
+      parentName: Hips
+      position: {x: -0.010469509, y: -0.0017208927, z: -2.7755575e-19}
+      rotation: {x: 0.009440751, y: 0.14628062, z: 0.0018305142, w: 0.9891964}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftCalf
+      parentName: LeftThigh
+      position: {x: -0.0035100458, y: -0.040703014, z: 0.0020223067}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftFoot
+      parentName: LeftCalf
+      position: {x: -0.0015468786, y: -0.03765199, z: -0.0030028191}
+      rotation: {x: -0.00033216458, y: -0.052025422, z: 0.0009440184, w: 0.99864525}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftFootTip
+      parentName: LeftFoot
+      position: {x: -0.000025686513, y: -0.025981, z: 0.0020558867}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightThigh
+      parentName: Hips
+      position: {x: 0.010469509, y: -0.0017208927, z: -2.7755575e-19}
+      rotation: {x: 0.007828783, y: -0.12773375, z: -0.0015963059, w: 0.99177635}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightCalf
+      parentName: RightThigh
+      position: {x: 0.0032593315, y: -0.040765695, z: 0.0020228224}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightFoot
+      parentName: RightCalf
+      position: {x: 0.0015468776, y: -0.03765199, z: -0.0030028191}
+      rotation: {x: -0.00040693482, y: 0.07868323, z: -0.0011907916, w: 0.9968989}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightFootTip
+      parentName: RightFoot
+      position: {x: -0.00016429578, y: -0.025760233, z: 0.0020559197}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TopHalf
+      parentName: Hips
+      position: {x: -0, y: 0.020062968, z: -0.0011371807}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BustNArms
+      parentName: TopHalf
+      position: {x: -0, y: 0.036675557, z: 1.3877787e-19}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HeadTip
+      parentName: BustNArms
+      position: {x: -6.661338e-18, y: 0.0069120293, z: 0.00006365688}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightShoulder
+      parentName: BustNArms
+      position: {x: 0.015114772, y: -0.00648068, z: -2.7755575e-19}
+      rotation: {x: -0, y: -0, z: 0.498665, w: 0.8667949}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightForearm
+      parentName: RightShoulder
+      position: {x: 0.01302128, y: -0.024220204, z: -1.3877787e-19}
+      rotation: {x: 0, y: -0, z: -0.000020231517, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightHand
+      parentName: RightForearm
+      position: {x: 0.009209517, y: -0.016855618, z: 1.2490008e-18}
+      rotation: {x: 0, y: 0, z: 0.00030347274, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightHandTip
+      parentName: RightHand
+      position: {x: 0.00916295, y: -0.020190809, z: -4.5380366e-17}
+      rotation: {x: 0, y: -0, z: -0.0021243077, w: 0.99999774}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftShoulder
+      parentName: BustNArms
+      position: {x: -0.014983779, y: -0.0066179195, z: -1.3877787e-19}
+      rotation: {x: -0, y: -0, z: -0.49471298, w: 0.86905646}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftForearm
+      parentName: LeftShoulder
+      position: {x: -0.013205187, y: -0.024059597, z: -1.3877787e-19}
+      rotation: {x: 0, y: 0, z: 0.000006416546, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftHand
+      parentName: LeftForearm
+      position: {x: -0.009097229, y: -0.016891243, z: 1.3877787e-18}
+      rotation: {x: 0, y: -0, z: -0.000096248186, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftHandTip
+      parentName: LeftHand
+      position: {x: -0.009553075, y: -0.02028667, z: -7.2164494e-17}
+      rotation: {x: 0, y: 0, z: 0.00067373726, w: 0.99999976}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ShadowWizard
+      parentName: ShadowWizardRigged(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5

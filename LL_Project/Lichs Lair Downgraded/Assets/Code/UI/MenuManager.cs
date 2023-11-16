@@ -164,7 +164,8 @@ public class MenuManager : MonoBehaviour
 
     public IEnumerator LoadEndGame()
     {
-        yield return new WaitForSeconds(2.5f);
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(TransitionTime);
         LoadEndGameScene();
         StopCoroutine(LoadEndGame());
     }

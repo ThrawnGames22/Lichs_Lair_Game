@@ -10,6 +10,9 @@ public class PetManager : MonoBehaviour
     public GameObject Chicken;
     public GameObject Rat;
 
+    public GameObject Eagle;
+
+
     public GameObject CurrentPet;
 
     public Pet CurrentPetData;
@@ -23,16 +26,30 @@ public class PetManager : MonoBehaviour
         playerController = Player.GetComponent<PlayerController>();
         Chicken.SetActive(false);
         Rat.SetActive(false);
+        Eagle.SetActive(false);
+
         if(playerController.IsFireMage)
         {
-            Chicken.SetActive(false);
-            Rat.SetActive(true);
+            Chicken.SetActive(true);
+            Rat.SetActive(false);
+            Eagle.SetActive(false);
+
         }
 
         if(playerController.IsShadowWizard)
         {
             Chicken.SetActive(false);
             Rat.SetActive(true);
+            Eagle.SetActive(false);
+
+        }
+
+        if(playerController.IsPaladin)
+        {
+            Chicken.SetActive(false);
+            Rat.SetActive(false);
+            Eagle.SetActive(true);
+
         }
         
     }

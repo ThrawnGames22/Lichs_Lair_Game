@@ -290,7 +290,7 @@ public class TheLich : MonoBehaviour
             GameObject.Find("CombatAudioManager").GetComponent<CharacterSoundManager>().SwapTrack(VictoryMusic);
             HealthBarUI.alpha = 0;
             HasDied = true;
-            
+            StartCoroutine(EndTheGame());
             
 
         }
@@ -349,6 +349,7 @@ public class TheLich : MonoBehaviour
         PurpleLight.enabled = false;
         PurpleRoomLight.gameObject.SetActive(false);
         StartCoroutine(VictoryTextShow());
+        
 
         
         HasDied = true;
@@ -942,27 +943,27 @@ public IEnumerator Phase2Idle1()
             GameObject EnemyClone1 = Instantiate(Zombies, SpawnPoint1.position, SpawnPoint1.rotation);
             GameObject EnemyClone2 = Instantiate(Zombies, SpawnPoint2.position, SpawnPoint2.rotation);
             GameObject EnemyClone3 = Instantiate(Zombies, SpawnPoint3.position, SpawnPoint3.rotation);
-            GameObject EnemyClone4 = Instantiate(Zombies, SpawnPoint4.position, SpawnPoint4.rotation);
-            GameObject EnemyClone5 = Instantiate(Zombies, SpawnPoint5.position, SpawnPoint5.rotation);
-            GameObject EnemyClone6 = Instantiate(Zombies, SpawnPoint6.position, SpawnPoint6.rotation);
+            //GameObject EnemyClone4 = Instantiate(Zombies, SpawnPoint4.position, SpawnPoint4.rotation);
+            //GameObject EnemyClone5 = Instantiate(Zombies, SpawnPoint5.position, SpawnPoint5.rotation);
+            //GameObject EnemyClone6 = Instantiate(Zombies, SpawnPoint6.position, SpawnPoint6.rotation);
 
             GameObject EnemyClone7 = Instantiate(Zombies, SpawnPoint1.position, SpawnPoint1.rotation);
             GameObject EnemyClone8 = Instantiate(Zombies, SpawnPoint2.position, SpawnPoint2.rotation);
             GameObject EnemyClone9 = Instantiate(Zombies, SpawnPoint3.position, SpawnPoint3.rotation);
-            GameObject EnemyClone10 = Instantiate(Zombies, SpawnPoint4.position, SpawnPoint4.rotation);
-            GameObject EnemyClone11 = Instantiate(Zombies, SpawnPoint5.position, SpawnPoint5.rotation);
-            GameObject EnemyClone12 = Instantiate(Zombies, SpawnPoint6.position, SpawnPoint6.rotation);
+            //GameObject EnemyClone10 = Instantiate(Zombies, SpawnPoint4.position, SpawnPoint4.rotation);
+            //GameObject EnemyClone11 = Instantiate(Zombies, SpawnPoint5.position, SpawnPoint5.rotation);
+            //GameObject EnemyClone12 = Instantiate(Zombies, SpawnPoint6.position, SpawnPoint6.rotation);
 
             GameObject EnemyClone13 = Instantiate(DeathKnights, SpawnPoint1.position, SpawnPoint1.rotation);
             GameObject EnemyClone14 = Instantiate(DeathKnights, SpawnPoint2.position, SpawnPoint2.rotation);
             GameObject EnemyClone15 = Instantiate(DeathKnights, SpawnPoint3.position, SpawnPoint3.rotation);
-            GameObject EnemyClone16 = Instantiate(DeathKnights, SpawnPoint4.position, SpawnPoint4.rotation);
-            GameObject EnemyClone17 = Instantiate(DeathKnights, SpawnPoint5.position, SpawnPoint5.rotation);
+            //GameObject EnemyClone16 = Instantiate(DeathKnights, SpawnPoint4.position, SpawnPoint4.rotation);
+            //GameObject EnemyClone17 = Instantiate(DeathKnights, SpawnPoint5.position, SpawnPoint5.rotation);
 
             GameObject EnemyClone18 = Instantiate(Imps, SpawnPoint1.position, SpawnPoint1.rotation);
             GameObject EnemyClone19 = Instantiate(Imps, SpawnPoint2.position, SpawnPoint2.rotation);
-            GameObject EnemyClone20 = Instantiate(Imps, SpawnPoint3.position, SpawnPoint3.rotation);
-            GameObject EnemyClone21 = Instantiate(Imps, SpawnPoint4.position, SpawnPoint4.rotation);
+            //GameObject EnemyClone20 = Instantiate(Imps, SpawnPoint3.position, SpawnPoint3.rotation);
+            //GameObject EnemyClone21 = Instantiate(Imps, SpawnPoint4.position, SpawnPoint4.rotation);
 
             GameObject PotionClone1 = Instantiate(ManaPotion, PotionSpawnPoint1.position, PotionSpawnPoint1.rotation);
             GameObject PotionClone2 = Instantiate(HealthPotion, PotionSpawnPoint2.position, PotionSpawnPoint2.rotation);
@@ -1155,6 +1156,12 @@ public IEnumerator Phase2Idle1()
 
         StartCoroutine(Phase2Idle1());
         //yield return new WaitForSeconds(5);
+    }
+
+    public IEnumerator EndTheGame()
+    {
+      yield return new WaitForSeconds(13);
+      GameObject.Find("Level CrossFader").GetComponent<MenuManager>().StartCoroutine(GameObject.Find("Level CrossFader").GetComponent<MenuManager>().LoadEndGame());
     }
 
     

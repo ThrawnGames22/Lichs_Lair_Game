@@ -12198,6 +12198,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skull Door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6012385903192548450, guid: d9a4a9f525b709b458420f2314ec9836, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6357844293694783192, guid: d9a4a9f525b709b458420f2314ec9836, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -17744,14 +17748,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 947813167991591854, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
-      propertyPath: CurrentCombatSpell1
-      value: 
-      objectReference: {fileID: 11400000, guid: fbf0fe75322ea0840938c856c92b574c, type: 2}
-    - target: {fileID: 2255422235764455335, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2374419080417888588, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -17767,10 +17763,6 @@ PrefabInstance:
     - target: {fileID: 3859092449954328226, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
       propertyPath: m_Name
       value: Paladin
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859092449954328226, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3859092449954328230, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
       propertyPath: m_RootOrder
@@ -17822,10 +17814,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4052530541585301464, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840108233270502540, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
-      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6881053695911373902, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
@@ -42098,7 +42086,7 @@ MonoBehaviour:
   IsCastingForward: 0
   IsSummoning: 0
   StartDisolve: 0
-  MaxHealth: 50
+  MaxHealth: 900
   CurrentHealth: 0
   HealthBarUI: {fileID: 1506635782}
   HealthBar: {fileID: 1392109027}
@@ -42107,7 +42095,7 @@ MonoBehaviour:
   Phase1Bar: {fileID: 21300000, guid: 0e3771f782da69f45a4506fccaef576b, type: 3}
   Phase2Bar: {fileID: 21300000, guid: 9415e0aaa5257214fb7ca4d5387b3705, type: 3}
   HealthBarImage: {fileID: 1895790621}
-  HalfWayPoint: 25
+  HalfWayPoint: 450
   HasDied: 0
   VictoryText: {fileID: 84286312}
   LichSoundSource: {fileID: 746260680}
@@ -42116,7 +42104,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c51256232e1413445a73a53f7de1fc1b, type: 3}
   SpawnSound: {fileID: 8300000, guid: c51256232e1413445a73a53f7de1fc1b, type: 3}
   HasPlayed: 0
-  CombatMusic: {fileID: 8300000, guid: 40f924565ac531545bf53a3a1cf5d7a2, type: 3}
+  CombatMusic: {fileID: 8300000, guid: b93bacb10e6001547a2e7022e24300ff, type: 3}
   VictoryMusic: {fileID: 8300000, guid: 7b0c6e25984488f46b200d24fbc0794b, type: 3}
   CombatMusicTriggerSphere: {fileID: 1610245351}
   LeftHandParticles: {fileID: 8269956677294232144}
@@ -72326,15 +72314,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6434952600240834856, guid: 61af158bcea456347901cc857762e889, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.894829
+      value: -19.36
       objectReference: {fileID: 0}
     - target: {fileID: 6434952600240834856, guid: 61af158bcea456347901cc857762e889, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.542
+      value: 35.32
       objectReference: {fileID: 0}
     - target: {fileID: 6434952600240834856, guid: 61af158bcea456347901cc857762e889, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -63.84
+      value: -31.19
       objectReference: {fileID: 0}
     - target: {fileID: 6434952600240834856, guid: 61af158bcea456347901cc857762e889, type: 3}
       propertyPath: m_LocalRotation.w
@@ -73846,6 +73834,10 @@ PrefabInstance:
     - target: {fileID: 3247668915700215205, guid: b34e1ab61a4d7ba498f19be3a0f6dae2, type: 3}
       propertyPath: m_Name
       value: NextSceneTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 3247668915700215205, guid: b34e1ab61a4d7ba498f19be3a0f6dae2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3247668915700215206, guid: b34e1ab61a4d7ba498f19be3a0f6dae2, type: 3}
       propertyPath: m_RootOrder
@@ -94963,7 +94955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7792606211234961144, guid: b955d1be1aa633143b5c0b74eedc56f7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7792606211234961147, guid: b955d1be1aa633143b5c0b74eedc56f7, type: 3}
       propertyPath: m_RootOrder
@@ -116034,7 +116026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1138245659536322890, guid: 8ec0aa21e3e1b2e479239bf2557e757f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1151683887216569358, guid: 8ec0aa21e3e1b2e479239bf2557e757f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -117182,7 +117174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3775530571200018197, guid: 8ec0aa21e3e1b2e479239bf2557e757f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3775796663362725664, guid: 8ec0aa21e3e1b2e479239bf2557e757f, type: 3}
       propertyPath: m_StaticEditorFlags

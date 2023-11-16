@@ -19,6 +19,7 @@ public class PlayerAnimationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Sword.boxCollider.enabled = false;
         
     }
 
@@ -45,7 +46,7 @@ public class PlayerAnimationManager : MonoBehaviour
        speed = playerController.velocity;
 
        
-
+        
        
     }
 

@@ -13,6 +13,9 @@ public class PromptAreaManager : MonoBehaviour
 
     public GameObject StartingPrompt;
 
+    public GameObject JumpPrompt;
+
+
     public GameObject MagicPrompt;
     public GameObject MagicPromptArea1;
     public GameObject MagicPromptArea2;
@@ -143,14 +146,14 @@ public class PromptAreaManager : MonoBehaviour
 
     public void EnemyPromptStart()
     {
-        EnemyPrompt.SetActive(true);
+        BasicCombatPrompt.SetActive(true);
         volume.profile.TryGet(out vig);
         vig.intensity.value = vigneteIntensity;
         PlayerController.Instance.speed = 0;
-        camera.GetComponent<CameraSmoothFollow>().target = Enemy.transform;
-        camera.GetComponent<CameraSmoothFollow>().offset.x = 0.72f;
-        camera.GetComponent<CameraSmoothFollow>().offset.y = 0.24f;
-        camera.GetComponent<CameraSmoothFollow>().offset.z = 3.09f;
+        //camera.GetComponent<CameraSmoothFollow>().target = Enemy.transform;
+        //camera.GetComponent<CameraSmoothFollow>().offset.x = 0.72f;
+        //camera.GetComponent<CameraSmoothFollow>().offset.y = 0.24f;
+        //camera.GetComponent<CameraSmoothFollow>().offset.z = 3.09f;
         PromptisActive = true;
 
     }

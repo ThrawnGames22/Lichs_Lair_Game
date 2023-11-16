@@ -62,10 +62,7 @@ public class BowController : MonoBehaviour
         
              }
         }
-        else
-        {
-            return;
-        }
+        
         
        
       }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
 public class Merchant : MonoBehaviour
@@ -69,6 +70,13 @@ public class Merchant : MonoBehaviour
     [Header("UI Handling")]
 
     public GameObject ConfirmPurchasePanel;
+
+    [Header("Animation")]
+
+    public Animator MerchantAnimator;
+
+    public bool HasPurchasedItem;
+     
 
 
 
@@ -220,6 +228,25 @@ public class Merchant : MonoBehaviour
 
             }
         }
+
+        MerchantAnimator.SetBool("PurchasedItem", HasPurchasedItem);
+    }
+
+    public void StartPurchase()
+    {
+        StartCoroutine(PurchaseItem());
+    }
+
+    public IEnumerator PurchaseItem()
+    {   HasPurchasedItem = true;
+        yield return new WaitForSeconds(2.857f);
+        HasPurchasedItem = false;
+        ResetPurchaseFlag();
+    }
+
+    public void ResetPurchaseFlag()
+    {
+        StopCoroutine(PurchaseItem());
     }
 
     private void OnTriggerEnter(Collider other) {

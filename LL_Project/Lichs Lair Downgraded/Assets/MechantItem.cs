@@ -53,6 +53,8 @@ public class MechantItem : MonoBehaviour
 
     public Sprite ItemSprite;
 
+    public ShopInformationPanel InformationPanel;
+
 
    
     
@@ -99,7 +101,7 @@ public class MechantItem : MonoBehaviour
        PlayerInventoryCanvas = GameObject.Find("UI").GetComponent<Canvas>();
        canvas = GameObject.Find("Merchant Inventory").GetComponent<Canvas>();
        purchasePanel = GameObject.Find("Confirm Purchase Panel").GetComponent<PurchasePanel>();
-       
+       InformationPanel = GameObject.Find("Information Panel Merchant").GetComponent<ShopInformationPanel>();
       
       
     }
@@ -140,6 +142,24 @@ public class MechantItem : MonoBehaviour
       purchasePanel.OpenPanel();
 
       
+    }
+
+    public void UpdateItemToInfoPanel()
+    {
+      
+        InformationPanel.merchantItem = this;
+      
+    }
+
+    public void OpenPanel()
+    {
+      InformationPanel.HoveringOn();
+      UpdateItemToInfoPanel();
+    }
+
+    public void ClosePanel()
+    {
+      InformationPanel.HoveringOff();
     }
 
   

@@ -149,6 +149,13 @@ public class CharacterBasedInventory : MonoBehaviour
               PetSlot.sprite = EmptyItemSprite; 
             }
 
+            //COMBAT SPELL 2//
+
+            if(CurrentCombatSpell2 == null)
+            {
+              CBSSlot2.sprite = EmptyItemSprite;
+            }
+
             
         }
         if(!InvenOpen)

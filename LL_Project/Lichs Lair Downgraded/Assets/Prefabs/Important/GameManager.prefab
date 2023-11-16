@@ -2172,6 +2172,7 @@ GameObject:
   - component: {fileID: 5094521025278820841}
   - component: {fileID: 5094521025278820846}
   - component: {fileID: 201230499}
+  - component: {fileID: 9177285964053856756}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -2286,6 +2287,18 @@ MonoBehaviour:
   SunMage: {fileID: 3859092449954328226, guid: 470c94be16ea43d4583abbf3966425d5, type: 3}
   PlayerObject: {fileID: 900540626}
   UI: {fileID: 0}
+--- !u!114 &9177285964053856756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5094521025278820836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80339b126f5d3434f97cd2100eaa5b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5802465056437166798
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,7 +2502,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &7729800371887132382
 GameObject:
@@ -3131,14 +3144,14 @@ PrefabInstance:
       objectReference: {fileID: 11597508}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e99a047db9c7f9e409497683debcd209, type: 3}
---- !u!1 &6119923283229922309 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5096809661947915977, guid: e99a047db9c7f9e409497683debcd209, type: 3}
-  m_PrefabInstance: {fileID: 1321195913949018828}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6119923283229922311 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5096809661947915979, guid: e99a047db9c7f9e409497683debcd209, type: 3}
+  m_PrefabInstance: {fileID: 1321195913949018828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6119923283229922309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5096809661947915977, guid: e99a047db9c7f9e409497683debcd209, type: 3}
   m_PrefabInstance: {fileID: 1321195913949018828}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9082175370343108307

@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManagerDelete : MonoBehaviour
 {
     public GameObject GameManager;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,4 +26,5 @@ public class GameManagerDelete : MonoBehaviour
     {
       
     }
+    
 }

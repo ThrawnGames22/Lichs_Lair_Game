@@ -5,7 +5,7 @@ using UnityEngine;
 public class Level3Settings : MonoBehaviour
 {
     public GameObject Player;
-    public MeshRenderer PlayerMeshRenderer;
+    public SkinnedMeshRenderer PlayerMeshRenderer;
     public Material[] Materials;
     public float startAlpha;
     public float EmissionIntensity = 0.01f;
@@ -18,7 +18,7 @@ public class Level3Settings : MonoBehaviour
     {
         //DeathCanvas = GameObject.Find("DeathCanvas");
         Player = GameObject.FindGameObjectWithTag("Player");
-        PlayerMeshRenderer = GameObject.FindGameObjectWithTag("PlayerRenderer").GetComponent<MeshRenderer>();
+        PlayerMeshRenderer = GameObject.FindGameObjectWithTag("PlayerRenderer").GetComponent<SkinnedMeshRenderer>();
         Materials = PlayerMeshRenderer.materials;
         StartCoroutine(UnlockPlayer());
         foreach(Material mat in Materials)

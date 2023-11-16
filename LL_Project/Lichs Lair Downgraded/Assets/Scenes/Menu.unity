@@ -299,6 +299,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bb092e416191fc40889cb343721bb05, type: 3}
+--- !u!1 &101792448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7333149483581840283, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+  m_PrefabInstance: {fileID: 7333149483004518028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &101792453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101792448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 101792454}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: Select
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 101792454}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: UnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 101792454}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: UnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &101792454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101792448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af100e2265e7a204a9dc6da7cc84100c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnSelectedColor: {r: 1, g: 0.7534227, b: 0, a: 1}
+  SelectedColor: {r: 1, g: 0.14288326, b: 0, a: 1}
+  text: {fileID: 1664497897}
 --- !u!1001 &133393950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1078,6 +1159,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!137 &344856049 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1153411460834421580, guid: 5facc10078e396749832b09ab29d1138, type: 3}
+  m_PrefabInstance: {fileID: 1511957754}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &348319693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2819,6 +2905,45 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3758573805739257388, guid: ca43b6f81fb6d504094b3dc8baedd155, type: 3}
+--- !u!1 &1091065772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7333149484318055904, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+  m_PrefabInstance: {fileID: 7333149483004518028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1091065776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091065772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.7534227, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f3c960517304b0a4b8f022926e16ab9e, type: 3}
+    m_FontSize: 29
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Controls
 --- !u!1001 &1103103800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2968,6 +3093,87 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6606501483488557099, guid: ca43b6f81fb6d504094b3dc8baedd155, type: 3}
+--- !u!1 &1122928570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 137055775, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+  m_PrefabInstance: {fileID: 7333149483004518028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1122928575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122928570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1122928576}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: Select
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1122928576}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: UnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1122928576}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: UnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1122928576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122928570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af100e2265e7a204a9dc6da7cc84100c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnSelectedColor: {r: 1, g: 0.7534227, b: 0, a: 1}
+  SelectedColor: {r: 1, g: 0.14288326, b: 0, a: 1}
+  text: {fileID: 1177188929}
 --- !u!1 &1148741908
 GameObject:
   m_ObjectHideFlags: 0
@@ -3253,6 +3459,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3045531900826263, guid: 5bb092e416191fc40889cb343721bb05, type: 3}
   m_PrefabInstance: {fileID: 1926161648}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1177188925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 143536303, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+  m_PrefabInstance: {fileID: 7333149483004518028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1177188929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177188925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.7534227, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f3c960517304b0a4b8f022926e16ab9e, type: 3}
+    m_FontSize: 29
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Quit
 --- !u!64 &1182682124
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3835,6 +4080,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3900460b12e04f4b93fdabacb436a2c, type: 3}
+--- !u!1 &1424368799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7886900958843019296, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+  m_PrefabInstance: {fileID: 7333149483004518028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1424368804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424368799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1424368805}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: Select
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1424368805}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: UnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1424368805}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: UnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1424368805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424368799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af100e2265e7a204a9dc6da7cc84100c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnSelectedColor: {r: 1, g: 0.7534227, b: 0, a: 1}
+  SelectedColor: {r: 1, g: 0.14288326, b: 0, a: 1}
+  text: {fileID: 2069754462}
 --- !u!64 &1435244782
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4115,6 +4441,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5260952273746040807, guid: 5facc10078e396749832b09ab29d1138, type: 3}
+      propertyPath: PlayerModel
+      value: 
+      objectReference: {fileID: 344856049}
     - target: {fileID: 5260952273746040826, guid: 5facc10078e396749832b09ab29d1138, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -4320,6 +4650,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7862745232875957252, guid: 8182245efce6c6146a9ce9e58cd20ec5, type: 3}
   m_PrefabInstance: {fileID: 1833611516}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1664497893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7333149482882421843, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+  m_PrefabInstance: {fileID: 7333149483004518028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1664497897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664497893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.7534227, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f3c960517304b0a4b8f022926e16ab9e, type: 3}
+    m_FontSize: 29
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Start
 --- !u!1001 &1704044853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5045,11 +5414,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a80b6e0128aa4d44cbe61574e852947e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5e81d9e511c092f46acd5b30682256c2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5160,6 +5529,87 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -256413847704731201, guid: ca43b6f81fb6d504094b3dc8baedd155, type: 3}
+--- !u!1 &2012072800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7333149483166796976, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+  m_PrefabInstance: {fileID: 7333149483004518028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2012072805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012072800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2012072806}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: Select
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2012072806}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: UnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2012072806}
+          m_TargetAssemblyTypeName: ChangeVertexColor, Assembly-CSharp
+          m_MethodName: UnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2012072806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012072800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af100e2265e7a204a9dc6da7cc84100c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnSelectedColor: {r: 1, g: 0.7534227, b: 0, a: 1}
+  SelectedColor: {r: 1, g: 0.14288326, b: 0, a: 1}
+  text: {fileID: 1091065776}
 --- !u!64 &2024034993
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5231,6 +5681,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bb092e416191fc40889cb343721bb05, type: 3}
+--- !u!1 &2069754458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4447030121193302580, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+  m_PrefabInstance: {fileID: 7333149483004518028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2069754462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069754458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.7534227, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f3c960517304b0a4b8f022926e16ab9e, type: 3}
+    m_FontSize: 29
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Options
 --- !u!4 &2074471025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1112461591504363038, guid: 08212ed61f9c4eb42a73f71ae4552cf5, type: 3}
@@ -9817,6 +10306,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 137055776, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -218.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 137055777, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137055777, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.14288326
+      objectReference: {fileID: 0}
+    - target: {fileID: 137055777, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640039276118674333, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -145.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333149483166796978, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333149483166796978, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.14288326
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333149483166796978, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333149483310901636, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333149483310901636, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333149483310901636, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 219.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333149483310901637, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d7b76dc7cccd544fba4261e7dbe5002, type: 3}
+    - target: {fileID: 7333149483581840277, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333149483581840277, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.14288326
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333149483581840277, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7333149483581840277, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -9824,6 +10373,10 @@ PrefabInstance:
     - target: {fileID: 7333149483581840277, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartNewGameScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333149483581840278, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7333149484457639998, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
       propertyPath: m_Name
@@ -9873,7 +10426,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8847722563721531255, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847722563721531255, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.14288326
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847722563721531255, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7333149482882421869, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+    - {fileID: 143536305, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+    - {fileID: 4879406026890035084, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
+    - {fileID: 7333149484318055906, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4c1d27e6ab3b89042b5d568285f1f12e, type: 3}
 --- !u!33 &7453272850044808670
 MeshFilter:

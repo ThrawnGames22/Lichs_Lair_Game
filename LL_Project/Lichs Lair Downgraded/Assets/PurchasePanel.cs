@@ -31,6 +31,8 @@ public class PurchasePanel : MonoBehaviour
 
     public CurrencyCounter currencyCounter;
 
+    public Merchant merchant;
+
 
 
     
@@ -111,6 +113,7 @@ public class PurchasePanel : MonoBehaviour
     public void ConfirmPurchase()
     {
         HasPressedConfirm = true;
+        merchant.StartPurchase();
         
         StartCoroutine(ResetTriggerFlag());
         if(IsCombatSpell2Purchase)

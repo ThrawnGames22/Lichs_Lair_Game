@@ -19,7 +19,7 @@ public class MistForm : MonoBehaviour
 
     public int PlayerSpeedToAffect;
 
-    public MeshRenderer PlayerRenderer;
+    public SkinnedMeshRenderer PlayerRenderer;
 
     public bool IsShadowWizard;
     public bool IsFireMage;
@@ -43,6 +43,9 @@ public class MistForm : MonoBehaviour
     public Material SPlayerElement6;
     public Material SPlayerElement7;
     public Material SPlayerElement8;
+    public Material SPlayerElement9;
+    public Material SPlayerElement10;
+
 
     [Header("Shadow Wizard Materials")]
 
@@ -87,7 +90,7 @@ public class MistForm : MonoBehaviour
         GlobalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
         EffectTime = utilitySpell.spellToCast.Lifetime;
         Player = GameObject.FindGameObjectWithTag("Player");
-        PlayerRenderer = GameObject.FindGameObjectWithTag("PlayerRenderer").GetComponent<MeshRenderer>();
+        PlayerRenderer = GameObject.FindGameObjectWithTag("PlayerRenderer").GetComponent<SkinnedMeshRenderer>();
 
         StartCoroutine(Mist());
         
@@ -173,6 +176,9 @@ public class MistForm : MonoBehaviour
         mats[6] = MistMaterial;
         mats[7] = MistMaterial;
         mats[8] = MistMaterial;
+        mats[9] = MistMaterial;
+        mats[10] = MistMaterial;
+
         PlayerRenderer.materials = mats;
         IsActive = true;
         
@@ -201,6 +207,9 @@ public class MistForm : MonoBehaviour
         mats[6] = SPlayerElement6;
         mats[7] = SPlayerElement7;
         mats[8] = SPlayerElement8;
+        mats[9] = SPlayerElement9;
+        mats[10] = SPlayerElement10;
+
         PlayerRenderer.materials = mats;
         }
 

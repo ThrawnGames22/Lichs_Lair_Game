@@ -27,6 +27,7 @@ public class NextSceneTrigger : MonoBehaviour
     {
       if(other.gameObject.tag == "Player")
       {
+        other.GetComponent<PlayerController>().speed = 0;
         LevelCrossFader.GetComponent<MenuManager>().LoadNextLevel();
         //sceneTracker.AddLevelCount();
         

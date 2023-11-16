@@ -21,13 +21,14 @@ public class LevelSettings : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        Player.GetComponent<PlayerController>().speed = 5;
         //Player.GetComponent<CharacterController>().enabled = true;
         
         Player.transform.position = SpawnPoint.transform.position;
 
         
         StartCoroutine(UnlockPlayer());
-        
+        Player.GetComponent<PlayerAnimationManager>().PlayerAnimator.enabled = true;
         
         
     }
