@@ -19,7 +19,31 @@ public class PlayerAnimationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
+        
+
+        if(playerController.IsShadowWizard)
+        {
+        Bow = GameObject.FindGameObjectWithTag("Bow").GetComponent<BowController>();
+        //PlayerAnimator.SetBool("IsUsingBow", IsUsingBow);
+        }
+
+        if(playerController.IsPaladin)
+        {
+        Sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SwordController>();
         Sword.boxCollider.enabled = false;
+
+        //PlayerAnimator.SetBool("IsSwinging", IsSwinging);
+        }
+
+        if(playerController.IsFireMage)
+        {
+        Sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SwordController>();
+        Sword.boxCollider.enabled = false;
+
+        //PlayerAnimator.SetBool("IsSwinging", IsSwinging);
+        }
         
     }
 
@@ -28,19 +52,19 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         if(playerController.IsFireMage)
         {
-        Sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SwordController>();
+        //Sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SwordController>();
         PlayerAnimator.SetBool("IsSwinging", IsSwinging);
         }
 
         if(playerController.IsShadowWizard)
         {
-        Bow = GameObject.FindGameObjectWithTag("Bow").GetComponent<BowController>();
+        //Bow = GameObject.FindGameObjectWithTag("Bow").GetComponent<BowController>();
         PlayerAnimator.SetBool("IsUsingBow", IsUsingBow);
         }
 
         if(playerController.IsPaladin)
         {
-        Sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SwordController>();
+       // Sword = GameObject.FindGameObjectWithTag("Sword").GetComponent<SwordController>();
         PlayerAnimator.SetBool("IsSwinging", IsSwinging);
         }
        speed = playerController.velocity;
@@ -77,11 +101,8 @@ public class PlayerAnimationManager : MonoBehaviour
         Bow.Shoot();
         yield return new WaitForSeconds(0.525f);
         PlayerAnimator.SetLayerWeight(3, 0);
-
-        
-
-        
-        ResetBowFlag();
+        IsUsingBow = false;
+        StopCoroutine(UsingBow());
 
     }
 
@@ -112,9 +133,6 @@ public class PlayerAnimationManager : MonoBehaviour
 
     public void ResetBowFlag()
     {
-        StopCoroutine(Swinging());
         
-
-        IsUsingBow = false;
     }
 }

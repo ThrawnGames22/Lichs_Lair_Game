@@ -34,13 +34,18 @@ public class EnemyGroup : MonoBehaviour
 
         if(HasSkippedTutorial == true)
         {
-          foreach(GameObject enemy in Enemies)
-          {
-                enemy.SetActive(false);
-                Enemies.Remove(enemy);
+          //foreach(GameObject enemy in Enemies)
+          //{
+           //     enemy.SetActive(false);
+           //     Enemies.Remove(enemy);
                 
             
-          }
+          //}
+
+        if(IsTutorialScene)
+        {
+          TutorialCompleteCanvas.SetActive(true);
+        }
         }
         foreach(GameObject enemy in Enemies)
         {
@@ -58,10 +63,7 @@ public class EnemyGroup : MonoBehaviour
         if(EnemyGroupEliminated)
         {
             DoorToOpenOnElimination.UnlockDoor = true;
-             if(IsTutorialScene)
-        {
-          TutorialCompleteCanvas.SetActive(true);
-        }
+        
         }
 
        

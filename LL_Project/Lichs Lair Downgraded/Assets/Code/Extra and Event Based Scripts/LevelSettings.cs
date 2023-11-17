@@ -28,7 +28,7 @@ public class LevelSettings : MonoBehaviour
 
         
         StartCoroutine(UnlockPlayer());
-        Player.GetComponent<PlayerAnimationManager>().PlayerAnimator.enabled = true;
+        
         
         
     }

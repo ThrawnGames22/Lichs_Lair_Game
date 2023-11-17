@@ -45,7 +45,7 @@ public class BowController : MonoBehaviour
     void Update()
     {
 
-      ArrowShootPoint = GameObject.Find("Bow Shoot Point").transform;
+      //ArrowShootPoint = GameObject.Find("Bow Shoot Point").transform;
     if(PlayerController.Instance.HasActivatedWeapons)
     {
       

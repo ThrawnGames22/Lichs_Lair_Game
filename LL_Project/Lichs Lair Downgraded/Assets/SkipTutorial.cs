@@ -25,7 +25,8 @@ public class SkipTutorial : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().HasActivatedGameplay = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().HasActivatedMagic = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().HasActivatedWeapons = true;
-        GameObject.Find("Enemy Group").GetComponent<EnemyGroup>().HasSkippedTutorial = true;
+        GameObject.Find("SkipTutorial").GetComponent<EnemyGroup>().HasSkippedTutorial = true;
+        GameObject.Find("Level CrossFader").GetComponent<MenuManager>().LoadNextLevel();
         //GameObject.Find("Level Settings").GetComponent<MovePlayer>().StartMove();
         
 

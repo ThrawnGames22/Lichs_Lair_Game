@@ -218,7 +218,7 @@ public class Merchant : MonoBehaviour
     {
         if(PlayerIsInRange == true)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.F))
             {
                 MerchantPanel.GetComponent<CanvasGroup>().alpha = 1;
                 MerchantPanel.GetComponent<CanvasGroup>().interactable = true;

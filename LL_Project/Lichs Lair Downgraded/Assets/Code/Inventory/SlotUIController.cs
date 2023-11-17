@@ -135,7 +135,7 @@ public class SlotUIController : MonoBehaviour
       // If player has a Health Potion, turn Health Potion UI on;
      if(HasManaPotion == false)
      {
-      if(HasHealthPotion == true && HealthPotionUI.active)
+      if(HasHealthPotion == true && HealthPotionUI.activeInHierarchy)
       {
          if(Input.GetKeyDown(KeyCode.R))
          {
@@ -155,7 +155,7 @@ public class SlotUIController : MonoBehaviour
       
      if(HasHealthPotion == false)
      {
-      if(HasManaPotion == true && ManaPotionUI.active)
+      if(HasManaPotion == true && ManaPotionUI.activeInHierarchy)
       {
          if(Input.GetKeyDown(KeyCode.R))
          {

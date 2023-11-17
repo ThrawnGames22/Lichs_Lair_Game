@@ -34,7 +34,7 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         CurrentSceneName = CurrentScene.name;
-        sceneTracker = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
+        //sceneTracker = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
         //Range of levels
         randomIndex = Random.Range(7, 14);
         NextSceneIndex = randomIndex;
@@ -51,15 +51,15 @@ public class MenuManager : MonoBehaviour
             
         }
         
-        if(sceneTracker.LevelsTillChange == 0)
-        {
-            NextSceneIndex = SceneManager.GetSceneByName("Chest Room").buildIndex;
-        }
+        //if(sceneTracker.LevelsTillChange == 0)
+       // {
+        //    NextSceneIndex = SceneManager.GetSceneByName("Chest Room").buildIndex;
+        //}
 
-        if(sceneTracker.NextLevelIsBossRoom == true)
-        {
-            StartCoroutine(LoadBossRoom());
-        }
+        //if(sceneTracker.NextLevelIsBossRoom == true)
+        //{
+         //   StartCoroutine(LoadBossRoom());
+        //}
     }
 
     public void StartNewGameScene()

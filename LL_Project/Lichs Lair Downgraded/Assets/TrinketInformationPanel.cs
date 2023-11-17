@@ -20,6 +20,8 @@ public class TrinketInformationPanel : MonoBehaviour
     public Text trinketRarity;
     public Text trinketEffect;
 
+    
+
 
 
     // Start is called before the first frame update
@@ -31,12 +33,15 @@ public class TrinketInformationPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if(TM.HasTrinket)
+      {
       trinketText.text = TM.CurrentTrinket.TrinketName;
       trinketDescription.text = TM.CurrentTrinket.Description;
       trinketRarity.text = TM.CurrentTrinket.trinketRarity.ToString();
       trinketEffect.text = TM.CurrentTrinket.TrinketEffect;
 
        ItemImage.sprite = TM.CurrentTrinket.TrinketIcon; 
+      }
 
        if(IsHovering == false)
        {
@@ -56,7 +61,8 @@ public class TrinketInformationPanel : MonoBehaviour
         }
         
        }
-
+    if(TM.HasTrinket)
+      {
        if(TM.CurrentTrinket.trinketRarity == Trinket.TrinketRarity.Uncommon)
        {
         trinketRarity.color = Color.green;
@@ -71,6 +77,7 @@ public class TrinketInformationPanel : MonoBehaviour
        {
         trinketRarity.color = Color.yellow;
        }
+      }
     }
 
     public void HoveringOn()

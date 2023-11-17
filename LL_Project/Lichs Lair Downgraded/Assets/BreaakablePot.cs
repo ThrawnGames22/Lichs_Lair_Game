@@ -53,7 +53,7 @@ public class BreaakablePot : MonoBehaviour
             Break();
         }
 
-        if(other.gameObject.tag == "Bow")
+        if(other.gameObject.tag == "Arrow")
         {
             Break();
         }

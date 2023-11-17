@@ -90,7 +90,7 @@ public class CharacterBasedInventory : MonoBehaviour
     void Update()
     {
       
-        if(Input.GetKeyDown(KeyCode.I))
+        if(Input.GetKeyDown(KeyCode.Tab))
         {
             InvenOpen = !InvenOpen;
 

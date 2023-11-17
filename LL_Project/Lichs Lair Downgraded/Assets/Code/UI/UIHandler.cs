@@ -11,6 +11,8 @@ public class UIHandler : MonoBehaviour
     public GameObject WeaponInventory;
     public GameObject SpellInventory;
     public GameObject PauseMenu;
+    public GameObject OptionsSection;
+
     public bool isInMainMenu;
     public bool IsPaused;
 
@@ -30,8 +32,10 @@ public class UIHandler : MonoBehaviour
 
     void Start()
     {
-        PauseMenu.SetActive(false);
         
+        PauseMenu.GetComponent<CanvasGroup>().alpha = 0;
+        PauseMenu.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        PauseMenu.GetComponent<CanvasGroup>().interactable = false;
         
         
     }
@@ -65,7 +69,7 @@ public class UIHandler : MonoBehaviour
         }
         }
 
-        if(Input.GetKeyDown(KeyCode.I))
+        if(Input.GetKeyDown(KeyCode.Tab))
         {
         InventoryIsOpen = !InventoryIsOpen;
         }
@@ -85,7 +89,12 @@ public class UIHandler : MonoBehaviour
     {
         IsPaused = true;
         Time.timeScale = 0;
-        PauseMenu.SetActive(true);
+        PauseMenu.GetComponent<CanvasGroup>().alpha = 1;
+        PauseMenu.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        PauseMenu.GetComponent<CanvasGroup>().interactable = true;
+        //OptionsSection.GetComponent<CanvasGroup>().alpha = 0;
+        //OptionsSection.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        //OptionsSection.GetComponent<CanvasGroup>().interactable = false;
         PM.enabled = false;
         
     }
@@ -94,7 +103,16 @@ public class UIHandler : MonoBehaviour
     {
         IsPaused = false;
         Time.timeScale = 1;
-        PauseMenu.SetActive(false);
+        PauseMenu.GetComponent<CanvasGroup>().alpha = 0;
+        PauseMenu.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        PauseMenu.GetComponent<CanvasGroup>().interactable = false;
+        //OptionsSection.GetComponent<CanvasGroup>().alpha = 0;
+        //OptionsSection.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        //OptionsSection.GetComponent<CanvasGroup>().interactable = false;
+
+
+
+        
         PM.enabled = true;
         //inventoryController.InventoryIsOpen = false;
         //GameObject.Find("ItemInventory").GetComponent<Canvas>().enabled = true;

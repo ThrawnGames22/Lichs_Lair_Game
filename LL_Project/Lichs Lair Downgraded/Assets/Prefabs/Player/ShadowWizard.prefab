@@ -6706,7 +6706,7 @@ AudioSource:
   m_GameObject: {fileID: 2626314162333579722}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 231224907145453740, guid: 13ebdd97f08006f4fad86ae8a97570d9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2f564792b529bdd458f80e301e53f376, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -17760,7 +17760,7 @@ AudioSource:
   m_GameObject: {fileID: 6979779335152600570}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 231224907145453740, guid: 13ebdd97f08006f4fad86ae8a97570d9, type: 2}
   m_audioClip: {fileID: 8300000, guid: a80b6e0128aa4d44cbe61574e852947e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -27776,16 +27776,16 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 8256426481768222356, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
---- !u!4 &5658791921473251848 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4788919234392422854, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
-  m_PrefabInstance: {fileID: 936108733153252302}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5027074819774165170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5277787785410814844, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
+  m_PrefabInstance: {fileID: 936108733153252302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5658791921473251848 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4788919234392422854, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
   m_PrefabInstance: {fileID: 936108733153252302}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &5536143518142325034
@@ -28290,18 +28290,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4788919234392422854, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.1375575
-      objectReference: {fileID: 0}
-    - target: {fileID: 4788919234392422854, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.1375577
-      objectReference: {fileID: 0}
-    - target: {fileID: 4788919234392422854, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.1375585
-      objectReference: {fileID: 0}
-    - target: {fileID: 4788919234392422854, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0257
       objectReference: {fileID: 0}
@@ -28345,24 +28333,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Celestial Bow
       objectReference: {fileID: 0}
-    - target: {fileID: 5277787785410814844, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8256426481768222357, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
       propertyPath: PAM
       value: 
       objectReference: {fileID: 335022320}
-    - target: {fileID: 8256426481768222357, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
-      propertyPath: WeaponData
-      value: 
-      objectReference: {fileID: 11400000, guid: 53a5f7474bd6cfd4ab2c29882899235b, type: 2}
-    - target: {fileID: 8256426481768222357, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
-      propertyPath: CurrentDelayTimer
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8256426481768222356, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
 --- !u!114 &4590187638356473259 stripped
 MonoBehaviour:
@@ -28380,20 +28355,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5277787785410814844, guid: 2b7c59b620268b64f9710473043b6bfe, type: 3}
   m_PrefabInstance: {fileID: 5559455636989426494}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4587173279300593037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295372208665172034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f28f7fd28ad651a4b96ad07dcf3ce02c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 53a5f7474bd6cfd4ab2c29882899235b, type: 2}
-  weaponHolder: {fileID: 0}
 --- !u!1001 &5765100640959725323
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8492226761679042147}
   - component: {fileID: 5926319806635639465}
   - component: {fileID: 8256426482170298816}
-  - component: {fileID: 8256426481768222356}
   - component: {fileID: 8256426481768222357}
+  - component: {fileID: 4587173279300593037}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Bow
@@ -28,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5277787785410814844}
-  m_LocalRotation: {x: -0.4999999, y: 0.5000001, z: 0.49999955, w: 0.50000054}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -0.005, y: 0.203, z: -0.289}
-  m_LocalScale: {x: 29.132397, y: 29.132397, z: 29.132397}
+  m_LocalScale: {x: 3.1375575, y: 3.1375577, z: 3.1375585}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6358698043134520395}
@@ -96,7 +96,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5277787785410814844}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0c9b0dc132504834fa27b9910a0a8d61, type: 2}
   m_CullingMode: 0
@@ -108,19 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8256426481768222356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5277787785410814844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16a24ff53a62aeb43b0e54a26e35d111, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: d7b9f9115dfdf3a41bee36dcfa90d3ce, type: 2}
 --- !u!114 &8256426481768222357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,18 +120,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6a17d38a8297445a701544f8d4d3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponData: {fileID: 0}
+  WeaponData: {fileID: 11400000, guid: 53a5f7474bd6cfd4ab2c29882899235b, type: 2}
   currentArrowCount: 0
   MaxArrowCount: 6
   bowType: 0
   NextShot: 1
-  CurrentDelayTimer: 6
+  CurrentDelayTimer: 10
   CanUse: 0
   isInCooldown: 0
   Damage: 0
   ArrowShootPoint: {fileID: 6358698043134520395}
   ArrowToShoot: {fileID: 383179967277287775, guid: e32047c33d487d049b9970956777a18a, type: 3}
   ArrowSpeed: 1000
+  PAM: {fileID: 0}
+--- !u!114 &4587173279300593037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5277787785410814844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28f7fd28ad651a4b96ad07dcf3ce02c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 53a5f7474bd6cfd4ab2c29882899235b, type: 2}
+  weaponHolder: {fileID: 0}
 --- !u!1 &6218555426646214026
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +243,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6758133486596818921, guid: e100a55bce1885648ac3ac05e6622cb9, type: 3}
       propertyPath: m_Name
-      value: Bow
+      value: Bow Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758133486596818921, guid: e100a55bce1885648ac3ac05e6622cb9, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377871158750455125, guid: e100a55bce1885648ac3ac05e6622cb9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e100a55bce1885648ac3ac05e6622cb9, type: 3}

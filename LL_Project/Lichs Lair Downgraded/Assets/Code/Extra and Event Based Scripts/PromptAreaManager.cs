@@ -216,7 +216,7 @@ public class PromptAreaManager : MonoBehaviour
         GameObject clone2;
 
         clone1 = Instantiate(HealthPotion, GameObject.FindGameObjectWithTag("Player").transform.position, GameObject.FindGameObjectWithTag("Player").transform.rotation);
-        clone1 = Instantiate(ManaPotion, GameObject.FindGameObjectWithTag("Player").transform.position, GameObject.FindGameObjectWithTag("Player").transform.rotation);
+        clone2 = Instantiate(ManaPotion, GameObject.FindGameObjectWithTag("Player").transform.position, GameObject.FindGameObjectWithTag("Player").transform.rotation);
         HasSpawnedPotions = true;
       }  
     }
