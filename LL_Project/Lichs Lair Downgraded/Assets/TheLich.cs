@@ -348,6 +348,11 @@ public class TheLich : MonoBehaviour
         DarkAsh.Stop();
         PurpleLight.enabled = false;
         PurpleRoomLight.gameObject.SetActive(false);
+        GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject Enemy in Enemies)
+        {
+            Destroy(Enemy);
+        }
         StartCoroutine(VictoryTextShow());
         
 
@@ -429,8 +434,11 @@ public class TheLich : MonoBehaviour
     public IEnumerator Phase1Idle1()
     {
         StopCoroutine(Phase1Walls4());
-        Destroy(GameObject.Find("Mana Potion"));
-        Destroy(GameObject.Find("Health Potion"));
+        GameObject[] Potions = GameObject.FindGameObjectsWithTag("Potion");
+        foreach(GameObject Potion in Potions)
+        {
+            Destroy(Potion);
+        }
 
         IsDead = false;
         IsCastingLeft = false;
@@ -842,8 +850,12 @@ public class TheLich : MonoBehaviour
 public IEnumerator Phase2Idle1()
     {
         StopCoroutine(Phase2Walls4());
-        Destroy(GameObject.Find("Mana Potion"));
-        Destroy(GameObject.Find("Health Potion"));
+        
+        GameObject[] Potions = GameObject.FindGameObjectsWithTag("Potion");
+        foreach(GameObject Potion in Potions)
+        {
+            Destroy(Potion);
+        }
         IsDead = false;
         IsCastingLeft = false;
         IsCastingRight = false;

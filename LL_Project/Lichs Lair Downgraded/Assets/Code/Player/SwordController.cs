@@ -197,13 +197,15 @@ public class SwordController : MonoBehaviour
       if(CanApplyDamage == true)
       {
        other.gameObject.GetComponent<DamageManager>().enemyHealth.TakeDamage(50);
+       PlayerHealth.Instance.currentHealth += 30f;
+          PlayerMagic.Instance.currentMana += 100;
       }
       
       
 
        if(other.gameObject.GetComponent<DamageManager>().enemyHealth.IsDead)
         {
-          PlayerHealth.Instance.currentHealth += 100f;
+          PlayerHealth.Instance.currentHealth += 30f;
           PlayerMagic.Instance.currentMana += 100;
         }
      }

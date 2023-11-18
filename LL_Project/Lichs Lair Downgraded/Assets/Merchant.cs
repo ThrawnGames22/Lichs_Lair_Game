@@ -29,6 +29,15 @@ public class Merchant : MonoBehaviour
     public GameObject StoreItem7;
     public GameObject StoreItem8;
 
+
+    public Text Slot1Cost;
+    public Text Slot2Cost;
+    public Text Slot3Cost;
+    public Text Slot4Cost;
+    public Text Slot5Cost;
+    public Text Slot6Cost;
+
+
 [Header("Phase 1")]
     public GameObject[] StoreItemsPrefabsCBS;
     public GameObject[] StoreItemsPrefabsCBS2;
@@ -197,15 +206,15 @@ public class Merchant : MonoBehaviour
         StoreItemClone6.GetComponent<RectTransform>().anchoredPosition = Slot6.GetComponent<RectTransform>().anchoredPosition;
         StoreItemClone6.GetComponent<RectTransform>().anchoredPosition = new Vector2(50, -50);
 
-        GameObject StoreItemClone7 = Instantiate(StoreItem7);
-        StoreItemClone7.transform.parent = Slot7.transform;
-        StoreItemClone7.GetComponent<RectTransform>().anchoredPosition = Slot7.GetComponent<RectTransform>().anchoredPosition;
-        StoreItemClone7.GetComponent<RectTransform>().anchoredPosition = new Vector2(50, -50);
+        //GameObject StoreItemClone7 = Instantiate(StoreItem7);
+        //StoreItemClone7.transform.parent = Slot7.transform;
+        //StoreItemClone7.GetComponent<RectTransform>().anchoredPosition = Slot7.GetComponent<RectTransform>().anchoredPosition;
+        //StoreItemClone7.GetComponent<RectTransform>().anchoredPosition = new Vector2(50, -50);
 
-        GameObject StoreItemClone8 = Instantiate(StoreItem8);
-        StoreItemClone8.transform.parent = Slot8.transform;
-        StoreItemClone8.GetComponent<RectTransform>().anchoredPosition = Slot8.GetComponent<RectTransform>().anchoredPosition;
-        StoreItemClone8.GetComponent<RectTransform>().anchoredPosition = new Vector2(50, -50);
+        //GameObject StoreItemClone8 = Instantiate(StoreItem8);
+        //StoreItemClone8.transform.parent = Slot8.transform;
+        //StoreItemClone8.GetComponent<RectTransform>().anchoredPosition = Slot8.GetComponent<RectTransform>().anchoredPosition;
+        //StoreItemClone8.GetComponent<RectTransform>().anchoredPosition = new Vector2(50, -50);
 
         }
 
@@ -230,6 +239,16 @@ public class Merchant : MonoBehaviour
         }
 
         MerchantAnimator.SetBool("PurchasedItem", HasPurchasedItem);
+        
+
+        Slot1Cost.text = Slot1.transform.GetChild(0).gameObject.GetComponent<MechantItem>().ItemCost.ToString() + " Coins";
+        Slot2Cost.text = Slot2.transform.GetChild(0).gameObject.GetComponent<MechantItem>().ItemCost.ToString() + " Coins";
+        Slot3Cost.text = Slot3.transform.GetChild(0).gameObject.GetComponent<MechantItem>().ItemCost.ToString() + " Coins";
+        Slot4Cost.text = Slot4.transform.GetChild(0).gameObject.GetComponent<MechantItem>().ItemCost.ToString() + " Coins";
+        Slot5Cost.text = Slot5.transform.GetChild(0).gameObject.GetComponent<MechantItem>().ItemCost.ToString() + " Coins";
+        Slot6Cost.text = Slot6.transform.GetChild(0).gameObject.GetComponent<MechantItem>().ItemCost.ToString() + " Coins";
+
+
     }
 
     public void StartPurchase()

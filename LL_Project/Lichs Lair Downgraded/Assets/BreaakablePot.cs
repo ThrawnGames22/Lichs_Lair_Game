@@ -59,6 +59,13 @@ public class BreaakablePot : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.tag == "FireSpell")
+        {
+            Break();
+        }
+    }
+
     public void Break()
     {
         StaticMesh.enabled = false;

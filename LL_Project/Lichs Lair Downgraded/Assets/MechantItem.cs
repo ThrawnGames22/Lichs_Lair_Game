@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Animations;
+using System.CodeDom;
 
 public class MechantItem : MonoBehaviour
 {
@@ -55,6 +56,8 @@ public class MechantItem : MonoBehaviour
 
     public ShopInformationPanel InformationPanel;
 
+    public int ItemCost;
+
 
    
     
@@ -74,6 +77,7 @@ public class MechantItem : MonoBehaviour
          this.gameObject.name = CombatSpell2.SpellName;
          image.sprite = CombatSpell2.SpellIcon;
          ItemSprite = CombatSpell2.SpellIcon;
+         ItemCost = CombatSpell2.ItemStoreCost;
         }
 
         if(IsPotion)
@@ -81,6 +85,8 @@ public class MechantItem : MonoBehaviour
          this.gameObject.name = potion.ItemName;
          image.sprite = potion.ItemIcon;
          ItemSprite = potion.ItemIcon;
+         ItemCost = potion.ItemStoreCost;
+
         }
 
         if(IsTrinket)
@@ -88,6 +94,8 @@ public class MechantItem : MonoBehaviour
          this.gameObject.name = trinket.TrinketName;
          image.sprite = trinket.TrinketIcon;
          ItemSprite = trinket.TrinketIcon;
+         ItemCost = trinket.ItemStoreCost;
+
         }
       
         
